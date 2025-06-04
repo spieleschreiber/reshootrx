@@ -1,0 +1,36 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "amigaassembly",
+			"vasm": {
+				"enabled": true,
+				"command": "${config:amiga-assembly.binDir}/vasmm68k_mot",
+				"args": [
+					"-m68020up",
+					"-Fhunk",
+					"-linedebug"
+				]
+			},
+			"vlink": {
+				"enabled": true,
+				"command": "${config:amiga-assembly.binDir}/vlink",
+				"includes": "*.{s,S,asm,ASM}",
+				"excludes": "",
+				"exefilename": "../uae/dh0/rrx",
+				"entrypoint": "rrx.s",
+				"args": [
+					"-bamigahunk",
+					"-Bstatic",
+					"-L${workspaceFolder}/source"
+				]
+			},
+			"problemMatcher": [],
+			"label": "amigaassembly: build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
