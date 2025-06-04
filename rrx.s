@@ -139,7 +139,7 @@ continue: ; 200A8 - 20116
               move.l      waitras1,a3
 moveloop: ; 200A8 - 20116
               move.b      d3,(a3)
-              add         #22,d3
+              add         #3,d3
               add         #6,a3
               add         #2,a3
               dbra        d0,moveloop
