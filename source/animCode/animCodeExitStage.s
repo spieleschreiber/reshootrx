@@ -107,7 +107,7 @@ exitStage
 	move.b objectListCnt(a2),d5
 	btst #0,d5
 	bne .noExplo
-	bsr fastRandomF
+	jsr FASTRANDOM_A1
 	andi.w #$ff,d5
 	add.w #180,d5
 

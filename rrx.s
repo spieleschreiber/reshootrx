@@ -31,6 +31,7 @@
 								INCLUDE					source/macro.s
 
 								SECTION					CODE,CODE
+								rts
 								bra						start
 
 								INCLUDE					source/loadFile.s
@@ -152,7 +153,9 @@ _Precalc
 								bsr						setgameStatus
 								clr.b					AudioIsInitiated
        
-								CLEARMEMORY				#memoryPointers, #memoryPointersEnd-memoryPointers																																															; clear memory pointers for flawless freeing in _exit-routine
+								lea						memoryPointers(pc),a6
+    							move.l #memoryPointersEnd-memoryPointers,d7
+    							bsr.l CLEARMEMORY
 
 	; how much memory for three screen buffers
 
@@ -173,12 +176,11 @@ _Precalc
 
          ; parallax layer
 								move.l					d0,diskBufferSize
-	;move.l diskBufferSize,d0
-	;bsr memyAllocMsg
-	;move.l diskBufferSize,d0
 								move.l					#MEMF_CHIP|MEMF_CLEAR,d1																																																					; triplebuffer bitplane A
+								ALLOCMEMORY
 
-								ALLOCMEMSHELL			d0,framebuffer
+								lea						mainPlanes(pc),a0
+							
 								lea						mainPlanes(pc),a0
 								lea						mainPlanesPointer(pc),a1
 								lea						diskBuffer(pc),a2
@@ -238,8 +240,8 @@ bobSourceMem
 
 								move.l					#.allocMem,d0																																																								; copperlist max. size
 								move.l					#MEMF_CHIP|MEMF_CLEAR,d1
-								ALLOCMEMSHELL			d0,copperBobsSprites
-
+								ALLOCMEMORY
+								
 								lea						vars(pc),a5																																																									; store
 								move.l					d0,copperGame-vars(a5)
 
@@ -313,7 +315,7 @@ bobSourceMem
 								add.l					d0,d0
 								add.l					#tileSourceMemSize,d0																																																						; tiles source
 								move.l					#MEMF_ANY|MEMF_CLEAR,d1
-								ALLOCMEMSHELL			d0,launchTableTileSource
+								ALLOCMEMORY
 
 								move.l					d0,launchTable-vars(a5)																																																						; ; build permanent launchTable buffer
 
@@ -322,18 +324,14 @@ bobSourceMem
 
 								move.l					launchTableSize(pc),d0
 								move.l					#MEMF_ANY|MEMF_CLEAR,d1
-								ALLOCMEMSHELL			d0,launchTableDynamic
+								ALLOCMEMORY
+
 								move.l					d0,launchTableBuffer-vars(a5)																																																				; build secondary launchTable buffer, altered while game plays
 								move.l					d0,launchTableBuffer-vars+4(a5)
 
 
 ; #MARK: - Load and prepare Audio SFX Data -
 
-	;move.l #musicMemSize,d0		; musicmem max. size
-	;move.l	#MEMF_CHIP|MEMF_CLEAR,d1
-	;ALLOCMEMSHELL	d0,music
-	;lea vars,a5
-;	move.l	d0,musicMemory-vars(a5); total music memory
 
 	; setup secondary pointers, used for XML decoding
 								move.l					bobSource(pc),a2																																																							; use bob mem as temp mem for storing wav-files
@@ -410,7 +408,7 @@ bobSourceMem
 
 								move.l					a2,d0
 								move.l					#MEMF_CHIP|MEMF_CLEAR,d1																																																					; get memory for fx-samples
-								ALLOCMEMSHELL			a2,audiosamples
+								ALLOCMEMORY
 
 								move.l					d0,audioWavTable
 								move.l					Execbase,a6
@@ -438,7 +436,7 @@ bobSourceMem
 								bra						.getFX
 .lastFXfound
 								IFEQ					HISCORETABLEDEFAULT
-								bsr.w					loadHighscores																																																								; load highscore table from NV oder HD
+								bsr					loadHighscores																																																								; load highscore table from NV oder HD
 								ENDIF
     ; continue with preparations
 
@@ -1266,7 +1264,8 @@ writeAnimationList
 								move.l					d6,d0
 								move.l					d0,animDefsSize
 								move.l					#MEMF_CHIP|MEMF_CLEAR,d1																																																					; memory for animation definitions
-								ALLOCMEMSHELL			d0,animDefinitions
+								ALLOCMEMORY
+
 								lea						animDefs(pc),a0
 								move.l					d0,(a0)
 
@@ -1283,7 +1282,7 @@ writeAnimationList
 								add						d1,d0																																																										; *12
     ;muls #12,d0
 								move.l					#MEMF_CHIP|MEMF_CLEAR,d1
-								ALLOCMEMSHELL			d0,animLookuptable
+								ALLOCMEMORY
 
 								lea						animTable(pc),a0
 								move.l					d0,(a0)																																																										; memory for storing anim names and jumpoffsets
@@ -1393,7 +1392,8 @@ xmlMainMap
 								clr.l					d0
 								move					tilemapConvertedSize(pc),d0
 								move.l					#MEMF_CHIP|MEMF_CLEAR,d1
-								ALLOCMEMSHELL			d0,XMLTilemap
+								ALLOCMEMORY
+
 								lea						tilemapConverted(pc),a0
 								move.l					d0,(a0)
 
@@ -1477,7 +1477,8 @@ xmlMainMap
 .freeMemory
 								move.l					(fib_Size.w,pc),d0																																																							; get new memory
 								move.l					#MEMF_CHIP|MEMF_CLEAR,d1
-								ALLOCMEMSHELL			d0,PackedTilemap
+								ALLOCMEMORY
+
 								lea						tilemapConverted(pc),a0
 								move.l					d0,(a0)
 
@@ -2377,7 +2378,7 @@ mainIntro
 								move					#BRDRBLNKF,BPLCON3(a6)																																																						; 	black screen
 								clr.w					COLOR00(a6)
 								bsr						blankSprite
-								bsr.w					prepareDisplay
+								jsr					prepareDisplay
 
 
 ; intro picture preps
@@ -2457,7 +2458,7 @@ mainIntro
 								lea						CUSTOM,a6
 								move.w					#DMAF_SETCLR!DMAF_SPRITE,DMACON(a6)																																																			; sprite dma -> on
 
-								WAITSECS																																																															; wait for spieleschreiber logo
+								;WAITSECS																																																															; wait for spieleschreiber logo
 
 								IFNE					FASTINTRO
 								WAITSECSSET				1
@@ -2470,7 +2471,7 @@ mainIntro
 								lea						titleSprites,a5																																																								; init sprite-DMA / title logo
 								move.l					#$445e6d00,d5
 								move.w					#titleSpritesOffset,d7
-								bsr						titleShowSprites
+								jsr						titleShowSprites
 								suba					d7,a0
 								sub.b					#14,1(a0)
 								suba					d7,a0
@@ -3594,7 +3595,7 @@ mainTitle
 								clr.w					COLOR00(a6)
 
 								bsr						blankSprite
-								bsr.w					prepareDisplay
+								jsr					prepareDisplay
 
 	; prepare artwork (64 colors, 6 bitplanes)
 
@@ -4487,7 +4488,7 @@ titleTestFirebutton
 								tst.b					(a0)
 								bne						titleInitOptions																																																							; status = highscore entry
 								SAVEREGISTERS
-								bsr.w					saveHighscores
+								jsr					saveHighscores
 								RESTOREREGISTERS
 								add.b					#1,(a0)																																																										; yes
 
@@ -5610,7 +5611,7 @@ initGameGlobal
 								ENDIF
 
 
-								bsr.w					prepareDisplay
+								jsr					prepareDisplay
 
 
 
@@ -5627,13 +5628,12 @@ initGameGlobal
 								clr.l					(a0)+
 								dbra					d0,.del2
 
-								CLEARMEMORY				spritePlayerDMA(pc),#spritePlayerDMASize-4																																																	; clean player sprite dma
-								CLEARMEMORY				spriteDMAMem+8(pc),#spriteDMAMemSize																																																		; clean up sprite dma mem
-
-	;CLEARMEMORY mainPlanes(pc),mainPlaneOneSize(pc)
-	;CLEARMEMORY mainPlanes+4(pc),mainPlaneOneSize(pc)
-	;CLEARMEMORY mainPlanes+8(pc),mainPlaneOneSize(pc)	; clear all bitplanes - not needed anymore, as tileRenderer is doing the clearance
-	;CLEARMEMORY fxPlanePointer+4(pc),1000
+    move.l spritePlayerDMA(pc),a6
+    move.l #spritePlayerDMASize-4,d7
+    jsr CLEARMEMORY
+	move.l spriteDMAMem+8(pc),a6
+    move.l #spriteDMAMemSize,d7
+    jsr CLEARMEMORY
 
 	;QUITNOW
 
@@ -5919,9 +5919,12 @@ initGameGlobal
 ;	rts
 
 ; #MARK: Reset basic memory structures
-								CLEARMEMORY				objectList,#objectListSize																																																					; reset objectlist
-								CLEARMEMORY				#objCopyTable,#objCopyEnd-objCopyTable+$00																																																	; reset object copied index table, spiral table
-
+    move.l objectList(pc),a6
+    move.l #objectListSize,d7
+    jsr CLEARMEMORY
+								lea						objCopyTable(pc),a6
+    move.l #objCopyEnd-objCopyTable,d7
+    jsr CLEARMEMORY
 								movem.l					bobRestoreList(pc),a0/a1																																																					; clear list of bobs to clear from background
 								clr.l					(a0)
 								clr.l					(a1)
@@ -5994,7 +5997,7 @@ initGameGlobal
     ;move.l #$100003,d0; temp highscore setting
 								move.l					d0,(a1)																																																										; copy last hi table entry to highscore save var
 
-	;CLEARMEMORY ;spriteScoreBuffer,#spriteScoreBufferSize
+	
 								lea						copSprite67,a0																																																								; write dma pointer sprite 0+1 -> coplist
 								move.l					#infoPanelScore,d0
 								subq					#8,d0
@@ -6301,7 +6304,7 @@ mainGameLoop        	;***Hauptprogramm/Schleife***
 								moveq					#24,d6
 								add.w					viewPosition+viewPositionPointer(pc),d6
 								st.b					d3
-								bsr.w					objectInit																																																									; spawn Instant Respawn sprite
+								jsr					objectInit																																																									; spawn Instant Respawn sprite
 								bsr						objectListManager																																																							; update display by hand, as interrupt driven updates are off in pause mode
 								bsr						spriteManager
 								move.w					#$00<<1,d5																																																									; modify bullet colors to make pause icon look clear
@@ -6858,7 +6861,6 @@ fetchBulletColors
 								REPT					7
 .rgb							SET						(.red&$f0)<<4!(.green&$f0)!(.blue&$f0)>>4
 								dc.w					.rgb
-								PRINTV					.rgb
 
 .red							SET						.red+24
 .green							SET						.green+27

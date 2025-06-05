@@ -105,7 +105,7 @@ bultCage
 	sub.w d5,objectListX(a4)
 	sub.w #5,d6
 	add.w d6,objectListY(a4)
-	bsr fastRandomF
+	jsr FASTRANDOM_A1
 	asr.w objectListAccX(a4)
 	moveq #8,d6
 	asr.w objectListAccY(a4)

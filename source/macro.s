@@ -56,19 +56,14 @@ ALLOCMEMSHELL	MACRO
 		ENDM
 
 ALLOCMEMORY	MACRO
-	bsr _allocMem
-	ENDM
-_allocMem	
-	IFNE SHELLMEMORY
-	bsr shellMemAllocd
-	ENDIF
 	CALLEXEC AllocVec
 	tst.l d0
-	beq .noMemory
+	beq .\@1
 	rts
-.noMemory
+.\@1
 	move.l (sp),tempVar	; provide current pc
 	bra errorMemory
+	ENDM
 
 
 COLORHELL	MACRO
@@ -108,26 +103,22 @@ RASTERCOLOR      MACRO	; write color to border color
     ENDM
 
 WAITSECSSET	Macro
-	move.l a0,-(sp)
-	lea _tempo(pc),a0
-	move.l #\1,(a0)
-	lea frameCount+4(pc),a0
-	clr.w (a0)
-	move.l (sp)+,a0
-	ENDM
+	move.w #\1,_WAITSECS
+    clr.w frameCount+4
+    ENDM
 WAITSECS 	Macro
-	bsr _waitSecs
+	jsr _waitSecs
 	ENDM
 _waitSecs	; d0 = seconds	; called by macro WAITSECS
-	move.l _tempo(pc),d0
+	move.w _WAITSECS(pc),d0
 	muls #50,d0
 	lea frameCount+4.l(pc),a5
 .wait
 	cmp.w (a5),d0
 	bhi .wait
 	rts
-_tempo
-	dc.l 0
+_WAITSECS
+	dc.w 0
 
 WAITVBLANK  MACRO
 	jsr _waitvblank
@@ -194,7 +185,7 @@ FASTRANDOM	MACRO
 	move.l	(sp)+,d0
 	move.l	(sp)+,d1
 	ENDM
-fastRandomF
+FASTRANDOM_A1
 	lea	fastRandomSeed.l(pc),a1
 	movem.l	(a1),d4/d5				; AB
 	swap	d5						; DC
@@ -677,15 +668,8 @@ asciiToNumber   Macro       ; ax = Memorylocation of ASCII-number
 .\@3
     Endm
 
-CLEARMEMORY   Macro       ; first argument.l  = memory adress
-                            ; 2nd argument.l  = memory size
-                        ; memorysize needs to be longword-dividable
-    move.l \1,a6
-    move.l \2,d7
-    bsr.w clearmem
-    Endm
 
-clearmem
+CLEARMEMORY
 
     clr.l d0
     clr.l d1

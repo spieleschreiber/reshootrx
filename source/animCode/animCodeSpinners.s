@@ -87,7 +87,7 @@ spinners
 
 	IFNE 0
 .modifyAccl
-	bsr fastRandomF	; preload random numbers to d4/d5
+	jsr FASTRANDOM_A1	; preload random numbers to d4/d5
 	clr.w d0
 	move.b objectListTriggers+3(a2),d0
 	move.w (.jmpTable-2,pc,d0.w*2),d0
