@@ -1,0 +1,170 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 Verdana;
+\f3\fswiss\fcharset0 Helvetica-Oblique;\f4\fswiss\fcharset0 Helvetica-Bold;}
+{\colortbl;\red255\green255\blue255;\red22\green25\blue31;\red255\green255\blue255;\red0\green0\blue0;
+}
+{\*\expandedcolortbl;;\cssrgb\c11373\c12941\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12600\viewh7800\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+[4.11.2020]\
+How to edit RP3 Website\
+\
+Go here: \
+https://rp3.spieleschreiber.de/wp-admin\
+\
+buzzybee\
+wendeTTa2175\
+\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+\cf0 ###########\
+[27.8.2010]\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 rp3high.spieleschreiber.de\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 How to edit highscore ranking website \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+https://rp3high.richard-loewenstein.de/mysql_db_adm_script/\
+Login - Adminer\
+rp3high.richard-loewenstein.de\
+\
+\
+$dbuser="rp3high";\
+$dbpw="5T7smd&8";\
+\
+\
+datenbank hei\'dft auch rp3high\
+\
+##########\
+\
+SUPPORT OF UNITHOR STICK\
+\
+From Email by Marcin of Uni-Joy / 28.3.2022: \
+\
+"
+\f2\fs24 \cf0 \cb1 We are controlling motor and LEDs by pin 5 and 9 of Amiga joystick port. We switch their state by \cf4 POTGO ($ DFF034) register. Controlling tooks advantage of fact that Amiga`s pins 5 and 9 had two functions (modes) and you can have 0 or 3,6V depanding on actual mode. For non system procedures there is no library needed"
+\f1\fs26 \cf2 \cb3 \
+\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 ###########\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 [26.8.2020]\
+How to decode RESHOOT PROXIMA 3 highscore entry code\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f3\i \cf0 Fixed values
+\f0\i0  are written curved\
+
+\f4\b Variable values
+\f0\b0  are written fat\
+\
+Example code: OWJ (result: 203)\
+\
+\
+#Decoding and printing actual score from manually entered code\
+\
+ATTN:  Leftmost char 
+\f3\i O
+\f0\i0  carries checksum ONLY! Do not use it to decode actual score\
+ATTN: Only use 
+\f3\i WJ
+\f0\i0  to decode actual score\
+\
+0. Begin reading at the rightmost digit: \
+1. Read 
+\f3\i J
+\f0\i0 , sub 
+\f3\i 65
+\f0\i0  = 
+\f4\b 9
+\f0\b0 . Add 
+\f3\i 9
+\f0\i0  to checksum.\
+2. Read 
+\f3\i W
+\f0\i0 , sub 
+\f3\i 65
+\f0\i0  = 
+\f4\b 22
+\f0\b0 . Add to checksum (
+\f4\b 9+2=31
+\f0\b0 ). Multiply 
+\f4\b 22
+\f0\b0  with 
+\f3\i 23
+\f0\i0  = 
+\f4\b 506
+\f0\b0 . Add to result of 1. = 
+\f4\b 515
+\f0\b0 .\
+3. Decimal 
+\f4\b 515
+\f0\b0  translates to 
+\f4\b 203
+\f0\b0  in hexadecimal bcd format. Output as \'84
+\f4\b 203
+\f0\b0 \'93\
+\
+\
+#Decoding the checksum\
+\
+0. Calc 
+\f4\b 31
+\f0\b0  / 
+\f3\i 23
+\f0\i0  = 1 remainder 
+\f4\b 8
+\f0\b0  \
+1. Use remainder, use formula: 
+\f3\i 22
+\f4\i0\b  - 8 = 14. 
+\f0\b0 22 is a fixed value!\
+2. Add 
+\f4\b 14
+\f0\b0 +
+\f3\i 65
+\f0\i0  (\'84A\'93 in ASCII-Table) = 
+\f4\b 79
+\f0\b0  = 
+\f4\b O
+\f0\b0  in ASCII-Table\
+3. Compare result of 2. to value of leftmost digit. O = O = true: entered code is fine!\
+\
+######################\
+\
+\
+[24.8.2020]\
+Working with samples\
+\
+* 	Codeversion 24.8.2020 xml-importcode reads .wav and .iff and converts both to usable format. Digital samples not going through xml-import need conversion to signed 8 bit mono audio though\
+*	Use oddcast (ttsdemo.com) to create speech for rp3\
+*	Choose Alienspeech at upper bar, voice: troll, effect:phase for bad guy\
+*	Choose human voice at upper bar, voice: Susan, effect: phase for hero\
+*	Try alternatives when writing text. Example: "And so ,Arinn, reached the outer rim"\
+*	Record voice with Chrome Audio Capture\
+* 	Use Twisted Wave to easily cut and convert .wav-data\
+* 	Use Audacity to convert .wav to signed 8 bit audio if needed. Export as .iff / signed 8 bit PCM\
+Sources:\
+https://twistedwave.com/online\
+https://freesound.org/\
+https://ttsdemo.com/\
+\
+\
+########################\
+\
+Dont break the chain - how to keep your productivity flowing\
+https://www.youtube.com/watch?v=mIPmjnsCPR4\
+\
+}

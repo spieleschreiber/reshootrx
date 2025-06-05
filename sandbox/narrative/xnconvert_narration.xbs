@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><XnView_script version="1.0" name="xnconvert_narration">
+    <Extract_channel channel="3"/>
+    <Change_color_depth method="1" dither="0" ncompo="8" alpha="255"/>
+    <Exposure value="81"/>
+    <Output folder="" filename="{Filename}_4colors" case="0" format="IFF">
+        <Options overwrite="0" orgDate="false" keepMeta="false" keepICC="false" keepFolder="false" keepParentFolder="false" delOrg="false" multipage="false" allPages="true" openExplorer="false" openBrowser="false" clearItems="false"/>
+        <IFF compress="false"/>
+    </Output>
+</XnView_script>

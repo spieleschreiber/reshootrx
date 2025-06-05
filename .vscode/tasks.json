@@ -9,7 +9,13 @@
 				"args": [
 					"-m68020up",
 					"-Fhunk",
-					"-linedebug"
+					"-linedebug",
+					"-opt-jbra",
+					"-nosym",
+					"-nodpc",
+					"-I $AMIDEV",
+					"-I $AMIDEV/source/system"
+
 				]
 			},
 			"vlink": {
@@ -21,8 +27,7 @@
 				"entrypoint": "rrx.s",
 				"args": [
 					"-bamigahunk",
-					"-Bstatic",
-					"-L${workspaceFolder}/source"
+					"-Bstatic"
 				]
 			},
 			"problemMatcher": [],

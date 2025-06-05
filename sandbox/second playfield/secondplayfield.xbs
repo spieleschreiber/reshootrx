@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><XnView_script version="1.0" name="secondplayfield">
+    <Change_color_depth method="1" dither="5" ncompo="16" alpha="255"/>
+    <Output folder="" filename="{Filename}" case="0" format="IFF">
+        <Options overwrite="0" orgDate="false" keepMeta="false" keepICC="false" keepFolder="false" keepParentFolder="false" delOrg="false" multipage="false" allPages="true" openExplorer="false" openBrowser="false" clearItems="false"/>
+        <IFF compress="false"/>
+    </Output>
+</XnView_script>

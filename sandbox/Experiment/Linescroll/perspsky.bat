@@ -1,0 +1,1 @@
+nconvert -brightness -63 -contrast 27 -gamma 2.33  -colors 8 

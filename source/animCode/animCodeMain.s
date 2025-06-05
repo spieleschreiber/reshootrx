@@ -1,0 +1,27 @@
+
+	INCLUDE	animCodeShared.s
+	;INCLUDE	animCodeCleanup.s
+	INCLUDE	animCodeTentacles.s
+	INCLUDE	animCodeExplosion.s
+	INCLUDE	animCodeKraken.s
+	INCLUDE	animCodeCrabattack.s
+	INCLUDE	animCodeSpinners.s
+	INCLUDE	animCodeTilter.s
+	INCLUDE	animCodeBulletCage.s
+	INCLUDE	animCodeShell.s
+	INCLUDE	animCodeMechviens.s
+	INCLUDE	animCodeBeehive.s
+	INCLUDE	animCodeBrickLabyrinth.s
+	INCLUDE	animCodeMeteorShower.s
+	INCLUDE	animCodeScrollController.s
+	INCLUDE animCodeDebrisRain.s
+	INCLUDE animCodeElaborateBullets.s
+	INCLUDE animCodeVfxController.s
+	INCLUDE animCodeBossControllers.s
+	INCLUDE	animCodeExitStage.s
+	INCLUDE	animCodeEscalation.s
+	INCLUDE	animCodeNarrative.s
+	INCLUDE	animCodeStealthy.s
+	INCLUDE animCodeWeapSpeedUp.s
+	INCLUDE animCodeSunEruption.s
+	INCLUDE animCodeCases.s

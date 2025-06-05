@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><XnView_script version="1.0" name="spriteparallax">
+    <Resize mode="0" width="64" height="241" unit="0" ratio="false" orientation="false" enlarge="0" resample="7" gamma_correct="false"/>
+    <Change_color_depth method="2" dither="0" ncompo="4" alpha="255"/>
+    <Output folder="" filename="{Filename}" case="0" format="IFF">
+        <Options overwrite="0" orgDate="false" keepMeta="false" keepICC="false" keepFolder="false" keepParentFolder="false" delOrg="false" multipage="false" allPages="true" openExplorer="false" openBrowser="false" clearItems="false"/>
+        <IFF compress="false"/>
+    </Output>
+</XnView_script>
