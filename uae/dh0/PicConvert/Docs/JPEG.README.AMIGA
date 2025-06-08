@@ -1,0 +1,118 @@
+The Independent JPEG Group's JPEG software
+==========================================
+
+README for release 6a of 7-Feb-96
+=================================
+
+This distribution contains the sixth public release of the Independent JPEG
+Group's free JPEG software.  You are welcome to redistribute this software and
+to use it for any purpose, subject to the conditions under LEGAL ISSUES, below.
+
+Serious users of this software (particularly those incorporating it into
+larger programs) should contact IJG at jpeg-info@uunet.uu.net to be added to
+our electronic mailing list.  Mailing list members are notified of updates
+and have a chance to participate in technical discussions, etc.
+
+This software is the work of Tom Lane, Philip Gladstone, Luis Ortiz, Jim
+Boucher, Lee Crocker, Julian Minguillon, George Phillips, Davide Rossi,
+Ge' Weijers, and other members of the Independent JPEG Group.
+
+IJG is not affiliated with the official ISO JPEG standards committee.
+
+The jpeg-6a directory contains the original, unchanged jpegsrc.v6a.tar.gz
+archive downloaded directly from ftp.uu.net. If you want to compile with
+gcc use the files from this directory.
+
+
+Recompiling the programs and creating the linker library: 
+(with gcc 2.7.0 and libnix 1.0)
+
+- cd into the gcc directory (the directory where you found this file)
+- adjust the compiler switches in the makefiles
+
+- enter:
+
+ make -f makefile.gcc.xxx
+
+- check if it works: (floating point part cannot be tested this way)
+ 
+ make -f makefile.gcc.xxx test
+
+You should not get any errors or warning messages.
+
+
+****************************
+NEW FEATURES IN THIS RELEASE
+****************************
+
+This release does not contain any Amiga-specific new features. See the file
+change.log in the jpeg-6a directory for changes. 
+
+
+****************************
+NEW FEATURES SINCE RELEASE 6
+****************************
+
+- progressive JPEG files are supported
+- new program: jpegtran, for lossless transcoding between different JPEG
+  formats
+- compiled with gcc 2.7.0 and libnix 1.0, switches: -O3 -fbaserel
+- all programs should be a bit faster because of that
+- see change.log for more information
+
+
+*****************************
+NEW FEATURES SINCE RELEASE 5a
+*****************************
+
+The ixemul.library is not needed any more. Starting with this release cjpeg
+and djpeg are using the Unix-like command line style. Redirection and piping
+is now fully supported. Examples:
+
+ cjpeg inputfile >outputfile
+ cjpeg <inputfile >outputfile
+ djpeg -scale 1/4 inputfile | cjpeg >outputfile
+
+The last example creates a 1/4 scaled JPEG file of your inputfile. Note
+that a temporary ppm file will not be created. To use this with the
+standard Amiga shell you need one of those pipe archives:
+
+Aminet: util/shell/MJPipe09.lha
+        util/shell/Pipe_1_5.lha
+        util/cli/pipe3310.lha
+        
+Use the -outfile option if you don't want to use redirection. 
+
+
+
+NOTES:
+
+1) I used gcc 2.7.0 and libnix 1.0 for compiling the programs. I cannot
+   recommend using gcc versions 2.6.0 - 2.6.3. The -dct float option will
+   produce corrupt pictures for the 68000 version of djpeg.
+
+2) If you compile the programs with other compilers (makefiles for Manx and
+   SAS are included) they will be slower or contain bugs, so don't do that.
+  
+
+If you found a bug then please let me know about it. I cannot fix bugs that
+are not known to me. (Every behaviour that does not correspond to the original
+documentation is considered a bug.) If it is not Amiga-specific you may also
+report it directly to the Independent JPEG Group.
+
+
+My address:
+
+
+
+  electronic mail:                                  normal mail:
+  ****************                                  ************
+
+ Guenther@studbox.uni-stuttgart.de                  Günther Röhrich
+                                                    Lerchenbergstr. 4
+                                                    73733 Esslingen
+                                                        Germany
+
+You may also visit my personal WWW home page at: 
+
+ http://wwwcip.rus.uni-stuttgart.de/~etk10325/

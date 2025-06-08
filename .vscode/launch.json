@@ -20,8 +20,8 @@
                 "--use_remote_debugger=true",
                 "--amiga_model=A1200",
                 "--automatic_input_grab=0",
-                "--hard_drive_0=/Users/richardlowenstein/Data/RichardOffice/Gameprojekt/Amiga/ClassicWB_LITE_v28/system.hdf",
-                "filesystem=rw,dh2:${workspaceFolder}",
+                //"--hard_drive_0=/Users/richardlowenstein/Data/RichardOffice/Gameprojekt/Amiga/ClassicWB_LITE_v28/system.hdf",
+                "filesystem=rw,dh0:${workspaceFolder}",
                 //"--hard_drive_1=${workspaceFolder}/uae/dh0",
             ],
             "preLaunchTask": "amigaassembly: build"

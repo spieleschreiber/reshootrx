@@ -1,0 +1,22 @@
+Stack 16384
+Echo "Creating new Games list from the A-Games: directory."
+Echo ""
+Echo "Only WHDLoad games will be detected. Please add normal"
+Echo "games manually to the 'Other' text file provided."
+Echo ""
+Echo "Please wait - this may take some time!"
+Echo ""
+IF EXISTS ENV:GamesList
+Kill GamesMenu
+EndIF
+Delete >NIL: GamesMenu/GamesMenu.menu
+FSearch >RAM:Games A-Games: PAT=#?.info TXT=slave ALL
+Rep RAM:Games .info ""
+QSort RAM:Games GamesMenu/GamesMenu.menu
+Delete >NIL: RAM:Games
+IF EXISTS ENV:GamesList
+Delete >NIL: ENV:GamesList
+EndIF
+Echo "All Done!"
+Echo ""
+Ask "Hit return to exit..."

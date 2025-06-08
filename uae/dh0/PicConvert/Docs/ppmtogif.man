@@ -1,0 +1,66 @@
+
+
+
+     ppmtogif(1)           AMIGA (30 June 1993)            ppmtogif(1)
+
+
+
+     NAME
+          ppmtogif - convert a portable pixmap into a GIF file
+
+     SYNOPSIS
+          ppmtogif [-interlace] [-sort] [-map mapfile] [-transparent
+          color] [ppmfile]
+
+     DESCRIPTION
+          Reads a portable pixmap as input.  Produces a GIF file as
+          output.
+
+     OPTIONS
+          -interlace
+               Tells the program to produce an interlaced GIF file.
+
+          -sort
+               Produces a GIF file with a sorted color map.
+
+          -map mapfile
+
+               Uses the colors found in the mapfile to create the
+               colormap in the GIF file, instead of the colors from
+               ppmfile. The mapfile can be any ppm file; all that
+               matters is the colors in it. If the colors in ppmfile
+               do not match those in mapfile , they are matched to a
+               "best match". A (much) better result can be obtained by
+               using the following filter in advance:
+
+               ppmquant -floyd -map mapfile
+
+          -transparent color
+               Mark the given color as transparent in the GIF file.
+               The color is specified as in ppmmake(1).  Note that
+               this option outputs a GIF89a format file which might
+               not be understood by your software.
+
+          All flags can be abbreviated to their shortest unique
+          prefix.
+
+     SEE ALSO
+          giftoppm(1), ppmquant(1), ppm(5)
+
+     AUTHOR
+          Based on GIFENCOD by David Rowley
+          <mgardi@watdcsu.waterloo.edu>.  Lempel-Ziv compression based
+          on "compress".
+
+          Copyright (C) 1989 by Jef Poskanzer.
+
+
+
+
+
+
+
+     Page 1                                           (printed 3/1/94)
+
+
+

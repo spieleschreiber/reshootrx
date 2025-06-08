@@ -1,0 +1,7 @@
+;Launching file for AmigaGuide Game Launcher
+
+;assign local directory
+Assign AGL: ""
+
+;run application
+AGL:C/MultiView AGL:Guides/AG-Launch.guide

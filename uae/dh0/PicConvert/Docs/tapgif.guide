@@ -1,0 +1,136 @@
+@database tapgif.guide
+
+@remark Copyright © 1994,1995 by John Bickers.
+
+@master tapgif.guide
+@node main
+@title "TAPGIF 1.2 Copyright © 1994,1995 by John Bickers"
+
+                              TAPGIF 1.2
+                  Copyright © 1994,1995 by John Bickers.
+
+    This is a direct IFF ILBM to GIF converter for KS 2.0 or better
+    that does not tamper with the picture's palette.
+
+    @{" Requirements        " link "requirements"}
+    @{" Overview            " link "overview"    }
+
+    @{" CLI Parameters      " link "cli"         }
+
+    @{" Credits             " link "credits"     }
+    @{" Distribution        " link "distribution"}
+    @{" Contact Info        " link "contact"     }
+    @{" History             " link "history"     }
+
+    DISCLAIMER: It works on my machine.
+@endnode
+
+@node requirements
+@title "Requirements"
+
+    TAPGIF requires a machine with KS 2.0 and Chris Weber's IFF
+    library. The IFF libary can be found on Aminet in util/libs.
+@endnode
+
+@node overview
+@title "Overview"
+
+    TAPGIF is a console-only program, and does not handle HAM, EHB, or
+    the other variations from the norm correctly.
+
+    I use it specifically for converting 640x480/8 AGA pics with
+    Windows identity palettes to GIF format without disturbing the
+    palette. There is a program called AM2GIF that will do HAM and so
+    on, but does not support AGA. And unfortunately ImageMaster and
+    PPM, which can both write GIFs, also both insist on fooling with
+    the palette in the process.
+
+    If the IFF picture contains an ANNO chunk, then the GIF file will
+    be written with a GIF89a signature and a comment extension block
+    will be added containing the annotation. This can be prevented by
+    specifying an empty NOTE string on the command line.
+
+    If the TRAN command-line option is used, the GIF file will be
+    written with a GIF89a signature.
+@endnode
+
+@node cli
+@title "CLI Parameters"
+
+    The command template for TAPGIF is...
+
+    FROM/A,TO/A,BACK/K/N,NOTE/K,TRAN/K/N
+
+    FROM        The name of an IFF ILBM picture to convert.
+
+    TO          The name of the GIF picture you want created.
+
+    BACK        An optional background color index to be placed in the
+                GIF header.
+
+    NOTE        An optional comment to be added to the GIF file. This
+                will cancel any ANNO chunk that may be in the IFF
+                file, and the file will be written with a GIF89a
+                signature.
+
+    TRAN        An optional transparency color index to be added to
+                the GIF file. The file will be written with a GIF89a
+                signature.
+@endnode
+
+@node credits
+@title "Credits"
+
+    TAPGIF is written by John Bickers using SAS C 6.51.
+
+    GIF compression is performed by a modified version of the LZW code
+    in Jef Poskanzer's PPMTOGIF program, which in turn is based on the
+    LZW code in the Unix compress program.
+
+    Christian A. Weber's iff.library is used for loading ILBM files.
+
+    Shaun Flanagan pointed out a problem where TAPGIF was ignoring the
+    origin picture's exact width. This affected conversions of brushes
+    and other pictures with widths that aren't a multiple of 16.
+@endnode
+
+@node distribution
+@title "Distribution"
+
+    TAPGIF is Copyright © 1994,1995 by John Bickers.
+
+    Distribution is via normal channels. That is, distribute it for
+    free or for Fred Fish like costs, but not more. And remember to
+    include the documentation.
+
+    If you want to contribute something to the cause of PC file
+    conversion and playback, you might want to consider sending me an
+    R18 CD.
+@endnode
+
+@node contact
+@title "Contact Info"
+
+    I can be reached at:
+
+        John Bickers
+        Level 6, Grand Arcade
+        16 Willis St
+        Wellington
+        New Zealand
+
+    Or: jbickers@templar.actrix.gen.nz
+
+    Or: +64 4 801 8768 (home) +64 4 474 6625 (work)
+@endnode
+
+@node history
+@title "History"
+
+    94.09.20    1.0
+    95.03.01    1.1
+                Added BACK and TRAN options.
+    95.07.23    1.2
+                Uses exact width instead of bitmap width. This bugs
+                out some GIF viewers.
+@endnode

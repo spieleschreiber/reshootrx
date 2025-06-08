@@ -1,0 +1,66 @@
+
+
+
+     bmptoppm(1)            AMIGA (26 Oct 1992)            bmptoppm(1)
+
+
+
+     NAME
+          bmptoppm - convert a BMP file into a portable pixmap
+
+     SYNOPSIS
+          bmptoppm [bmpfile]
+
+     DESCRIPTION
+          Reads a Microsoft Windows or OS/2 BMP file as input.
+          Produces a portable pixmap as output.
+
+     SEE ALSO
+          ppmtobmp(1), ppm(5)
+
+     AUTHOR
+          Copyright (C) 1992 by David W. Sanderson.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     Page 1                                           (printed 3/1/94)
+
+
+

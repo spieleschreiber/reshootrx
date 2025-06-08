@@ -1,0 +1,218 @@
+	ToshStart Library Docs
+---------------------------------------------
+Routines:
+
+TakeSystem		equ	-30
+FreeSystem		equ	-36
+TakeDos		equ	-42
+FreeDos		equ	-48
+WaitFrame		equ	-54
+WaitFrames		equ	-60
+Play_CD		equ	-66
+Stop_CD		equ	-72
+Check_CD		equ	-78
+Print_Dos		equ	-84
+Get_FileLength	equ	-90
+Load_File		equ	-96
+Save_File		equ	-102
+Load_Sectors	equ	-108
+Save_Sectors	equ	-114
+GetKey		equ	-120
+GetLibs		equ	-126
+Dec_Number		equ	-132
+Hex_Number		equ	-138
+Get_Number		equ	-144
+FlushKeyboard		equ	-150
+
+---------------------------------------------
+TakeSystem		 
+
+in:	a0.l	-	Pointer To Copper
+	a1.l	-	Pointer To Vbl Routine
+	a2.l	-	Pointer To Dos Text (0 = No text)
+	d0.l	-	CD Flag (0=off 1=on)
+	
+out:	d0.l	-	0 = Everything Okay...
+		            -1 = Could Not Open CD Device
+
+Legally Takes Over The System..
+Opens Librarys (Dos , Graphics , Intuition)
+Sets Up Keyboard And Vbl Routines...
+Sets Up CD Device If Need Be..
+
+---------------------------------------------
+FreeSystem
+
+Legally Returns System..
+Closes Libraries (Dos , Graphics , Intuition)
+Closes CD Device (If Open..)
+
+---------------------------------------------
+TakeDos
+
+Takes Back Control Of System Stuff.. (Your Stuff Max Priority..)
+
+---------------------------------------------
+FreeDos	
+
+Frees System Stuff For Your Use.. (Frees Max Priority..)
+
+---------------------------------------------
+WaitFrame
+
+Legally Waits One Frame Using Library Vbl Routine..
+
+---------------------------------------------
+WaitFrames
+
+in:	d0.l	-	Amount Of Frames To Wait
+
+Legally Waits Amount Of Frames Using Library Vbl Routine..
+
+---------------------------------------------
+Play_CD
+
+IN:	d0.l	-	Track Number To Play
+Out:	d0.l	-	0 = okay 
+		            -1 = Error Can't Play
+ 	
+Starts Playing Track From CD Drive..
+
+;---------------------------------------------
+Stop_CD
+
+out:	d0.l	-	 0 = okay
+		 	-1 = error
+
+Stops Current Track Playing From CD Drive..
+;---------------------------------------------
+Check_CD
+
+IN:	d0.l	-	Track Number To Restart
+OUT:	d0.l	-	 0 = okay
+		 	-1 = Error
+
+Checks Current Track To See If Finished Then Restarts Track..
+
+;---------------------------------------------
+Print_Text
+
+IN:	a0.l	-	Pointer To Dos String
+
+Prints Text String To Current Output Cli..
+
+;---------------------------------------------
+Load_File
+
+in:	d0.l	-	File Address
+	d1.l	-	File Size (MaxSize)
+	d2.l	-	File Name
+
+out:	d0.l	-	File Size
+		-	-1 = Load Error
+
+Loads In A Dos File To Memory..
+
+;---------------------------------------------
+Save_File
+
+in:	d0.l	-	File Address
+	d1.l	-	File Size (MaxSize)
+	d2.l	-	File Name
+
+out:	d0.l	-	File Size
+		-	-1 = Save Error
+
+Savess In A Dos File To Memory..
+
+;---------------------------------------------
+Load_Sectors
+	
+in:	d0.l	-	File Address
+	d1.l	-	Sector Start  (0-1759)
+	d2.l	-	Sector Length (1-1759)
+	d3.l	-	Disk Drive    (0-3)
+
+Out:	d0.l	-	0 = Okay
+		            -1 = Error
+
+Loads In Sectors From Current Floppy Drive...
+
+;---------------------------------------------
+Save_Sectors
+	
+in:	d0.l	-	File Address
+	d1.l	-	Sector Start  (0-1749)
+	d2.l	-	Sector Length (1-1749)
+	d3.l	-	Disk Drive    (0-3)
+
+Out:	d0.l	-	0 = Okay
+		            -1 = Error
+;---------------------------------------------
+GetKey
+
+Out:	d0.l	-	Current Key Pressed (Ascii)
+	d1.l	-	Special Key
+
+Cursor Left	=	$e0
+Cursor Right	=	$e1
+Cursor Up	=	$e2
+Cursor Down	=	$e3
+Tab		=	$e4
+Escape		=	$e5
+Return (Enter)	=	$e6
+Del		=	$e7
+Help		=	$e8
+Backspace	=	$e9
+F1-F10		=	$f1-$fa
+
+Special Keys Bit Values:
+
+Left Shift		=	0
+Right Shift		=	1
+Ctrl 			=	2
+Left Alt		=	3
+Right Alt		=	4
+Left Amiga		=	5
+Right Amiga		=	6
+
+;---------------------------------------------
+GetLibs
+
+out:	d0.l	-	Pointer To Structure
+
+Gets Address's of Open Libs (Dos , Graphics , Intuition)
+
+;---------------------------------------------
+Dec_Number
+
+IN:	d0.l	-	number to convert
+OUT:	d0.l	-	Pointer To Ascii String
+
+Convert's Number To Decimal Text String
+
+;---------------------------------------------
+Hex_Number
+
+IN:	d0.l	-	number to convert
+OUT:	d0.l	-	Pointer To Ascii String
+
+Convert's Number To Hex Text String
+
+;---------------------------------------------
+Get_Number
+
+IN:	a0.l	-	pointer To Ascii String
+OUT:	d0.l	-	Decimal Number
+
+Convert's Ascii String To Decimal Number
+
+;---------------------------------------------
+Get_FileLength
+
+IN:	d0.l	-	pointer to Filename String.
+OUT:	d0.l	-	Length Of File (-1=Error)
+
+Gets Length Of Dos File Specified..
+
+;---------------------------------------------

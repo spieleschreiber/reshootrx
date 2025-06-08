@@ -1,0 +1,8 @@
+ENV:SYS
+Copy def_disk.info def_disk2.info
+Copy A-Programs:Ami-PC/def_PC.info to def_disk.info
+Mount PC:
+Wait 5
+Copy def_disk2.info to def_disk.info
+Delete >NIL: def_disk2.info
+SYS:

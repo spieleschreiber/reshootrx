@@ -1,0 +1,55 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <H>
+
+Click game title to play
+
+      @{"Hacker" SYSTEM "agl:c/wbrun A-Games:H/Hacker/Hacker"}                               @{"Hacker2" SYSTEM "agl:c/wbrun A-Games:H/Hacker2/Hacker2"}
+      @{"HagarTheHorrible" SYSTEM "agl:c/wbrun A-Games:H/HagarTheHorrible/HagarTheHorrible"}                     @{"HagarTheHorribleDe" SYSTEM "agl:c/wbrun A-Games:H/HagarTheHorribleDe/HagarTheHorribleDe"}
+      @{"HalleyProject" SYSTEM "agl:c/wbrun A-Games:H/HalleyProject/HalleyProject"}                        @{"HammerBoy" SYSTEM "agl:c/wbrun A-Games:H/HammerBoy/HammerBoy"}
+      @{"Hammerfist" SYSTEM "agl:c/wbrun A-Games:H/Hammerfist/Hammerfist"}                           @{"HaraldHaardtandDk" SYSTEM "agl:c/wbrun A-Games:H/HaraldHaardtandDk/HaraldHaardtandDk"}
+      @{"HardDrivin" SYSTEM "agl:c/wbrun A-Games:H/HardDrivin/HardDrivin"}                           @{"HardDrivin2" SYSTEM "agl:c/wbrun A-Games:H/HardDrivin2/HardDrivin2"}
+      @{"HardNHeavy" SYSTEM "agl:c/wbrun A-Games:H/HardNHeavy/HardNHeavy"}                           @{"Harlequin" SYSTEM "agl:c/wbrun A-Games:H/Harlequin/Harlequin"}
+      @{"HarleyDavidson" SYSTEM "agl:c/wbrun A-Games:H/HarleyDavidson/HarleyDavidson"}                       @{"Harpoon&Battleset1" SYSTEM "agl:c/wbrun A-Games:H/Harpoon&Battleset1/Harpoon&Battleset1"}
+      @{"Harpoon&Battleset2" SYSTEM "agl:c/wbrun A-Games:H/Harpoon&Battleset2/Harpoon&Battleset2"}                   @{"Harpoon&Battleset3" SYSTEM "agl:c/wbrun A-Games:H/Harpoon&Battleset3/Harpoon&Battleset3"}
+      @{"Harpoon&Battleset4" SYSTEM "agl:c/wbrun A-Games:H/Harpoon&Battleset4/Harpoon&Battleset4"}                   @{"HATE" SYSTEM "agl:c/wbrun A-Games:H/HATE/HATE"}
+      @{"Hawkeye" SYSTEM "agl:c/wbrun A-Games:H/Hawkeye/Hawkeye"}                              @{"HeadOverHeels" SYSTEM "agl:c/wbrun A-Games:H/HeadOverHeels/HeadOverHeels"}
+      @{"HeartOfChina" SYSTEM "agl:c/wbrun A-Games:H/HeartOfChina/HeartOfChina"}                         @{"HeartOfChinaDe" SYSTEM "agl:c/wbrun A-Games:H/HeartOfChinaDe/HeartOfChinaDe"}
+      @{"HeartOfTheDragon3Disk" SYSTEM "agl:c/wbrun A-Games:H/HeartOfTheDragon3Disk/HeartOfTheDragon3Disk"}                @{"HeartOfTheDragon4Disk" SYSTEM "agl:c/wbrun A-Games:H/HeartOfTheDragon4Disk/HeartOfTheDragon4Disk"}
+      @{"HeavyMetal" SYSTEM "agl:c/wbrun A-Games:H/HeavyMetal/HeavyMetal"}                           @{"HeavyMetalHeroes" SYSTEM "agl:c/wbrun A-Games:H/HeavyMetalHeroes/HeavyMetalHeroes"}
+      @{"Heimdall" SYSTEM "agl:c/wbrun A-Games:H/Heimdall/Heimdall"}                             @{"Heimdall2" SYSTEM "agl:c/wbrun A-Games:H/Heimdall2/Heimdall2"}
+      @{"Heimdall2AGA" SYSTEM "agl:c/wbrun A-Games:H/Heimdall2AGA/Heimdall2AGA"}                         @{"Heimdall2CD32" SYSTEM "agl:c/wbrun A-Games:H/Heimdall2CD32/Heimdall2CD32"}
+      @{"Hellbent" SYSTEM "agl:c/wbrun A-Games:H/Hellbent/Hellbent"}                             @{"HellfireAttack" SYSTEM "agl:c/wbrun A-Games:H/HellfireAttack/HellfireAttack"}
+      @{"Hellraider" SYSTEM "agl:c/wbrun A-Games:H/Hellraider/Hellraider"}                           @{"HellrunMachine" SYSTEM "agl:c/wbrun A-Games:H/HellrunMachine/HellrunMachine"}
+      @{"HelterSkelter" SYSTEM "agl:c/wbrun A-Games:H/HelterSkelter/HelterSkelter"}                        @{"HeroQuest" SYSTEM "agl:c/wbrun A-Games:H/HeroQuest/HeroQuest"}
+      @{"HeroQuest&ReturnWitchLord" SYSTEM "agl:c/wbrun A-Games:H/HeroQuest&ReturnWitchLord/HeroQuest&ReturnWitchLord"}            @{"HeroQuest2" SYSTEM "agl:c/wbrun A-Games:H/HeroQuest2/HeroQuest2"}
+      @{"HerosQuest" SYSTEM "agl:c/wbrun A-Games:H/HerosQuest/HerosQuest"}                           @{"HighSeasTraderAGA" SYSTEM "agl:c/wbrun A-Games:H/HighSeasTraderAGA/HighSeasTraderAGA"}
+      @{"HighSteel" SYSTEM "agl:c/wbrun A-Games:H/HighSteel/HighSteel"}                            @{"HighwayHawks" SYSTEM "agl:c/wbrun A-Games:H/HighwayHawks/HighwayHawks"}
+      @{"HighwayPatrol2" SYSTEM "agl:c/wbrun A-Games:H/HighwayPatrol2/HighwayPatrol2"}                       @{"Hillsfar" SYSTEM "agl:c/wbrun A-Games:H/Hillsfar/Hillsfar"}
+      @{"HillsfarDe" SYSTEM "agl:c/wbrun A-Games:H/HillsfarDe/HillsfarDe"}                           @{"HillStreetBlues" SYSTEM "agl:c/wbrun A-Games:H/HillStreetBlues/HillStreetBlues"}
+      @{"Hilt" SYSTEM "agl:c/wbrun A-Games:H/Hilt/Hilt"}                                 @{"Hilt2" SYSTEM "agl:c/wbrun A-Games:H/Hilt2/Hilt2"}
+      @{"Hilt2De" SYSTEM "agl:c/wbrun A-Games:H/Hilt2De/Hilt2De"}                              @{"HiredGuns1MB" SYSTEM "agl:c/wbrun A-Games:H/HiredGuns1MB/HiredGuns1MB"}
+      @{"HiredGuns512KB" SYSTEM "agl:c/wbrun A-Games:H/HiredGuns512KB/HiredGuns512KB"}                       @{"HiredGunsDemo1MB" SYSTEM "agl:c/wbrun A-Games:H/HiredGunsDemo1MB/HiredGunsDemo1MB"}
+      @{"HiredGunsDemo512KB" SYSTEM "agl:c/wbrun A-Games:H/HiredGunsDemo512KB/HiredGunsDemo512KB"}                   @{"Historyline" SYSTEM "agl:c/wbrun A-Games:H/Historyline/Historyline"}
+      @{"HistorylineDe" SYSTEM "agl:c/wbrun A-Games:H/HistorylineDe/HistorylineDe"}                        @{"HistorylineFr" SYSTEM "agl:c/wbrun A-Games:H/HistorylineFr/HistorylineFr"}
+      @{"HoleInOne" SYSTEM "agl:c/wbrun A-Games:H/HoleInOne/HoleInOne"}                            @{"HoleInOne&DataDisks" SYSTEM "agl:c/wbrun A-Games:H/HoleInOne&DataDisks/HoleInOne&DataDisks"}
+      @{"HolidayLemmings1993" SYSTEM "agl:c/wbrun A-Games:H/HolidayLemmings1993/HolidayLemmings1993"}                  @{"HolidayLemmings1994" SYSTEM "agl:c/wbrun A-Games:H/HolidayLemmings1994/HolidayLemmings1994"}
+      @{"HolidayMakerCDTVDe" SYSTEM "agl:c/wbrun A-Games:H/HolidayMakerCDTVDe/HolidayMakerCDTVDe"}                   @{"HolidayMakerDe" SYSTEM "agl:c/wbrun A-Games:H/HolidayMakerDe/HolidayMakerDe"}
+      @{"HollywoodPoker" SYSTEM "agl:c/wbrun A-Games:H/HollywoodPoker/HollywoodPoker"}                       @{"HollywoodPokerPro" SYSTEM "agl:c/wbrun A-Games:H/HollywoodPokerPro/HollywoodPokerPro"}
+      @{"HongKongPhooey" SYSTEM "agl:c/wbrun A-Games:H/HongKongPhooey/HongKongPhooey"}                       @{"Hook" SYSTEM "agl:c/wbrun A-Games:H/Hook/Hook"}
+      @{"HorrorZombiesFromTheCrypt" SYSTEM "agl:c/wbrun A-Games:H/HorrorZombiesFromTheCrypt/HorrorZombiesFromTheCrypt"}            @{"Hostages" SYSTEM "agl:c/wbrun A-Games:H/Hostages/Hostages"}
+      @{"HotRod" SYSTEM "agl:c/wbrun A-Games:H/HotRod/HotRod"}                               @{"HotRubber" SYSTEM "agl:c/wbrun A-Games:H/HotRubber/HotRubber"}
+      @{"Hotshot" SYSTEM "agl:c/wbrun A-Games:H/Hotshot/Hotshot"}                              @{"HoundOfShadow" SYSTEM "agl:c/wbrun A-Games:H/HoundOfShadow/HoundOfShadow"}
+      @{"HuckleberryHound" SYSTEM "agl:c/wbrun A-Games:H/HuckleberryHound/HuckleberryHound"}                     @{"HudsonHawk" SYSTEM "agl:c/wbrun A-Games:H/HudsonHawk/HudsonHawk"}
+      @{"Hugo1Dk" SYSTEM "agl:c/wbrun A-Games:H/Hugo1Dk/Hugo1Dk"}                              @{"Hugo1Fi" SYSTEM "agl:c/wbrun A-Games:H/Hugo1Fi/Hugo1Fi"}
+      @{"Hugo2Dk" SYSTEM "agl:c/wbrun A-Games:H/Hugo2Dk/Hugo2Dk"}                              @{"Hugo2Fi" SYSTEM "agl:c/wbrun A-Games:H/Hugo2Fi/Hugo2Fi"}
+      @{"HugoDe" SYSTEM "agl:c/wbrun A-Games:H/HugoDe/HugoDe"}                               @{"HumanKillingMachine" SYSTEM "agl:c/wbrun A-Games:H/HumanKillingMachine/HumanKillingMachine"}
+      @{"Humans" SYSTEM "agl:c/wbrun A-Games:H/Humans/Humans"}                               @{"HumansCD32" SYSTEM "agl:c/wbrun A-Games:H/HumansCD32/HumansCD32"}
+      @{"HumansDe" SYSTEM "agl:c/wbrun A-Games:H/HumansDe/HumansDe"}                             @{"HumansFr" SYSTEM "agl:c/wbrun A-Games:H/HumansFr/HumansFr"}
+      @{"Hunter" SYSTEM "agl:c/wbrun A-Games:H/Hunter/Hunter"}                               @{"HunterDe" SYSTEM "agl:c/wbrun A-Games:H/HunterDe/HunterDe"}
+      @{"HunterFr" SYSTEM "agl:c/wbrun A-Games:H/HunterFr/HunterFr"}                             @{"HuntForRedOctober" SYSTEM "agl:c/wbrun A-Games:H/HuntForRedOctober/HuntForRedOctober"}
+      @{"HuntForRedOctoberTheMovie" SYSTEM "agl:c/wbrun A-Games:H/HuntForRedOctoberTheMovie/HuntForRedOctoberTheMovie"}            @{"Hybris" SYSTEM "agl:c/wbrun A-Games:H/Hybris/Hybris"}
+      @{"Hydra" SYSTEM "agl:c/wbrun A-Games:H/Hydra/Hydra"}                                @{"Hyperion" SYSTEM "agl:c/wbrun A-Games:H/Hyperion/Hyperion"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode

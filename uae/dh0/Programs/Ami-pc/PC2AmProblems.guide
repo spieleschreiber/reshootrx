@@ -1,0 +1,460 @@
+@database PC2Amiga problems solving guide
+
+@node PoppingPC2Amiga
+     PC2Amiga can be poped either using the Exchange commodity which is a
+part of system from V 2.0 or by hotkey choosen during configuration.
+
+@endnode
+
+@node TermTest
+
+     How to test your connection using a terminal program.
+
+     First  we will test, if Amiga sends something.  You will need a terminal
+program on PC.  The good ones are TERM90 (from NortonCommander's package) and
+Telix.   It is also possible to use terminal emulator that is included in the
+Windows package, but it cannot work on higher speeds.
+     So run the terminal program and set it to use proper COM port, mode 8N1
+(eight data bits, one stop bits, none parity) and speed as selected on Amiga.
+Then execute the @{b}mount pc:@{ub} command on Amiga. You should see the
+@{b}PC2AM TEST@{ub} message on the screen (and maybe some garbage).
+
+     @{" I can see the text " link TT1}
+     @{" I can see just some garbage " link TT2}
+     @{" I don't see anything " link TT3}
+
+@endnode
+
+@node TT1
+     Connection works. If PC2Amiga doesn't get connected, maybe your card
+has swapped IRQs.  Try to select another one (when configuring PC part).
+     It is also possible, that the program badly initializes the COM port -
+try to use another port. 
+
+@endnode
+
+@node TT2
+     It is possible that you have selected bad speed (or some other
+parameter). You should see either message or nothing.
+
+@endnode
+
+@node TT3
+     This is serious. Make sure you have set your terminal program OK. If
+yes, we will make another test.
+     Run a terminal program on Amiga (Term, NComm).  You will have to quit
+the PC2Amiga handler or reboot your computer (best).  Select the same
+parameters as you have selected on PC.  If you type something on Amiga, you
+should be able to see it on PC and vice versa.
+
+     @{" I can see it " link TT31}
+     @{" I cannot see what I type " link TT32}
+
+@endnode
+
+@node TT31
+     Try to @{" popup the PC2Amiga interface " link PoppingPC2Amiga} and look if you can
+see the @{i}Connecting...@{ui} message). You will have to do it soon after
+mounting PC:  device, because it may be scrolled out of the window by the
+"TIMEOUT" messages.
+
+     @{" I cannot popup it " link PS12}
+     @{" It is in the messages list " link TT312}
+     @{" In the list there are no messages " link PS12}
+
+
+@endnode
+
+@node TT312
+     The message should be sent. Maybe you have selected wrong serial device
+or something try it with the standard serial.device. If it still doesn't
+work, send your computer specifications to @{b}lemming@k332.feld.cvut.cz@{ub}.
+
+@endnode
+
+@node TT32
+     It seems to be serious.  There is a cable or serial hardware fault.  You
+may try to use another COM port.  Solving this problem is beyond the purpose
+of this guide.
+
+@endnode
+
+
+@node WontHelpYou
+     I am sorry, but I am afraid I cannot help you.  Please try to contact
+author (@{b}lemming@k332.feld.cvut.cz@{ub}).
+
+@endnode
+
+@node TOuts1
+     This amount of timeouts is normal.  If you want, you can try to slow
+down a little bit or to decrease MaxTransfer or Timeout value.  It would
+help.
+
+@endnode
+
+@node TOuts2Par
+
+     It seems parallel routines is not working properly on your
+configuration.  Please send your configuration both with PC2AMDEB.EXE output
+to author at @{b}lemming@k332.feld.cvut.cz@{ub}.
+
+@endnode
+
+@node TOuts2
+     Which speed do you use (if you tried more with the same results, select
+the least one):
+
+     @{" I'm using parallel transfer         " link TOuts2Par}
+
+     @{" Less than 9600 or 9600              " link TOuts21}
+     @{" More than 9600 but less than 115200 " link TOuts22}
+     @{" 115200                              " link TOuts23}
+
+@endnode
+
+@node TOuts21
+     Can you transfer some bytes or you cannot transfer anything (to test it,
+type @{b}list pc:@{ub} and wait.  If you can see a list of drives that you
+have on PC, choose yes.  Also popup PC2Amiga and look if it ever said
+"Connection established".  If not, choose no.
+
+     @{" Yes, I can transfer something                      " link TOuts211}
+     @{" No, I even don't get the message (mentioned above) " link TOuts212}
+
+@endnode
+
+@node TOuts211
+     There must be something that doesn't allow Amiga or PC to receive most
+of the packets.  It can be a heavily running task with a high priority
+(especially on slower Amigas).  What you can try to do is to decrease
+MaxTransfer value down to 256 and try again.  If this will not help, I don't
+know what to do then.
+
+@endnode
+
+@node TOuts212
+     The programs didn't even get connected. You have problems with getting
+it run. Click @{" here " link ProbStart} to get to the right section.
+
+@endnode
+
+@node TOuts22
+     You can try to slow down a little bit or to decrease MaxTransfer or
+Timeout value. But you should be able to transfer at these rates. Another
+reason may be similar to the one in @{" this case " link TOuts211}.
+
+     I also heard that using Blizzards on 40MHz may cause problems with
+serial port on higher speeds.  Since 40MHz is not dividable by 14MHz (the
+rest of computer including CIAs still runs on this speed), the card must
+sometimes wait to synchronize with the main board, when accessing the other
+chips.  And these delays may cause drop-outs (overruns) of bytes.
+
+@endnode
+
+@node TOuts23
+     You cannot use 115200 on all Amigas.  Ordinary A500 just doesn't catch
+all the characters.  Even A1200 may not be capable of running at this speed.
+I know that this speed works without timeouts on A500 with A530 (a 40MHz
+68030 expansion) and 486DX.
+
+@endnode
+
+
+@node Timeouts
+     How many errors do you get per minute, when fully transfering (i.e., a
+long file))?  Ranges are inclusive.
+
+     @{" Up to two     " link TOuts1}
+     @{" Three or more " link TOuts2}
+@endnode
+
+@node ProbRun
+     Welcome to the "Solving problems during running PC2Amiga" section.
+
+     Please specify the problem.
+
+     @{" I get too many timeouts " link Timeouts}
+     @{" I have other problem    " link WontHelpYou} 
+@endnode
+
+@node PS0
+     Run PC2AMCFG.EXE and reconfigure program. 
+
+@endnode
+
+@node PSA
+     It is probable that serial hardware is in use by another program. Try to
+bootup without startup-sequence and mount the PC. You should not get that
+message. 
+
+@endnode
+
+@node ProbStart
+     Welcome to the "Solving problems with starting PC2Amiga" section.
+
+     PROBLEMS ON PC:
+     @{" When I run PC2Amiga, it says 'Bad config file version' " link PS0}
+
+     PROBLEMS ON AMIGA:
+     @{" I get requester saying that program cannot open device xx unit n " link PSA}
+
+     GENERAL PROBLEM
+     @{" Popup the PC2Amiga interface " link PoppingPC2Amiga} and look, what does it say (after the
+@{i}Connecting...@{ui} message).
+
+     @{" I cannot find it in the Exchange's commodity list  " link PS1}
+     @{" Some messages, but not `Connection established'    " link PS2}
+     @{" I got the `Connection established' message         " link PS3}
+
+@endnode
+
+@node PS1
+     Which version of OS are you running?
+
+     @{" 1.3           " link PS11}
+     @{" 2.0 or higher " link PS12}
+@endnode
+
+@node PS11
+     PC2Amiga cannot run on OS older than 2.0. Sorry.
+
+@endnode
+
+@node PS12
+     It seems there is a serious problem with running Amiga handler. Please,
+look if the @{b}mount pc:@{ub} command has returned. If you mounted it by
+clicking on its icon, please reset computer and try to do it this way. Then
+send this information together with your computer and OS specification and
+mountlist you use to mount PC to the author (@{b}lemming@k332.feld.cvut.cz@{ub}).
+
+@endnode
+
+@node PS2
+     Well.  Now it is time to get closer look at what's wrong.  On the PC,
+there is a program called PC2AMANA.EXE and also special debugging version of
+PC program (PC2AMDEB.EXE).  So read following instructions and then do what
+they say:
+
+     Reset both computers. Run PC2AMDEB.EXE program redirected to a file,
+e.g., type @{b}pc2amdeb.exe >output@{ub} and press ENTER. Then mount device
+on Amiga. When you are doing this experiment, it is not a good idea to have
+PC: mounted automatically. Wait for about a minute. You can popup a PC2Amiga
+interface and look how messages are scrolling, if they are same (or similar).
+This is a good way to prevent the situation that program will work when you
+are running it like this.  (According to the Murphy's law, it's very probable
+:-). If program works (the PCDISK icon appears on WB), do some actions with
+it, list directories, display files etc. to get bigger debug log file.
+
+     After about a minute click on @{b}Abort@{ub} on Amiga and press
+CTRL-BREAK on PC.  This time may be longer, it does only matter when it is
+too short.  You may look into the output file, you should see some ASCII
+characters.  Now run the PC2AMDEB program and pass it the output file as a
+first argument.  You must be in the directory where the PC2AMIGA.CFG file is
+present.  It means you should run it from the same directory as PC2AMDEB.
+Example:  @{b}pc2amana output@{ub}.  It will produce some output like:
+
+@{i}
+C:\\PC2AMIGA\\>pc2amana output
+PC2Amiga debug log analyser.
+Analysing...
+Done, result code: 3
+
+C:\\PC2AMIGA\\>_
+@{ui}
+
+After the "Analysing..." message program may sometimes print further details
+of analysed. If you understand it, it is OK. If not, doesn't matter. They are
+for experts (and me :-).
+
+The program also sometimes may ask you to provide longer file, if current is
+not enough. In this case, please, quench its hunger. It will tell you what to
+do.
+
+Remember or write down the error code. Then run Multiview (or AmigaGuide),
+browse through to this page and choose from following choices:
+
+     @{" Program returned result code 1 " link PS201}
+     @{" Program returned result code 2 " link PS202}
+     @{" Program returned result code 3 " link PS203}
+     @{" Program returned result code 4 " link PS204}
+     @{" Program returned result code 5 " link PS205}
+     @{" Program returned result code 6 " link PS206}
+     @{" Program returned result code 7 " link PS207}
+     @{" Program returned result code 8 " link PS208}
+     @{" Program returned result code 9 " link PS209}
+     @{" Program returned result code 10 " link PS210}
+     @{" Program returned result code 11 " link PS211}
+     @{" Program returned result code 12 " link PS212}
+     @{" Program returned result code 13 " link PS213}
+
+
+@endnode
+
+@node PS201
+     There  is  nothing  in the debug log file.  It is strange because one of
+the  most  first  thinks  program  does  is printing the 's' character to the
+output.   Are  you  sure  the  file  was created OK?  If you think all is OK,
+contact author (@{b}lemming@k332.feld.cvut.cz@{ub}).
+
+@endnode
+
+@node PS202
+     Program  hangs  during the start, but it should not (of course).  Please
+contact author (@{b}lemming@k332.feld.cvut.cz@{ub}).
+
+@endnode
+
+@node PS203
+     Program starts OK, but then it does nothing.  It is possible that it
+doesn't get any interrupt, but only when you use serial port.  The other
+possibility is that you forgot to mount PC:  on Amiga or there is a cable or
+other hardware failure.
+
+     @{" How to do a cable test " link CableTest}
+
+     @{b}Folloging parahrapg applies only when you use serial port:@{ub}
+     You may also have selected bad COM port on port or bad IRQ.  Try to
+select other IRQ when configuring PC part.  If it still doesn't work, try to
+run the @{" Terminal test " link TermTest}.
+
+@endnode
+
+@node PS204
+     Program  seems  to  be  working.  It gets packets OK and doesn't receive
+any timeout or packet-reply request. If you still have some problems, click
+@{" here " link ProbRun}.
+
+@endnode
+
+@node PS205
+     It seems it works, but there are some timeouts. If you think you are
+getting too many timeouts, click @{"here" link Timeouts}.
+@endnode
+
+@node PS206
+     It seems it works, but some packets are not got OK.
+
+     @{" Popup the PC2Amiga interface " link PoppingPC2Amiga} and look how many "Resending packet"
+messages you got.  If you think it is many, you can try to slow down
+communication speed (when using serial) or lower packet size (if it is not
+below 512 bytes).
+
+@endnode
+
+@node PS207
+     It seems it works, but there are some bad packets and timeouts.
+
+     @{" Popup the PC2Amiga interface " link PoppingPC2Amiga} and look how many "Resending packet"
+and "Timeout" messages you got.  If you think it is many, you can try to slow
+down communication speed or packet size (if it is not below 512 bytes). For
+special advices on timeouts see the @{" Timeouts section " link Timeouts}.
+
+@endnode
+
+@node PS208
+     Program gets just breaks and no other data. There may be several reasons
+of this situation:
+
+     a) Speed is not set right. The same speed must be set on both machines.
+See the @{" Configuration section " link "PC2Am.guide/Config"} in the main PC2Amiga guide.
+
+     b) On the PC, you have set bad COM port. Make sure you have set the same
+port as you have plugged the cable in. This often hapens when you mistakely
+select mouse port. Then, when you move mouse, program gets breaks. You can
+try it: Run @{b}PC2AMDEB.EXE@{ub} without redirection and do not mount PC: on
+Amiga side. It is best to plug off the serial cable, for sure. Then move
+mouse.  If you still get timeouts, the PC part is using bad port or there is
+some hardware (or software :-) failure.
+        There is also possibility that your serial card has swapped IRQs. Try
+to select another IRQ when configuring PC part (there are just two). If it
+still doesn't work, use the @{" Terminal test " link TermTest}.
+
+     c) The serial hardware is not programmed correctly, so I got interrupts
+from break but not from received data. But it is not probable.
+
+@endnode
+
+@node PS209
+     Just a few packets got OK. Try to run longer test, or try to behave as
+you were in @{" this case " link PS207}.
+
+@endnode
+
+@node PS210
+     PC can read just length. It is very, very strange. The only think you
+may try is to slow down transfer rate.
+
+@endnode
+
+@node PS211
+     PC gets both length and data, but the packet is bad. The only think you
+may try is to slow down transfer rate.
+
+@endnode
+
+@node PS212
+     I'm not quite sure what's going on, but there is suspicious number of
+packet-reply requests. Try to slow down transfer rate.
+
+@endnode
+
+@node PS213
+     The debug log file is so strange. It is not running OK, but I cannot
+determine what's wrong. You can try to run the test again and longer.
+Otherwise contact author (@{b}lemming@k332.feld.cvut.cz@{ub}) and send him
+the whole debug log file.
+
+     BTW:  This case should never happen, unless you play with the debug log
+file in a text editor...
+
+@endnode
+
+@node PS3
+     PC2Amiga is running. If there are other problems (TIMEOUTS), you can
+click @{" here " link ProbRun}. It will move you to the right section.
+
+@endnode
+
+@node PC1
+     Configuration script is not a separate program, it is a script for C=
+Installer.  Run it @{b}installer ConfigPC2Amiga@{ub}.  You must be in the
+directory where you have copied the script (during instalation).
+
+@endnode
+
+@node PC2
+     PC2Amiga's configuration script requires two external utility programs,
+called @{b}GetPCSpecs@{ub} and @{b}SetPCSpecs@{ub}.  They must be in the
+@{b}c:@{ub} directory.
+
+@endnode
+
+@node ProbConf
+  Please specify problem:
+
+  @{" I can't run configuration script " link PC1}
+  @{" Configuration script fails with the 'GETENV: String too long message' " link PC2}
+
+@endnode
+
+@node Main
+
+     Welcome to the PC2Amiga error solving guide.  You will be lead through a
+few (or more :-) questions about your problem(s).  At the end of your journey
+you will be given an advice.  But sometimes you may be in situation that your
+problem is beside limitations of this simple guide.  Then you will be asked
+to contact me.  In all situations like these there is written my e-mail
+address.  If you do not have e-mail, you can try to reach me by snail-mail,
+but it is very slow (especially for debugging).  My address is
+@{i}lemming@k332.feld.cvut.cz@{ui}.
+
+     @{b}NOTE:  If you are using parallel version and you are advised to
+lower transfer speed, ignore it.@{ub}
+
+
+     @{" I have problems getting PC2Amiga to run " link ProbStart}
+     @{" I have problems configuring PC2Amiga    " link ProbConf}
+     @{" I have problems when running PC2Amiga   " link ProbRun}
+
+@endnode

@@ -44,6 +44,10 @@ CALLINTUITION		MACRO
 	jsr	_LVO\1(a6)
 	ENDM
 
+ALLOCMEMORY    MACRO
+    jsr _ALLOCMEMORY
+    ENDM
+
 ALLOCMEMSHELL	MACRO
 	; print allocated memory to aux:(shell)
 	; usage: ALLOCMEMSHELL <register>,text
@@ -62,15 +66,6 @@ ALLOCMEMSHELL	MACRO
 		ALLOCMEMORY
 		ENDM
 
-ALLOCMEMORY	MACRO
-	CALLEXEC AllocVec
-	tst.l d0
-	beq .\@1
-	rts
-.\@1
-	move.l (sp),tempVar	; provide current pc
-	bra errorMemory
-	ENDM
 
 
 COLORHELL	MACRO

@@ -1,0 +1,61 @@
+Stack 16384
+
+Echo "This will remove OldIcon images from NewIcons replacing them"
+Echo "with a dot in order to increase performance."
+Echo ""
+Echo "Only NewIcons will be affected. OldIcons without NewIcon data"
+Echo "will not be processed."
+
+LAB Start
+Requestchoice >ENV:Loperat "PeelOldTools""Choose:""Single""Recursive""Quit"
+
+IF $Loperat EQ "1"
+Skip Single
+ENDIF
+IF $Loperat EQ "2"
+Skip Recursive
+ENDIF
+IF $Loperat EQ "0"
+Skip Cancel
+ENDIF
+
+LAB Cancel
+Delete ENV:Loperat ALL QUIET
+EndShell
+
+LAB Single
+Requestfile >ENV:Xfilename TITLE "Choose path" PATTERN #?.info MULTISELECT
+IF >NIL: $Xfilename GT 0
+KillOldIcon $Xfilename
+Delete ENV:Xfilename ALL QUIET
+Delete ENV:Loperat ALL QUIET
+Echo ""
+Echo "OldIcon data removed!"
+ELSE
+Delete ENV:Xfilename ALL QUIET
+Delete ENV:Loperat ALL QUIET
+EndIF
+Skip Start BACK
+
+LAB Recursive
+Requestfile >ENV:Xfilename TITLE "Choose path" DRAWERSONLY
+IF $Xfilename GT 0
+Echo ""
+Echo "Please wait...."
+Copy KillOldIcon RAM:
+List >RAM:Icons $Xfilename all p=#?.info lformat="RAM:KillOldIcon *"%p%m*""
+Execute RAM:Icons
+Delete RAM:Icons ALL QUIET
+Delete RAM:KillOldIcon ALL QUIET
+Delete ENV:Xfilename ALL QUIET
+Delete ENV:Loperat ALL QUIET
+Echo ""
+Echo "OldIcon data removed!"
+Wait 3
+ELSE
+Delete ENV:Xfilename ALL QUIET
+Delete ENV:Loperat ALL QUIET
+Skip Start BACK
+EndIF
+cls
+Execute PeelOldTools_GUI

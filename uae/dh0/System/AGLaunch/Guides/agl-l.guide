@@ -1,0 +1,66 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <L>
+
+Click game title to play
+
+      @{"LabyrintheDAnglomania1Fr" SYSTEM "agl:c/wbrun A-Games:L/LabyrintheDAnglomania1Fr/LabyrintheDAnglomania1Fr"}             @{"LabyrintheDAnglomania2Fr" SYSTEM "agl:c/wbrun A-Games:L/LabyrintheDAnglomania2Fr/LabyrintheDAnglomania2Fr"}
+      @{"LabyrintheDeLexicosFr" SYSTEM "agl:c/wbrun A-Games:L/LabyrintheDeLexicosFr/LabyrintheDeLexicosFr"}                @{"LabyrintheDErrareFr" SYSTEM "agl:c/wbrun A-Games:L/LabyrintheDErrareFr/LabyrintheDErrareFr"}
+      @{"LabyrintheDOrthophusFr" SYSTEM "agl:c/wbrun A-Games:L/LabyrintheDOrthophusFr/LabyrintheDOrthophusFr"}               @{"LabyrintheMilleCalculsFr" SYSTEM "agl:c/wbrun A-Games:L/LabyrintheMilleCalculsFr/LabyrintheMilleCalculsFr"}
+      @{"LabyrintheReineOmbresFr" SYSTEM "agl:c/wbrun A-Games:L/LabyrintheReineOmbresFr/LabyrintheReineOmbresFr"}              @{"LamborghiniAmericanChllng" SYSTEM "agl:c/wbrun A-Games:L/LamborghiniAmericanChllng/LamborghiniAmericanChllng"}
+      @{"Lancelot" SYSTEM "agl:c/wbrun A-Games:L/Lancelot/Lancelot"}                             @{"LandsitzVonMortvilleDe" SYSTEM "agl:c/wbrun A-Games:L/LandsitzVonMortvilleDe/LandsitzVonMortvilleDe"}
+      @{"LaserSquad" SYSTEM "agl:c/wbrun A-Games:L/LaserSquad/LaserSquad"}                           @{"LastActionHero" SYSTEM "agl:c/wbrun A-Games:L/LastActionHero/LastActionHero"}
+      @{"LastBattle" SYSTEM "agl:c/wbrun A-Games:L/LastBattle/LastBattle"}                           @{"LastDuel" SYSTEM "agl:c/wbrun A-Games:L/LastDuel/LastDuel"}
+      @{"LastNinja2" SYSTEM "agl:c/wbrun A-Games:L/LastNinja2/LastNinja2"}                           @{"LastNinja3" SYSTEM "agl:c/wbrun A-Games:L/LastNinja3/LastNinja3"}
+      @{"LastNinja3CD32" SYSTEM "agl:c/wbrun A-Games:L/LastNinja3CD32/LastNinja3CD32"}                       @{"LeadingLapMPV" SYSTEM "agl:c/wbrun A-Games:L/LeadingLapMPV/LeadingLapMPV"}
+      @{"LeadingLapMPVAGA" SYSTEM "agl:c/wbrun A-Games:L/LeadingLapMPVAGA/LeadingLapMPVAGA"}                     @{"LeadingLapMPVAGACUAmiga" SYSTEM "agl:c/wbrun A-Games:L/LeadingLapMPVAGACUAmiga/LeadingLapMPVAGACUAmiga"}
+      @{"LeadingLapMPVCUAmiga" SYSTEM "agl:c/wbrun A-Games:L/LeadingLapMPVCUAmiga/LeadingLapMPVCUAmiga"}                 @{"Leander" SYSTEM "agl:c/wbrun A-Games:L/Leander/Leander"}
+      @{"Leatherneck" SYSTEM "agl:c/wbrun A-Games:L/Leatherneck/Leatherneck"}                          @{"LeavinTeramis" SYSTEM "agl:c/wbrun A-Games:L/LeavinTeramis/LeavinTeramis"}
+      @{"LEDStorm" SYSTEM "agl:c/wbrun A-Games:L/LEDStorm/LEDStorm"}                             @{"LegendMindscape" SYSTEM "agl:c/wbrun A-Games:L/LegendMindscape/LegendMindscape"}
+      @{"LegendOfFaerghail" SYSTEM "agl:c/wbrun A-Games:L/LegendOfFaerghail/LegendOfFaerghail"}                    @{"LegendOfFaerghailDe" SYSTEM "agl:c/wbrun A-Games:L/LegendOfFaerghailDe/LegendOfFaerghailDe"}
+      @{"LegendOfKyrandia" SYSTEM "agl:c/wbrun A-Games:L/LegendOfKyrandia/LegendOfKyrandia"}                     @{"LegendOfKyrandiaDe" SYSTEM "agl:c/wbrun A-Games:L/LegendOfKyrandiaDe/LegendOfKyrandiaDe"}
+      @{"LegendOfKyrandiaFr" SYSTEM "agl:c/wbrun A-Games:L/LegendOfKyrandiaFr/LegendOfKyrandiaFr"}                   @{"LegendOfKyrandiaIt" SYSTEM "agl:c/wbrun A-Games:L/LegendOfKyrandiaIt/LegendOfKyrandiaIt"}
+      @{"LegendOfRagnarok" SYSTEM "agl:c/wbrun A-Games:L/LegendOfRagnarok/LegendOfRagnarok"}                     @{"LegendsAGA" SYSTEM "agl:c/wbrun A-Games:L/LegendsAGA/LegendsAGA"}
+      @{"LegendsCD32" SYSTEM "agl:c/wbrun A-Games:L/LegendsCD32/LegendsCD32"}                          @{"LegendsOfValour" SYSTEM "agl:c/wbrun A-Games:L/LegendsOfValour/LegendsOfValour"}
+      @{"LegendsOfValourDe" SYSTEM "agl:c/wbrun A-Games:L/LegendsOfValourDe/LegendsOfValourDe"}                    @{"LegendsOfValourFr" SYSTEM "agl:c/wbrun A-Games:L/LegendsOfValourFr/LegendsOfValourFr"}
+      @{"LeisureSuitLarry" SYSTEM "agl:c/wbrun A-Games:L/LeisureSuitLarry/LeisureSuitLarry"}                     @{"LeisureSuitLarry2" SYSTEM "agl:c/wbrun A-Games:L/LeisureSuitLarry2/LeisureSuitLarry2"}
+      @{"LeisureSuitLarry3" SYSTEM "agl:c/wbrun A-Games:L/LeisureSuitLarry3/LeisureSuitLarry3"}                    @{"LeisureSuitLarry5" SYSTEM "agl:c/wbrun A-Games:L/LeisureSuitLarry5/LeisureSuitLarry5"}
+      @{"LeisureSuitLarry5De" SYSTEM "agl:c/wbrun A-Games:L/LeisureSuitLarry5De/LeisureSuitLarry5De"}                  @{"LeisureSuitLarryEnhanced" SYSTEM "agl:c/wbrun A-Games:L/LeisureSuitLarryEnhanced/LeisureSuitLarryEnhanced"}
+      @{"Lemmings1Disk" SYSTEM "agl:c/wbrun A-Games:L/Lemmings1Disk/Lemmings1Disk"}                        @{"Lemmings21MB" SYSTEM "agl:c/wbrun A-Games:L/Lemmings21MB/Lemmings21MB"}
+      @{"Lemmings2512KB" SYSTEM "agl:c/wbrun A-Games:L/Lemmings2512KB/Lemmings2512KB"}                       @{"Lemmings2Disk" SYSTEM "agl:c/wbrun A-Games:L/Lemmings2Disk/Lemmings2Disk"}
+      @{"LemmingsCDTV" SYSTEM "agl:c/wbrun A-Games:L/LemmingsCDTV/LemmingsCDTV"}                         @{"LemmingsDemo" SYSTEM "agl:c/wbrun A-Games:L/LemmingsDemo/LemmingsDemo"}
+      @{"LeonardoDOS" SYSTEM "agl:c/wbrun A-Games:L/LeonardoDOS/LeonardoDOS"}                          @{"LeonardoHighDensity" SYSTEM "agl:c/wbrun A-Games:L/LeonardoHighDensity/LeonardoHighDensity"}
+      @{"LesManleySearchForTheKing" SYSTEM "agl:c/wbrun A-Games:L/LesManleySearchForTheKing/LesManleySearchForTheKing"}            @{"LethalWeapon" SYSTEM "agl:c/wbrun A-Games:L/LethalWeapon/LethalWeapon"}
+      @{"LethalXcess" SYSTEM "agl:c/wbrun A-Games:L/LethalXcess/LethalXcess"}                          @{"LethalZone" SYSTEM "agl:c/wbrun A-Games:L/LethalZone/LethalZone"}
+      @{"Leviathan" SYSTEM "agl:c/wbrun A-Games:L/Leviathan/Leviathan"}                            @{"LicenceToKill" SYSTEM "agl:c/wbrun A-Games:L/LicenceToKill/LicenceToKill"}
+      @{"Life&Death" SYSTEM "agl:c/wbrun A-Games:L/Life&Death/Life&Death"}                           @{"LightCorridor" SYSTEM "agl:c/wbrun A-Games:L/LightCorridor/LightCorridor"}
+      @{"LightRacerDe" SYSTEM "agl:c/wbrun A-Games:L/LightRacerDe/LightRacerDe"}                         @{"Limes&Napoleon" SYSTEM "agl:c/wbrun A-Games:L/Limes&Napoleon/Limes&Napoleon"}
+      @{"LineOfFire" SYSTEM "agl:c/wbrun A-Games:L/LineOfFire/LineOfFire"}                           @{"Lionheart" SYSTEM "agl:c/wbrun A-Games:L/Lionheart/Lionheart"}
+      @{"LionheartDemo1" SYSTEM "agl:c/wbrun A-Games:L/LionheartDemo1/LionheartDemo1"}                       @{"LionheartDemo2" SYSTEM "agl:c/wbrun A-Games:L/LionheartDemo2/LionheartDemo2"}
+      @{"LionKingAGA" SYSTEM "agl:c/wbrun A-Games:L/LionKingAGA/LionKingAGA"}                          @{"LiquidKidsFiles" SYSTEM "agl:c/wbrun A-Games:L/LiquidKidsFiles/LiquidKidsFiles"}
+      @{"LiquidKidsImage" SYSTEM "agl:c/wbrun A-Games:L/LiquidKidsImage/LiquidKidsImage"}                      @{"LittleComputerPeople" SYSTEM "agl:c/wbrun A-Games:L/LittleComputerPeople/LittleComputerPeople"}
+      @{"LittlePuffInDragonland" SYSTEM "agl:c/wbrun A-Games:L/LittlePuffInDragonland/LittlePuffInDragonland"}               @{"Live&LetDie&SpaceHarrier" SYSTEM "agl:c/wbrun A-Games:L/Live&LetDie&SpaceHarrier/Live&LetDie&SpaceHarrier"}
+      @{"Livingstone2" SYSTEM "agl:c/wbrun A-Games:L/Livingstone2/Livingstone2"}                         @{"Llamatron1MB" SYSTEM "agl:c/wbrun A-Games:L/Llamatron1MB/Llamatron1MB"}
+      @{"Llamatron512KB" SYSTEM "agl:c/wbrun A-Games:L/Llamatron512KB/Llamatron512KB"}                       @{"Logical" SYSTEM "agl:c/wbrun A-Games:L/Logical/Logical"}
+      @{"LogicalCDTV" SYSTEM "agl:c/wbrun A-Games:L/LogicalCDTV/LogicalCDTV"}                          @{"Logo" SYSTEM "agl:c/wbrun A-Games:L/Logo/Logo"}
+      @{"Lollypop" SYSTEM "agl:c/wbrun A-Games:L/Lollypop/Lollypop"}                             @{"LombardRACRally1Disk" SYSTEM "agl:c/wbrun A-Games:L/LombardRACRally1Disk/LombardRACRally1Disk"}
+      @{"LombardRACRally2Disk" SYSTEM "agl:c/wbrun A-Games:L/LombardRACRally2Disk/LombardRACRally2Disk"}                 @{"LoomDeKick13" SYSTEM "agl:c/wbrun A-Games:L/LoomDeKick13/LoomDeKick13"}
+      @{"LoomDeKick31" SYSTEM "agl:c/wbrun A-Games:L/LoomDeKick31/LoomDeKick31"}                         @{"LoomEsKick13" SYSTEM "agl:c/wbrun A-Games:L/LoomEsKick13/LoomEsKick13"}
+      @{"LoomEsKick31" SYSTEM "agl:c/wbrun A-Games:L/LoomEsKick31/LoomEsKick31"}                         @{"LoomFrKick13" SYSTEM "agl:c/wbrun A-Games:L/LoomFrKick13/LoomFrKick13"}
+      @{"LoomFrKick31" SYSTEM "agl:c/wbrun A-Games:L/LoomFrKick31/LoomFrKick31"}                         @{"LoomKick13" SYSTEM "agl:c/wbrun A-Games:L/LoomKick13/LoomKick13"}
+      @{"LoomKick31" SYSTEM "agl:c/wbrun A-Games:L/LoomKick31/LoomKick31"}                           @{"Loopz" SYSTEM "agl:c/wbrun A-Games:L/Loopz/Loopz"}
+      @{"LordsOfChaos" SYSTEM "agl:c/wbrun A-Games:L/LordsOfChaos/LordsOfChaos"}                         @{"LordsOfTheRealm" SYSTEM "agl:c/wbrun A-Games:L/LordsOfTheRealm/LordsOfTheRealm"}
+      @{"LordsOfTheRealmAGA" SYSTEM "agl:c/wbrun A-Games:L/LordsOfTheRealmAGA/LordsOfTheRealmAGA"}                   @{"LordsOfTheRealmAGADe" SYSTEM "agl:c/wbrun A-Games:L/LordsOfTheRealmAGADe/LordsOfTheRealmAGADe"}
+      @{"LordsOfTheRealmAGADeFast" SYSTEM "agl:c/wbrun A-Games:L/LordsOfTheRealmAGADeFast/LordsOfTheRealmAGADeFast"}             @{"LordsOfTheRealmAGAFast" SYSTEM "agl:c/wbrun A-Games:L/LordsOfTheRealmAGAFast/LordsOfTheRealmAGAFast"}
+      @{"LordsOfTheRealmAGAFr" SYSTEM "agl:c/wbrun A-Games:L/LordsOfTheRealmAGAFr/LordsOfTheRealmAGAFr"}                 @{"LordsOfTheRealmAGAFrFast" SYSTEM "agl:c/wbrun A-Games:L/LordsOfTheRealmAGAFrFast/LordsOfTheRealmAGAFrFast"}
+      @{"LordsOfTheRisingSun" SYSTEM "agl:c/wbrun A-Games:L/LordsOfTheRisingSun/LordsOfTheRisingSun"}                  @{"LostDutchmanMine" SYSTEM "agl:c/wbrun A-Games:L/LostDutchmanMine/LostDutchmanMine"}
+      @{"LostPatrol" SYSTEM "agl:c/wbrun A-Games:L/LostPatrol/LostPatrol"}                           @{"LostVikings" SYSTEM "agl:c/wbrun A-Games:L/LostVikings/LostVikings"}
+      @{"LostVikingsCD32" SYSTEM "agl:c/wbrun A-Games:L/LostVikingsCD32/LostVikingsCD32"}                      @{"LotharMatthausFussball" SYSTEM "agl:c/wbrun A-Games:L/LotharMatthausFussball/LotharMatthausFussball"}
+      @{"Lotus" SYSTEM "agl:c/wbrun A-Games:L/Lotus/Lotus"}                                @{"Lotus2" SYSTEM "agl:c/wbrun A-Games:L/Lotus2/Lotus2"}
+      @{"Lotus3" SYSTEM "agl:c/wbrun A-Games:L/Lotus3/Lotus3"}                               @{"LotusCD32" SYSTEM "agl:c/wbrun A-Games:L/LotusCD32/LotusCD32"}
+      @{"LunarCCD32" SYSTEM "agl:c/wbrun A-Games:L/LunarCCD32/LunarCCD32"}                           @{"LureOfTheTemptress" SYSTEM "agl:c/wbrun A-Games:L/LureOfTheTemptress/LureOfTheTemptress"}
+      @{"LureOfTheTemptressDe" SYSTEM "agl:c/wbrun A-Games:L/LureOfTheTemptressDe/LureOfTheTemptressDe"}                 @{"LureOfTheTemptressFr" SYSTEM "agl:c/wbrun A-Games:L/LureOfTheTemptressFr/LureOfTheTemptressFr"}
+      @{"LureOfTheTemptressIt" SYSTEM "agl:c/wbrun A-Games:L/LureOfTheTemptressIt/LureOfTheTemptressIt"}                 @{"Luxor" SYSTEM "agl:c/wbrun A-Games:L/Luxor/Luxor"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode

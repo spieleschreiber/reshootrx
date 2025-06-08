@@ -1,0 +1,48 @@
+
+ NoNewIcons 1.0 (c) by Marcel Doering 1996 (20-March-1996)
+ ---------------------------------------------------------
+
+ Q: What is this little tool ?
+
+ A: This little tool will recursively search all
+    directorys on your Disks or Harddisks for
+    'NewIcons'.
+
+ Maybe you know these Icons, it`s an quite good
+ idea, but when you want to remove all of them,
+ you have to use 'KillNewIcon' on every icon,
+ that`s why I wrote this little program.
+
+ It will recursively look for icons and then
+ kills the 'NewIcon-Tooltypes' and only these !
+
+ Well, simply start it, you don`t need more
+ docs to run it.
+
+ Autor (Snail Mail):
+
+ Marcel Doering
+ Lettigkautweg 33
+ 60599 Frankfurt am Main
+ -- Germany --
+
+ E-Mail (prefered):
+ DonDoringo@GURU.rhein-main.de
+
+
+ What it needs:
+
+ SYS:System/Rexxmast should be active !
+
+ RexxReqTools.library should be in your libs:
+ assign (or path).
+
+ You need the triton and tritonrexx.library in your
+ libs: assign. (included)
+
+ You also need the little program 'KillNewIcon' in
+ your c: assign. (also included)
+
+ About 1 Meg of free mem.
+
+ That`s all.

@@ -1,0 +1,145 @@
+
+Program name:  EasyTransfer V2.0
+
+What it does:  Transfers files between an Amiga and IBM using a
+               3 wire serial NULL modem at up to 115200 bps
+
+Author:        Kamran Karimi
+
+Co-operator:  Shahryar Fekri & Saeed Pahangdar
+
+Distributor:  Alpha Software Group
+
+Directory contents:
+
+ EasyAmiga <-- The program to run on Amiga
+
+ EasyPC.EXE <-- The server to run on an IBM
+
+ EasyTransfer.doc <-- The file yor are reading now 
+
+ This program is copyrighted, but you can use it freely.(Aminet)
+-----------------------------------------------------------------------------
+
+
+Here is a quick and dirty doc for EasyTransfer:
+
+ EasyTransfer uses a 3 wire serial connection (see end of file) to transfer 
+files between Amiga and IBM compatibles. To use it, you should first transfer
+the EasyPC.exe program to an IBM machine. You can use programs like CrossDOS
+to do this. Run the EasyPC there. The program uses serial port 2 by 
+default, because many people use port 1 for mouse. Yot can ask the use
+of port 1 by using the '-1' command line option. option -2 is equivalent
+to default. The program shows a screen full of 'IBM' texts and gradually
+replaces them with 'AMIGA!'. if you specify '-v' or '-V' as command line
+options, the program shows messages indicating its workings. You can quit
+the server program any time by pressing Control-break.
+
+Example: If you want to use serial port number 1 and also want to see
+what the program is doing, enter this command:  C:\> EasyPC -1 -v
+
+ The Amiga program controles the whole scene. It opens a screen showing
+two windows. The right one is for Amiga files, the left one shows server
+directories.
+
+ You start the session by first running the server on the PC. Then run the
+Amiga program. There is a 'CONFIG' gagdet in lower right of the screen,
+pressing it opens a configuration window in which you can enter the name
+of the serial device to use , serial device unit (if you have multiple 
+serial ports), a delay time which specifies how much the server and Amiga 
+should wait for a reply, a starting speed (more on this later) and the 
+method of hardware access on the PC, you can specify 'BIOS' to use BIOS 
+calls in serial port programming. This should be more compatible but limits 
+the maximum speed at 9600 bps. it can be used for example on PC emulators 
+on other computers. By choosing 'DIRECTLY', the upper limit of serial 
+transfer becomes 115200. The program can periodically check the cable
+connecting the machines, Enter a 0 here to prevent the check. Also,
+you can determine how many times the program should retransmit the 
+information if it gets corrupted.
+
+
+ The program determines the speed to use by choosing the speed in the 
+configuration window written under the name of starting speed. Then the
+Amiga and PC send each other packets of data at the specified speed and 
+check to see if the information was received intact. If successfull, the 
+speed is used, otherwise a lower speed is chosen and the whole thing
+is repeated. The method chosen in the program has some bugs and It
+is possible for the Amiga and PC never to synchronize even in very low
+transfer rates, if the initial speed is too high. Or the program may
+show frequent 'Synchronization Lost' messages or things like that.
+Try lowering the initial speed and see if every thing works all right.
+It is best to find a suitable speed by trial and error.
+
+ Note that you may not be able to use high transfer rates because of the
+low speed of the Amiga or the PC. On an A1200 with fast ram and an IBM 
+386DX 40MHz, with cache, 57600 pbs works fine. As The hardware of the PC 
+serial port can be used, while the Amiga Serial port is accessed only by its
+software drivers, the real limitation is caused by the Amiga.   
+
+ The delay time is computed in seconds. The number you enter in configuration
+window is used on the server. The Amiga adds 2 seconds to that to make sure
+the two machines will synch. On both machines, an amount equal to the actual
+transfer time of the data is added to this. Delay time can not be zero.
+The main use of it is when dealing with slow devices.
+
+ You can save the configuraion of your choice. The configuration file
+is S:EasyTransfer.Config.
+
+ When the configuration is OK, press the CONNECT gadget. If every thing goes
+all right, the connection is established. Use the string gadget at the top
+left of the screen to enter PC directories, and the string gadget at the
+top right for Amiga. Enter the directory name and press return to change
+directory there and also see the directory contents. Double clicking on a
+directory name will cause the program to enter it. Press on PARENT to leave
+the directory, but do not use it while in the root directory of a disk. Press
+DELETE to delete a file or directory or MKDIR to create a new directory. 
+At any time, one of the Amiga or PC windows is active and the operations
+mentioned above applies to it. the active window is marked by being 'carved' 
+in the screen. The inactive one pops up.
+
+ You can select files or directories to transfer by clicking the mouse on
+them. If the Amiga window is active, the CONNECT gadget will become SEND
+and if the PC window is active, it becomes RECEIVE. The CONFIG gadget 
+will turn into BINARY or TEXT, showing if a translation of files will take
+place (more on this later).
+
+ Selecting a directory, causes all the files and directories inside it also 
+to be sent recursively. After a transfer, the program updates the 
+corresponding window by getting the new directory contents. 
+
+ If TEXT option is chosen during a transfer, files comming from the server
+are searched for carriage returns and Control-Z characters. The files going 
+to the server are augmented with a carriage return whenever a linefeed is
+seen. When BINARY option is chosen, files won't change.
+
+ The amount of transfered data is shown graphically in TELECOMMUNICATIONS
+subwindow. This is reserved for file transfers.
+
+ You can cancel a transfer by hitting the ESCAPE key. If the program tries 
+to read a directory after cancelling a transfer, it may fail. Just wait a 
+few seconds and try again.
+
+ Beware of long file names on the Amiga. Long file names will be truncated
+on the PC side. For example, if you send longfilename1 and longfilename2
+to the same directory of the PC, the last one will overwrite the first one.
+To prevent this from happening, use the gadget in the left of TEXT/BINARY
+gadget. When it shows PROTECT, the program will prevent overwrites on files
+already existing in the Amiga or PC directory. The OVR WRT is a sign that
+the program will not care about overwrites.
+
+The program changes a starting '.' (like in .info) to '_'.
+
+ Pressing EXIT will end the program, but befor that, the Amiga tries to 
+inform the server of the quit and the server will also quit.
+
+
+
+ Be careful with wiring and turn off both computers befor connecting a 
+cable
+ -------------------------------------------------------------------------
+
+Alpha Soft Group
+PO Box 11365-4914
+Tehran 11365
+Iran
+Tel: (0)21 866755

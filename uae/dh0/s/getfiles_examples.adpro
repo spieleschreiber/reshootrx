@@ -1,0 +1,30 @@
+/* 	GETFILES_EXAMPLE
+**
+**	This ARexx program is an example of how to 
+**	use the GETFILES command new to ADPro 2.0.
+**
+**	Example ARexx program for controlling ADPro by ASDG Incorporated.
+** 	Copyright 1991 By  ASDG Incorporated
+*/
+
+ADDRESS "ADPro"
+OPTIONS RESULTS
+NL = '0A'X
+
+OrdinalWords = "first second third fourth fifth sixth"
+OrdinalMax   = 6
+
+GETFILES '"Select A Few Files"'
+IF RC ~= 0 THEN EXIT
+
+TheFiles      = ADPRO_RESULT
+NumberOfFiles = WORDS(TheFiles)
+FileCounter   = 1
+
+DO WHILE FileCounter <= NumberOfFiles
+	IF FileCounter > OrdinalMax THEN String = "Another file you picked is:" || NL
+	ELSE String = "The" WORD(OrdinalWords , FileCounter) "file you picked is:" || NL
+	String = String || WORD(TheFiles , FileCounter)
+	OKAY1 String
+	FileCounter = FileCounter + 1
+END

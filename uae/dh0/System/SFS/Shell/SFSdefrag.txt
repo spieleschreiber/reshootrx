@@ -1,0 +1,109 @@
+
+Defragmenter (part of SFS) and SFSdefrag (cli command)
+------------------------------------------------------
+
+The Defragmenter
+----------------
+
+- Defragments files and free space.
+
+- 100% transparent; defragment a disk while you're still
+  reading and writing data from/to it (SFS won't guarantee
+  a 100% defragmented disk when the disk has been modified
+  during defragmentation though).
+
+- Defragmentation uses the same safe-writing techniques which
+  SFS always uses.  This means a crash, reset or power failure
+  will not cause you to lose any data, even while the
+  defragmenter is running.
+
+  The price you pay for this feature is speed and a not 100%
+  optimal defragmentation (there is a big difference between
+  a simple defragmenter and a disk optimizer like ReOrg).
+
+- A very simple interface is provided to activate the
+  defragmenter built-in SFS.  See packets.h and the source of
+  SFSdefragmentGUI for more information.
+
+!!!
+---
+When you use the defragmenter, it is wise to allocate for this
+time EXTRA buffers (with SFSdefrag!) to speed up the process.
+SFSdefrag subt. these buffers after the job automatically!
+Adding about 1000-4000 extra buffers would be a very good idea.
+1 Buffer = 512 Bytes (512 Blocks)
+
+SFSdefrag
+---------
+Once you start SFSdefrag it will start defragmenting immediately.
+Note that the defragmenter will NOT wait for the drive to be
+unused -- it will start defragmenting immediately hogging the
+drive and slowing down any normal reads or writes you are doing
+to that drive.
+
+Once the program is started it will display a simple map of
+your drive so you can see what's going on.  This map is
+constantly updated and you can see the reads/writes SFS
+does.  Note that only changes made by the defragmenter are
+tracked here; other program writing to the disk will not
+show up in this map, and thus the map isn't always 100%
+correct.
+This is a VERY basic "progress window" for the SFS defragmenter
+which I created in a couple of hours.  I do not intend to
+extend it much further, but it is provided as an example
+and because (currently) it is the only means to start the
+defragmenter.
+
+You can stop the defragmenter at any time by closing the
+defragmenter window.  Restarting it will cause SFS to
+continue defragmentation where it left of (it will skip the
+defragmentated parts at the beginning of the disk quickly).
+
+You can resize the window if you like -- a last minute
+feature I added :-)
+
+I'm not sure what the memory requirements are, but the
+defragmenter will need atleast enough memory to hold the
+bitmap of the drive in memory.  This is usually about 0.25%
+of the total size of the drive you are trying to defragment
+plus the memory needed to show the window (depends on the
+window size).  For a 2 GB drive the total memory
+requirements are about 1 MB (+ Buffers)
+
+
+Usage
+-----
+
+Use SFSdefrag from a CLI or script.  It's commandline syntax is:
+
+  DEVICE/A,DEBUG/S,ADDBUFFERS/N,WINLEFT/N,WINTOP/N,WINWIDTH/N,WINHEIGHT/N,NOWINDOW/S,DEFAULTFONT/S,SHOWRESULT/S
+
+DEVICE/A:  This is a required parameter.  It is the disk you want to
+defrag with SFSdefrag.
+ADDBUFFERS: add disk buffers for partition  A N D  subt. these
+            disk buffers after the job.
+DEBUG: "debug stuff"
+WINLEFT/N     : Window left position.
+WINTOP/N      : Window top position. 
+WINWIDTH/N    : Window width dimension.
+WINHEIGHT/N   : Window height dimension.
+NOWINDOW/S    : Defragmentation window isn't shown(another tiny window is opened).
+DEFAULTFONT/S : Availlable with "NOWINDOW" argument, use the current default font for
+                window gadgets(by default screen font is used).
+SHOWRESULT/S  : Display the total number of blocks moved, example:
+                SFSdefragment result:
+                2809 Blocks moved
+                of
+                196091 Total blocks
+                Percentage: 1 %
+
+Of course, WINWIDTH and WINHEIGHT arguments have no effect using NOWINDOW argument.
+
+Examples
+--------
+SFSDefragment ZIP2: ADDBUFFERS 500 WINLEFT 14 WINWTOP 16 WINWIDTH 800 WINHEIGHT 60
+
+or
+
+SFSDefragment ZIP2: ADDBUFFERS 500 WINLEFT 14 WINWTOP 16 NOWINDOW DEFAULTFONT
+

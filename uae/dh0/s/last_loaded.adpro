@@ -1,0 +1,21 @@
+/* 	LAST_LOADED
+**
+**	This program finds out the name of the last image you loaded.
+**	It presents the name in an OKAY1.
+**
+**	Example ARexx program for controlling ADPro by ASDG Incorporated.
+** 	Copyright 1991 By  ASDG Incorporated
+*/
+
+
+ADDRESS "ADPro"
+
+OPTIONS RESULTS
+
+NL = '0A'X
+
+LAST_LOADED_IMAGE
+
+IF RC = 0 THEN DO
+	OKAY1 "Last loaded image was:" || NL || right(ADPRO_RESULT , 32)
+END

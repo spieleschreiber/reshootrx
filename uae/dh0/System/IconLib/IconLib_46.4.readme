@@ -1,0 +1,185 @@
+Short:        free icon.library in optimized ASM code
+Uploader:     pkeunecke@alice-dsl.net
+Author:       Peter Keunecke
+Type:         util/libs
+Version:      46.4.326
+Architecture: m68k-amigaos >= 3.0.0
+Requires:     68000 CPU or 68020+
+
+ Latest changes:
+ ~~~~~~~~~~~~~~
+2 versions are included now, for 68000 and for 68020+ systems.
+The best 68000 setup I could find was a combination with the
+workbench.library 45.127 loaded either by LoadResident or by
+SetPatch v44. Using one of the original WB-Libs v44+ - v45.127
+has many advantages. No icon frames, it consumes less ChipMem,
+it's faster and it's the only way to swap images with WB-info.
+Unfortunately, LoadModule brings a warmstart Guru with WB 44+.
+
+The 68000 version has no direct drawing support anymore, since
+there are no gfx-cards or drivers available. And because FBlit
+also won't run on a 68000 CPU, it's impossible to use FastMem.
+I would recommend to call the instruction "FastColors" before
+LoadWB on all standard Amigas to get more speed for the icons.
+You could also boost the icon loading by converting PNG icons
+via position SnapShot and saving all OS4 icons with WB-info.
+
+The color reduction from truecolor to the OS 3.5 format has
+been improved a little. This should make color banding effects
+less visible on low resolution screens. This is simply done by
+pushing the RGB level of every second pixel just a bit higher.
+All my efforts to use some simple dithering code for spreading
+the color error could not beat the results of this method.
+
+ Description:
+ ~~~~~~~~~~~
+The icon.library has been written completely in optimized ASM
+code with IconBeFast 2 already built in. It works much faster
+now and is also a lot smaller than the original icon.library.
+
+Added direct support for workbench.library version 39 and 40.
+
+This library can now display the 32 bit ARGB icons of OS4 on
+any AGA screen with the normal 8 bit color mapping of OS 3.5+.
+WB:icon->info will convert these icons into the OS 3.5 format!
+The old style planar images of the OS4 icons are replaced now
+by the smaller internal default images since many were broken.
+
+Added support for displaying Dual-PNG icons on any AGA screen.
+When you're fixing the position of PNG-icons with snapshot you
+will see a requester asking if you would like to convert the
+icons into the OS 3.5 format. This format has the advantage of
+getting small files and a much faster icon loading as for PNG.
+There's hardly any quality loss visible in truecolor modes.
+The viewmodes for PNG drawer icons are now always set to their
+defaults: displaying only real icons and NO text-mode listings.
+
+A zlib inflate function is already embedded for uncompressing
+the OS4 and PNG images. No need for the external zlib.library.
+
+A direct drawing mode for all gfx-cards in HiColor quality is 
+is now available. The PowerIcons patch isn't required anymore
+and should be removed now. The direct drawing on Hi/TrueColor
+screens is really fast, even faster than normal color mapping.
+
+Other new features are the ghosted deficons (50% transparent)
+and the optional outline text for icons on the Workbench v44+.
+Furthermore, you can enable shadow text for icons on WB 3.5+.
+Generating the shadow text is a lot faster than outline text.
+Deficons without a transparent color defined are an exception
+to allow Eastern to display its preview pictures not ghosted.
+
+The library has a color reduction routine for PNG and OS4 ARGB
+icons which is based on 15 bits for the first 100 colors now.
+The comparison is done with less bits step by step when more
+colors are required. The resulting quality is close to HiColor.
+The cache for the screens colortable is built just once after
+booting and will be updated only if the number of shared pens
+has changed. The colormapping and the bitplanes for the second
+image of any icon won't be done before the icons are selected.
+
+This icon.library won't waste ChipMem for the icons anymore.
+
+A new space optimization routine for writing is included now.
+It's always activated, regardless of the option settings, and
+it rebuilds the colortables from scratch closing possible gaps
+and avoiding multiple entries with the same RGB values. The
+new and shorter data compression code should also be faster.
+The icon images are now always compressed, but the RGB color
+tables on the other side will not be compressed. It's faster.
+
+This icon.library can also be used without conflicts on AfA_OS
+since release 4.7. But AfA_OS has its own Icon_Lib.exe and will
+do most of the icon drawing itself if loaded from AfA_OS_LIBS:.
+
+AROS 68k systems are also supported with a fix for AllocList.
+Please, install LoadModule LIBS:icon.library before SetPatch.
+
+
+ Downloads:
+ ~~~~~~~~~
+Complete pack http://aminet.net/package/util/libs/IconLib_46.4
+Bugfixes and tests http://eab.abime.net/showthread.php?t=64079
+
+ Installation:
+ ~~~~~~~~~~~~
+On OS 3.5+ just copy the icon.library into your LIBS: drawer.
+
+Of course, it's required to load the icon.library resident if
+you want to use it with AmigaOS 3.0 or 3.1. This can be done
+either with LoadModule, LoadResident or by using a custom ROM. 
+So, you don't need any files from OS 3.5+ or Scalos anymore.
+There is just one limitation: the OLD workbench.library will
+not reload the icons after a screenmode change and thus the
+OS 3.5 colors will not be remapped then. This needs a reboot.
+
+How to use this with AmigaOS 3.0 already is shown on the disk
+image IconDemoADF http://eab.abime.net/showthread.php?t=64079
+
+
+If you don't have SetPatch v44 or cannot use LoadModule on a
+68000 system then you could load the iconlib (and wblib) by:
+
+Version >NIL: icon.library 46
+If WARN
+   If EXISTS LIBS:workbench.library
+      LoadResident >NIL: LIBS:workbench.library
+   EndIf
+   LoadResident >NIL: LIBS:icon.library REBOOT
+EndIf
+
+SetPatch QUIET
+
+If you have SetPatch v44 installed then don't load the wblib
+or iconlib with LoadResident or LoadModule. It wastes memory.
+
+
+ Other commands:
+ ~~~~~~~~~~~~~~
+The library will prefer to use FastMem when FBlit is detected.
+There are some special shell commands for WB 3.0/3.1 users in
+this package: IconFramesON, IconFramesOFF and IconsToFastMem.
+
+A faster colormapping mode is now optional available and can
+be enabled by setting icon quality to bad in Prefs/Workbench.
+Without OS 3.5+ you can add the instruction FastColors below
+IPrefs in your startup-sequence. Works with a 512 byte cache.
+
+IconsTo24BitDmaMem can be used on systems with 16-bit memory
+to save the faster 32-bit memory for your real applications.
+To make this possible just call IconsTo24BitDmaMem from s-s.
+
+To enable the outline text call OutlineIconText before LoadWB.
+For shadow text call ShadowIconText from the startup-sequence.
+In Prefs/Fonts you should set the text and the field color for
+the text background and then switch back into text only mode.
+
+An other new instruction is GrayscaleOnOff which can be used
+to render the icons in shades of gray only instead of color.
+It can be enabled in Prefs/Workbench by setting icon quality
+to bad like it's done for the faster colormapping. Both can't
+be combined at the same time. Call the command before LoadWB.
+WB 3.0/3.1 users need 2 calls: GrayscaleOnOff and FastColors.
+
+If you start shadow/outline text or grayscale at runtime then
+please update your icons and call WB reset from the tools menu.
+
+As a bonus, the command FixCGX_ReadPixelArray is supplied for
+users of CGX software to solve problems with other programs
+caused by a ReadPixelArray() bug. Icon.library won't need it.
+
+ Distribution:
+ ~~~~~~~~~~~~
+This program is freeware. I don't give any warranties. You are
+using this program on your own risk and you are responsible for
+any damage it could cause to your system. This icon.library is
+now completely independent and free of the AmigaOS copyright :)
+My (PhxAss) source code is supplied and can be used by anybody.
+
+Thanks to all users who've sent bugreports or made suggestions.
+
+ Copyright 2007-2013:
+ ~~~~~~~~~~~~~~~~~~~
+   Peter Keunecke
+
+

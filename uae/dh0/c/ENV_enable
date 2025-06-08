@@ -1,0 +1,9 @@
+IF EXISTS L:env-handler_disabled
+  Rename L:env-handler_disabled L:env-handler
+  Echo ""
+  Echo "ENV Handler is now enabled - please reboot"
+ELSE
+  Echo ""
+  Echo "ERROR - ENV Handler is already enabled"
+EndIF
+Wait 1

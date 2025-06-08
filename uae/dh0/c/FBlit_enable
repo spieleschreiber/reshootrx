@@ -1,0 +1,14 @@
+IF EXISTS SYS:System/FBlit/FBlit_disabled
+  Rename SYS:System/FBlit/FBlit_disabled SYS:System/FBlit/FBlit
+  Copy SYS:Prefs/Env-Archive/Newicons.prefs SYS:Prefs/Presets/Newicons.prefs
+  Copy SYS:Prefs/Presets/NewiconsRTG.prefs SYS:Prefs/Env-Archive/Newicons.prefs
+  IF EXISTS SYS:System/FBlit/FBlit.cfg
+    Copy SYS:System/FBlit/FBlit.cfg SYS:Prefs/Env-Archive/FBlit.cfg
+  EndIF
+  Echo ""
+  Echo "FBlit & FText are now enabled - please reboot"
+ELSE
+  Echo ""
+  Echo "ERROR - FBlit & FText are already enabled"
+EndIF
+Wait 1

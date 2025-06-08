@@ -1,0 +1,66 @@
+
+
+
+     pnm(5)              AMIGA (27 September 1991)              pnm(5)
+
+
+
+     NAME
+          pnm - portable anymap file format
+
+     DESCRIPTION
+          The pnm programs operate on portable bitmaps, graymaps, and
+          pixmaps, produced by the pbm, pgm, and ppm segments.  There
+          is no file format associated with pnm itself.
+
+     SEE ALSO
+          anytopnm(1), rasttopnm(1), tifftopnm(1), xwdtopnm(1),
+          pnmtops(1), pnmtorast(1), pnmtotiff(1), pnmtoxwd(1),
+          pnmarith(1), pnmcat(1), pnmconvol(1), pnmcrop(1), pnmcut(1),
+          pnmdepth(1), pnmenlarge(1), pnmfile(1), pnmflip(1),
+          pnmgamma(1), pnmindex(1), pnminvert(1), pnmmargin(1),
+          pnmnoraw(1), pnmpaste(1), pnmrotate(1), pnmscale(1),
+          pnmshear(1), pnmsmooth(1), pnmtile(1), ppm(5), pgm(5),
+          pbm(5)
+
+     AUTHOR
+          Copyright (C) 1989, 1991 by Jef Poskanzer.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     Page 1                                           (printed 3/1/94)
+
+
+

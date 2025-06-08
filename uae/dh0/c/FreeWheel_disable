@@ -1,0 +1,17 @@
+IF EXISTS SYS:WBStartup/FreeWheel
+  SYS:System/FWheel/Enable
+  Copy SYS:WBStartup/FreeWheel WBStartup
+  Copy SYS:WBStartup/FreeWheel.info WBStartup
+  IF EXISTS SYS:WBStartup/FreeWheel.cfg
+    Copy SYS:WBStartup/FreeWheel.cfg WBStartup
+    Delete >NIL: SYS:WBStartup/FreeWheel.cfg
+  EndIF
+  Delete >NIL: SYS:WBStartup/FreeWheel
+  Delete >NIL: SYS:WBStartup/FreeWheel.info
+  Echo ""
+  Echo "FreeWheel is now disabled - please reboot"
+ELSE
+  Echo ""
+  Echo "ERROR - FreeWheel is already disabled"
+EndIF
+Wait 1

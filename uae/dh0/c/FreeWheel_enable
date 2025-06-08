@@ -1,0 +1,10 @@
+IF NOT EXISTS SYS:WBStartup/FreeWheel
+  SYS:System/FWheel/Enable
+  Copy >NIL:  #? SYS: ALL
+  Echo ""
+  Echo "FreeWheel is now enabled - please reboot"
+ELSE
+  Echo ""
+  Echo "ERROR - FreeWheel is already enabled"
+EndIF
+Wait 1

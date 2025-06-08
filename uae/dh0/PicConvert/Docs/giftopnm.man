@@ -1,0 +1,66 @@
+
+
+
+     giftopnm(1)         AMIGA (29 September 1993)         giftopnm(1)
+
+
+
+     NAME
+          giftopnm - convert a GIF file into a portable anymap
+
+     SYNOPSIS
+          giftopnm [-verbose] [-comments] [-image N] [GIFfile]
+
+     DESCRIPTION
+          Reads a GIF file for input, and outputs portable anymap.
+
+     OPTIONS
+          -verbose
+               Produces verbose output about the GIF file input.
+
+          -comments
+               Only outputs GIF89 comment fields.
+
+          -image
+               Output the specified gif image from the input gif
+               archive (where N is '1', '2', '20'...).  Normally there
+               is only one image per file, so this option is not
+               needed.
+
+          All flags can be abbreviated to their shortest unique
+          prefix.
+
+     BUGS
+          This does not correctly handle the Plain Text Extension of
+          the GIF89 standard, since I did not have any example input
+          files containing them.
+
+     SEE ALSO
+          ppmtogif(1), ppm(5)
+
+     AUTHOR
+          Copyright (c) 1993 by David Koblas (koblas@netcom.com)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     Page 1                                           (printed 3/1/94)
+
+
+

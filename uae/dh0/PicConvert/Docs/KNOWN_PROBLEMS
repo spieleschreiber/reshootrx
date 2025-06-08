@@ -1,0 +1,12 @@
+KNOWN PROBLEMS:
+
+· If you are using the original PIPE: handler, you should set IOBUF in PBMMEM
+  to 4K or less.  There is a bug in PIPE: that causes it to drop bytes if the
+  write request is larger than its internal buffer. A replacement
+  queue-handler (the handler used by PIPE:) was written by Heinz Wrobel, it
+  is included in the extras directory.
+
+· There is a bug in mathieeesingbas.library that might cause NetPBM to crash
+  on 68040. Please use SetPatch V43 (in the extras directory) to fix this
+  problem.
+

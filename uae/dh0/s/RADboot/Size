@@ -1,0 +1,23 @@
+/* Recoverable RAM disk mount entry
+ *
+ * You can create different simultaneous recoverable RAM disks by creating
+ * versions of this file with different Unit values.
+ *
+ * The size of a recoverable RAM disk is controlled by the value of the
+ * HighCyl line. Increasing this value by 1 consumes an additional 11K of
+ * RAM. So the default value of 79 consumes around 880 of memory.
+ */
+
+RAD:
+
+Device		= ramdrive.device
+Unit		= 0
+Flags		= 0
+Surfaces	= 1
+BlocksPerTrack	= 11
+Reserved	= 2
+Interleave	= 0
+LowCyl		= 0
+HighCyl		= 0
+Buffers		= 0
+BufMemType	= 1

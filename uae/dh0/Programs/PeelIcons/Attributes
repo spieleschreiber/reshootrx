@@ -1,0 +1,28 @@
+Echo "This will reset ALL file attributes to the following:"
+Echo ""
+Echo "Files +RWED"
+Echo "Icons +RWD"
+Echo ""
+Echo "Current attributes not mentioned above (eg S and P)"
+Echo "will not be changed."
+Echo ""
+Ask "Do you want to reset attributes?"
+
+IF WARN
+  Echo ""
+  Echo "Working, please do not reset or power off your Amiga."
+  Stack 16384
+  FailAt 10
+  Resident C:Protect PURE
+  Protect DH0:#? +RWED ALL QUIET
+  Protect DH0:#? -HA ALL QUIET
+  List >RAM:attrib DH0: ALL p=#?.info LFORMAT="Protect *"%p%n*" -ES ALL QUIET"
+  Execute RAM:attrib
+  Delete RAM:attrib ALL QUIET
+  Resident Protect REMOVE
+  Echo ""
+  Echo "Finished. All Done!"
+ELSE
+  Echo ""
+  Echo "Attributes have NOT been reset."
+EndIF

@@ -1,0 +1,132 @@
+
+			P e e l N e w T o o l s
+
+			    Version: 1.5001
+
+			D O C U M E N T A T I O N
+
+
+			Author:  Erik Østlyngen
+			email:   erikoest@idt.unit.no
+			snail:   Erik Østlyngen
+                                 Sverdrupsvei 50
+                                 7018 Trondheim
+                                 NORWAY
+
+
+
+NEW IN THIS VERSION
+
+Neat graphical user interface by Michael Hartmann
+Multiple file select.
+Bugfixes
+
+
+
+DESCRIPTION
+
+This little program removes NewIcon tooltypes from your icons and
+thereby makes them load twice as fast. It is intended on people like
+me who don't run NewIcon, and have slow systems.
+
+What it really does is searching for tooltypes that starts with IM1=,
+IM2=, or empty strings, and removes them. It also removes the
+statement: " *** DON'T EDIT THE FOLLOWING LINES!! *** ".
+
+To speed up the workbench even more, replace your old icons with the
+small ones in the icon directory. They are smaller than the originals,
+and loads faster.
+
+WARNING:
+
+PeelNewTools removes all NewIcon information from the icons. If you
+plan to use NewIcons in the future, you should probably not run
+PeelNewTools on your disks.
+
+
+
+DISCLAMER
+
+DO WHATEVER YOU WANT WITH IT.
+DO NOT BLAME ME.
+
+
+
+USAGE
+
+PeelNewTools FileNames/A/M [R=Recursive] [L=Log]
+
+
+  FileNames:  Names of files/directories to process.
+
+  Recursive: Set this switch if you want to peel all files in the subpaths of
+             <Filename>.
+             NB! <Filename>.info is not searched.
+
+  Log:       Outputs a lists of the files that are operated.
+
+
+
+GRAPHICAL USER INTERFACE
+
+The GUI is made by Michael Hartmann. Very easy to use. Click on icon,
+select single or multiple mode, then select file/drawer to operate on.
+
+To make it work, PeelNewTools and PeelNewTools_GUI must be in the same
+directory. The script uses IconX, Requestchoise and Requestfile which
+must be in C:.
+
+
+
+ICON REPLACEMENT
+
+In the "Icons" directory are smaller versions of some icons. Yes, I
+know they are pretty boring, but I haven't got much of artistic
+inspiration. Replace your old icons with them, and the windows will
+take up less space, and the icons will update faster.
+
+WARNING!!! DO NOT EVER COPY THE NEW ICONS OVER THE OLD ONES. 
+That would delete important information for the files, like tooltypes
+and defaulttool.
+
+Instead use a program that only replaces the images, like IconUpdate
+which can be found on Aminet
+
+
+
+BUGS
+
+None yet.
+
+If you find any, tell me (try to be as specific as you can). The
+source is included, so you are welcome to fix the bugs by yourself,
+but tell me anyway.
+
+
+
+HISTORY
+
+30.04.96:  Version 1.5001
+	- Added multifile select
+	- Reqtools GUI by Michael Martmann
+	- Some minor bugfixes
+
+13.04.96:  Version 1.5
+	- First version with GUI, which didn't work due to a very
+	  stupid bug (I will not tell you what it was.)
+
+09.09.95:  Version 1.0ß
+	- First release
+
+
+
+FUTURE PLANS
+
+I'm thinking of patching the GetDiskObject() librarycall to pop up a
+requester whenever NewIcon-tooltypes are discovered.
+
+
+FEEDBACK
+
+If you find bugs, tell me. If you enhance the program, or have ideas,
+tell me and give me a copy of the code.

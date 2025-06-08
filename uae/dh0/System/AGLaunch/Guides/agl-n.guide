@@ -1,0 +1,33 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <N>
+
+Click game title to play
+
+      @{"Nam19651975" SYSTEM "agl:c/wbrun A-Games:N/Nam19651975/Nam19651975"}                          @{"Narc" SYSTEM "agl:c/wbrun A-Games:N/Narc/Narc"}
+      @{"NarcoPolice" SYSTEM "agl:c/wbrun A-Games:N/NarcoPolice/NarcoPolice"}                          @{"NathanNeverIt" SYSTEM "agl:c/wbrun A-Games:N/NathanNeverIt/NathanNeverIt"}
+      @{"NaughtyOnes" SYSTEM "agl:c/wbrun A-Games:N/NaughtyOnes/NaughtyOnes"}                          @{"NaughtyOnesAGA" SYSTEM "agl:c/wbrun A-Games:N/NaughtyOnesAGA/NaughtyOnesAGA"}
+      @{"NaughtyOnesCD32" SYSTEM "agl:c/wbrun A-Games:N/NaughtyOnesCD32/NaughtyOnesCD32"}                      @{"NavyMoves" SYSTEM "agl:c/wbrun A-Games:N/NavyMoves/NavyMoves"}
+      @{"NavySeals" SYSTEM "agl:c/wbrun A-Games:N/NavySeals/NavySeals"}                            @{"Nebulus" SYSTEM "agl:c/wbrun A-Games:N/Nebulus/Nebulus"}
+      @{"Nebulus2" SYSTEM "agl:c/wbrun A-Games:N/Nebulus2/Nebulus2"}                             @{"Necronom" SYSTEM "agl:c/wbrun A-Games:N/Necronom/Necronom"}
+      @{"Neighbours" SYSTEM "agl:c/wbrun A-Games:N/Neighbours/Neighbours"}                           @{"Netherworld" SYSTEM "agl:c/wbrun A-Games:N/Netherworld/Netherworld"}
+      @{"Neuromancer" SYSTEM "agl:c/wbrun A-Games:N/Neuromancer/Neuromancer"}                          @{"NeverEndingStory2" SYSTEM "agl:c/wbrun A-Games:N/NeverEndingStory2/NeverEndingStory2"}
+      @{"NeverMind" SYSTEM "agl:c/wbrun A-Games:N/NeverMind/NeverMind"}                            @{"NewYearLemmings199192" SYSTEM "agl:c/wbrun A-Games:N/NewYearLemmings199192/NewYearLemmings199192"}
+      @{"NewYorkWarriors" SYSTEM "agl:c/wbrun A-Games:N/NewYorkWarriors/NewYorkWarriors"}                      @{"NewZealandStory" SYSTEM "agl:c/wbrun A-Games:N/NewZealandStory/NewZealandStory"}
+      @{"NickFaldosChampGolf" SYSTEM "agl:c/wbrun A-Games:N/NickFaldosChampGolf/NickFaldosChampGolf"}                  @{"NickFaldosChampGolfCD32" SYSTEM "agl:c/wbrun A-Games:N/NickFaldosChampGolfCD32/NickFaldosChampGolfCD32"}
+      @{"Nicky2" SYSTEM "agl:c/wbrun A-Games:N/Nicky2/Nicky2"}                               @{"NickyBoom" SYSTEM "agl:c/wbrun A-Games:N/NickyBoom/NickyBoom"}
+      @{"NigelMansellsGrandPrix" SYSTEM "agl:c/wbrun A-Games:N/NigelMansellsGrandPrix/NigelMansellsGrandPrix"}               @{"NigelMansellsWrldChmpAGA" SYSTEM "agl:c/wbrun A-Games:N/NigelMansellsWrldChmpAGA/NigelMansellsWrldChmpAGA"}
+      @{"NigelMansellsWrldChmpCD32" SYSTEM "agl:c/wbrun A-Games:N/NigelMansellsWrldChmpCD32/NigelMansellsWrldChmpCD32"}            @{"NightbreedAction" SYSTEM "agl:c/wbrun A-Games:N/NightbreedAction/NightbreedAction"}
+      @{"NightbreedMovie" SYSTEM "agl:c/wbrun A-Games:N/NightbreedMovie/NightbreedMovie"}                      @{"Nightdawn" SYSTEM "agl:c/wbrun A-Games:N/Nightdawn/Nightdawn"}
+      @{"NightHunter" SYSTEM "agl:c/wbrun A-Games:N/NightHunter/NightHunter"}                          @{"NightShift" SYSTEM "agl:c/wbrun A-Games:N/NightShift/NightShift"}
+      @{"NinjaMission" SYSTEM "agl:c/wbrun A-Games:N/NinjaMission/NinjaMission"}                         @{"NinjaRabbits" SYSTEM "agl:c/wbrun A-Games:N/NinjaRabbits/NinjaRabbits"}
+      @{"NinjaRemix" SYSTEM "agl:c/wbrun A-Games:N/NinjaRemix/NinjaRemix"}                           @{"NinjaSpirit" SYSTEM "agl:c/wbrun A-Games:N/NinjaSpirit/NinjaSpirit"}
+      @{"NinjaWarriors" SYSTEM "agl:c/wbrun A-Games:N/NinjaWarriors/NinjaWarriors"}                        @{"NipponSafesInc" SYSTEM "agl:c/wbrun A-Games:N/NipponSafesInc/NipponSafesInc"}
+      @{"Nitro" SYSTEM "agl:c/wbrun A-Games:N/Nitro/Nitro"}                                @{"NitroBoostChallenge" SYSTEM "agl:c/wbrun A-Games:N/NitroBoostChallenge/NitroBoostChallenge"}
+      @{"NoBuddiesLand" SYSTEM "agl:c/wbrun A-Games:N/NoBuddiesLand/NoBuddiesLand"}                        @{"NoExcuses" SYSTEM "agl:c/wbrun A-Games:N/NoExcuses/NoExcuses"}
+      @{"North&South" SYSTEM "agl:c/wbrun A-Games:N/North&South/North&South"}                          @{"NorthSeaInferno" SYSTEM "agl:c/wbrun A-Games:N/NorthSeaInferno/NorthSeaInferno"}
+      @{"NoSecondPrize" SYSTEM "agl:c/wbrun A-Games:N/NoSecondPrize/NoSecondPrize"}                        @{"NotVeryFestiveFodder" SYSTEM "agl:c/wbrun A-Games:N/NotVeryFestiveFodder/NotVeryFestiveFodder"}
+      @{"Nova9" SYSTEM "agl:c/wbrun A-Games:N/Nova9/Nova9"}                                @{"NuclearWar" SYSTEM "agl:c/wbrun A-Games:N/NuclearWar/NuclearWar"}
+      @{"Nucleus" SYSTEM "agl:c/wbrun A-Games:N/Nucleus/Nucleus"}
+@TOC agl:guides/ag-launch.guide/main
+@endnode

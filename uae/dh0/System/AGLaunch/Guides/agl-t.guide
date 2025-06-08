@@ -1,0 +1,98 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <T>
+
+Click game title to play
+
+      @{"TableTennisSimulation" SYSTEM "agl:c/wbrun A-Games:T/TableTennisSimulation/TableTennisSimulation"}                @{"Taekwondo" SYSTEM "agl:c/wbrun A-Games:T/Taekwondo/Taekwondo"}
+      @{"Tangram" SYSTEM "agl:c/wbrun A-Games:T/Tangram/Tangram"}                              @{"Targhan" SYSTEM "agl:c/wbrun A-Games:T/Targhan/Targhan"}
+      @{"TarghanFr" SYSTEM "agl:c/wbrun A-Games:T/TarghanFr/TarghanFr"}                            @{"TBird" SYSTEM "agl:c/wbrun A-Games:T/TBird/TBird"}
+      @{"TeamSuzuki" SYSTEM "agl:c/wbrun A-Games:T/TeamSuzuki/TeamSuzuki"}                           @{"TearawayThomas" SYSTEM "agl:c/wbrun A-Games:T/TearawayThomas/TearawayThomas"}
+      @{"Tech" SYSTEM "agl:c/wbrun A-Games:T/Tech/Tech"}                                 @{"Technocop" SYSTEM "agl:c/wbrun A-Games:T/Technocop/Technocop"}
+      @{"Technology2" SYSTEM "agl:c/wbrun A-Games:T/Technology2/Technology2"}                          @{"TeenageMtntHeroTurtles" SYSTEM "agl:c/wbrun A-Games:T/TeenageMtntHeroTurtles/TeenageMtntHeroTurtles"}
+      @{"TeenageMtntHeroTurtlesCOp" SYSTEM "agl:c/wbrun A-Games:T/TeenageMtntHeroTurtlesCOp/TeenageMtntHeroTurtlesCOp"}            @{"TeenageMtntNinjaTurtles" SYSTEM "agl:c/wbrun A-Games:T/TeenageMtntNinjaTurtles/TeenageMtntNinjaTurtles"}
+      @{"TeenageQueen" SYSTEM "agl:c/wbrun A-Games:T/TeenageQueen/TeenageQueen"}                         @{"Teller" SYSTEM "agl:c/wbrun A-Games:T/Teller/Teller"}
+      @{"TennisChamps" SYSTEM "agl:c/wbrun A-Games:T/TennisChamps/TennisChamps"}                         @{"TennisCup" SYSTEM "agl:c/wbrun A-Games:T/TennisCup/TennisCup"}
+      @{"TennisCup2" SYSTEM "agl:c/wbrun A-Games:T/TennisCup2/TennisCup2"}                           @{"TennisCupFr" SYSTEM "agl:c/wbrun A-Games:T/TennisCupFr/TennisCupFr"}
+      @{"TensaiDemo" SYSTEM "agl:c/wbrun A-Games:T/TensaiDemo/TensaiDemo"}                           @{"Terminator2ArcadeGame" SYSTEM "agl:c/wbrun A-Games:T/Terminator2ArcadeGame/Terminator2ArcadeGame"}
+      @{"Terminator2JudgmentDay" SYSTEM "agl:c/wbrun A-Games:T/Terminator2JudgmentDay/Terminator2JudgmentDay"}               @{"Terramex" SYSTEM "agl:c/wbrun A-Games:T/Terramex/Terramex"}
+      @{"Terrorpods" SYSTEM "agl:c/wbrun A-Games:T/Terrorpods/Terrorpods"}                           @{"TerrysBigAdventure" SYSTEM "agl:c/wbrun A-Games:T/TerrysBigAdventure/TerrysBigAdventure"}
+      @{"TestDrive" SYSTEM "agl:c/wbrun A-Games:T/TestDrive/TestDrive"}                            @{"TestDrive2" SYSTEM "agl:c/wbrun A-Games:T/TestDrive2/TestDrive2"}
+      @{"TestDrive2&DataDisks" SYSTEM "agl:c/wbrun A-Games:T/TestDrive2&DataDisks/TestDrive2&DataDisks"}                 @{"TetraQuest" SYSTEM "agl:c/wbrun A-Games:T/TetraQuest/TetraQuest"}
+      @{"TetrisInfogrames" SYSTEM "agl:c/wbrun A-Games:T/TetrisInfogrames/TetrisInfogrames"}                     @{"TetrisMirrorsoft" SYSTEM "agl:c/wbrun A-Games:T/TetrisMirrorsoft/TetrisMirrorsoft"}
+      @{"Tetrix" SYSTEM "agl:c/wbrun A-Games:T/Tetrix/Tetrix"}                               @{"TheatreOfDeath" SYSTEM "agl:c/wbrun A-Games:T/TheatreOfDeath/TheatreOfDeath"}
+      @{"TheirFinestHour" SYSTEM "agl:c/wbrun A-Games:T/TheirFinestHour/TheirFinestHour"}                      @{"TheirFinestHour&Missions" SYSTEM "agl:c/wbrun A-Games:T/TheirFinestHour&Missions/TheirFinestHour&Missions"}
+      @{"ThemePark" SYSTEM "agl:c/wbrun A-Games:T/ThemePark/ThemePark"}                            @{"ThemeParkAGA" SYSTEM "agl:c/wbrun A-Games:T/ThemeParkAGA/ThemeParkAGA"}
+      @{"ThemeParkMystery" SYSTEM "agl:c/wbrun A-Games:T/ThemeParkMystery/ThemeParkMystery"}                     @{"Thexder" SYSTEM "agl:c/wbrun A-Games:T/Thexder/Thexder"}
+      @{"ThomasTankEngPinballAGA" SYSTEM "agl:c/wbrun A-Games:T/ThomasTankEngPinballAGA/ThomasTankEngPinballAGA"}              @{"ThomasTankEngPinballCD32" SYSTEM "agl:c/wbrun A-Games:T/ThomasTankEngPinballCD32/ThomasTankEngPinballCD32"}
+      @{"ThomasTheTankEngine" SYSTEM "agl:c/wbrun A-Games:T/ThomasTheTankEngine/ThomasTheTankEngine"}                  @{"ThomasTheTankEngine2" SYSTEM "agl:c/wbrun A-Games:T/ThomasTheTankEngine2/ThomasTheTankEngine2"}
+      @{"ThreeStooges" SYSTEM "agl:c/wbrun A-Games:T/ThreeStooges/ThreeStooges"}                         @{"Thunderbirds" SYSTEM "agl:c/wbrun A-Games:T/Thunderbirds/Thunderbirds"}
+      @{"ThunderBlade" SYSTEM "agl:c/wbrun A-Games:T/ThunderBlade/ThunderBlade"}                         @{"ThunderBoy" SYSTEM "agl:c/wbrun A-Games:T/ThunderBoy/ThunderBoy"}
+      @{"ThunderBurner" SYSTEM "agl:c/wbrun A-Games:T/ThunderBurner/ThunderBurner"}                        @{"ThunderCats" SYSTEM "agl:c/wbrun A-Games:T/ThunderCats/ThunderCats"}
+      @{"ThunderHawkAH73M" SYSTEM "agl:c/wbrun A-Games:T/ThunderHawkAH73M/ThunderHawkAH73M"}                     @{"ThunderHawkAH73MDe" SYSTEM "agl:c/wbrun A-Games:T/ThunderHawkAH73MDe/ThunderHawkAH73MDe"}
+      @{"ThunderHawkAH73MFr" SYSTEM "agl:c/wbrun A-Games:T/ThunderHawkAH73MFr/ThunderHawkAH73MFr"}                   @{"ThunderJaws" SYSTEM "agl:c/wbrun A-Games:T/ThunderJaws/ThunderJaws"}
+      @{"ThunderStrike" SYSTEM "agl:c/wbrun A-Games:T/ThunderStrike/ThunderStrike"}                        @{"TieBreak" SYSTEM "agl:c/wbrun A-Games:T/TieBreak/TieBreak"}
+      @{"TigerRoad" SYSTEM "agl:c/wbrun A-Games:T/TigerRoad/TigerRoad"}                            @{"Time" SYSTEM "agl:c/wbrun A-Games:T/Time/Time"}
+      @{"TimeBandit" SYSTEM "agl:c/wbrun A-Games:T/TimeBandit/TimeBandit"}                           @{"TimeDe" SYSTEM "agl:c/wbrun A-Games:T/TimeDe/TimeDe"}
+      @{"TimeFr" SYSTEM "agl:c/wbrun A-Games:T/TimeFr/TimeFr"}                               @{"TimeLock" SYSTEM "agl:c/wbrun A-Games:T/TimeLock/TimeLock"}
+      @{"TimeMachine" SYSTEM "agl:c/wbrun A-Games:T/TimeMachine/TimeMachine"}                          @{"TimeRace" SYSTEM "agl:c/wbrun A-Games:T/TimeRace/TimeRace"}
+      @{"TimeRunners01" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners01/TimeRunners01"}                        @{"TimeRunners02" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners02/TimeRunners02"}
+      @{"TimeRunners03" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners03/TimeRunners03"}                        @{"TimeRunners04" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners04/TimeRunners04"}
+      @{"TimeRunners05" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners05/TimeRunners05"}                        @{"TimeRunners06" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners06/TimeRunners06"}
+      @{"TimeRunners07" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners07/TimeRunners07"}                        @{"TimeRunners08" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners08/TimeRunners08"}
+      @{"TimeRunners09" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners09/TimeRunners09"}                        @{"TimeRunners10" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners10/TimeRunners10"}
+      @{"TimeRunners11" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners11/TimeRunners11"}                        @{"TimeRunners12" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners12/TimeRunners12"}
+      @{"TimeRunners13" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners13/TimeRunners13"}                        @{"TimeRunners14" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners14/TimeRunners14"}
+      @{"TimeRunners15" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners15/TimeRunners15"}                        @{"TimeRunners16" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners16/TimeRunners16"}
+      @{"TimeRunners17" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners17/TimeRunners17"}                        @{"TimeRunners18" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners18/TimeRunners18"}
+      @{"TimeRunners19" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners19/TimeRunners19"}                        @{"TimeRunners20" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners20/TimeRunners20"}
+      @{"TimeRunners21" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners21/TimeRunners21"}                        @{"TimeRunners22" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners22/TimeRunners22"}
+      @{"TimeRunners23" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners23/TimeRunners23"}                        @{"TimeRunners24" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners24/TimeRunners24"}
+      @{"TimeRunners25" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners25/TimeRunners25"}                        @{"TimeRunners26" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners26/TimeRunners26"}
+      @{"TimeRunners27" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners27/TimeRunners27"}                        @{"TimeRunners28" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners28/TimeRunners28"}
+      @{"TimeRunners29" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners29/TimeRunners29"}                        @{"TimeRunners30" SYSTEM "agl:c/wbrun A-Games:T/TimeRunners30/TimeRunners30"}
+      @{"TimeRunnersSeries" SYSTEM "agl:c/wbrun A-Games:T/TimeRunnersSeries/TimeRunnersSeries"}                    @{"TimeScanner" SYSTEM "agl:c/wbrun A-Games:T/TimeScanner/TimeScanner"}
+      @{"TimesOfLore" SYSTEM "agl:c/wbrun A-Games:T/TimesOfLore/TimesOfLore"}                          @{"TimeSoldier" SYSTEM "agl:c/wbrun A-Games:T/TimeSoldier/TimeSoldier"}
+      @{"TintinOnTheMoon" SYSTEM "agl:c/wbrun A-Games:T/TintinOnTheMoon/TintinOnTheMoon"}                      @{"TinToyAdventure" SYSTEM "agl:c/wbrun A-Games:T/TinToyAdventure/TinToyAdventure"}
+      @{"TinToyAdventureAGA" SYSTEM "agl:c/wbrun A-Games:T/TinToyAdventureAGA/TinToyAdventureAGA"}                   @{"TinySkweeks" SYSTEM "agl:c/wbrun A-Games:T/TinySkweeks/TinySkweeks"}
+      @{"TinyTroops" SYSTEM "agl:c/wbrun A-Games:T/TinyTroops/TinyTroops"}                           @{"TinyTroopsCD" SYSTEM "agl:c/wbrun A-Games:T/TinyTroopsCD/TinyTroopsCD"}
+      @{"TinyTroopsCDDe" SYSTEM "agl:c/wbrun A-Games:T/TinyTroopsCDDe/TinyTroopsCDDe"}                       @{"TipOff" SYSTEM "agl:c/wbrun A-Games:T/TipOff/TipOff"}
+      @{"TipOffDeEsFrIt" SYSTEM "agl:c/wbrun A-Games:T/TipOffDeEsFrIt/TipOffDeEsFrIt"}                       @{"Titan" SYSTEM "agl:c/wbrun A-Games:T/Titan/Titan"}
+      @{"TitanicBlinky" SYSTEM "agl:c/wbrun A-Games:T/TitanicBlinky/TitanicBlinky"}                        @{"TitusTheFox" SYSTEM "agl:c/wbrun A-Games:T/TitusTheFox/TitusTheFox"}
+      @{"Toki" SYSTEM "agl:c/wbrun A-Games:T/Toki/Toki"}                                 @{"TomAndTheGhost" SYSTEM "agl:c/wbrun A-Games:T/TomAndTheGhost/TomAndTheGhost"}
+      @{"TommyGun" SYSTEM "agl:c/wbrun A-Games:T/TommyGun/TommyGun"}                             @{"Tony&FriendsDe" SYSTEM "agl:c/wbrun A-Games:T/Tony&FriendsDe/Tony&FriendsDe"}
+      @{"Toobin" SYSTEM "agl:c/wbrun A-Games:T/Toobin/Toobin"}                               @{"TopBanana" SYSTEM "agl:c/wbrun A-Games:T/TopBanana/TopBanana"}
+      @{"TopCat" SYSTEM "agl:c/wbrun A-Games:T/TopCat/TopCat"}                               @{"TopGear2" SYSTEM "agl:c/wbrun A-Games:T/TopGear2/TopGear2"}
+      @{"TopSecret" SYSTEM "agl:c/wbrun A-Games:T/TopSecret/TopSecret"}                            @{"Tornado" SYSTEM "agl:c/wbrun A-Games:T/Tornado/Tornado"}
+      @{"TornadoAGA" SYSTEM "agl:c/wbrun A-Games:T/TornadoAGA/TornadoAGA"}                           @{"TornadoGroundAttack" SYSTEM "agl:c/wbrun A-Games:T/TornadoGroundAttack/TornadoGroundAttack"}
+      @{"TorvakTheWarrior" SYSTEM "agl:c/wbrun A-Games:T/TorvakTheWarrior/TorvakTheWarrior"}                     @{"TotalCarnageAGA" SYSTEM "agl:c/wbrun A-Games:T/TotalCarnageAGA/TotalCarnageAGA"}
+      @{"TotalEclipse" SYSTEM "agl:c/wbrun A-Games:T/TotalEclipse/TotalEclipse"}                         @{"TotalFootball" SYSTEM "agl:c/wbrun A-Games:T/TotalFootball/TotalFootball"}
+      @{"TotalRecall" SYSTEM "agl:c/wbrun A-Games:T/TotalRecall/TotalRecall"}                          @{"TournamentGolf" SYSTEM "agl:c/wbrun A-Games:T/TournamentGolf/TournamentGolf"}
+      @{"TowerOfBabel" SYSTEM "agl:c/wbrun A-Games:T/TowerOfBabel/TowerOfBabel"}                         @{"TowerOfSoulsAGA" SYSTEM "agl:c/wbrun A-Games:T/TowerOfSoulsAGA/TowerOfSoulsAGA"}
+      @{"TowerToppler" SYSTEM "agl:c/wbrun A-Games:T/TowerToppler/TowerToppler"}                         @{"ToyotaCelicaGTRally" SYSTEM "agl:c/wbrun A-Games:T/ToyotaCelicaGTRally/ToyotaCelicaGTRally"}
+      @{"TRacer" SYSTEM "agl:c/wbrun A-Games:T/TRacer/TRacer"}                               @{"Tracker" SYSTEM "agl:c/wbrun A-Games:T/Tracker/Tracker"}
+      @{"Traders" SYSTEM "agl:c/wbrun A-Games:T/Traders/Traders"}                              @{"TradersDe" SYSTEM "agl:c/wbrun A-Games:T/TradersDe/TradersDe"}
+      @{"TrainedAssassin" SYSTEM "agl:c/wbrun A-Games:T/TrainedAssassin/TrainedAssassin"}                      @{"Transarctica" SYSTEM "agl:c/wbrun A-Games:T/Transarctica/Transarctica"}
+      @{"TransarcticaAGA" SYSTEM "agl:c/wbrun A-Games:T/TransarcticaAGA/TransarcticaAGA"}                      @{"Transplant" SYSTEM "agl:c/wbrun A-Games:T/Transplant/Transplant"}
+      @{"TrapsNTreasures" SYSTEM "agl:c/wbrun A-Games:T/TrapsNTreasures/TrapsNTreasures"}                      @{"TrapsNTreasuresDe" SYSTEM "agl:c/wbrun A-Games:T/TrapsNTreasuresDe/TrapsNTreasuresDe"}
+      @{"TreasureIslandDizzy" SYSTEM "agl:c/wbrun A-Games:T/TreasureIslandDizzy/TreasureIslandDizzy"}                  @{"TreasureIslandDizzyCD32" SYSTEM "agl:c/wbrun A-Games:T/TreasureIslandDizzyCD32/TreasureIslandDizzyCD32"}
+      @{"TreasuresOfSavageFrontier" SYSTEM "agl:c/wbrun A-Games:T/TreasuresOfSavageFrontier/TreasuresOfSavageFrontier"}            @{"TrexWarrior" SYSTEM "agl:c/wbrun A-Games:T/TrexWarrior/TrexWarrior"}
+      @{"TrianGO" SYSTEM "agl:c/wbrun A-Games:T/TrianGO/TrianGO"}                              @{"TrickyQuikyGamesDe" SYSTEM "agl:c/wbrun A-Games:T/TrickyQuikyGamesDe/TrickyQuikyGamesDe"}
+      @{"TrivialPursuit" SYSTEM "agl:c/wbrun A-Games:T/TrivialPursuit/TrivialPursuit"}                       @{"TrivialPursuitDe" SYSTEM "agl:c/wbrun A-Games:T/TrivialPursuitDe/TrivialPursuitDe"}
+      @{"TrivialPursuitFr" SYSTEM "agl:c/wbrun A-Games:T/TrivialPursuitFr/TrivialPursuitFr"}                     @{"TrivialPursuitNewBegin" SYSTEM "agl:c/wbrun A-Games:T/TrivialPursuitNewBegin/TrivialPursuitNewBegin"}
+      @{"TrivialPursuitNewBeginDe" SYSTEM "agl:c/wbrun A-Games:T/TrivialPursuitNewBeginDe/TrivialPursuitNewBeginDe"}             @{"TrivialPursuitNewBeginFr" SYSTEM "agl:c/wbrun A-Games:T/TrivialPursuitNewBeginFr/TrivialPursuitNewBeginFr"}
+      @{"Troddlers" SYSTEM "agl:c/wbrun A-Games:T/Troddlers/Troddlers"}                            @{"Trolls" SYSTEM "agl:c/wbrun A-Games:T/Trolls/Trolls"}
+      @{"TrollsAGA" SYSTEM "agl:c/wbrun A-Games:T/TrollsAGA/TrollsAGA"}                            @{"TrollsCD32" SYSTEM "agl:c/wbrun A-Games:T/TrollsCD32/TrollsCD32"}
+      @{"TubeWarriorsAGA" SYSTEM "agl:c/wbrun A-Games:T/TubeWarriorsAGA/TubeWarriorsAGA"}                      @{"Turbo" SYSTEM "agl:c/wbrun A-Games:T/Turbo/Turbo"}
+      @{"TurboCup" SYSTEM "agl:c/wbrun A-Games:T/TurboCup/TurboCup"}                             @{"TurboCupFr" SYSTEM "agl:c/wbrun A-Games:T/TurboCupFr/TurboCupFr"}
+      @{"TurboOutRun" SYSTEM "agl:c/wbrun A-Games:T/TurboOutRun/TurboOutRun"}                          @{"TurboTraxArcane" SYSTEM "agl:c/wbrun A-Games:T/TurboTraxArcane/TurboTraxArcane"}
+      @{"TurnNBurn" SYSTEM "agl:c/wbrun A-Games:T/TurnNBurn/TurnNBurn"}                            @{"Turrican" SYSTEM "agl:c/wbrun A-Games:T/Turrican/Turrican"}
+      @{"Turrican2" SYSTEM "agl:c/wbrun A-Games:T/Turrican2/Turrican2"}                            @{"Turrican2CDTV" SYSTEM "agl:c/wbrun A-Games:T/Turrican2CDTV/Turrican2CDTV"}
+      @{"Turrican2Demo" SYSTEM "agl:c/wbrun A-Games:T/Turrican2Demo/Turrican2Demo"}                        @{"Turrican3" SYSTEM "agl:c/wbrun A-Games:T/Turrican3/Turrican3"}
+      @{"Turrican3Demo" SYSTEM "agl:c/wbrun A-Games:T/Turrican3Demo/Turrican3Demo"}                        @{"Tusker" SYSTEM "agl:c/wbrun A-Games:T/Tusker/Tusker"}
+      @{"TVSportsBasketball" SYSTEM "agl:c/wbrun A-Games:T/TVSportsBasketball/TVSportsBasketball"}                   @{"Twintris" SYSTEM "agl:c/wbrun A-Games:T/Twintris/Twintris"}
+      @{"TwinWorld" SYSTEM "agl:c/wbrun A-Games:T/TwinWorld/TwinWorld"}                            @{"Twylyte" SYSTEM "agl:c/wbrun A-Games:T/Twylyte/Twylyte"}
+      @{"Typhoon" SYSTEM "agl:c/wbrun A-Games:T/Typhoon/Typhoon"}                              @{"TyphoonThompson" SYSTEM "agl:c/wbrun A-Games:T/TyphoonThompson/TyphoonThompson"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode

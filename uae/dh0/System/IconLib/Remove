@@ -1,0 +1,40 @@
+;PeterK Icons Remove script
+
+FailAt 21
+echo "This script will remove PeterK PNG Icon support from"
+echo "the ClassicWB"
+echo ""
+ask "Would you like to remove PNG Icon support?"
+IF NOT WARN
+SKIP FAIL
+ELSE
+IF NOT EXISTS SYS:C/FastColors
+SKIP ERROR
+ELSE
+Delete >NIL: "SYS:C/FastColors"
+Delete >NIL: "SYS:C/GrayscaleOnOff"
+Delete >NIL: "SYS:C/IconFramesOFF"
+Delete >NIL: "SYS:C/IconFramesON"
+Delete >NIL: "SYS:C/IconGhostingOff"
+Delete >NIL: "SYS:C/IconsTo24BitDmaMem"
+Delete >NIL: "SYS:C/IconsToFastMem"
+Delete >NIL: "SYS:C/LoadModule"
+Delete >NIL: "SYS:C/LoadResident"
+Delete >NIL: "SYS:C/OutlineIconText"
+Delete >NIL: "SYS:C/ShadowIconText"
+Delete >NIL: "SYS:Libs/icon.library"
+
+Copy >NIL: "SYS:S/Startup-Sequence" "SYS:System/IconLib/S/" CLONE
+Copy >NIL: "SYS:System/IconLib/Disable" SYS: ALL CLONE
+ENDIF
+ENDIF
+echo ""
+echo "PNG Icon support is now disabled - please reboot"
+endshell
+LAB ERROR
+echo ""
+echo "ERROR - PNG Icon support is already disabled"
+endshell
+LAB FAIL
+echo ""
+echo "PNG Icon support has NOT been disabled"

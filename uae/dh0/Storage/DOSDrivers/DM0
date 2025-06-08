@@ -1,0 +1,17 @@
+/* MountList example for DMS DEVICE
+   This version is a mountlist, as the other one 
+   was missing some lines.
+
+DM0: */
+	   Device           = devs:dms.device
+       Unit             = 0
+       Flags  	        = 0
+       Surfaces         = 2
+       BlocksPerTrack   = 11
+       Reserved         = 2
+       Interleave       = 0
+       LowCyl 	        = 0
+       HighCyl          = 79
+       Buffers          = 5
+       BufMemType       = 1
+#

@@ -1,0 +1,299 @@
+
+Changes since 1.81:
+===================
+
+SmartFilesystem:
+
+- Fixed Enforcer hit, which could crash the machine.
+
+- Defragmenter can now defragment very fragmented files a bit
+  faster because it can move multiple fragments.
+
+
+SFSdefragmentGUI:
+
+- Updated SFSdefragmentGUI to support new features of the SFS
+  Defragmenter.
+
+- Added a DEBUG switch to make SFSdefragmentGUI print out what it is
+  doing.
+
+
+
+Changes since 1.80:
+===================
+
+SmartFilesystem:
+
+- Reduced CPU usage of Defragmenter considerably.  Defragmentation
+  should be a lot faster on 020/030 machines now.
+
+- Fixed a bug which was introduced in 1.80.  When Defragmentation
+  should be completed, SFS would keep on moving some more data.
+
+
+
+Changes since 1.78:
+===================
+
+SmartFilesystem:
+
+- Changed Defragmenter to scan for fragments from the end of the disk,
+  instead of from the current point of defragmentation.
+
+- Fixed bug which popped a requester saying something like 'couldn't
+  mark 128 blocks from block X because some of them were already
+  marked'.  This only happened during defragmenting, and it could have
+  destroyed 128 blocks of your disk.
+
+- Added a way to query the version of SFS easily.
+
+
+SFSdefragmentGUI:
+
+- Now checks SFS version, and refuses to work with older versions.
+
+- Fixed a bug which could crash the machine.
+
+
+SFSformat:
+
+- Fixed a bug which could crash the machine.
+
+
+SetCache:
+
+- Fixed a bug which could crash the machine.
+
+
+
+Changes since 1.62:
+===================
+
+SmartFilesystem:
+
+- Optimized a dozen different routines to improve small file
+  writing speed.  CPU usage is also lower in those circumstances
+  now.
+
+- Copyback cache has been improved.  The cache doesn't need to
+  read a line anymore before it can do a write to that line (no
+  read-on-write).  The read will be delayed until it is needed,
+  or it won't even be performed at all.  Previously SFS always
+  did a read-on-write (similair to the 040 copyback cache).
+
+- In 1.58 a bug was introduced which could cause a requester to
+  appear where SFS claims it wants to mark 32 blocks, but some
+  of those were already in use.  The requester usually appears
+  when a disk is quite full and quite fragmented.  The bug most
+  likely didn't cause any damage (SFScheck reports everything ok
+  after the requester appears), but it was annoying nonetheless.
+  This is now fixed.
+
+- The Defragmenter is now finally debugged far enough to allow
+  it to be BETA tested.  The speed problems and the problems
+  which could arise when accessing the disk while it was being
+  defragmented should now be eliminated.  More on the
+  defragmenter below.
+
+- SFS now will try to prevent fragmentation when multiple files
+  are written in small bits to a SFS disk at the same time.
+  Previously worst-case fragmentation could occur, where each of
+  2 files occupied one block after the other.  Now SFS tries to
+  make each part of the file atleast 10 blocks large.
+
+- SFS now estimates the size of the Adminstration space it needs
+  and will write file-data after this reserved size to the disk.
+  The reserved area is not fixed, and when the disk gets full it
+  will simply be used normally.  The effect of this is that
+  Administration blocks will get grouped at the start of the disk
+  (as long as there is space there).  Previously these
+  Administration areas would be scattered all over the disk.
+
+- A new packet, ACTION_SFS_SET, has been added.  See packets.h
+  for details.  It allows you to set some parameters of SFS
+  (until reboot for now).  No tool is provided yet to set these
+  parameters.
+
+- SFS no longer crashes when used under Kickstart 1.3.  It now
+  simply exits without mounting.
+
+- A work-around for a (possible) bug in ixemul.library (47.3) has
+  been added.  The bug has to do with Soft Links.  This bug only
+  shows up under SFS -- FFS is not affected.
+
+- Changed directory scanning order slightly.  This should reduce
+  problems even further with tools which modify entries in a
+  directory while scanning.
+
+- A new version of SFScheck has been added.
+
+
+What's new?
+-----------
+
+  28 March 1999, changes for version 1.58:
+
+  - There is an SFSquery tool which displays a bit of information
+    about a SFS drive.  Try it.
+ 
+  - SFS will now refuse to mount a partition if it is (partially)
+    located after 4 GB on the drive and there was no 64-bit support
+    available (NSD(64), TD64 or SCSI direct).  This helps to prevent
+    damage to your data.
+
+  - Changed the way SFS updates the disk -- it should be slightly
+    faster now.
+
+  - The read-ahead cache should now be slightly faster on 68040 and
+    68060 systems by aligning the buffers to 16-byte boundaries.
+
+  - Made some alterations to the structure of some SFS blocks to
+    reduce CPU usage and to make the defragmenter easier to add in a
+    new version.
+
+  - The default name of the directory where the deleted files are
+    stored is now '.recycled'.  It is now referred to as the
+    Recycled directory in all the documentation.  Renaming the
+    Recycled directory is of course still possible.
+
+  - BUGFIX: Deleting Soft-links now works correctly.
+
+  - SFS should now work under Kick 2.04.
+
+  - BUGFIX: Truncating files using SetFileSize() could damage the
+    file truncated under some conditions.
+
+  - In some cases, calling SetFileSize() twice on an empty file could
+    lead to a damaged file and loss of free space -- fixed.
+
+  - BUGFIX: Fixed a small problem with disk changes and DMS.
+
+  - There is no seperate SCSI direct version of SFS anymore.  SCSI
+    direct will be used automatically when no NSD 64-bit or TD64
+    support is found (SCSI direct users: please let me know if this
+    works correctly for you -- use the SFSquery tool to find out if
+    SCSI direct is being used).
+
+  - BUGFIX: Moving a file from the Recycled directory to the same disk
+    would not lower the file counter which keeps track of how many
+    files are in the Recycled directory.  This can lead to files being
+    removed from the Recycled directory too early.
+
+  - The contents of the Recycled directory are not considered anymore
+    when calculating the free space.
+
+  - BUGFIX: Overwriting empty directories by a file with the same name
+    is no longer allowed.
+
+  - SFSformat now has an option to keep the Recycled directory visible
+    if you wish.
+
+  - Format will now no longer accept names with colons (':') or
+    slashes ('/') in them.
+
+  - Updated SFScheck and SetCache.  The source of SFScheck is now also
+    included in the archive.
+
+  - Now uses TD_GETGEOMETRY to detect the size of the disk.  This means
+    SFS should now work a bit better with DD & HD floppies, MO drives
+    and any other drives which have disks of different sizes.
+
+  - BUGFIX: Renaming a directory into one of its children now generates
+    an error (Object is in use).
+
+  - BUGFIX: There was a slight possibility that SFS reported that a
+    valid disk was inserted, but did not yet tell Dos the name of the
+    disk.
+
+  - Implemented ACTION_FLUSH.
+
+  - Like FFS, SFS now doesn't allow drives to be inhibited which still
+    have pending changes.  Also slightly altered the way SFS handles
+    disk insertion and removal.
+
+  - BUGFIX: Notification did not correctly check the last character of
+    the notification path which could lead to multiple notifications
+    being sent if there were multiple notifications which only differed
+    by their last character.
+ 
+  Note: This version is NOT compatible with the previous releases of
+        SFS.  You'll need to reformat existing SFS partitions if you
+        want to use the new features.  It is possible to use the new
+        SFS and the older version at the same time, see the guide or
+        see below.
+
+
+Upgrading from 1.1x
+-------------------
+
+This new version of SFS is not compatible with the SFS
+versions 1.13 or older.  Even though I try to keep SFS
+compatible to older versions as much as I can, this is not
+always an option.  In this case SFS the changes were to
+extensive to keep SFS compatible.  Most of the changes have
+to do with the defragmenter (even though it is not available
+yet) and with reducing CPU usage.  This means that you'll
+have to reformat your SFS partitions to be able to use the
+latest version.
+
+However, it is possible to run two different versions of SFS
+at the same time -- you simply need to treat this new
+version of SFS as a completely new filesystem.  So just like
+FFS can't be directly replaced by a SFS filesystem, this new
+version can't simply replace the old SFS version either.
+
+SFS in the RDB
+--------------
+If you've put the old version of SFS in the RDB then you can
+add the new version there as well.  Don't remove the old
+version until you've converted all of your SFS partitions.
+
+Add the new version, but give it a different DosType.
+Normally you used 0x53465300 (=SFS/0), but give the new
+version a different DosType.  I'd recommend using 0x53465301
+(=SFS/1).  Now you can choose between the old SFS version
+(SFS/0) and the new one (SFS/1) for each of your partitions.
+
+If you changed one of your old SFS partitions to the new
+version, SFS will put up a requester during booting telling
+you that the SFS disk is in a format which is not supported
+anymore.  This is normal.  After formatting the disk it
+should be useable again.  You can use SFSformat or the
+normal Format command with the QUICK option to format the
+disk.
+
+SFS with mountlists
+-------------------
+If you mount your SFS partitions from a mountlist then you
+can also use two versions of SFS at the same time.  Just
+copy the new version of SFS to your L: directory with a
+different name (for example 'SmartFilesystem2').  Now in
+your mountlists you can use the new version of SFS by
+changing the following lines:
+
+ Filesystem = l:SmartFilesystem2
+ DosType = 0x53465301
+
+Also take a look at the Installation section in the guide
+for more details.
+
+
+
+Introduction
+------------
+
+Smart Filesystem is a new filesystem for your Amiga.  A
+filesystem's main purpose is to store files on a disk in
+such a way that they can be located and used quickly.  How
+this is done is up to the filesystem.  The way information
+is stored on your disk has a large impact on speed and space
+efficiency, and so these factors can vary a lot from
+filesystem to filesystem.
+
+Smart Filesystem was created to provide you with an
+alternative to the Fast Fileystem.  Smart Filesystem makes
+more efficient use of your disk space, has better
+performance in most areas and will allow for new features
+never seen before in an Amiga filesystem.
+

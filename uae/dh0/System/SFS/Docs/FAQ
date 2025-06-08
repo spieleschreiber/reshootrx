@@ -1,0 +1,119 @@
+Some frequently asked questions since the documentation is outdated.
+
+Q: What's the 'SFS\2' DOSType and why is it incompatible?
+A: In the old, 'SFS\0' structures are some limits which can't be
+   removed without breaking compatibility to older versions of
+   SmartFileSystem, for example the file size in the directories is
+   a 32 bit integer (max. 4 GB - 2 bytes) and there are limits in
+   other structures which make it impossible to work on partitions
+   larger than 128 GB.
+   To make sure old versions of SmartFileSystem can't access and mess
+   up 'SFS\2' partitions I've added a new DOSType for the new format,
+   just like in FFS which even supports 8 different and incompatible
+   formats (DOSTypes 'DOS\0' - 'DOS\7').
+   With this new 'SFS\2' format it's possible to create files larger
+   than 4 GB as well as using partitions larger than 128 GB (the limit
+   for 'SFS\2' partitions is 1 TB * blocksize / 512). To use this new
+   format you have to create a new partition with, or change an old one
+   after making a backup to, DOSType 'SFS\2', reboot and (re)format it.
+   On AmigaOS 3.x you have to store SmartFileSystem twice in the RDB
+   (once with DOSType 'SFS\0' (0x53465300) and once with DOSType 'SFS\2'
+   (0x53465302)), or if booting from 'SFS\2' partitions isn't required
+   load SmartFileSystem as kickstart module instead of storing it a 2nd
+   time in the RDB with DOSType 'SFS\2'.
+   Please note that currently there are no checking and recovery tools
+   for this new 'SFS\2' format, and on an AmigaOne you can't boot from
+   U-Boot/SLB from such partitions. Therefore you should only create
+   one, or a few, 'SFS\2' partitions for using large files with the
+   currently very few software which supports files larger than 4 GB
+   (DvPlayer, lha, AmiDVD, etc.), but not change all your SFS partitions
+   to the new 'SFS\2' format.
+
+
+
+Q: FFS is *much* faster using larger block sizes. Why should I use 512
+   bytes/block for SFS partitions?
+A: There are 2 reasons why FFS is very slow with small block sizes:
+   1) Reading/Writing from/to the HD in small parts is very slow and FFS
+      doesn't include a disk cache (on AmigaOS4 you can use the FFS2
+      fs_plugin_cache, but you have to start it manually, for each FFS
+      partition seperately and it only helps for reading, not for
+      writing), for example reading 8 KB at once is faster than reading
+      2 * 512 bytes.
+   2) FFS stores the block numbers of each data block in it's file
+      header or extension blocks. With 512 bytes/block there are 72 data
+      block pointers in the file header and extension blocks, i.e. for
+      every 36 KB a new extension block with data block pointers has to
+      be created/read.
+      Additionally it can only in best case (unfragmented files) read 36
+      KB at once from the HD, then it has to read the next file
+      extension block to be able to read the next 36 KB, ...
+      block     data in an     number of extension blocks
+      size      ext. block     required for a 100 MB file
+        512          36 KB                           2844
+       1024         200 KB                            511
+       2048         912 KB                            112
+       4096        3.78 MB                             26
+       8192       15.56 MB                              6
+      16384       63.13 MB                              1
+      32768      254.25 MB                              0
+
+   It's no problem if a file system has to read a few additional blocks
+   to access all data of a file, they only have to be read once and are
+   kept in the file system buffers, but if hundreds or even thousends of
+   blocks are required it slows everything down, especially if more
+   blocks are required for a file than the number of buffers you are
+   using for the partition and the file system has to reread them again
+   and again from the HD.
+   Except for partitions for CD images, movies, or other large files (50
+   MB or more) 2048 bytes/block is probably the best choice, for
+   partitions for larger files you should use 4096 or 8192 bytes/block
+   with FFS, for a partition for files of more than 1 GB maybe even
+   16384. Using 32768 bytes/block makes no sense since even for a 4 GB
+   file only 64 extension blocks are required with 16384 bytes/block and
+   FFS doesn't support larger files.
+   The problem with using large block sizes is that only reading/writing
+   files gets faster, everything else gets slower. For example for
+   reading a directory with 1000 entries FFS has to read 500 KB on a
+   partition with 512 bytes/block, but on a partition with 8192
+   bytes/block it has to read 7.8 MB from the HD.
+
+   SFS doesn't have these problems, it has a read ahead and copy back
+   write cache (builtin on AmigaOS 3.x, optionally the external
+   diskcache.library instead on AmigaOS4) and it doesn't use individual
+   block numbers but stores the start block number and number of blocks
+   of the fragments instead. Since you only get the disadvantages of
+   larger blocks with SFS you should always use 512 bytes/block for SFS
+   partitions.
+
+
+
+Q: Does my device support the commands required for SFS's "safe
+   writing" (see SFS_OLD.guide) correctly?
+A: Unfortunately I don't know it for most devices either, but here is a
+   small list of devices for which I know it for sure, addtitions
+   welcome.
+
+   Known device drivers which work correctly:
+   - a1ide.device
+   - cybppc.device (AmigaOS4 CyberStormPPC SCSI driver)
+   - it8212ide.device
+   - lsi53c8xx.device
+   - sii0680ide.device
+   - sii3112ide.device
+   - sii3114ide.device
+   - sii3512ide.device
+   - scsi.device version 52.2+ (A1200/A4000 motherboard IDE using ATA
+     drives, i.e. HDs)
+   - scsi.device (A600/A1200/A4000 motherboard IDE using ATAPI drives,
+     for example DVD-RAM)
+   - scsi.device (A3000/A4000T motherboard SCSI)
+
+   Known device drivers which do *NOT* support it and therefore SFS's
+   "safe writing", as well as any other journaling or soft updates (for
+   example AFS/PFS) file system *CAN'T* work reliable, i.e. a crash,
+   reboot or power off while writing to a partition can destroy the file
+   system structures:
+   - scsi.device < version 52.2 (A600/A1200/A4000 motherboard IDE with
+     ATA drives incl. HDs)
+

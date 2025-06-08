@@ -1,0 +1,24 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <V>
+
+Click game title to play
+
+      @{"Vader" SYSTEM "agl:c/wbrun A-Games:V/Vader/Vader"}                                @{"ValhallaBeforeTheWar" SYSTEM "agl:c/wbrun A-Games:V/ValhallaBeforeTheWar/ValhallaBeforeTheWar"}
+      @{"ValhallaLordOfInfinity" SYSTEM "agl:c/wbrun A-Games:V/ValhallaLordOfInfinity/ValhallaLordOfInfinity"}               @{"VampiresEmpire" SYSTEM "agl:c/wbrun A-Games:V/VampiresEmpire/VampiresEmpire"}
+      @{"Vaxine" SYSTEM "agl:c/wbrun A-Games:V/Vaxine/Vaxine"}                               @{"Vectorball" SYSTEM "agl:c/wbrun A-Games:V/Vectorball/Vectorball"}
+      @{"VegasGambler" SYSTEM "agl:c/wbrun A-Games:V/VegasGambler/VegasGambler"}                         @{"VenomWing" SYSTEM "agl:c/wbrun A-Games:V/VenomWing/VenomWing"}
+      @{"VenusTheFlytrap" SYSTEM "agl:c/wbrun A-Games:V/VenusTheFlytrap/VenusTheFlytrap"}                      @{"VenusTheFlytrapNoIntro" SYSTEM "agl:c/wbrun A-Games:V/VenusTheFlytrapNoIntro/VenusTheFlytrapNoIntro"}
+      @{"VerteidigerKrone2CD32De" SYSTEM "agl:c/wbrun A-Games:V/VerteidigerKrone2CD32De/VerteidigerKrone2CD32De"}              @{"VictoryRoad" SYSTEM "agl:c/wbrun A-Games:V/VictoryRoad/VictoryRoad"}
+      @{"VideoKid" SYSTEM "agl:c/wbrun A-Games:V/VideoKid/VideoKid"}                             @{"Vigilante" SYSTEM "agl:c/wbrun A-Games:V/Vigilante/Vigilante"}
+      @{"Vindicators" SYSTEM "agl:c/wbrun A-Games:V/Vindicators/Vindicators"}                          @{"Violator" SYSTEM "agl:c/wbrun A-Games:V/Violator/Violator"}
+      @{"VirocopAGA" SYSTEM "agl:c/wbrun A-Games:V/VirocopAGA/VirocopAGA"}                           @{"VirtualKarting2" SYSTEM "agl:c/wbrun A-Games:V/VirtualKarting2/VirtualKarting2"}
+      @{"VirtualKarting2CD" SYSTEM "agl:c/wbrun A-Games:V/VirtualKarting2CD/VirtualKarting2CD"}                    @{"Virus" SYSTEM "agl:c/wbrun A-Games:V/Virus/Virus"}
+      @{"VitalLight" SYSTEM "agl:c/wbrun A-Games:V/VitalLight/VitalLight"}                           @{"Vixen" SYSTEM "agl:c/wbrun A-Games:V/Vixen/Vixen"}
+      @{"Viz" SYSTEM "agl:c/wbrun A-Games:V/Viz/Viz"}                                  @{"Volfied" SYSTEM "agl:c/wbrun A-Games:V/Volfied/Volfied"}
+      @{"VoodooNightmare" SYSTEM "agl:c/wbrun A-Games:V/VoodooNightmare/VoodooNightmare"}                      @{"Voyager" SYSTEM "agl:c/wbrun A-Games:V/Voyager/Voyager"}
+      @{"VoyageursDuTempsFr" SYSTEM "agl:c/wbrun A-Games:V/VoyageursDuTempsFr/VoyageursDuTempsFr"}                   @{"Vroom" SYSTEM "agl:c/wbrun A-Games:V/Vroom/Vroom"}
+      @{"Vroom&DataDisk" SYSTEM "agl:c/wbrun A-Games:V/Vroom&DataDisk/Vroom&DataDisk"}                       @{"VroomMultiPlayer" SYSTEM "agl:c/wbrun A-Games:V/VroomMultiPlayer/VroomMultiPlayer"}
+      @{"Vyrus" SYSTEM "agl:c/wbrun A-Games:V/Vyrus/Vyrus"}
+@TOC agl:guides/ag-launch.guide/main
+@endnode

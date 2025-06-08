@@ -1,0 +1,8 @@
+FAILAT 21
+C:SFScheck dh1: LINES=300 LOCK >RAM:sfscheck_DH1.log
+IF WARN
+   REQUESTCHOICE "!! WARNING !!" "SFScheck ALERT for DH1 !!" "I see!" PUBSCREEN Workbench
+ELSE
+   C:SFSdefrag dh1: 3000
+ENDIF
+

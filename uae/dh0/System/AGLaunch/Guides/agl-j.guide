@@ -1,0 +1,28 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <J>
+
+Click game title to play
+
+      @{"JaguarXJ220" SYSTEM "agl:c/wbrun A-Games:J/JaguarXJ220/JaguarXJ220"}                          @{"JahangirKhansWChampSquash" SYSTEM "agl:c/wbrun A-Games:J/JahangirKhansWChampSquash/JahangirKhansWChampSquash"}
+      @{"JamesBondTheStealthAffair" SYSTEM "agl:c/wbrun A-Games:J/JamesBondTheStealthAffair/JamesBondTheStealthAffair"}            @{"JamesPond" SYSTEM "agl:c/wbrun A-Games:J/JamesPond/JamesPond"}
+      @{"JamesPond2" SYSTEM "agl:c/wbrun A-Games:J/JamesPond2/JamesPond2"}                           @{"JamesPond2AGA" SYSTEM "agl:c/wbrun A-Games:J/JamesPond2AGA/JamesPond2AGA"}
+      @{"JamesPond2CD32" SYSTEM "agl:c/wbrun A-Games:J/JamesPond2CD32/JamesPond2CD32"}                       @{"JamesPond3AGA" SYSTEM "agl:c/wbrun A-Games:J/JamesPond3AGA/JamesPond3AGA"}
+      @{"JamesPond3CD32" SYSTEM "agl:c/wbrun A-Games:J/JamesPond3CD32/JamesPond3CD32"}                       @{"Jaws" SYSTEM "agl:c/wbrun A-Games:J/Jaws/Jaws"}
+      @{"JetSetWilly2" SYSTEM "agl:c/wbrun A-Games:J/JetSetWilly2/JetSetWilly2"}                         @{"JetsonsTheComputerGame" SYSTEM "agl:c/wbrun A-Games:J/JetsonsTheComputerGame/JetsonsTheComputerGame"}
+      @{"Jetstrike" SYSTEM "agl:c/wbrun A-Games:J/Jetstrike/Jetstrike"}                            @{"JetstrikeAGA" SYSTEM "agl:c/wbrun A-Games:J/JetstrikeAGA/JetstrikeAGA"}
+      @{"JimmysFantasticJourney" SYSTEM "agl:c/wbrun A-Games:J/JimmysFantasticJourney/JimmysFantasticJourney"}               @{"JimmyWhitesSnooker" SYSTEM "agl:c/wbrun A-Games:J/JimmyWhitesSnooker/JimmyWhitesSnooker"}
+      @{"JimmyWillburneFr" SYSTEM "agl:c/wbrun A-Games:J/JimmyWillburneFr/JimmyWillburneFr"}                     @{"JimPower" SYSTEM "agl:c/wbrun A-Games:J/JimPower/JimPower"}
+      @{"Jinks" SYSTEM "agl:c/wbrun A-Games:J/Jinks/Jinks"}                                @{"Jinxter" SYSTEM "agl:c/wbrun A-Games:J/Jinxter/Jinxter"}
+      @{"JockyWilsonsDartChallenge" SYSTEM "agl:c/wbrun A-Games:J/JockyWilsonsDartChallenge/JockyWilsonsDartChallenge"}            @{"Joe&MacCavemanNinja" SYSTEM "agl:c/wbrun A-Games:J/Joe&MacCavemanNinja/Joe&MacCavemanNinja"}
+      @{"JoeBlade" SYSTEM "agl:c/wbrun A-Games:J/JoeBlade/JoeBlade"}                             @{"JoeBlade2" SYSTEM "agl:c/wbrun A-Games:J/JoeBlade2/JoeBlade2"}
+      @{"JohnMaddenFootball" SYSTEM "agl:c/wbrun A-Games:J/JohnMaddenFootball/JohnMaddenFootball"}                   @{"Journey" SYSTEM "agl:c/wbrun A-Games:J/Journey/Journey"}
+      @{"Jouster3" SYSTEM "agl:c/wbrun A-Games:J/Jouster3/Jouster3"}                             @{"JudgeDredd" SYSTEM "agl:c/wbrun A-Games:J/JudgeDredd/JudgeDredd"}
+      @{"Jug" SYSTEM "agl:c/wbrun A-Games:J/Jug/Jug"}                                  @{"JumpingJackSon" SYSTEM "agl:c/wbrun A-Games:J/JumpingJackSon/JumpingJackSon"}
+      @{"JumpNRoll" SYSTEM "agl:c/wbrun A-Games:J/JumpNRoll/JumpNRoll"}                            @{"JungleStrike1MB" SYSTEM "agl:c/wbrun A-Games:J/JungleStrike1MB/JungleStrike1MB"}
+      @{"JungleStrike2MB" SYSTEM "agl:c/wbrun A-Games:J/JungleStrike2MB/JungleStrike2MB"}                      @{"JungleStrikeCD32" SYSTEM "agl:c/wbrun A-Games:J/JungleStrikeCD32/JungleStrikeCD32"}
+      @{"JuniorTypist" SYSTEM "agl:c/wbrun A-Games:J/JuniorTypist/JuniorTypist"}                         @{"JupitersMasterdrive" SYSTEM "agl:c/wbrun A-Games:J/JupitersMasterdrive/JupitersMasterdrive"}
+      @{"JurassicPark" SYSTEM "agl:c/wbrun A-Games:J/JurassicPark/JurassicPark"}                         @{"JurassicParkAGA" SYSTEM "agl:c/wbrun A-Games:J/JurassicParkAGA/JurassicParkAGA"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode

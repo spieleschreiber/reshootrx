@@ -1,0 +1,52 @@
+
+from PIK@amigo.ping.de
+
+ZIP100 SCSI, formated, 50 buffers, A4000 Phase5 060/50 + CyberSCSI
+(Mask 0xFFFFFFFF).
+
+FFS 45.9, 2048 bytes/block, stack 2 KB, prio. 10
+
+SFS 1.193, 512 bytes/block, stack 6 KB, prio. 8. cache 16x 8192,
+activ 60/inactiv 2, norecycled, not case-sensitiv.
+
+PFS-3 18.5, 1024 bytes/block, stack 5000 bytes, prio. 10, not deldir
+
+
+SysSpeed 2.6:   FFS-Inter     FFS-DC         SFS            PFS
+
+create             16           16          504            697
+open               43           43         2383           1447
+dirscan            43         2472        13217          10976
+delete             56           54          797            995
+seek/read        2904         2929         3919           3760
+createfile       0.81         0.84         1.33           1.15
+writefile        0.83         0.78         1.33           1.25
+readfile         0.82         0.79         1.33           1.25
+rawread          1.22         1.22         1.30           1.24
+
+
+Diskspeed 1.2 (Hendrikx source, no ExAll):
+1000 files
+
+create (32 KB)  4/65 f/s       3/60       20/447         18/244
+read   (32 KB)  614 KB/s       614          735            512
+write  (32 KB)  693 KB/s       690          723            695
+seek   (32 KB)  8 times/s        8           11             11
+load            5/9/49        3/9/44     74/18/410      77/45/272
+dirscan         5/46/49 f/s  3/10446/45  77/9044/453  81/"Err. 24"/282
+
+====
+
+Dopus4.17pre14, "GetSizes" 11 MB Sys:Fonts on ZIP100
+
+FFS 45.13, stack 2 KB prio 10, 2048 bytes/block, 600 buffers.
+Need 25 % CPU power, time: 25 seconds.
+
+SFS 1.205, stack 6 KB, prio 8, 512 bytes/block, 300 buffers, 16x 16 KB
+readahead-cache. Need 45 % CPU power, time: 2 seconds.
+
+PFS-3 18.5, 1024 bytes/block, stack 5000 bytes, prio. 10, not deldir
+Need 42 % CPU power, time: 3 seconds
+
+Right dudes. FFS need only the ~half of the CPU power. But it is ~12x
+slower!

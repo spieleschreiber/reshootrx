@@ -1,0 +1,13 @@
+;ClassicWB RADboot 1
+;-------------------
+
+DH0:C/Assign >NIL: SYS: DH0:
+DH0:C/Assign >NIL: C: DH0:C
+C:MakeDir RAM:T RAM:ENV
+C:Assign >NIL: ENV: RAM:ENV
+C:Assign >NIL: T: RAM:T
+C:Assign >NIL: S: DH0:S
+C:Assign >NIL: LIBS: DH0:LIBS
+C:Assign >NIL: DEVS: DH0:DEVS
+C:Assign >NIL: FONTS: DH0:FONTS
+C:Assign >NIL: L: DH0:L

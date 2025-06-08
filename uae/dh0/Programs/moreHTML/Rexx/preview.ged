@@ -1,0 +1,63 @@
+/*  $VER: 1.0, ©1996 Dietmar Eilert.
+ *  Modified by Dirk Holtwick, 1997.
+ *
+ *  HTML preview for moreHTML 1.2+
+ */
+
+OPTIONS RESULTS                             /* enable return codes     */
+
+if (LEFT(ADDRESS(), 6) ~= "GOLDED") then    /* not started by GoldEd ? */
+    address 'GOLDED.1'
+
+'LOCK CURRENT RELEASE=4'                    /* lock GUI, gain access   */
+
+if (RC ~= 0) then
+    exit
+
+OPTIONS FAILAT 6                            /* ignore warnings         */
+
+SIGNAL ON SYNTAX                            /* ensure clean exit       */
+
+/* ------------------------ INSERT YOUR CODE HERE: ------------------- */
+
+if (show('P', "MOREHTML.1") = 0) then
+
+    'REQUEST PROBLEM="IBrowse ARexx port not found"'
+
+else do
+
+    'QUERY DOC VAR=DOC'
+
+    if (exists(DOC)) then
+
+        'SAVE ALL'
+
+    else do
+
+        DOC = "t:preview.html"
+
+        'SAVE ALL EXPORT NAME="' || DOC || '"'
+    end
+
+    'UNLOCK'
+
+    ADDRESS 'MOREHTML.1'
+
+    'OPEN URL "file://localhost/' || DOC || '"'
+
+    exit
+end
+
+/* ---------------------------- END OF YOUR CODE --------------------- */
+
+'UNLOCK' /* VERY important: unlock GUI */
+
+exit
+
+SYNTAX:
+
+SAY "Sorry, error line" SIGL ":" ERRORTEXT(RC) ":-("
+
+'UNLOCK'
+
+exit

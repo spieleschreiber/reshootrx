@@ -1,0 +1,16 @@
+;ClassicWB Scanner-Startup
+;-------------------------
+;GAAE 68K LITE FULL ADV ADVSP P96 UAE
+
+C:SetPatch QUIET
+C:Version >NIL:
+C:MakeDir RAM:T RAM:Clipboards RAM:ENV RAM:ENV/Sys
+
+C:Assign >NIL: ENV: RAM:ENV
+C:Assign >NIL: T: RAM:T
+C:Assign >NIL: CLIPS: RAM:Clipboards
+C:Execute S:Assign-Startup
+
+C:WBRun A-Programs:VirusZ/VirusZ
+
+EndCLI >NIL:

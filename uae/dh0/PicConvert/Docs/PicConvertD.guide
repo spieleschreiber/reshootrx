@@ -1,0 +1,646 @@
+@database CD_MM_OPUS5.guide
+@AUTHOR "Eckhard Ludwig"
+@(c) "Copyright © 1996 Eckhard Ludwig"
+@$VER: PicConvert.guide 2.4a
+@width 80
+@Node Main "Inhalt"
+@TITLE "Picture Converter 2.4a   © 1997 by Eckhard Ludwig"
+
+  @{fg highlight}Picture Converter 2.4a konvertiert Bilder in 10 ver-@{fg text}
+   @{fg highlight}schiedene Bildformate, scaliert Bilder und ändert@{fg text}
+   @{fg highlight}die Farbpalette. Copyright © 1997 Eckhard Ludwig.@{fg text}
+
+
+@{b}	   = = I N H A L T = =@{ub}
+
+    @{" Überblick und Kurzanleitung   " link Kurz} Schnellstart ...
+    @{" Beschreibung Installation     " link Kurz2}
+    @{" Bedienung                     " link Kurz3}
+    @{" Tastaturkürzel                " link Kurz4}
+    @{" Menüfunktionen                " link Kurz4}
+
+    @{" Copyright                     " link Copyright} Rechtliches
+    @{" Kontaktadresse                " link Kontakt} Der Autor
+    @{" Entwicklungsgeschichte        " link History} Was ist neu ?
+
+    @{" Bekannte Probleme             " link Gadget6}
+    @{" Externe Programme             " link ExtProgramme} NetPBM
+
+    @{" Weitere Programme             " link Bonus} Das sollte man sich ansehen
+@EndNode
+@Node Kurz "Überblick"
+
+@{b}Überblick:@{ub}
+==========
+PictureConverter ist ein Tool zur Konvertierung umfangreicher Bildersammlungen
+in verschiedene Formate. Auf eigene Grafikroutinen konnte verzichtet werden,
+dafür stehen leistungsfähige qualitativ hochwertige Programme im NetPBM Paket
+zur Verfügung. Die erforderlichen NetPBM Programme werden mitgeliefert.
+
+@{b}Sound-, Bild- und Animationskonverter@{ub}
+=====================================
+Picture Converter 2.4a ist das erste Programm aus einer Serie von Programmen
+zur Sound-/Grafikkonvertierung. Diese Programme haben eine ähnliche
+Benutzeroberfläche und folgende Gemeinsamkeiten:
+
+@{b}Komfortable 8-farbige Oberfläche:@{ub}
+MagicWB Look für sämtliche Buttons und grafische Menüs.
+(siehe  @{" Screenshot " link "PicConvert.ilbm/main"}).
+
+@{b}Hilfsfunktionen:@{ub}
+Im Menü können sie eine Sprechblasenhilfe einschalten. Halten sie den Mauszei-
+ger über einen Knopf/Feld für 3 sek still, und ein Hilfstext wird angezeigt.
+Dank dieser Hilfen ist eine Bedienungsanleitung nahezu überflüssig.
+Ich empfehle ihnen trotzdem, diese zu lesen. Nur so werden sie viele interes-
+sante Dinge erfahren.
+
+@{b}Lokale:@{ub}
+Ab OS2.1 werden Landessprachen unterstützt. Standard ist deutsch, eine eng-
+lische Übersetzung liegt bei.
+
+Entwickelt wurden die Programme hauptsächlich als zusätzliche Tools zu dem
+Autorensystem Adventureshop (siehe @{" Weitere Programme " link Bonus}).
+
+@{b}Formate:@{ub}
+========
+Folgende Bildformate werden gelesen:
+@{b}IFF ILBM, GIF, PNG, JPEG, PCX, BMP, PICT und TIFF@{ub}
+
+Geschrieben werden können diese Bildformate:
+@{b}IFF ILBM (8-256Farben, 24bit, HAM und HAM8), IFF Adventureshop (32+256 Farben),
+GIF, PNG, JPEG, PPM, YUV, BMP, PICT und TIFF@{ub}
+
+@{b}Bedienung Kurzbeschreibung@{ub}
+==========================
+Ausgewählt werden müssen lediglich eine Quell- und eine Zielschublade. Alle in
+der Quellschublade gefundenen Bilder werden konvertiert und unter gleichen Na-
+men in der Zielschublade abgelegt.
+Wenn die alten Bilder nicht mehr benötigt werden, kann als Zielschublade das
+gleiche Verzeichnis wie die Quellschublade angegeben werden. Nach einer Warn-
+meldung werden in diesem Fall die alten Bilder überschrieben.
+
+Gestartet wird der Vorgang über den entsprechenden Knopf. Während der Konver-
+tierung werden im unteren Teil des Fensters ständig der momentane Vorgang an-
+gezeigt. Ein zusätzliches Requester zeigt über eine Fortschrittsanzeige den
+Stand der kovertierten Bilderzahl. Ein Abbruchknopf beendet bei Bedarf die
+Konvertierung unmittelbar nach den Speichern des aktuellen Bildes. 
+
+Hinweis:
+Die Farbkonvertierung (Quantisierung) grossformatiger 24bit-Bilder ist auf
+Systemen <68060 sehr langsam ! Speichern Sie diese Bilder bei IFF ILBM in HAM8
+(AGA automatisch) oder in 16,7M Farben-Formaten.  
+
+@EndNode
+@Node Kurz2 "Beschreibung Installation"
+
+ @{u}Beschreibung Installation:@{uu}
+
+ @{b}Benötigt werden:
+ ==================@{ub}
+
+  - Kickstart V.36 oder höher,
+  - Workbench V.2.1 oder höher,
+  - Zeichensatz XEN (8,9,11) in Fonts: (liegt bei),
+  - min. 2,5MB freier Speicher zum konvertieren der Bilddateien,
+  - Workbench mit mindesten 640*256 Pixel Auflösung (PAL Hires),
+    empfohlen werden 640*480 (Multiscan) oder 1024*768 (GfxCard).
+
+Zum installieren benutzen Sie bitte das beiliegende Install-Icon, oder kopieren
+Sie die Dateien in ein beliebiges Verzeichnus und den XEN-Font bei Bedarf nach
+Fonts: der Workbench. Zuweisungen (Assigns) werden nicht benötigt.
+Bei Updaten einer älteren Version werden automatisch alle alten Dateien
+überschrieben, eine Deinstallation ist nicht erforderlich.
+
+Über Tooltypes können folgende Optionen gesetzt werden:
+
+Bevorzugte Schublade für Bilder Quelldateien:
+@{b}LOADDIR={Dateipfad)@{ub}   Beispiel: LOADDIR=Work:Bilder
+
+Bevorzugte Ziel-Schublade für konvertierte Bilder:
+@{b}SAVEDIR={Dateipfad)@{ub}   Beispiel: SAVEDIR=Work:Konvert
+
+Dateipfad für externe Palette:
+@{b}PALETTE={Dateipfad}@{ub}
+
+Falls das NetPBM Paket auf Ihrem Amiga bereits installiert ist, muss dieses
+nicht erneut installiert werden. Geben Sie in diesem Fall den Pfad an, wo
+sich die Binaries (Programme) von NetPBM befindet:
+@{b}NETPBM={Pfad NetPBM/Bin}@{ub} Beispiel: NETPBM=WORK:NetPBM/bin
+
+Pfadangaben dürfen nicht in Anführungszeichen gesetzt werden !
+
+Bei installierter MagicWorkbench benutzt PictureConverter automatisch eine ent-
+sprechende 8-farbige Oberfläche. Falls infolge unvorhersehbarer Probleme nicht
+die 8-farbige Oberfläche benutzt wird, können sie diese per Tooltype setzen:
+@{b}8COLORS@{ub}
+
+Zur Vereinfachung der Bedienung können die Cyclegadgets zusätzlich eine
+POPUP-Menü Funktion erhalten:
+@{b}CYCLEPOPUP@{ub}
+
+Die Sprechblasenhilfe läßt sich mit Hilfe des Tooltypes @{b}BUBBLEHELP@{ub} dauerhaft
+einschalten.
+
+Für die POPUP Funktion von Cyclegadgets gibt es im PD-Bereich auch einige
+Patches (z.B. CycleToMenu). Diese funktionieren leider nicht zusammen mit dem
+PictureConverter, deswegen sollten sie diese Funktion per Tooltype setzen.
+Falls ihre Workbench mehr als 256 Farben benutzt, darf diese Option nicht
+gesetzt werden!
+
+Für das JPEG-Format liegen die FPU optimierten Versionen von DJPEG und CJPEG
+bei (DJPEG.020881, CJPEG.020881). Wenn sie eine FPU benutzen, empfiehlt es
+sich diese Versionen zu benutzen. Löschen sie DJPEG und CJPEG und benennen
+sie die FPU-Versionen auf diese Namen um.
+
+@EndNode
+@Node Kurz3 "Beschreibung"
+
+ @{b}Benutzung von PictureConvert@{ub}
+
+Nach dem Programmstart öffnet der @{b}PictureConverter@{ub} seinen Arbeits-
+bildschirm auf der Workbench:
+
+  @{b}Bedienelemente@{ub}
+
+  @{" Verzeichnis Load/Save " link Gadget1}
+  @{" Speicherformat        " link Gadget2}
+  @{" Anzahl Farben         " link Gadget3}
+  @{" Auswahl Palette       " link Gadget3}
+  @{" Scaliere Bilder       " link Gadget4}
+  @{" Floyd Steinberg       " link Gadget5}
+  @{" Suffix anpassen       " link Gadget8}
+  @{" Load IFF 256          " link Gadget8}
+  @{" Check                 " link Gadget7}
+  @{" OK                    " link Gadget7}
+  @{" Help                  " link Gadget7}
+
+  @{" Tastaturkürzel        " link Kurz4}
+  @{" Menüfunktionen        " link Kurz4}
+
+Sämtliche Cyclagadgets verfügen zur Vereinfachung der Bedienung zusätzlich
+über POPUP-Menüs (Option muss zuerst per Tooltype gesetzt werden).
+Klicken Sie dazu einfach auf das Textfeld.
+Die Funktion der POPUP-Menüs wurde denen von Directory Opus 5.5 angelehnt.
+1x mit linker Maustaste klicken öffnet das Menü, klicken mit linker oder
+rechter Maustaste schliesst dieses wieder. 
+
+  @{" Bekannte Probleme     " link Gadget6}
+
+@EndNode
+@Node Gadget1 "Quell- und Zielverzeichnis wählen"
+
+Wählen Sie die Pfade für Quell- und Zielverzeichnis, einfach die entsprechenden
+Symbole anklicken und per Dateirequester auswählen. Die Pfade können auch
+direkt in die Felder eingetragen werden. Im Quellverzeichnis müssen sich ein
+oder mehrere Bilder befinden, folgende Bildformate werden unterstützt:
+
+@{b}IFF ILBM, GIF, PNG, JPEG, PCX, BMP, PICT und TIFF@{ub}
+
+Die Bildformate werden automatisch erkannt, nur PICT-Bilder müssen einen
+Namen mit der Extension .PIC oder .PICT haben.
+
+@EndNode
+@Node Gadget2 "Speicherformat"
+
+@{b}Speicher Format:@{ub}
+
+Als nächstes wählen Sie per Cyclegadget das gewünschte Speicherformat. Zur 
+Wahl stehen die Formate:
+
+@{b}Format:			 	Optionen:@{ub}
+IFF ILBM			(Standard)
+IFF Adventureshop		(Standard)
+GIF				 Standard	Interlace
+PNG				 Standard	Interlace
+JPEG				 Standard	Progressiv
+PPM				(Standard)
+YUV				(Standard)
+TIFF				(Standard)
+BMP				 Windows	OS/2
+PICT				(Standard)
+
+Zu einigen Formaten stehen Optionen zur Verfügung. Im Standardmodus werden die
+jeweils besten Optionen genutzt, wie z.B. komprimierte Bildformate (Auf unkom-
+primierte Format-Optionen wurde verzichtet, da in der Praxis bedeutungslos).
+Für JPEG-Bilder muß weiter die JPEG-Qualität von 5 bis 100% gewählt werden,
+voreingestellt ist 75%.
+
+Das Format IFF Adventureshop entspricht weitgehend dem IFF ILBM Format, es
+enthält keine Farbtabelle (Adventureshop lädt die Palette gesondert).
+
+@EndNode
+@Node Gadget3 "Anzahl Farben "
+
+@{b}Anzahl Farben:@{ub}
+
+Die nächste Wahl trifft die Anzahl der gewünschten Farben. Einstellbar sind
+zwischen 8 und 256 sowie 16,7 Millionen. Ausser bei 16,7M wird die Farbenzahl
+entsprechend reduziert, auch bei einem Truecolor-Speicherformat wie JPEG.
+Vermeiden Sie das Umrechnen von 24bit-Bildern nach weniger Farben, diese
+Funktion ist sehr langsam !
+Soll die Farbzahl unverändert bleiben, wählen Sie bei GIF, BMP und PICT 256
+Farben, bei IFF ILBM @{b}AGA automatisch@{ub}, ansonst 16,7M :
+
+@{b}8-256:@{ub}     Farbzahl wird entsprechend reduziert, für IFF ILBM wird
+	   genau das Format mit den entsprechenden Bitplanes gewählt.
+@{b}16,7M:@{ub}     Farbzahl unverändert, alle Bilder werden für IFF ILBM im
+	   IFF24-Format gespeichert.
+@{b}HAM:@{ub}       nur IFF ILBM, 4096-Farben HAM-Format
+@{b}HAM8:@{ub}      nur IFF ILBM, 262000-Farben HAM8-Format
+@{b}AGA Automatisch:@{ub} nur IFF ILBM, es wird automatisch das geeignete
+	   IFF-Format gewählt. Bis 256 Farben Bitplane-Format entsprechend
+	   der Zahl der im Bild vorhandenen Farben, darüber HAM8-Format.
+@{b}wie Palette:@{ub} Die Farbzahl der Palette wird übernommen.
+
+Für Palette kann eine interne Palette benutzt oder eine externe Palette geladen
+werden. Die interne Palette ist speziell für Konvertierungen in das IFF Adven-
+tureshop Format bestimmt. Diese Palette enthält 252 bzw. 28 Farben, 4 Farben
+dürfen in Adventureshop-Bildern nicht belegt werden.
+
+Externe Paletten können normale IFF ILBM Bilder mit bis zu 256 Farben sein.
+Falls Farben in der Palette doppelt vorhanden sind, werden diese automatisch
+reduziert !
+Ansonst wird die externe Palette unverändert in konvertierte Bilder übertragen. 
+
+@EndNode
+@Node Gadget4 "Scaliere Bilder"
+
+@{b}Scaliere Bilder:@{ub}
+
+Wenn alle Bilder auf eine neue Größe scaliert werden sollen, muss der Auswahl-
+harken gesetzt werden. Die gewünschte Bildgröße (Breite x Höhe) wird in die 
+Felder rechts eingetragen, oder per Pfeiltasten bis zur gewünschten Größe 
+durchklicken.
+Siehe auch @{" Bekannte Probleme  " link Gadget6}.
+
+@EndNode
+@Node Gadget5 "Floyd Steinberg"
+
+@{b}Floyd Steinberg:@{ub}
+
+Wenn die Farbzahl von Bildern verringert wird, empfiehlt es sich die Floyd
+Steinberg Ditherung auszuwählen. Der Floyd-Steinberg Algorythmus versucht durch
+eine spezielle Pixel-Rasterung, auch diejenigen Farben darzustellen, welche in
+der zur Konvertierung benutzten Farb-Palette nicht vorhanden sind.
+Setzen Sie einfach den Auswahlharken.
+Siehe auch @{" Bekannte Probleme  " link Gadget6}.
+
+@EndNode
+@Node Gadget8 "Suffix anpassen"
+
+@{b}Suffix anpassen:@{ub}
+
+Mit gesetzten Auswahlharken wird der Suffix dem gewähltem Speicherformat
+angepasst:
+
+@{b}Format:			Suffix:@{ub}
+
+IFF ILBM		.iff
+IFF Adventureshop	.ashop
+GIF			.gif
+PNG			.png
+JPEG			.jpeg
+PPM			.ppm
+YUV			.yuv
+TIFF			.tiff
+BMP			.bmp
+PICT			.pict
+
+@{b}Load IFF256:@{ub}
+
+Manche IFF-Bilder lassen das NetPBM Programm ifftoppm abstürzen. Mit Setzen des
+Auswahlharken kann für das Laden von IFF ILBM Bilder (8-256 Farben Formate)
+eine andere Laderoutine benutzt werden.
+
+@EndNode
+@Node Gadget7 "Check und Start Konvertierung"
+
+@{b}Check:@{ub}
+
+Der Knopf Check ermöglicht vorherige Kontrolle, ob sich die gewünschten Dateien
+im Quellverzeichnis befinden und ob diese richtig erkannt werden. Format und
+jeweilige Anzahl werden in einem Requester aufgelistet.
+
+@{b}OK:@{ub}
+
+Dieser Knopf startet den Vorgang. Zuerst wird die Quellschublade komplett
+durchsucht und intern das Format der verschiedenen Bilder analysiert.
+Danach startet die Konvertierung. Falls beim Speichern des konvertierten
+Bildes Bilder gleichen Namen überschrieben werden müssen, erscheint ein
+Requester mit folgenden Wahlmöglichkeiten:
+
+@{b}[Ersetzen] [Alle Ersetzen] [Auslassen] [Alle Auslassen] [Abbruch]@{ub}
+
+Wählen Sie die gewünschte Vorgehensweise.
+Ein Requester mit Fortgangsindikator zeigt optisch den Fortgang der Konver-
+tierung an. Sie können jederzeit mit Abbruch den Vorgang unterbrechen.
+
+@{b}Help@{ub}
+
+Dieser Button ruft die Anleitung auf, die sie gerade lesen.
+@EndNode
+@Node Gadget6 "Bekannte Probleme"
+
+Das Programm wurde auf einem Amiga 4000 mit Cyberstorm 68060 entwickelt und
+getestet. Selbst bei der Bearbeitung großer Datenmengen ist es mit diesen
+System zu keinerlei Problemen gekommen.
+Wie ich in der Anleitung zu GFXManager gelesen habe, kann es dagegen mit
+NetPBM auf bestimmten Prozessoren zu Problemen kommen. Lesen Sie dazu bitte
+folgenden aus dieser Anleitung entnommenen Text:
+
+  - Aufgrund eines Bug's im Kickstart 3.1 Rom (MathIEEEsingbas.lib),
+    führen die Programme PNMScale und PPMQuant von Jef Poskanzer
+    auf einigen Rechnern, die dieses Rom eingebaut haben, zu System-
+    Abstürzen.
+    Der MathIEEESingBasPatch von Matthias Scheler behebt auf dem
+    Amiga 4000/40 dieses Problem. Für Rechner mit kick 3.1 und ohne
+    FPU hat Matthias PNMScale und PPMQuant neu compiliert.
+    Diese nutzen zwar nicht die FPU, aber laufen dafür Absturzfrei.
+
+  - Das Update des NetPBM-Programms ppmtoilbm (66132 Bytes) vom
+    23.10.1994 läuft in Verbindung mit dem GFXManager leider nicht
+    einwandfrei, so das Sie bei Problemen der Thumbnail-Erzeugung
+    (Speicherfraß) bitte die mitgelieferte, etwas ältere Version
+    des Programms ppmtoilbm (60168 Bytes) benutzen sollten.
+
+Falls Ihr Amiga über keine WORK: Parition auf der Festplatte verfügt, tragen
+Sie in den Tooltypes von PictureConvert für LOADDIR einen vorhandenen Pfad
+oder Paritionsnamen ein.
+
+PPMQuant ist bei der Quantisierung von 24bit-Bildern nach z.B. 256 Farben sehr
+langsam. Vermeiden Sie unbedingt die Benutzung dieser Funktion.
+
+Manche IFF-Bilder verursachen sofortigen Absturz des PBM Programmes "ilbmtoppm".
+Mit Setzen des Harken hinter "Load IFF256" kann bei problematischen IFF-Bildern
+eine andere Laderoutine benutzt werden.
+
+Das Tool FastIPREFS von H.-W. Schober ist nicht kompatibel zu PictureConvert.
+Verwenden sie nur das originale IPREFS ! 
+FastIPREFS läßt beim Starten und/oder Beenden von SoundConvert den Workbench-
+Hintergrund verschwinden.
+
+@EndNode
+@Node Kurz4 "Tastaturkommandos"
+
+PictureConvert kann über die Tastatur bedient werden, folgende
+Funktionen werden unterstützt:
+
+@{b}Tastaturkürzel: Funktion:@{ub}
+
+L	Quellschublade wählen
+S	Zielschublade wählen
+O	Konvertierung starten
+C	Quellschublade checken
+H	Hilfe, Diese Anleitung wird aufgerufen.
+R	Scaliere Bilder (ein/aus)
+F	Floyd Steinberg (ein/aus)
+U	Suffix anpassen (ein/aus)
+I	IFF alternative Laderoutine (ein/aus)
+T	Speicherformat wählen
+A	Anzahl Farben wählen
+
+@{b}Menüfunktionen PictureConvert:@{ub}
+
+rAmiga+L	Quellschublade wählen
+rAmiga+S	Zielschublade wählen
+rAmiga+C	Quellschublade checken
+rAmiga+O	Konvertierung starten
+rAmiga+H	Hilfe, Diese Anleitung wird aufgerufen.
+rAmiga+A	Über PictureConverter
+rAmiga+Q	Programm beenden
+
+Der Menüpunkt @{b}Prefs@{ub} dient zum Ein- oder Ausschalten der Sprechblasenhilfe.
+Dauerhaft kann die Sprechblasenhilfe per Tooltype eingeschaltet werden.
+
+@EndNode
+@Node Bonus "Weitere Programme"
+
+ @{b}AnimConvert 1.0@{ub}
+ ==================
+(siehe  @{" Screenshot " link "AnimConvert.ilbm/main"})
+Animations Converter 1.0 ist ein Tool zur Konvertierung von Animationen und zur
+Encodierung von MPEG Videos.
+Es können mehrere Animationen in einem Durchgang konvertiert werden.
+Die Nutzeroberfläche inklusive Sprechblasenhilfe ist deutsch.
+
+Unterstützte Quell Formate:
+IFF ANIM 5 und 7, FLI, FLC, AVI, Quicktime, MPEG-Video
+IFF & PPM Bildserien.
+
+Konvertierte Formate:
+IFF ANIM 5 und 7, IFF BrushAnim, IFF Bildserien, MPEG-Video
+
+Sie finden das Programm im AMINET: gfx/conv/PicConvert.lha
+
+ @{b}SoundConvert 2.1@{ub}
+ ================
+(siehe  @{" Screenshot " link "SoundConvert.ilbm/main"})
+SoundConverter ist ein Tool zur Konvertierung umfangreicher Sammlungen von
+Samples und Modulen in verschiedene Formate. Über eine einfach zu bedienende
+Benutzeroberfläche wird auf verschiedene bewährte Amigatools wie Amisox,
+Play16, mpega, musicin und makemaud zurückgegriffen.
+
+Der Universallader erkennt Samples der Formate IFF 8SVX, AIFF, Riff Wave, Sun
+AU, MPEG-Audio Layer 2 und 3 (MP2, MP3) und Module der Formate XM, S3M und MOD.
+
+Geschrieben werden Samples der Formate IFF 8SVX, MAUD, AIFF, Riff WAVE und kom-
+primierte Formate ADPCM2, ADPCM3 sowie MPEG-Audio Layer 2 und Layer 3
+
+Sie finden das Programm im AMINET: mus/edit/SoundConvert.lha
+
+ @{b}Adventure Shop 2.0@{ub}
+ ==================
+
+Adventureshop ist ein spezialisiertes Multimedia Autorensystem zur
+Erstellung von Multimediaanwendungen, und anspruchsvoller komplexer
+Adventures in hoher Qualität.
+Dank einer intuitiven Benutzeroberfläche, welche keine Programmierkenntnisse
+erfordert, lassen sich komplexe Programme in kürzester Zeit erstellen.
+
+Es lassen sich insbesonderes myst-like Adventures erstellen, also ähnlich
+dem sehr erfolgreichen Spiel Myst auf PC/Mac.
+Der Spieler steuert seine Figur mittels Mausklick's durch die Landschaft,
+wobei die Figur des Spielers durch einen in die jeweilige Richtung zeigenden
+Pfeil symbolisiert wird. Ebenso erfolgt die gesamte weitere Steuerung über
+die Maus, wie das Aufnehmen von Gegenständen, Betätigung von Schaltern, von
+Puzzles etc. Myst-like Adventures leben von der hohen Qualität der 3D Grafik,
+bestechen durch viele Animationen, Musik und passende Geräsche. Dementspre-
+chend ist die Grafik nur hochauflösend mit 256 oder 32 Farben.
+Lowres (320x256) wird nicht unterstützt! 
+
+Features:
+=========
+-Programmerstellung mittels Mausklicks über eine intuitive Nutzeroberfläche
+-interaktive Vorgehensweise, Grafiken/Anim's/Sound werden sofort angezeigt wie
+ im fertigen Spiel.
+-Spiele können schrittweise erstellt werden, späteres Hinzufügen/Ändern von
+ Grafiken/Anim's/Sound/Spielablauf etc. jederzeit möglich. Verschiedene
+ Programmierer können voneinander unabhängig einzelne Levels erstellen.
+-Zahlreiche Funktionen sind fertig implementiert, können bei Bedarf angepasst
+ werden: Spielstand speichern/laden; Inventary; Snapshot-Funktion (Sofortbild-
+ kamera) und Photoalbum; Requester für Hilfe, About, Inventar, Beenden usw.
+-Unterstützung für Grafikkarten und AGA, alle Bildschirmauflösungen (Screen-
+ mode) ab 640x400. Zahlreiche Grafikkarten werden automatisch erkannt, der
+ Spieler muss nichts konfigurieren.
+-optional Soundkartenunterstützung (Toccata, Maestro, Melody)
+-Spiele sind systemfreundlich, laufen 100% im Amigamultitasking
+-Der Programmeditor ist lokalisiert für deutsch, englisch, italienisch,
+ niederländisch, weitere Sprachen in Vorbereitung
+-Sprechblasenhilfe und Amigaguide Hypertext Hilfe
+-Spiele können ebenfalls lokalisiert werden (englisch + deutsch)
+-Grafikformate IFF ILBM und IFF Adventureshop
+ (Konvertierprogramm im Lieferumfang)
+-Animationsformate IFF ILBM, AVI (opt. Quicktime)
+-Soundformate 8SVX mono, MOD, MED & Maud Mono/Stereo.
+
+System Anforderungen für ein mit Adventureshop erstelltes Spiel:
+----------------------------------------------------------------
+Minimal:
+-Amiga 1200/4000, 2MB FAST frei,
+-CD32 mit 2MB Fastram
+-Alle Amigas, 68020+ und Grafikkarte, 4MB freier FAST-RAM
+
+Empfohlen:
+-68030+, Zorro3 Grafikkarte, 6MB freier FAST-RAM, 4x CDROM
+
+Veröffentlichung
+================
+Die Release von Adventureshop 2.0 erfolgt Mitte 1997 als Shareware über das
+Aminet.
+
+
+ @{b}SHOW_DT.dopus5@{ub}
+ ================
+Universelle Animationsanzeigescripte für Opus5. Formate:
+
+- CDXL      (Amiga Multimediaformat Video + Audio)
+- AVI       (Windows Multimediaformat Video + Audio) ausser Indeo-Kompression
+- Quicktime (Apple Multimediaformat Video + Audio) ausser Indeo-Kompression
+- MPEG1     (Video und Audio) nur über Peggy-Plus
+weiter MPEG, DL, FLI, FLC, IFF-ANIM, HHsYUVS.
+
+Unterstützt werden ECS, AGA und Grafikkarten, wobei beliebige vordefinierte
+oder anwenderspezifische externe Anzeigeprogramme während der Installation 
+eingebunden werden können.
+Veröffentlichung erfolgte über Aminet, siehe biz/dopus/Show_opus5.lha.
+
+@EndNode
+@Node Copyright "Copyright, Verteilung"
+
+
+                     @{b}PictureConverter V2.4@{ub}
+                     @{b}©1997 Eckhard Ludwig@{ub}
+
+  Diese Software unterliegt der "Standard Amiga FD-Software Copyright Note"
+  Sie ist FREEWARE wie definiert in Absatz 4a.
+  Für mehr Informationen lesen Sie bitte @{"AFD-COPYRIGHT" link "AFD-COPYRIGHT.de/Main" 0}.
+ 
+  Die von diesem Programm benutzten @{"Bildbearbeitungs-Programme" link "ExtProgramme" 0} sind eben-
+  falls als @{b}FREEWARE@{ub}-Produkte veröffentlicht und unterliegen den Urheber-
+  rechten der einzelnen Autoren (Lesen Sie hierzu bitte die entsprechenden
+  Dokumentationen).
+
+	 Amiga ist ein eingetragenes Warenzeichen der Escom AG Bochum.
+         Installer ist Copyright © 1991-96 ESCOM AG. All Rights Reserved
+         AmigaGuide ist Copyright © 1991-96 ESCOM AG.
+         @{b}ILBMtoPPM & PPMtoILBM@{ub} ©1989-95 J.Poskanzer/I.Wilken
+         @{b}PNMScale & PPMQuant@{ub} ©1989-91 J.Poskanzer
+         @{b}PCXtoPPM@{ub} ©1990-94 M.Davidson/I.Wilken
+         @{b}DJPEG@{ub} ©1994 Independent JPEG Group
+         @{b}TIFFtoPNM@{ub} ©1990-91 P.J.Naughton/J.Poskanzer
+         @{b}PICTtoPPM@{ub} ©1991-93 G.Phillips
+         @{b}PNGtoPNM@{ub} ©1995 A.Lehmann
+         @{b}GIFtoPNM@{ub} ©1993 D.Koblas
+         @{b}BMPtoPPM@{ub} ©1992 D.W.Sanderson
+
+
+In dieser Anleitung und in Programmtexten erwähnte Hard- und Software-
+Bezeichnungen sind in den meisten Fällen geschützte Warenzeichen der
+jeweiligen Firmen und nicht als solche kenntlich gemacht. Aus dem Fehlen
+eines solchen Hinweises darf also nicht geschlossen werden, daß es sich um
+einen freien Warennamen handelt.
+@EndNode
+@Node History "Entwicklungsgeschichte"
+
+V1.1 -Neuer Tooltype (CYCLEPOPUP) setzt das POPUP-Menü optional, da auf Amiga's
+      mit Hicolor- und Truecolor-Workbench Probleme auftauchten.
+     -Tooltype für Pfad zu NetPBM abgeändert.
+     -Oberfläche auf 11 Pixel Font umgestellt, verbessert die Lesbarkeit auf
+      hochauflösenden Workbench's. 
+     -Fehler im Oberflächenrefresh (nach Iconifizierung) beseitigt
+     -italienischer Catalog hinzugefügt.
+
+V1.2 -Auslassen/Ersetzen verbessert, reagiert jetzt schneller
+     -Indikator verbessert
+     -Fehler bei Auslassen beseitigt
+
+V2.0 -Anpassung der internen Paletten an Adventureshop 2.0, 32 + 256 Farben
+     -niederländischer Katalog hinzugefügt
+
+V2.1 -Suffix Anpassung hinzugefügt
+     -Test für externe Programme hinzugefügt. Wenn ein externes Programm
+      fehlt, erfolgt umfangreiche Fehlermeldung.
+
+V2.2 -Manche IFF-Bilder verursachen sofortigen Absturz des PBM Programmes
+      "ilbmtoppm". Mit Setzen des Harken hinter "Load IFF256" kann bei
+      problematischen IFF-Bildern eine andere Laderoutine benutzt werden.
+
+V2.3 -Bubble Help eingebaut
+     -Magic Workbench Autodetect eingebaut. Bei Amigas mit MagicWB wird
+      automatisch 8-farbiges GUI benutzt, sonst 4 Farben.
+     -Fehler beseitigt: Programm funktionierte nicht bei Installation auf
+      Ram Disk: oder anderen Datenträger mit Leerzeichen im Namen.
+
+V2.4 -Menü's deutsch lokalisiert.
+     -Design verbessert
+     -Tastaturkürzel für nahezu alle Funktionen, erkennbar am Unterstrich
+      in der Beschriftung.
+V2.4a-Fenster wird jetzt automatisch zentriert.
+
+@EndNode
+@Node Kontakt "Kontaktadresse"
+
+Für Anfragen und Fehlerhinweise können sie mich über die folgenden Wege
+erreichen:
+
+ @{u}POSTWEG:@{uu}
+
+	       Eckhard Ludwig
+	       Str.d.Befreiung 8
+	 06128 Halle
+	       Deutschland
+
+ @{u}E-MAIL:@{uu}
+
+	   Wenn möglich, sollten Sie mich per E-Mail kontaktieren.
+	   Meine E-Mail-Adresse lautet:
+
+	    Eckhard@top.east.de
+
+@EndNode
+@node "ExtProgramme" "Externe Programme"
+
+ @{b}Die vom PictureConverter benutzten externen Bildbearbeitungsprogramme:@{ub}
+
+    @{"BMPtoPPM " alink "bmptoppm.man/main" 0}
+    @{"DJPEG    " alink "djpeg.man/main" 0}
+    @{"GIFtoPNM " alink "giftopnm.man/main" 0}
+    @{"ILBMtoPPM" alink "ilbmtoppm.man/main" 0}
+    @{"PCXtoPPM " alink "pcxtoppm.man/main" 0}
+    @{"PICTtoPPM" alink "picttoppm.man/main" 0}
+    @{"PNGtoPNM " alink "pngtopnm.man/main" 0}
+    @{"PNMScale " alink "pnmscale.man/main" 0}
+    @{"PPMQuant " alink "ppmquant.man/main" 0}
+    @{"PPMtoILBM" alink "ppmtoilbm.man/main" 0}
+    @{"TIFFtoPNM" alink "tifftopnm.man/main" 0}
+
+ Diese Programme sind dem @{b}NetPBM Plus@{ub}-Programmpaket entnommen.
+
+@{b}Siehe auch:@{ub} 
+
+    @{"Über PPM " alink "ppm.man/main" 0} 
+    @{"Über PNM " alink "pnm.man/main" 0} 
+    @{"Über PBM " alink "PBM.README/main" 0} 
+    @{"Copying  " alink "COPYING/main" 0}
+
+@endnode

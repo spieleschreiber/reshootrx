@@ -1,0 +1,459 @@
+# WhatIs.library Copyright by Sylvain Rougier and Pierre Carrette
+# send donnation bug/report to :
+# Sylvain Rougier
+# 39 rue carnot
+# 86000 Poitiers
+# France
+#
+# For commercial use, ask written permision.
+# For non-comercial use, you can redistribute whatis.library package
+#
+
+# "# " = Comment
+
+# example definition:
+TYPE "Src Ada"		# you define a new type, its IDString (curently 9
+			# char max) is "Src Ada", this is the string that
+			# will be returned by WhatIs.library and you can see it in
+			# BrowserII when you put the "Show file type", it
+			# is also the way you identify this FileType.
+
+	SUBTYPE "Text"	# OPT:  the file MUST be prior of the type "Text",
+			# this  means  that if the file is not of the type
+			# test,  WhatIs.library  think  it is not the type
+			# "Src Ada"
+
+	INSERTAFTER "Script"	# OPT:  You want that the type "Src Ada"
+				# was  put after the type "Script", it not
+				# an alpha order but an arbitrary FileType
+				# order, you can see this order when you
+				# choose "Sort by file type" in BrowserII
+
+	ICONNAME "def_Src Ada"		# OPT:  this the name of the default icon
+					# file  name, in case the file you
+					# examine haven't, this is only the
+					# file   name   (   returned   by
+					# GetIconName()) whitout any path,
+					# it  is  to  the  appli-prog  to
+					# search   it  in  the  apropiate
+					# directory.     (commnly    the
+					# "ENV:Sys/" directory)
+
+	# now come the decription of the file, if ANY condition below is
+	# not reach, the WhatIs.library say it is not this filetype.
+	# Exepte for OPNAMEPATTERN which is use for light WhatIs() (only
+	# based on the file name)
+
+	NAMEPATTERN "#?.ada"	# OPT:  if the filename don't match to this
+				# pattern, it not of this FileType
+				# it is exclusive whith OPTNAMEPATTERN
+
+#	OPTNAMEPATTERN "#?.ada"		# OPT:  same thing than NAMEPATTERN but it
+					# use ONLY if no DEEP scan is
+					# available ( light WhatIs() ), in
+					# any other scan ( for instance
+					# DEEP scan), it is IGNORED
+
+	# now come the DEEP desciption, it is the heart of reconised
+	# process.  You can specify number in decimal ( begining whith
+	# nothing), in hex ( begining whith "$"), in binary (begining
+	# whith "%"), or in string (begining whith '"')
+	#  All  the search ( and acces) are in the first few byte of file (
+	# currently 484)
+	#  all  this  contion  are  optional.  and is considered as TRUE if
+	# light WhatIs
+
+	COMPAREBYTE 12 $ABADCAFE	# test if the file contain the byte $AB
+					# $AD $CA $FE at offset 12
+
+	COMPAREBYTE $23 "Hello"		#  test  if  the file contain the string
+					#  "Hello"  (  i.e the byte $48 $65
+					# $6c $6f) at offset $23 ( decimal 35)
+
+	# in version 2 of WhatIs.library ( only unde KS2.x) you have a CASE
+	# modifier, this means "A" is different of "a".
+
+	SEARCHBYTE "Good"	#  search  in  the  first  few  byte  of file (
+				#  currently  480  first  byte)  the string
+				# "Good"
+
+	SEARCHBYTE $DEADBEEF	#  search the byte $DE $AD $BE $EF (in this
+				#  order  and  in succetion) in the file
+
+	SEARCHPATTERN "ST-??:"	# search if the pattern "ST-??:" are present
+				# in the file.
+ENDTYPE	# this mark the end of this FileType definition
+#######################################################################
+
+TYPE "Icn Disk"
+	SUBTYPE "Icon"
+	INSERTAFTER "Icon"
+	OPTNAMEPATTERN "Disk.info"
+	COMPAREBYTE $30 $01
+ENDTYPE
+
+TYPE "Icn Drw"
+	SUBTYPE "Icon"
+	INSERTAFTER "Icn Disk"
+	COMPAREBYTE $30 $02
+ENDTYPE
+
+TYPE "Icn Tool"
+	SUBTYPE "Icon"
+	INSERTAFTER "Icn Drw"
+	COMPAREBYTE $30 $03
+ENDTYPE
+
+TYPE "Icn Pjct"
+	SUBTYPE "Icon"
+	INSERTAFTER "Icn Tool"
+	COMPAREBYTE $30 $04
+ENDTYPE
+
+TYPE "Icn Grbg"
+	SUBTYPE "Icon"
+	INSERTAFTER "Icn Pjct"
+	COMPAREBYTE $30 $05
+ENDTYPE
+
+TYPE "PPLoadSeg"
+	INSERTAFTER "PP40 Exe"
+	COMPAREBYTE 0 "PPLS"
+ENDTYPE
+
+TYPE "PPLibHead"
+	INSERTAFTER "PP40 Exe"
+	COMPAREBYTE $78 $FE864CDF7FFF4E75
+ENDTYPE
+
+TYPE "ImpLS"	# executable imploded whith Imploder-Library root to alow crunche of amiga device/fonts/library
+        SUBTYPE "Exe"
+        INSERTAFTER "PPLoadSeg"
+        SEARCHBYTE "explode.library"
+ENDTYPE
+
+TYPE "ImpLS Lib"	# library imploded whith Imploder-Library root to alow crunche of amiga device/fonts/library
+        SUBTYPE "ImpLS"
+        INSERTAFTER "ImpLS"
+        NAMEPATTERN "#?.library#?"
+ENDTYPE
+
+#TYPE "Library"
+#	SUBTYPE "Exe"
+#	INSERTAFTER "ImpLS Lib"
+#	NAMEPATTERN "#?.library#?"
+#ENDTYPE
+
+TYPE "Doc"
+	SUBTYPE "Text"
+	INSERTAFTER	"Text"
+	ICONNAME	"def_doc"
+	NAMEPATTERN "#?.doc~(#?.INFO)"
+ENDTYPE
+
+TYPE "Source C"
+	SUBTYPE "Text"
+	ICONNAME	"def_Source C"
+	NAMEPATTERN "#?.c"
+ENDTYPE
+
+TYPE "Include C"
+	SUBTYPE "Text"
+	ICONNAME	"def_Include C"
+	NAMEPATTERN "#?.h"
+ENDTYPE
+
+TYPE "Asm"
+	SUBTYPE "Text"
+	ICONNAME	"def_Asm"
+	NAMEPATTERN "#?.(a|s|asm)"
+ENDTYPE
+
+TYPE "Incld Asm"
+	SUBTYPE "Text"
+	ICONNAME	"def_Include Asm"
+	NAMEPATTERN "#?.i"
+ENDTYPE
+
+TYPE "Rexx"
+	SUBTYPE "Text"
+	ICONNAME	"def_Rexx"
+	NAMEPATTERN "#?.rexx"
+ENDTYPE
+
+TYPE "Tex"
+	SUBTYPE "Text"
+	ICONNAME	"def_Tex"
+	NAMEPATTERN "#?.Tex"
+ENDTYPE
+
+TYPE "PS"
+	SUBTYPE "Text"
+	ICONNAME	"def_PostScript"
+	OPTNAMEPATTERN "#?.ps"
+	SEARCHBYTE "Adobe"
+ENDTYPE
+
+TYPE "Guide"
+	SUBTYPE "Text"
+	ICONNAME	"def_Guide"
+	OPTNAMEPATTERN "#?.Guide"
+	COMPAREBYTE 0 "@database"
+ENDTYPE
+
+TYPE "ABasic"
+	NAMEPATTERN "#?.bas"
+ENDTYPE
+
+TYPE "GFA"
+	OPTNAMEPATTERN "#?.GFA"
+	COMPAREBYTE 2 "GFA-AMIGAB"
+ENDTYPE
+
+TYPE MakeFile
+	SUBTYPE "Text"
+	ICONNAME	"def_MakeFile"
+	NAMEPATTERN	"MakeFile|SMakeFile|LmkFile"
+ENDTYPE
+
+TYPE ReadMe
+	SUBTYPE "Text"
+	ICONNAME "def_ReadMe"
+	NAMEPATTERN "Read#?Me"
+ENDTYPE
+
+TYPE "PP Doc"
+	SUBTYPE "PP Data"
+	ICONNAME "def_PP Doc"
+	NAMEPATTERN "#?.doc.pp#?"
+ENDTYPE
+
+TYPE "SFX"	#Self extracting LHA/LZH file
+	SUBTYPE "Exe"
+	INSERTAFTER "LHArc"
+	ICONNAME "def_SFX"
+	OPTNAMEPATTERN "#?.run"
+	COMPAREBYTE 44 "SFX"
+ENDTYPE
+	
+TYPE "Tex Font"
+	COMPAREBYTE 0 $F7593647
+ENDTYPE
+
+TYPE "Tex DVI"
+	OPTNAMEPATTERN "#?.dvi"
+	COMPAREBYTE 0 $F7020183
+ENDTYPE
+
+TYPE "DMS"
+	OPTNAMEPATTERN "#?.dms"
+	COMPAREBYTE 0 "DMS!"
+ENDTYPE
+
+TYPE "Warp"
+	OPTNAMEPATTERN "#?.wrp"
+	COMPAREBYTE 0 "Warp"
+ENDTYPE
+
+TYPE "Zoom"
+	OPTNAMEPATTERN "#?.zoom"
+	COMPAREBYTE 0 "ZOOM"
+ENDTYPE
+
+TYPE "ZIP"
+	OPTNAMEPATTERN "#?.zip"
+	COMPAREBYTE 0 $504B0304
+ENDTYPE
+
+TYPE "Manx DMP"
+	OPTNAMEPATTERN "#?.dmp"
+	COMPAREBYTE 0 "djg!"
+ENDTYPE
+
+TYPE "Manx DBG"
+	OPTNAMEPATTERN "#?.dbg"
+	COMPAREBYTE 0 $35D2
+ENDTYPE
+
+TYPE "PPM V1.8"
+	COMPAREBYTE 0 $07231988
+ENDTYPE
+
+TYPE "PPM V2.1"
+	COMPAREBYTE 0 $07231988
+ENDTYPE
+
+TYPE "MEd Song"
+	OPTNAMEPATTERN "#?.med"
+	COMPAREBYTE 0 $4d454404
+	# "MED" $04
+ENDTYPE
+
+TYPE "STSong"
+	COMPAREBYTE 0 "PACK"
+ENDTYPE
+
+TYPE "ST Mod"
+	OPTNAMEPATTERN "(mod.#?|#?.mod)"
+	COMPAREBYTE $32 "ST-"
+	COMPAREBYTE $37 ":"
+	COMPAREBYTE $50 "ST-"
+	COMPAREBYTE $55 ":"
+#	SEARCHPATTERN "#?st-??:#?"
+ENDTYPE
+
+TYPE "PP ST Mod"
+	SUBTYPE "PP Data"
+	NAMEPATTERN "(#?mod.#?|#?.mod#?)"
+ENDTYPE
+	
+TYPE "JPEG"
+	OPTNAMEPATTERN "#?.(jpeg|jpg)"
+	COMPAREBYTE 0 $FFD8FFE0
+ENDTYPE
+
+TYPE "PCX"
+	OPTNAMEPATTERN "#?.pcx#?"
+	COMPAREBYTE 0 $0a0501
+ENDTYPE
+
+TYPE "GIF"
+	OPTNAMEPATTERN "#?.gif#?"
+	COMPAREBYTE 0 "GIF8"
+	COMPAREBYTE 5 "a"
+ENDTYPE
+
+TYPE "BMP"
+	OPTNAMEPATTERN "#?.bmp#?"
+	COMPAREBYTE 0 "BM"
+	COMPAREBYTE 6 $00000000
+ENDTYPE
+TYPE "BMP 1Bit"
+	SUBTYPE "BMP"
+	COMPAREBYTE $1c $01
+ENDTYPE
+TYPE "BMP 4Bit"
+	SUBTYPE "BMP"
+	COMPAREBYTE $1c $04
+ENDTYPE
+TYPE "BMP 8Bit"
+	SUBTYPE "BMP"
+	COMPAREBYTE $1c $08
+ENDTYPE
+
+TYPE "TARGA"
+	OPTNAMEPATTERN "#?.tga#?"
+	COMPAREBYTE 0 $00000A0000000000000000008002E001
+ENDTYPE
+
+TYPE "TIFF"
+	OPTNAMEPATTERN "#?.tif#?"
+	COMPAREBYTE 0 "MM"
+ENDTYPE
+
+TYPE "TIFF Gray"
+	OPTNAMEPATTERN "#?.tif#?"
+	COMPAREBYTE 0 $49492A00
+ENDTYPE
+
+TYPE "SUNRASTER"
+	COMPAREBYTE 0 $59A66A95
+ENDTYPE
+
+TYPE "Wave"
+	OPTNAMEPATTERN "#?.wav#?"
+	COMPAREBYTE 0 "RIFF"
+	COMPAREBYTE 8 "WAVE"
+ENDTYPE
+
+TYPE "MaxiPlan"
+	COMPAREBYTE 0 $474c424c
+ENDTYPE
+
+TYPE "Mnx5.0Obj"
+	INSERTAFTER "Object"
+	ICONNAME "def_Mnx5.0Obj"
+	COMPAREBYTE 0 $434a
+ENDTYPE
+
+TYPE "Mnx3.6Obj"
+	INSERTAFTER "Object"
+	ICONNAME "def_Mnx3.6Obj"
+	COMPAREBYTE 0 $414a
+ENDTYPE
+
+TYPE "Mnx5.0Lib"
+	INSERTAFTER "Object"
+	ICONNAME "def_Mnx5.0Lib"
+	COMPAREBYTE 0 $636a
+ENDTYPE
+
+TYPE "Mnx3.6Lib"
+	INSERTAFTER "Object"
+	ICONNAME "def_Mnx3.6Lib"
+	COMPAREBYTE 0 $616a
+ENDTYPE
+
+TYPE "Imagine"
+	SUBTYPE "IFF"
+	INSERTAFTER "FTXT"
+	ICONNAME "def_Imagine"
+	COMPAREBYTE 8 "TDDD"
+ENDTYPE
+
+TYPE "CDAF"						# Compressed Data Archive File
+	SUBTYPE "IFF"
+	ICONNAME "def_CDAF"
+	COMPAREBYTE 8 "CDAF"
+ENDTYPE
+
+TYPE "Shrink"
+	SUBTYPE "CDAF"
+	ICONNAME "def_Shrink"
+	OPTNAMEPATTERN "#?.shr"
+	COMPAREBYTE 20 "shrinkFILE"	# 20 is offset of archiver name
+ENDTYPE
+
+TYPE "Caligari"
+	ICONNAME "def_Caligari"
+	COMPAREBYTE 0 "CALB"
+ENDTYPE
+
+TYPE "BAD IFF"
+	SEARCHBYTE "FORM"
+ENDTYPE
+
+TYPE "Vista DEM"
+	ICONNAME "def_Vista_DEM"
+	OPTNAMEPATTERN "#?.DEM#?"
+	COMPAREBYTE 0 "Vista DEM File"
+ENDTYPE
+
+TYPE "PP MEdMOD"
+	SUBTYPE "PP Data"
+	INSERTAFTER "MEd MOD"
+	ICONNAME "def_PP MEd MOD"
+	NAMEPATTERN "#?.mmd.pp#?"
+ENDTYPE
+
+TYPE "EPUed"
+	COMPAREBYTE 0 $018063680561
+ENDTYPE
+	TYPE "EPU-XPK"
+		SUBTYPE "EPUed"
+		COMPAREBYTE $10 "xpk"
+	ENDTYPE
+		TYPE "EPU-NUKE"
+			SUBTYPE "EPU-XPK"
+			COMPAREBYTE $13 "NUKE"
+		ENDTYPE
+
+TYPE "GZip"
+	COMPAREBYTE 0 $1F8B0800
+ENDTYPE
+
+TYPE "GT Box"
+	SUBTYPE "PP Data"
+	NAMEPATTERN *.gui
+ENDTYPE
+

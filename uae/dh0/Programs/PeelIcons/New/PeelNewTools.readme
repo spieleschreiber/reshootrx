@@ -1,0 +1,19 @@
+short: Removes NewIcon tooltypes to speed up icons
+type: util/wb
+author: Erik Østlyngen
+version: 1.5001
+uploader: erikoest@idt.unit.no
+
+This little program removes NewIcon tooltypes from your icons ( IM1=!@#$%^&*,
+IM2=*&F^%hg$# etc.) and thereby makes them load twice as fast. Included are
+also small versions of common icons like drawer, tool and datatype. Replace
+your old icons with these and speed up the workbench even more.
+
+NEW IN THIS VERSION
+
+Neat graphical user interface by Michael Hartmann (now it should work :)
+Multiple file select.
+Bugfixes
+German doc
+
+Source included.

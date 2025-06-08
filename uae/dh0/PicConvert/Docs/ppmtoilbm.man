@@ -1,0 +1,330 @@
+
+
+
+     ppmtoilbm(1)         AMIGA (23 October 1994)         ppmtoilbm(1)
+
+
+
+     NAME
+          ppmtoilbm - convert a portable pixmap into an IFF-ILBM,
+          IFF-RGBN or IFF-RGB8 file
+
+     SYNOPSIS
+          ppmtoilbm [-ilbm|-rgb8|-rgbn [-ecs|-aga] [-ham6|-ham8]
+          [-maxplanes|-mp N] [-fixplanes|-fp N]
+          [-normal|-hamif|-hamforce [-hambits|-hamplanes N]
+          [-deepbits|-deepplanes N] [-hires] [-lace] [-camg hexval]
+          [-floyd|-fs] [-nocompress] [-cmethod method] [-mapfile
+          ppmfile] [-sortcmap] [-mmethod method] [-maskfile pbmfile]
+          [-transparent color] [ppmfile]
+
+     DESCRIPTION
+          Reads a portable pixmap as input.  Produces an IFF-ILBM,
+          IFF-RGB8 or IFF-RGBN file as output.  Supported ILBM types
+          are:
+
+          Normal ILBMs
+               1-16 planes, with colormap.  Amiga display mode Hold-
+               any-modify (HAM) is supported, with 3-10 planes
+               (including the 2 control planes).
+
+          Deep ILBMs
+               3-48 planes, direct RGB encoding. Usually 24 planes are
+               used (for 8-bit RGB values).
+
+          Colormap files
+               BMHD + CMAP chunk only, 0 planes.
+
+
+     OPTIONS
+          Options marked with (*) can be prefixed with a "no", e.g.
+          '-nohamif'.  Most options can only be used for IFF-ILBM
+          files, if an option is usable with IFF-RGBN and IFF-RGB8 it
+          is noted in the description.  All options can be abbreviated
+          to their shortest unique prefix.
+
+
+          -ilbm | -rgb8 | -rgbn
+               Write an IFF-ILBM, IFF-RGB8 or IFF-RGBN file. The
+               default is IFF-ILBM.
+
+
+          -maxplanes N
+               Maximum planes to write in a normal ILBM.  If the
+               pixmap does not fit into N planes, writes a HAM file
+               (if -hamif is used), 24bit file (if -24if is used) or
+               aborts with an error.  The default value is 5 planes
+               (for backwards compatibility), minimum value is 1 and
+               maximum 8.  This option can be abbreviated to -mp.
+
+
+
+
+     Page 1                                          (printed 1/23/95)
+
+
+
+
+
+
+     ppmtoilbm(1)         AMIGA (23 October 1994)         ppmtoilbm(1)
+
+
+
+          -fixplanes N
+               If a normal ILBM is written, it will have exactly N
+               planes, even if the number of colors would fit into
+               fewer planes. This option can be abbreviated to -fp.
+
+
+          -hamplanes N
+               Set the number of planes (including the two control
+               planes) for a HAM picture.  The current Amiga hardware
+               supports 6 and 8 planes, so for now you should use only
+               these values.  The default value is 6 (for backwards
+               compatibility), minimum value is 3, maximum 10.
+
+
+          -hambits N
+               Set the number of bits for a color component or index
+               value in a HAM picture.  This is the same as
+               -hamplanesN+2
+
+
+          -deepplanes N
+               Set the number of planes for a deep ILBM.  N must be
+               divisible by 3.
+
+
+          -deepbits N
+               Set the number of bits for a color component in a deep
+               ILBM.  This is the same as -deepplanes3*N
+
+
+          -normal
+               Turns off -hamif, -24if, -hamforce, -24force, -deepif,
+               -deepforce and -cmaponly and sets compression type to
+               byterun1. This is the default mode for IFF-ILBM files.
+
+
+          -hamif (*) | -24if (*)
+               Write a HAM or 24bit file if the pixmap does not fit
+               into the maximum number of planes as given by the
+               -maxplanes option.
+
+
+          -hamforce (*) | -24force (*)
+               Write a HAM or 24bit file.
+
+
+          -cmaponly
+               Write a colormap file: only BMHD and CMAP chunks, no
+               BODY chunk, nPlanes = 0.
+
+
+          -ecs | -aga
+
+
+
+     Page 2                                          (printed 1/23/95)
+
+
+
+
+
+
+     ppmtoilbm(1)         AMIGA (23 October 1994)         ppmtoilbm(1)
+
+
+
+               Set the appropriate -hamplanes and -maxplanes values
+               for the Amiga ECS or AGA chipset.  ECS values are used
+               by default for backwards compatibility.
+
+
+          -ham6 | -ham8
+               Write a HAM picture with 6/8 planes.
+
+
+          -hires (*), -lace (*)
+               Sets the HIRES and LACE bits in the CAMG chunk and
+               adjusts BMHD.xAspect/BMHD.yAspect accordingly. Other
+               bits might be set in the CAMG chunk depending on other
+               options.  These options can be used with IFF-RGBN and
+               IFF-RGB8 files.
+
+
+          -camg hexval
+               Write a specific value into the CAMG chunk.  The
+               hexadecimal value can be given with or without a 0x
+               prefix. Other bits might be set in the CAMG chunk
+               depending on other options.  This option can be used
+               with IFF-RGBN and IFF-RGB8 files.
+
+
+          -nocompress
+               Do not compress the BODY chunk.  Compression requires
+               building the ILBM image in memory; turning compression
+               off allows stream-writing of the image, but the
+               resulting file will usually be 30% to 50% larger. This
+               options affect only IFF-ILBM files, IFF-RGBN and IFF-
+               RGB8 files are always compressed using a pixel repeat
+               count.
+
+
+          -cmethod method
+               Select compression method.  Default is byterun1.
+               Setting method to none is equivalent to using a
+               -nocompress option.  method can be abbreviated to the
+               shortest unique prefix.
+
+
+          -mapfile ppmfile
+               Use the colors in ppmfile as the colormap when writing
+               a normal ILBM.  The mapfile is a normal PPM image, it
+               can be any shape, all that matters are the colors in
+               it, and the order they appear in.  If the colors in the
+               input file do not match those in ppmfile , they are
+               matched to a "best match".
+
+
+          -sortcmap
+
+
+
+     Page 3                                          (printed 1/23/95)
+
+
+
+
+
+
+     ppmtoilbm(1)         AMIGA (23 October 1994)         ppmtoilbm(1)
+
+
+
+               Sort the colormap.
+
+
+          -mmethod method
+               Select masking method.  method can be none
+                (no masking, default), maskplane and transparentcolor
+                (only for normal ILBMs).  lasso masks are are not
+               supported yet.  method can be abbreviated to the
+               shortest unique prefix.
+
+
+          -maskfile pbmfile
+               Use a mask file to mark transparent pixels in an IFF-
+               ILBM.  If the -mmethod option is not used, masking
+               method is set to maskplane. pbmfile is a normal PBM
+               image, the same size (or larger) as the input file.  A
+               pixel value of PBM_WHITE in the mask file means the
+               corresponding in the input file is considered to be
+               transparent, PBM_BLACK indicates an opaque pixel (think
+               of the input file casting a shadow on a white screen).
+               In an IFF-RGBN or IFF-RGB8 file, the mask file is used
+               to set the genlock bits.
+
+
+          -transparent color
+               Mark the given color as transparent.  The color is
+               specified as in ppmmake(1).  If the -mmethod options is
+               not used, masking method is set to transparentcolor.
+
+
+          -floyd (*) | -fs (*)
+               Use Floyd-Steinberg error diffusion for mapping the
+               input colors to HAM or to the colors in a mapfile.  The
+               results are usually much better than without it, but it
+               takes substantially more CPU time, so the default is
+               off.
+
+
+     BUGS
+          HAM pictures will always get a grayscale colormap; a real
+          color selection algorithm might give better results.  On the
+          other hand, this allows row-by-row operation on HAM images,
+          and all HAM images of the same depth (no.  of planes) share
+          a common colormap, which is useful for building HAM
+          animations.
+          Not all IFF-ILBM types that are supported by can be
+          generated with
+          The number of options for this program is approaching the
+          ls(1)-dangerlevel.
+
+
+     REFERENCES
+
+
+
+     Page 4                                          (printed 1/23/95)
+
+
+
+
+
+
+     ppmtoilbm(1)         AMIGA (23 October 1994)         ppmtoilbm(1)
+
+
+
+          Amiga ROM Kernel Reference Manual - Devices (3rd Ed.),
+          Addison Wesley, ISBN 0-201-56775-X, Appendix A: Interchange
+          File Format
+
+
+     SEE ALSO
+          ppm(5), ilbmtoppm(1)
+
+
+     AUTHORS
+          Copyright (C) 1989 by Jef Poskanzer.
+          Modified 1993/1994 by Ingo Wilken
+          (Ingo.Wilken@informatik.uni-oldenburg.de)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     Page 5                                          (printed 1/23/95)
+
+
+

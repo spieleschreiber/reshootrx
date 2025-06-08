@@ -1,0 +1,39 @@
+/* Mounting receipt for the PC device */
+
+    FileSystem = l:pc2am-handler
+    Stacksize = 4096
+    Priority = 5
+    GlobVec = -1
+
+/*  These four values specifies parameters of serial (or other if you use
+    multiserial card) device to communicate via. */
+    Device = PC2AmParallel.device 	/* baudbandit2.device */
+    Unit = 0
+    Flags = 0
+    Baud = 38400
+
+/*  Maximal length of packet */
+
+    MaxTransfer = 8192
+
+
+/*  Timeout value in tenths of second (not surfaces :-)*/
+
+    Surfaces = 10
+
+
+/*  This contains type of indication. Supported types: 0=NONE, 1=LED,
+    2 = Gopher-like, 3 = Background */
+    BlocksPerTrack = 2
+
+
+/*  Specifies hotkey.  Shifting bits are as follows:  8 - CTRL, 9 - LALT,
+    10 - RALT, 11 - LSHIFT, 12 - RSHIFT, 13 - LCOMMAND, 14 - RCOMMAND */
+    LowCyl = 818
+
+/*  Low 4 bits:  Timeouts to popup requester.  This value is always
+    incremented by one (0 means use default (4, used for backward
+    compatibility), 1 don't use at all). */
+/*  Bit #4 = Pretend that we support SetComment() */
+    HighCyl = 20
+

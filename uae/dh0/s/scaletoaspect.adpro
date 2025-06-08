@@ -1,0 +1,68 @@
+/* 
+** This ARexx program allows the user to input a desired pixel
+** aspect. The image will be scaled UP (if possible) to acheive
+** this goal. If the UP scale fails, then it will attempt
+** to scale down.
+**
+** Copyright 1991 By  ASDG Incorporated
+*/
+
+OPTIONS RESULTS
+
+ADDRESS "ADPro"
+
+IMAGE_TYPE
+IF (ADPRO_RESULT = "NONE") | (ADPRO_RESULT = "BITPLANE") THEN DO
+	OKAY1 "No image data to scale."
+	EXIT
+END
+
+OPERATOR DEFINE_PXL_ASPECT
+IF RC ~= 0 THEN EXIT
+
+xaspect = WORD(ADPRO_RESULT, 1)
+yaspect = WORD(ADPRO_RESULT, 2)
+
+GETNUMBER '"Enter Desired X-Aspect"' 1 1 240
+IF RC ~= 0 THEN EXIT
+dx = ADPRO_RESULT
+
+GETNUMBER '"Enter Desired Y-Aspect"' 1 1 240
+dy = ADPRO_RESULT
+IF RC ~= 0 THEN EXIT
+
+IF xaspect = dx and yaspect = dy THEN EXIT
+/* Always scale UP */
+
+xfactor = (xaspect / yaspect) * 100
+yfactor = 100
+IF dx > dy THEN DO
+	xfactor = dx * 10000 / (dy * xfactor)
+END
+ELSE DO
+	xfactor = xfactor * (dy / dx)
+END
+
+IF xfactor < 100 THEN DO
+	yfactor = 10000/xfactor
+	xfactor = 100
+END
+
+PCT_SCALE TRUNC(xfactor+0.5) TRUNC(yfactor+0.5)
+
+/* IF scale up failed, attempt scale down */
+IF RC ~= 0 THEN DO
+	OKAY2 "Scale up failed. Attemp scale down?"
+	IF RC = 0 THEN EXIT
+	PCT_SCALE TRUNC((10000/yfactor)+0.5) TRUNC((10000/xfactor)+0.5)
+	IF RC = 0 THEN DO 
+		OPERATOR DEFINE_PXL_ASPECT dx dy
+	END
+END
+ELSE DO
+	/* Set the pixel aspect, since SCALE does 
+	** not do that when used from AREXX
+	*/
+	OPERATOR DEFINE_PXL_ASPECT dx dy
+END
+EXIT

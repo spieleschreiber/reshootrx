@@ -1,0 +1,43 @@
+@DATABASE "History"
+@NODE "Main" "Main"
+
+                        - Development History of FMS - 
+
+                           @{" 1.0   " LINK "1.0"}
+
+                           @{" 2.0   " LINK "2.0"}
+@ENDNODE
+
+
+@NODE "1.0" "1.0"
+
+ 1.0  3-Nov-89  First version ever
+                ~~~~~~~~~~~~~~~~~~
+                ° Written by Matt Dillon.
+@ENDNODE
+
+@NODE "2.0" "2.0"
+
+ 2.0  10-Apr-96 Second release
+                ~~~~~~~~~~~~~~
+                ° Disassembled, and rewritten in Assembly.
+                ° Removed Data hunk, so all variables can be addressed
+                   using PC relative addressing modes.
+                ° Removed duplicate routines.
+                ° Made as PC relative as possible (Smaller executable)
+                ° Removed possible odd-address violations.
+                ° Moved some routines inline.
+                ° Replaced Dice-C MovMem with a call to Exec/CopyMem()
+                   This will be faster, esp. if CopyMemQuicker is running.
+                ° All jumptables, and common called routines have been
+                   aligned to 32bit boundaries.
+                ° Include 68020+ version.
+                ° Various obvious optimisations.
+                ° Converted some standard C routines to use register based
+                   arguments instead of stack-based args.
+                ° All Jump-tables are now word-based.
+                ° ExtFunc entry of jumptable was missing, Now added, for
+                   future compatability.
+                ° Uses a BSS area at the end of Code hunk for smaller
+                   executable size.
+@ENDNODE

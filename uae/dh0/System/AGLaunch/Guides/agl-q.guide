@@ -1,0 +1,17 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <Q>
+
+Click game title to play
+
+      @{"QBic" SYSTEM "agl:c/wbrun A-Games:Q/QBic/QBic"}                                 @{"Qix" SYSTEM "agl:c/wbrun A-Games:Q/Qix/Qix"}
+      @{"Quadralien" SYSTEM "agl:c/wbrun A-Games:Q/Quadralien/Quadralien"}                           @{"Quadrel" SYSTEM "agl:c/wbrun A-Games:Q/Quadrel/Quadrel"}
+      @{"Quartz" SYSTEM "agl:c/wbrun A-Games:Q/Quartz/Quartz"}                               @{"QuestForGlory2" SYSTEM "agl:c/wbrun A-Games:Q/QuestForGlory2/QuestForGlory2"}
+      @{"QuestForTheTimeBird" SYSTEM "agl:c/wbrun A-Games:Q/QuestForTheTimeBird/QuestForTheTimeBird"}                  @{"QuestionOfSport" SYSTEM "agl:c/wbrun A-Games:Q/QuestionOfSport/QuestionOfSport"}
+      @{"QuestOfAgravain" SYSTEM "agl:c/wbrun A-Games:Q/QuestOfAgravain/QuestOfAgravain"}                      @{"Questron2" SYSTEM "agl:c/wbrun A-Games:Q/Questron2/Questron2"}
+      @{"QueteDeLOiseauDuTempsFr" SYSTEM "agl:c/wbrun A-Games:Q/QueteDeLOiseauDuTempsFr/QueteDeLOiseauDuTempsFr"}              @{"QuiksilverPinball" SYSTEM "agl:c/wbrun A-Games:Q/QuiksilverPinball/QuiksilverPinball"}
+      @{"QuikThunderRabbit" SYSTEM "agl:c/wbrun A-Games:Q/QuikThunderRabbit/QuikThunderRabbit"}                    @{"QuikThunderRabbitAGA" SYSTEM "agl:c/wbrun A-Games:Q/QuikThunderRabbitAGA/QuikThunderRabbitAGA"}
+      @{"QuikThunderRabbitCD32" SYSTEM "agl:c/wbrun A-Games:Q/QuikThunderRabbitCD32/QuikThunderRabbitCD32"}                @{"Qwak" SYSTEM "agl:c/wbrun A-Games:Q/Qwak/Qwak"}
+      @{"QwakCD32" SYSTEM "agl:c/wbrun A-Games:Q/QwakCD32/QwakCD32"}
+@TOC agl:guides/ag-launch.guide/main
+@endnode                

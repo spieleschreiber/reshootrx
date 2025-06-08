@@ -1,0 +1,118 @@
+;ClassicWB RADboot
+;-----------------
+;68K LITE FULL ADV ADVSP P96 UAE
+
+S:RADboot
+
+Echo ""
+Echo ""
+Echo ""
+Echo ""
+Echo "Welcome to ClassicWB RADboot"
+Echo "----------------------------"
+Echo ""
+Echo "This will create a recoverable ramdrive RAD: to launch a selected"
+Echo "program with maximum resources on reboot."
+Echo ""
+Echo "WBRun is used to launch the programs, so tooltypes are preserved by"
+Echo "selecting the programs .info/icon file in the requester provided."
+Echo ""
+Echo "Startup 1 - SetPatch is NOT applied (recommended for WHDLoad)."
+Echo "Startup 2 - SetPatch is applied (may be required for compatibility)."
+Echo ""
+Echo "The startups can be cutomized in the <DH0:S/RADboot> directory."
+
+LAB Start
+C:Requestchoice >ENV:Choice "RADboot""Choose:""Startup 1""Startup 2""AGLaunch""DemosMenu""OtherMenu""Reboot"
+
+IF $Choice EQ "1"
+  Skip Startup1
+ENDIF
+IF $Choice EQ "2"
+  Skip Startup2
+ENDIF
+IF $Choice EQ "3"
+  Skip AGLaunch
+ENDIF
+IF $Choice EQ "4"
+  Skip DemosMenu
+ENDIF
+IF $Choice EQ "5"
+  Skip OtherMenu
+ENDIF
+IF $Choice EQ "0"
+  Skip Reboot
+ENDIF
+
+LAB Startup1
+C:Requestfile >ENV:Xfilename TITLE "Choose path" PATTERN #?.info
+IF $Xfilename GT 0
+  C:Mount RAD: FROM Size
+  C:Makedir RAD:S
+  C:List >T:User-Startup $Xfilename all lformat="C:WBRun *"%p%m*""
+  C:Join >NIL: Startup-Sequence1 T:User-Startup End AS RAD:S/Startup-Sequence
+  Echo ""
+  Echo "RAD: is now primed and ready! Rebooting..."
+  C:Delete ENV:Xfilename ALL QUIET
+  C:Delete ENV:Choice ALL QUIET
+  C:Delete T:User-Startup ALL QUIET
+  C:Wait 3
+  C:Reboot
+ELSE
+  C:Delete ENV:Xfilename ALL QUIET
+  C:Delete ENV:Choice ALL QUIET
+  Skip Start BACK
+EndIF
+
+LAB Startup2
+C:Requestfile >ENV:Xfilename TITLE "Choose path" PATTERN #?.info
+IF $Xfilename GT 0
+  C:Mount RAD: FROM Size
+  C:Makedir RAD:S
+  C:List >T:User-Startup $Xfilename all lformat="C:WBRun *"%p%m*""
+  C:Join >NIL: Startup-Sequence2 T:User-Startup End AS RAD:S/Startup-Sequence
+  Echo ""
+  Echo "RAD: is now primed and ready! Rebooting..."
+  C:Delete ENV:Xfilename ALL QUIET
+  C:Delete ENV:Choice ALL QUIET
+  C:Delete T:User-Startup ALL QUIET
+  C:Wait 3
+  C:Reboot
+ELSE
+  C:Delete ENV:Xfilename ALL QUIET
+  C:Delete ENV:Choice ALL QUIET
+  Skip Start BACK
+EndIF
+
+LAB AGLaunch
+C:Mount RAD: FROM Size
+C:Makedir RAD:S
+C:Copy >NIL: Startup-Sequence3 RAD:S/Startup-Sequence
+Echo ""
+Echo "RAD: is now primed and ready! Rebooting..."
+C:Delete ENV:Choice ALL QUIET
+C:Wait 3
+C:Reboot
+
+LAB DemosMenu
+C:Mount RAD: FROM Size
+C:Makedir RAD:S
+C:Copy >NIL: Startup-Sequence4 RAD:S/Startup-Sequence
+Echo ""
+Echo "RAD: is now primed and ready! Rebooting..."
+C:Delete ENV:Choice ALL QUIET
+C:Wait 3
+C:Reboot
+
+LAB OtherMenu
+C:Mount RAD: FROM Size
+C:Makedir RAD:S
+C:Copy >NIL: Startup-Sequence5 RAD:S/Startup-Sequence
+Echo ""
+Echo "RAD: is now primed and ready! Rebooting..."
+C:Delete ENV:Choice ALL QUIET
+C:Wait 3
+C:Reboot
+
+LAB Reboot
+C:Reboot

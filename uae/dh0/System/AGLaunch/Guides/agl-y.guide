@@ -1,0 +1,12 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <Y>
+
+Click game title to play
+
+      @{"YogiBear&Friends" SYSTEM "agl:c/wbrun A-Games:Y/YogiBear&Friends/YogiBear&Friends"}                     @{"YogisGreatEscape" SYSTEM "agl:c/wbrun A-Games:Y/YogisGreatEscape/YogisGreatEscape"}
+      @{"YoJoe" SYSTEM "agl:c/wbrun A-Games:Y/YoJoe/YoJoe"}                                @{"YoJoeDemo" SYSTEM "agl:c/wbrun A-Games:Y/YoJoeDemo/YoJoeDemo"}
+      @{"YolandaFiles" SYSTEM "agl:c/wbrun A-Games:Y/YolandaFiles/YolandaFiles"}                         @{"YolandaImage" SYSTEM "agl:c/wbrun A-Games:Y/YolandaImage/YolandaImage"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode

@@ -1,0 +1,16 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <0_9>
+
+Click game title to play
+
+      @{"1000ccTurbo" SYSTEM "agl:c/wbrun A-Games:0_9/1000ccTurbo/1000ccTurbo"}                          @{"1000Miglia" SYSTEM "agl:c/wbrun A-Games:0_9/1000Miglia/1000Miglia"}
+      @{"1943" SYSTEM "agl:c/wbrun A-Games:0_9/1943/1943"}                                 @{"20000LeaguesUnderTheSea" SYSTEM "agl:c/wbrun A-Games:0_9/20000LeaguesUnderTheSea/20000LeaguesUnderTheSea"}
+      @{"3001OConnorsFight" SYSTEM "agl:c/wbrun A-Games:0_9/3001OConnorsFight/3001OConnorsFight"}                    @{"3DGalax" SYSTEM "agl:c/wbrun A-Games:0_9/3DGalax/3DGalax"}
+      @{"3DPool" SYSTEM "agl:c/wbrun A-Games:0_9/3DPool/3DPool"}                               @{"4DSportsBoxing" SYSTEM "agl:c/wbrun A-Games:0_9/4DSportsBoxing/4DSportsBoxing"}
+      @{"4DSportsDriving" SYSTEM "agl:c/wbrun A-Games:0_9/4DSportsDriving/4DSportsDriving"}                      @{"4DSportsDriving&MstrTrcks" SYSTEM "agl:c/wbrun A-Games:0_9/4DSportsDriving&MstrTrcks/4DSportsDriving&MstrTrcks"}
+      @{"4x4OffRoadRacing" SYSTEM "agl:c/wbrun A-Games:0_9/4x4OffRoadRacing/4x4OffRoadRacing"}                     @{"5thGear" SYSTEM "agl:c/wbrun A-Games:0_9/5thGear/5thGear"}
+      @{"688AttackSub" SYSTEM "agl:c/wbrun A-Games:0_9/688AttackSub/688AttackSub"}                         @{"7Colors" SYSTEM "agl:c/wbrun A-Games:0_9/7Colors/7Colors"}
+      @{"9Lives" SYSTEM "agl:c/wbrun A-Games:0_9/9Lives/9Lives"} 
+@TOC agl:guides/ag-launch.guide/main
+@endnode

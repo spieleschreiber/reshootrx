@@ -1,6 +1,17 @@
 
 
 
+
+_ALLOCMEMORY
+	CALLEXEC AllocVec
+	tst.l d0
+	beq .memError
+	rts
+.memError
+	move.l (sp),tempVar	; provide current pc
+	bra errorMemory
+	
+
 CLEARMEMORY
     clr.l d0
     clr.l d1

@@ -1,0 +1,142 @@
+Questions/Problems/Comments?
+Please subscribe to the sfs maillinglist, send an email with "subscribe"
+in the subject to sfs-request@freelists.org or use the web-interface at
+http://www.freelists.org/list/sfs
+
+For updates check my SFS homepage http://strohmayer.org/sfs/
+---------------------------------------------------------------------------
+
+1.277 (10.11.2007)
+- Removed 30 char limit for volume names.
+- Fixed a bug in ACTION_EXAMINE_ALL.
+- OS4: Rebuild with GCC 4.2.2.
+
+1.276 (8.9.2007)
+- AmigaOS 3.x: Fixed a bug formatting SFS\0 partitions.
+- AmigaOS 3.x: Now pretents to be FFS in ACTION_DISK_INFO and
+  ACTION_INFO for SFS\2 partitions as well.
+
+1.275 (29.8.2007)
+- Built for AmigaOS 3.x/m68k incl. 'SFS/2' support.
+  To use 'SFS/2' partitions on AmigaOS 3.x you have to install
+  SmartFileSystem into the RDB with DOSType 'SFS/2' (0x53465302), i.e.
+  to use both 'SFS\0' and 'SFS\2' partitions you have to install the
+  same SmartFileSystem binary 2 times into the RDB.
+  If booting from 'SFS\2' partitions isn't required you can load
+  SmartFileSystem as kickstart module using tools like LoadResident,
+  LoadModule, etc. instead of storing it twice in the RDB.
+
+1.274 (17.8.2007)
+- OS4: Removed support for AmigaOS4 versions older than OS4 final.
+- Added a new format with large file support, to use it select DOSType
+  'SFS\2' (0x53465302) for the partitions.
+  WARNING: It's not compatible to the older SFS2 versions, nor to
+           standard SFS partitions (DOSType 'SFS\0', 0x53465300) and
+           therefore tools like SFSCheck, PartitionWizard, etc. don't
+           work on such partitions and you can't use such a partition
+           for booting from U-Boot/SLB!
+
+1.273 (24.7.2007)
+- Fixed a bug in ACTION_WRITE writing to large files.
+- Added workarounds for bugs in MorphOS, the AmigaOS 3.x/m68k version
+  should work on it again.
+
+1.272 (13.7.2007)
+- OS4: Speed up detection of unreadable CD/DVD.
+
+1.271 (11.7.2007)
+- Fixed de_Control check.
+
+1.270 (17.4.2007)
+- OS4: Removed the requesters with timeouts for successfull operations
+  since they can't be read on most systems anyway because they are
+  displayed before Picasso96, etc. is loaded, and before IPrefs was
+  started.
+
+1.269 (3.4.2007)
+- Forgot to disable some debug output in 1.268, fixed.
+
+1.268 (29.3.2007)
+- OS4: Requesters don't use TimedDosRequester() anymore since the new
+  SYS:Prefs/Presets/Requester feature of requester.class could cause
+  deadlocks.
+- Changed some memory allocations to MEMF_PUBLIC/MEMF_SHARED.
+
+1.267 (10.12.2006)
+- OS4: Now checks the free stack size and uses the old file system API
+  if it's low.
+
+1.266 (08.12.2006)
+- ACTION_EXAMINE_ALL now returns ERROR_NO_FREE_STORE if there isn't
+  even enough space for a single entry in the buffer.
+- ACTION_EXAMINE_ALL now returns ERROR_OBJECT_WRONG_TYPE if someone
+  tries to use it again after directory scanning was complete already
+  (implicitely or by using ACTION_EXAMINE_ALL_END).
+- Fixed wrong error return code for ACTION_READ_LINKS.
+- OS4: Now uses IExec->CopyMem() instead of a custom memcpy().
+
+1.265 (17.11.2006)
+- Fixed a bug in the AmigaOS 3.x/m68k version.
+
+1.264 (15.11.2006)
+- Didn't check for too long targets when creating soft links, fixed.
+
+1.263/m68k (13.10.2006)
+- Removes AmigaOS4-only memory types from de_BufMemType if not running
+  on OS4, that way partitions configured to use an OS4-only memory type
+  like MEMF_PRIVATE can be mounted on AmigaOS 3.x as well.
+
+1.263 (3.10.2006)
+- Removable media support was broken in 1.262, fixed.
+
+1.262 (30.9.2006)
+- Changed the "wrong number of free blocks" requester to a timeout
+  requester.
+- Fixed a bug which could cause a crash if a SFS partition is mounted
+  after the Workbench is running already.
+
+1.261 (11.8.2006)
+- OS4: Enabled speedups for AmigaOS4 Update4 users.
+- OS4: No longer allows asynchronous ExNext(), small reads and writes.
+- OS4: Dropped the IExpansion interface once too much, fixed.
+- 32 bit Seek() and SetFileSize() with OFFSET_BEGINNING work up to
+  4 GB - 2 bytes now.
+- OS4: A struct Node was in .rodata, fixed.
+- OS4: Speed up SFS CD/DVD detection.
+- Added ACTION_WAIT_CHAR and ACTION_WAIT_FOR_DATA.
+
+1.255 (10.3.2006)
+- OS4: DVD+RW and DVD-RAM workarounds for MATSHITA DVD-RAM UJ-845S
+  added.
+
+1.254 (4.3.2006)
+- The limits mentioned in the 1.245 notes were wrong, sorry. The actual
+  partition size limit of SFS 1.x is 128 GB, no matter which blocksize
+  you are using. Changed the checks to the actual limits. You can
+  continue to use too large partitions, but you may get "disk full"
+  errors (instead of a trashed partition) even if there is still free
+  space on the partition.
+
+1.253 (14.2.2006)
+- OS4: No longer opens diskcache.library when used on CD/DVDRW.
+- OS4: Changed results of ACTION_CHANGE_FILE_POSITION64 and
+       ACTION_CHANGE_FILE_SIZE64 to the ones the Update4 dos.library
+       expects.
+- ACTION_CHANGE_FILE_SIZE64 and ACTION_SET_FILE_SIZE no longer change
+  the file size to a, for the caller, random size if other files are
+  open with a current offset after the requested size, now you either
+  get the requested size and success, or an error and the old file size
+  isn't changed. (Yes, this is against the documentation of dos.library
+  SetFileSize(), but changing the file size to something else makes no
+  sense at all to me.)
+- OS4: diskcache.library copy-back mode is now enabled by default and
+       can be en-/disabled with ACTION_SET_CACHE, for example using the
+       SFS "SetCache" tool.
+
+1.252 (7.1.2006)
+- m68k: Fixed an alignment bug in the 64 bit packet support.
+- Added some checks in ACTION_SEEK, ACTION_CHANGE_FILE_POSITION64,
+  ACTION_SET_FILE_SIZE, ACTION_CHANGE_FILE_SIZE64, ACTIION_READ and
+  ACTION_WRITE to make sure you can't create/access files > 4 GB - 2
+  bytes.
+

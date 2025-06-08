@@ -248,7 +248,7 @@ colorManager
 								dbra					d7,.colRead0
 								rts
 .vfxColors0
-								INCBIN					stage0/vfx.pal																																																						; used to be stage4, now its stage0
+								INCBIN					incbin/palettes/vfx0.pal																																																						; used to be stage4, now its stage0
 
 								move					#(1<<fxPlaneDepth)-5,d7
 
@@ -498,7 +498,7 @@ colorManager
 								dbra					d7,.2colRead3B
 								rts
 .vfxColors2
-								INCBIN					stage2/vfx.pal
+								INCBIN					incbin/palettes/vfx2.pal
 
 ;	#MARK: colors stage 3
 
@@ -627,7 +627,7 @@ colorManager
 								dbra					d7,.colRead3B
 								rts
 .vfxColors3
-								INCBIN					stage3/vfxColors3.pal
+								INCBIN					incbin/palettes/vfx3.pal
 
 
 ;	#MARK: colors stage 4
@@ -743,7 +743,7 @@ colorManager
 								dbra					d7,.colRead4
 								rts
 .vfxColors4
-								INCBIN					stage4/vfxColors.pal
+								INCBIN					incbin/palettes/vfx4.pal
 
 ;	#MARK: colors stage 05 outro
 

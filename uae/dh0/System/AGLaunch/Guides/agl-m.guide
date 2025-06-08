@@ -1,0 +1,83 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <M>
+
+Click game title to play
+
+      @{"M1TankPlatoon" SYSTEM "agl:c/wbrun A-Games:M/M1TankPlatoon/M1TankPlatoon"}                        @{"Mach3" SYSTEM "agl:c/wbrun A-Games:M/Mach3/Mach3"}
+      @{"MadProfessorMariarti" SYSTEM "agl:c/wbrun A-Games:M/MadProfessorMariarti/MadProfessorMariarti"}                 @{"MadShow" SYSTEM "agl:c/wbrun A-Games:M/MadShow/MadShow"}
+      @{"MadShowFr" SYSTEM "agl:c/wbrun A-Games:M/MadShowFr/MadShowFr"}                            @{"MadTV" SYSTEM "agl:c/wbrun A-Games:M/MadTV/MadTV"}
+      @{"MadTVDe" SYSTEM "agl:c/wbrun A-Games:M/MadTVDe/MadTVDe"}                              @{"MadTVFr" SYSTEM "agl:c/wbrun A-Games:M/MadTVFr/MadTVFr"}
+      @{"MagicBoy" SYSTEM "agl:c/wbrun A-Games:M/MagicBoy/MagicBoy"}                             @{"MagicFly1MB" SYSTEM "agl:c/wbrun A-Games:M/MagicFly1MB/MagicFly1MB"}
+      @{"MagicFly512KB" SYSTEM "agl:c/wbrun A-Games:M/MagicFly512KB/MagicFly512KB"}                        @{"Magician" SYSTEM "agl:c/wbrun A-Games:M/Magician/Magician"}
+      @{"MagiclandDizzy" SYSTEM "agl:c/wbrun A-Games:M/MagiclandDizzy/MagiclandDizzy"}                       @{"MagicLines" SYSTEM "agl:c/wbrun A-Games:M/MagicLines/MagicLines"}
+      @{"MagicLinesCracked" SYSTEM "agl:c/wbrun A-Games:M/MagicLinesCracked/MagicLinesCracked"}                    @{"MagicPockets" SYSTEM "agl:c/wbrun A-Games:M/MagicPockets/MagicPockets"}
+      @{"MagicPocketsDemo" SYSTEM "agl:c/wbrun A-Games:M/MagicPocketsDemo/MagicPocketsDemo"}                     @{"Magnatron" SYSTEM "agl:c/wbrun A-Games:M/Magnatron/Magnatron"}
+      @{"MajorMotion" SYSTEM "agl:c/wbrun A-Games:M/MajorMotion/MajorMotion"}                          @{"ManFromTheCouncil" SYSTEM "agl:c/wbrun A-Games:M/ManFromTheCouncil/ManFromTheCouncil"}
+      @{"ManhattanDealers" SYSTEM "agl:c/wbrun A-Games:M/ManhattanDealers/ManhattanDealers"}                     @{"ManhattanDealersFr" SYSTEM "agl:c/wbrun A-Games:M/ManhattanDealersFr/ManhattanDealersFr"}
+      @{"Manhunter" SYSTEM "agl:c/wbrun A-Games:M/Manhunter/Manhunter"}                            @{"Manhunter2" SYSTEM "agl:c/wbrun A-Games:M/Manhunter2/Manhunter2"}
+      @{"ManiacMansion" SYSTEM "agl:c/wbrun A-Games:M/ManiacMansion/ManiacMansion"}                        @{"ManiacMansionDe" SYSTEM "agl:c/wbrun A-Games:M/ManiacMansionDe/ManiacMansionDe"}
+      @{"ManiacMansionFr" SYSTEM "agl:c/wbrun A-Games:M/ManiacMansionFr/ManiacMansionFr"}                      @{"Maniax" SYSTEM "agl:c/wbrun A-Games:M/Maniax/Maniax"}
+      @{"ManicMiner" SYSTEM "agl:c/wbrun A-Games:M/ManicMiner/ManicMiner"}                           @{"Manix" SYSTEM "agl:c/wbrun A-Games:M/Manix/Manix"}
+      @{"ManoirDeMortvielleFr" SYSTEM "agl:c/wbrun A-Games:M/ManoirDeMortvielleFr/ManoirDeMortvielleFr"}                 @{"MarbleMadness" SYSTEM "agl:c/wbrun A-Games:M/MarbleMadness/MarbleMadness"}
+      @{"MariasXmasBox" SYSTEM "agl:c/wbrun A-Games:M/MariasXmasBox/MariasXmasBox"}                        @{"MarvinsMarvellousAdvAGA" SYSTEM "agl:c/wbrun A-Games:M/MarvinsMarvellousAdvAGA/MarvinsMarvellousAdvAGA"}
+      @{"MarvinsMarvellousAdvCD32" SYSTEM "agl:c/wbrun A-Games:M/MarvinsMarvellousAdvCD32/MarvinsMarvellousAdvCD32"}             @{"MasterAxe" SYSTEM "agl:c/wbrun A-Games:M/MasterAxe/MasterAxe"}
+      @{"MasterBlaster" SYSTEM "agl:c/wbrun A-Games:M/MasterBlaster/MasterBlaster"}                        @{"Masterblazer" SYSTEM "agl:c/wbrun A-Games:M/Masterblazer/Masterblazer"}
+      @{"MatchOfTheDay" SYSTEM "agl:c/wbrun A-Games:M/MatchOfTheDay/MatchOfTheDay"}                        @{"MatrixMarauders" SYSTEM "agl:c/wbrun A-Games:M/MatrixMarauders/MatrixMarauders"}
+      @{"MaupitiIsland" SYSTEM "agl:c/wbrun A-Games:M/MaupitiIsland/MaupitiIsland"}                        @{"MaupitiIslandDe" SYSTEM "agl:c/wbrun A-Games:M/MaupitiIslandDe/MaupitiIslandDe"}
+      @{"MaupitiIslandFr" SYSTEM "agl:c/wbrun A-Games:M/MaupitiIslandFr/MaupitiIslandFr"}                      @{"Maya" SYSTEM "agl:c/wbrun A-Games:M/Maya/Maya"}
+      @{"MayaFr" SYSTEM "agl:c/wbrun A-Games:M/MayaFr/MayaFr"}                               @{"MaydaySquadHeroes" SYSTEM "agl:c/wbrun A-Games:M/MaydaySquadHeroes/MaydaySquadHeroes"}
+      @{"McDonaldLand" SYSTEM "agl:c/wbrun A-Games:M/McDonaldLand/McDonaldLand"}                         @{"MeanArenas" SYSTEM "agl:c/wbrun A-Games:M/MeanArenas/MeanArenas"}
+      @{"MeanArenasCD32" SYSTEM "agl:c/wbrun A-Games:M/MeanArenasCD32/MeanArenasCD32"}                       @{"MeanMachine" SYSTEM "agl:c/wbrun A-Games:M/MeanMachine/MeanMachine"}
+      @{"MeanStreets" SYSTEM "agl:c/wbrun A-Games:M/MeanStreets/MeanStreets"}                          @{"MeanStreetsDe" SYSTEM "agl:c/wbrun A-Games:M/MeanStreetsDe/MeanStreetsDe"}
+      @{"MeanStreetsFr" SYSTEM "agl:c/wbrun A-Games:M/MeanStreetsFr/MeanStreetsFr"}                        @{"MegaLoMania" SYSTEM "agl:c/wbrun A-Games:M/MegaLoMania/MegaLoMania"}
+      @{"MegaLoManiaDe" SYSTEM "agl:c/wbrun A-Games:M/MegaLoManiaDe/MegaLoManiaDe"}                        @{"MegaLoManiaFr" SYSTEM "agl:c/wbrun A-Games:M/MegaLoManiaFr/MegaLoManiaFr"}
+      @{"MegaPhoenix" SYSTEM "agl:c/wbrun A-Games:M/MegaPhoenix/MegaPhoenix"}                          @{"MegaTwins" SYSTEM "agl:c/wbrun A-Games:M/MegaTwins/MegaTwins"}
+      @{"MegaTyphoon" SYSTEM "agl:c/wbrun A-Games:M/MegaTyphoon/MegaTyphoon"}                          @{"Menace" SYSTEM "agl:c/wbrun A-Games:M/Menace/Menace"}
+      @{"MentalImage1" SYSTEM "agl:c/wbrun A-Games:M/MentalImage1/MentalImage1"}                         @{"MentalImage2" SYSTEM "agl:c/wbrun A-Games:M/MentalImage2/MentalImage2"}
+      @{"Mercenary" SYSTEM "agl:c/wbrun A-Games:M/Mercenary/Mercenary"}                            @{"Mercenary3" SYSTEM "agl:c/wbrun A-Games:M/Mercenary3/Mercenary3"}
+      @{"Mercs" SYSTEM "agl:c/wbrun A-Games:M/Mercs/Mercs"}                                @{"MervTheMerciless" SYSTEM "agl:c/wbrun A-Games:M/MervTheMerciless/MervTheMerciless"}
+      @{"MetalLaw" SYSTEM "agl:c/wbrun A-Games:M/MetalLaw/MetalLaw"}                             @{"MetalMutant" SYSTEM "agl:c/wbrun A-Games:M/MetalMutant/MetalMutant"}
+      @{"MetalMutantDe" SYSTEM "agl:c/wbrun A-Games:M/MetalMutantDe/MetalMutantDe"}                        @{"MetalMutantFr" SYSTEM "agl:c/wbrun A-Games:M/MetalMutantFr/MetalMutantFr"}
+      @{"MFTanks" SYSTEM "agl:c/wbrun A-Games:M/MFTanks/MFTanks"}                              @{"MiamiChase" SYSTEM "agl:c/wbrun A-Games:M/MiamiChase/MiamiChase"}
+      @{"Mickey123Fr" SYSTEM "agl:c/wbrun A-Games:M/Mickey123Fr/Mickey123Fr"}                          @{"MickeyABCFr" SYSTEM "agl:c/wbrun A-Games:M/MickeyABCFr/MickeyABCFr"}
+      @{"MickeyJeuDeMemoireFr" SYSTEM "agl:c/wbrun A-Games:M/MickeyJeuDeMemoireFr/MickeyJeuDeMemoireFr"}                 @{"MickeyMouseComputerGame" SYSTEM "agl:c/wbrun A-Games:M/MickeyMouseComputerGame/MickeyMouseComputerGame"}
+      @{"MickeyPuzzlesAnimesFr" SYSTEM "agl:c/wbrun A-Games:M/MickeyPuzzlesAnimesFr/MickeyPuzzlesAnimesFr"}                @{"MickeysABCs" SYSTEM "agl:c/wbrun A-Games:M/MickeysABCs/MickeysABCs"}
+      @{"MickeysJigsawPuzzles" SYSTEM "agl:c/wbrun A-Games:M/MickeysJigsawPuzzles/MickeysJigsawPuzzles"}                 @{"MickeysMemoryChallenge" SYSTEM "agl:c/wbrun A-Games:M/MickeysMemoryChallenge/MickeysMemoryChallenge"}
+      @{"Microbes" SYSTEM "agl:c/wbrun A-Games:M/Microbes/Microbes"}                             @{"MicroMachines" SYSTEM "agl:c/wbrun A-Games:M/MicroMachines/MicroMachines"}
+      @{"MicroProseGolf" SYSTEM "agl:c/wbrun A-Games:M/MicroProseGolf/MicroProseGolf"}                       @{"MicroProseSoccer" SYSTEM "agl:c/wbrun A-Games:M/MicroProseSoccer/MicroProseSoccer"}
+      @{"MidnightResistance" SYSTEM "agl:c/wbrun A-Games:M/MidnightResistance/MidnightResistance"}                   @{"Midwinter" SYSTEM "agl:c/wbrun A-Games:M/Midwinter/Midwinter"}
+      @{"Midwinter2" SYSTEM "agl:c/wbrun A-Games:M/Midwinter2/Midwinter2"}                           @{"Midwinter2De" SYSTEM "agl:c/wbrun A-Games:M/Midwinter2De/Midwinter2De"}
+      @{"Midwinter2Fr" SYSTEM "agl:c/wbrun A-Games:M/Midwinter2Fr/Midwinter2Fr"}                         @{"MidwinterDe" SYSTEM "agl:c/wbrun A-Games:M/MidwinterDe/MidwinterDe"}
+      @{"MidwinterFr" SYSTEM "agl:c/wbrun A-Games:M/MidwinterFr/MidwinterFr"}                          @{"Mig29SovietFighter" SYSTEM "agl:c/wbrun A-Games:M/Mig29SovietFighter/Mig29SovietFighter"}
+      @{"Might&Magic2" SYSTEM "agl:c/wbrun A-Games:M/Might&Magic2/Might&Magic2"}                         @{"Might&Magic3" SYSTEM "agl:c/wbrun A-Games:M/Might&Magic3/Might&Magic3"}
+      @{"Might&Magic3De" SYSTEM "agl:c/wbrun A-Games:M/Might&Magic3De/Might&Magic3De"}                       @{"MightyBombJack" SYSTEM "agl:c/wbrun A-Games:M/MightyBombJack/MightyBombJack"}
+      @{"MikeReadsComputerPopQuiz" SYSTEM "agl:c/wbrun A-Games:M/MikeReadsComputerPopQuiz/MikeReadsComputerPopQuiz"}             @{"Millennium22" SYSTEM "agl:c/wbrun A-Games:M/Millennium22/Millennium22"}
+      @{"Mindbender" SYSTEM "agl:c/wbrun A-Games:M/Mindbender/Mindbender"}                           @{"Mindroll" SYSTEM "agl:c/wbrun A-Games:M/Mindroll/Mindroll"}
+      @{"MindWalker" SYSTEM "agl:c/wbrun A-Games:M/MindWalker/MindWalker"}                           @{"MiniGolf" SYSTEM "agl:c/wbrun A-Games:M/MiniGolf/MiniGolf"}
+      @{"MiniGolfPlus" SYSTEM "agl:c/wbrun A-Games:M/MiniGolfPlus/MiniGolfPlus"}                         @{"Minskies" SYSTEM "agl:c/wbrun A-Games:M/Minskies/Minskies"}
+      @{"MinskiesAGA" SYSTEM "agl:c/wbrun A-Games:M/MinskiesAGA/MinskiesAGA"}                          @{"MissilesOverXerion" SYSTEM "agl:c/wbrun A-Games:M/MissilesOverXerion/MissilesOverXerion"}
+      @{"MissionElevator" SYSTEM "agl:c/wbrun A-Games:M/MissionElevator/MissionElevator"}                      @{"MonkeyIsland2" SYSTEM "agl:c/wbrun A-Games:M/MonkeyIsland2/MonkeyIsland2"}
+      @{"MonkeyIsland2De" SYSTEM "agl:c/wbrun A-Games:M/MonkeyIsland2De/MonkeyIsland2De"}                      @{"MonkeyIsland2Es" SYSTEM "agl:c/wbrun A-Games:M/MonkeyIsland2Es/MonkeyIsland2Es"}
+      @{"MonkeyIsland2Fr" SYSTEM "agl:c/wbrun A-Games:M/MonkeyIsland2Fr/MonkeyIsland2Fr"}                      @{"MonkeyIsland2It" SYSTEM "agl:c/wbrun A-Games:M/MonkeyIsland2It/MonkeyIsland2It"}
+      @{"MonsterBusiness" SYSTEM "agl:c/wbrun A-Games:M/MonsterBusiness/MonsterBusiness"}                      @{"MontyPythonsFlyingCircus" SYSTEM "agl:c/wbrun A-Games:M/MontyPythonsFlyingCircus/MontyPythonsFlyingCircus"}
+      @{"Moochies" SYSTEM "agl:c/wbrun A-Games:M/Moochies/Moochies"}                             @{"MoonBlasterFr" SYSTEM "agl:c/wbrun A-Games:M/MoonBlasterFr/MoonBlasterFr"}
+      @{"Moonfall" SYSTEM "agl:c/wbrun A-Games:M/Moonfall/Moonfall"}                             @{"MoonShineRacers" SYSTEM "agl:c/wbrun A-Games:M/MoonShineRacers/MoonShineRacers"}
+      @{"Moonstone" SYSTEM "agl:c/wbrun A-Games:M/Moonstone/Moonstone"}                            @{"Moonwalker" SYSTEM "agl:c/wbrun A-Games:M/Moonwalker/Moonwalker"}
+      @{"Morph" SYSTEM "agl:c/wbrun A-Games:M/Morph/Morph"}                                @{"MorphAGA" SYSTEM "agl:c/wbrun A-Games:M/MorphAGA/MorphAGA"}
+      @{"MorphCD32" SYSTEM "agl:c/wbrun A-Games:M/MorphCD32/MorphCD32"}                            @{"MortalKombat" SYSTEM "agl:c/wbrun A-Games:M/MortalKombat/MortalKombat"}
+      @{"MortalKombat21MB" SYSTEM "agl:c/wbrun A-Games:M/MortalKombat21MB/MortalKombat21MB"}                     @{"MortalKombat22MB" SYSTEM "agl:c/wbrun A-Games:M/MortalKombat22MB/MortalKombat22MB"}
+      @{"MortalKombatCensored" SYSTEM "agl:c/wbrun A-Games:M/MortalKombatCensored/MortalKombatCensored"}                 @{"MortvilleManor" SYSTEM "agl:c/wbrun A-Games:M/MortvilleManor/MortvilleManor"}
+      @{"MOT" SYSTEM "agl:c/wbrun A-Games:M/MOT/MOT"}                                  @{"MotorbikeMadness" SYSTEM "agl:c/wbrun A-Games:M/MotorbikeMadness/MotorbikeMadness"}
+      @{"Motorhead" SYSTEM "agl:c/wbrun A-Games:M/Motorhead/Motorhead"}                            @{"MotorMassacre" SYSTEM "agl:c/wbrun A-Games:M/MotorMassacre/MotorMassacre"}
+      @{"Mousetrap" SYSTEM "agl:c/wbrun A-Games:M/Mousetrap/Mousetrap"}                            @{"MPythonsFlyingCircus" SYSTEM "agl:c/wbrun A-Games:M/MPythonsFlyingCircus/MPythonsFlyingCircus"}
+      @{"MPythonsFlyingCircusNTSC" SYSTEM "agl:c/wbrun A-Games:M/MPythonsFlyingCircusNTSC/MPythonsFlyingCircusNTSC"}             @{"MrBlobby" SYSTEM "agl:c/wbrun A-Games:M/MrBlobby/MrBlobby"}
+      @{"MrDoRunRunFiles" SYSTEM "agl:c/wbrun A-Games:M/MrDoRunRunFiles/MrDoRunRunFiles"}                      @{"MrDoRunRunImage" SYSTEM "agl:c/wbrun A-Games:M/MrDoRunRunImage/MrDoRunRunImage"}
+      @{"MrHeli" SYSTEM "agl:c/wbrun A-Games:M/MrHeli/MrHeli"}                               @{"MrNutz" SYSTEM "agl:c/wbrun A-Games:M/MrNutz/MrNutz"}
+      @{"MUDS" SYSTEM "agl:c/wbrun A-Games:M/MUDS/MUDS"}                                 @{"MultiPlayerSoccerManager" SYSTEM "agl:c/wbrun A-Games:M/MultiPlayerSoccerManager/MultiPlayerSoccerManager"}
+      @{"Munsters" SYSTEM "agl:c/wbrun A-Games:M/Munsters/Munsters"}                             @{"Murder" SYSTEM "agl:c/wbrun A-Games:M/Murder/Murder"}
+      @{"MurdersInSpace" SYSTEM "agl:c/wbrun A-Games:M/MurdersInSpace/MurdersInSpace"}                       @{"Mystical" SYSTEM "agl:c/wbrun A-Games:M/Mystical/Mystical"}
+      @{"Myth" SYSTEM "agl:c/wbrun A-Games:M/Myth/Myth"}                                 @{"MythHistoryInMaking" SYSTEM "agl:c/wbrun A-Games:M/MythHistoryInMaking/MythHistoryInMaking"}
+      @{"MythHistoryInMakingCD32" SYSTEM "agl:c/wbrun A-Games:M/MythHistoryInMakingCD32/MythHistoryInMakingCD32"}
+@TOC agl:guides/ag-launch.guide/main
+@endnode

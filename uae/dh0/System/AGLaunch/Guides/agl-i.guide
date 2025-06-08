@@ -1,0 +1,45 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <I>
+
+Click game title to play
+
+      @{"IanBothamsCricket" SYSTEM "agl:c/wbrun A-Games:I/IanBothamsCricket/IanBothamsCricket"}                    @{"IceRunner" SYSTEM "agl:c/wbrun A-Games:I/IceRunner/IceRunner"}
+      @{"IkariWarriors" SYSTEM "agl:c/wbrun A-Games:I/IkariWarriors/IkariWarriors"}                        @{"Ilyad" SYSTEM "agl:c/wbrun A-Games:I/Ilyad/Ilyad"}
+      @{"Immortal" SYSTEM "agl:c/wbrun A-Games:I/Immortal/Immortal"}                             @{"Impact" SYSTEM "agl:c/wbrun A-Games:I/Impact/Impact"}
+      @{"Impact95" SYSTEM "agl:c/wbrun A-Games:I/Impact95/Impact95"}                             @{"Imperium" SYSTEM "agl:c/wbrun A-Games:I/Imperium/Imperium"}
+      @{"Impossamole" SYSTEM "agl:c/wbrun A-Games:I/Impossamole/Impossamole"}                          @{"ImpossibleMission2" SYSTEM "agl:c/wbrun A-Games:I/ImpossibleMission2/ImpossibleMission2"}
+      @{"ImpossibleMission2025" SYSTEM "agl:c/wbrun A-Games:I/ImpossibleMission2025/ImpossibleMission2025"}                @{"ImpossibleMission2025AGA" SYSTEM "agl:c/wbrun A-Games:I/ImpossibleMission2025AGA/ImpossibleMission2025AGA"}
+      @{"IncredibleCrashDummies" SYSTEM "agl:c/wbrun A-Games:I/IncredibleCrashDummies/IncredibleCrashDummies"}               @{"IndianaJonesAtlantisAct" SYSTEM "agl:c/wbrun A-Games:I/IndianaJonesAtlantisAct/IndianaJonesAtlantisAct"}
+      @{"IndianaJonesAtlantisAdv" SYSTEM "agl:c/wbrun A-Games:I/IndianaJonesAtlantisAdv/IndianaJonesAtlantisAdv"}              @{"IndianaJonesAtlantisAdvDe" SYSTEM "agl:c/wbrun A-Games:I/IndianaJonesAtlantisAdvDe/IndianaJonesAtlantisAdvDe"}
+      @{"IndianaJonesAtlantisAdvEs" SYSTEM "agl:c/wbrun A-Games:I/IndianaJonesAtlantisAdvEs/IndianaJonesAtlantisAdvEs"}            @{"IndianaJonesAtlantisAdvFr" SYSTEM "agl:c/wbrun A-Games:I/IndianaJonesAtlantisAdvFr/IndianaJonesAtlantisAdvFr"}
+      @{"IndianaJonesAtlantisAdvIt" SYSTEM "agl:c/wbrun A-Games:I/IndianaJonesAtlantisAdvIt/IndianaJonesAtlantisAdvIt"}            @{"IndianaJonesLastCrusAct" SYSTEM "agl:c/wbrun A-Games:I/IndianaJonesLastCrusAct/IndianaJonesLastCrusAct"}
+      @{"IndianaJonesLastCrusAdv" SYSTEM "agl:c/wbrun A-Games:I/IndianaJonesLastCrusAdv/IndianaJonesLastCrusAdv"}              @{"IndianaJonesLastCrusAdvDe" SYSTEM "agl:c/wbrun A-Games:I/IndianaJonesLastCrusAdvDe/IndianaJonesLastCrusAdvDe"}
+      @{"IndianaJonesLastCrusAdvEs" SYSTEM "agl:c/wbrun A-Games:I/IndianaJonesLastCrusAdvEs/IndianaJonesLastCrusAdvEs"}            @{"IndianaJonesLastCrusAdvFr" SYSTEM "agl:c/wbrun A-Games:I/IndianaJonesLastCrusAdvFr/IndianaJonesLastCrusAdvFr"}
+      @{"IndianaJonesLastCrusAdvIt" SYSTEM "agl:c/wbrun A-Games:I/IndianaJonesLastCrusAdvIt/IndianaJonesLastCrusAdvIt"}            @{"IndianaJonesTempleOfDoom" SYSTEM "agl:c/wbrun A-Games:I/IndianaJonesTempleOfDoom/IndianaJonesTempleOfDoom"}
+      @{"Indianapolis500" SYSTEM "agl:c/wbrun A-Games:I/Indianapolis500/Indianapolis500"}                      @{"IndigoFiles" SYSTEM "agl:c/wbrun A-Games:I/IndigoFiles/IndigoFiles"}
+      @{"IndigoImage" SYSTEM "agl:c/wbrun A-Games:I/IndigoImage/IndigoImage"}                          @{"IndyHeat" SYSTEM "agl:c/wbrun A-Games:I/IndyHeat/IndyHeat"}
+      @{"Infection" SYSTEM "agl:c/wbrun A-Games:I/Infection/Infection"}                            @{"Infestation" SYSTEM "agl:c/wbrun A-Games:I/Infestation/Infestation"}
+      @{"InsanityFight" SYSTEM "agl:c/wbrun A-Games:I/InsanityFight/InsanityFight"}                        @{"InsectorHectiInterChange" SYSTEM "agl:c/wbrun A-Games:I/InsectorHectiInterChange/InsectorHectiInterChange"}
+      @{"InsectsInSpace" SYSTEM "agl:c/wbrun A-Games:I/InsectsInSpace/InsectsInSpace"}                       @{"Intact15MB" SYSTEM "agl:c/wbrun A-Games:I/Intact15MB/Intact15MB"}
+      @{"Intact1MB" SYSTEM "agl:c/wbrun A-Games:I/Intact1MB/Intact1MB"}                            @{"Intact512KB" SYSTEM "agl:c/wbrun A-Games:I/Intact512KB/Intact512KB"}
+      @{"International3DTennis" SYSTEM "agl:c/wbrun A-Games:I/International3DTennis/International3DTennis"}                @{"InternationalIceHockey" SYSTEM "agl:c/wbrun A-Games:I/InternationalIceHockey/InternationalIceHockey"}
+      @{"InternationalKarate+" SYSTEM "agl:c/wbrun A-Games:I/InternationalKarate+/InternationalKarate+"}                 @{"InternationalKarate+CD32" SYSTEM "agl:c/wbrun A-Games:I/InternationalKarate+CD32/InternationalKarate+CD32"}
+      @{"InternationalNinjaRabbits" SYSTEM "agl:c/wbrun A-Games:I/InternationalNinjaRabbits/InternationalNinjaRabbits"}            @{"InternationalSoccer" SYSTEM "agl:c/wbrun A-Games:I/InternationalSoccer/InternationalSoccer"}
+      @{"InternationalTruckRacing" SYSTEM "agl:c/wbrun A-Games:I/InternationalTruckRacing/InternationalTruckRacing"}             @{"Interphase" SYSTEM "agl:c/wbrun A-Games:I/Interphase/Interphase"}
+      @{"InterphaseAmigaFormat" SYSTEM "agl:c/wbrun A-Games:I/InterphaseAmigaFormat/InterphaseAmigaFormat"}                @{"IntoTheEaglesNest" SYSTEM "agl:c/wbrun A-Games:I/IntoTheEaglesNest/IntoTheEaglesNest"}
+      @{"Invasion" SYSTEM "agl:c/wbrun A-Games:I/Invasion/Invasion"}                             @{"InvestDe1Disk" SYSTEM "agl:c/wbrun A-Games:I/InvestDe1Disk/InvestDe1Disk"}
+      @{"InvestDe2Disk" SYSTEM "agl:c/wbrun A-Games:I/InvestDe2Disk/InvestDe2Disk"}                        @{"IronLord" SYSTEM "agl:c/wbrun A-Games:I/IronLord/IronLord"}
+      @{"IronLordDe" SYSTEM "agl:c/wbrun A-Games:I/IronLordDe/IronLordDe"}                           @{"IronLordFr" SYSTEM "agl:c/wbrun A-Games:I/IronLordFr/IronLordFr"}
+      @{"IronTrackers" SYSTEM "agl:c/wbrun A-Games:I/IronTrackers/IronTrackers"}                         @{"IronTrackersFr" SYSTEM "agl:c/wbrun A-Games:I/IronTrackersFr/IronTrackersFr"}
+      @{"Ishar" SYSTEM "agl:c/wbrun A-Games:I/Ishar/Ishar"}                                @{"Ishar2" SYSTEM "agl:c/wbrun A-Games:I/Ishar2/Ishar2"}
+      @{"Ishar2AGA" SYSTEM "agl:c/wbrun A-Games:I/Ishar2AGA/Ishar2AGA"}                            @{"Ishar3" SYSTEM "agl:c/wbrun A-Games:I/Ishar3/Ishar3"}
+      @{"Ishar3AGA" SYSTEM "agl:c/wbrun A-Games:I/Ishar3AGA/Ishar3AGA"}                            @{"Ishar3De" SYSTEM "agl:c/wbrun A-Games:I/Ishar3De/Ishar3De"}
+      @{"Ishar3Fr" SYSTEM "agl:c/wbrun A-Games:I/Ishar3Fr/Ishar3Fr"}                             @{"IsharAGA" SYSTEM "agl:c/wbrun A-Games:I/IsharAGA/IsharAGA"}
+      @{"IslandOfLostHope" SYSTEM "agl:c/wbrun A-Games:I/IslandOfLostHope/IslandOfLostHope"}                     @{"ISS" SYSTEM "agl:c/wbrun A-Games:I/ISS/ISS"}
+      @{"Italia1990" SYSTEM "agl:c/wbrun A-Games:I/Italia1990/Italia1990"}                           @{"Italy1990" SYSTEM "agl:c/wbrun A-Games:I/Italy1990/Italy1990"}
+      @{"Italy1990WinnersEdition" SYSTEM "agl:c/wbrun A-Games:I/Italy1990WinnersEdition/Italy1990WinnersEdition"}              @{"ItCameFromDesert2Antheads" SYSTEM "agl:c/wbrun A-Games:I/ItCameFromDesert2Antheads/ItCameFromDesert2Antheads"}
+      @{"ItCameFromTheDesert" SYSTEM "agl:c/wbrun A-Games:I/ItCameFromTheDesert/ItCameFromTheDesert"}                  @{"Ivanhoe" SYSTEM "agl:c/wbrun A-Games:I/Ivanhoe/Ivanhoe"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode

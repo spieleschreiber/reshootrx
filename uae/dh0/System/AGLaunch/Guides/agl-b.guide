@@ -1,0 +1,104 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <B>
+
+Click game title to play
+
+      @{"B17FlyingFortress" SYSTEM "agl:c/wbrun A-Games:B/B17FlyingFortress/B17FlyingFortress"}                    @{"B17FlyingFortressDemo" SYSTEM "agl:c/wbrun A-Games:B/B17FlyingFortressDemo/B17FlyingFortressDemo"}
+      @{"Baal" SYSTEM "agl:c/wbrun A-Games:B/Baal/Baal"}                                 @{"BabaYaga" SYSTEM "agl:c/wbrun A-Games:B/BabaYaga/BabaYaga"}
+      @{"BabyJoInGoingHome" SYSTEM "agl:c/wbrun A-Games:B/BabyJoInGoingHome/BabyJoInGoingHome"}                    @{"BabylonianTwinsDemo" SYSTEM "agl:c/wbrun A-Games:B/BabylonianTwinsDemo/BabylonianTwinsDemo"}
+      @{"Backlash" SYSTEM "agl:c/wbrun A-Games:B/Backlash/Backlash"}                             @{"BackToTheFuturePart3" SYSTEM "agl:c/wbrun A-Games:B/BackToTheFuturePart3/BackToTheFuturePart3"}
+      @{"BadCat" SYSTEM "agl:c/wbrun A-Games:B/BadCat/BadCat"}                               @{"BadCompany" SYSTEM "agl:c/wbrun A-Games:B/BadCompany/BadCompany"}
+      @{"BadDudes" SYSTEM "agl:c/wbrun A-Games:B/BadDudes/BadDudes"}                             @{"BadDudesVsDragonNinja" SYSTEM "agl:c/wbrun A-Games:B/BadDudesVsDragonNinja/BadDudesVsDragonNinja"}
+      @{"BadLands" SYSTEM "agl:c/wbrun A-Games:B/BadLands/BadLands"}                             @{"BadlandsPete" SYSTEM "agl:c/wbrun A-Games:B/BadlandsPete/BadlandsPete"}
+      @{"Bagitman" SYSTEM "agl:c/wbrun A-Games:B/Bagitman/Bagitman"}                             @{"BallGame" SYSTEM "agl:c/wbrun A-Games:B/BallGame/BallGame"}
+      @{"Ballistix" SYSTEM "agl:c/wbrun A-Games:B/Ballistix/Ballistix"}                            @{"BangkokKnights" SYSTEM "agl:c/wbrun A-Games:B/BangkokKnights/BangkokKnights"}
+      @{"BansheeAGA" SYSTEM "agl:c/wbrun A-Games:B/BansheeAGA/BansheeAGA"}                           @{"BansheeCD32" SYSTEM "agl:c/wbrun A-Games:B/BansheeCD32/BansheeCD32"}
+      @{"Barbarian2Palace" SYSTEM "agl:c/wbrun A-Games:B/Barbarian2Palace/Barbarian2Palace"}                     @{"Barbarian2Psygnosis" SYSTEM "agl:c/wbrun A-Games:B/Barbarian2Psygnosis/Barbarian2Psygnosis"}
+      @{"BarbarianPalace" SYSTEM "agl:c/wbrun A-Games:B/BarbarianPalace/BarbarianPalace"}                      @{"BarbarianPsygnosis" SYSTEM "agl:c/wbrun A-Games:B/BarbarianPsygnosis/BarbarianPsygnosis"}
+      @{"BardsTale" SYSTEM "agl:c/wbrun A-Games:B/BardsTale/BardsTale"}                            @{"BargonAttack" SYSTEM "agl:c/wbrun A-Games:B/BargonAttack/BargonAttack"}
+      @{"BargonAttackFr" SYSTEM "agl:c/wbrun A-Games:B/BargonAttackFr/BargonAttackFr"}                       @{"BartVsSpaceMutants1Disk" SYSTEM "agl:c/wbrun A-Games:B/BartVsSpaceMutants1Disk/BartVsSpaceMutants1Disk"}
+      @{"BartVsSpaceMutants2Disk" SYSTEM "agl:c/wbrun A-Games:B/BartVsSpaceMutants2Disk/BartVsSpaceMutants2Disk"}              @{"BartVsSpMutants2Disk" SYSTEM "agl:c/wbrun A-Games:B/BartVsSpMutants2Disk/BartVsSpMutants2Disk"}
+      @{"BartVsTheWorld" SYSTEM "agl:c/wbrun A-Games:B/BartVsTheWorld/BartVsTheWorld"}                       @{"BaseJumpers" SYSTEM "agl:c/wbrun A-Games:B/BaseJumpers/BaseJumpers"}
+      @{"BaseJumpersCD32" SYSTEM "agl:c/wbrun A-Games:B/BaseJumpersCD32/BaseJumpersCD32"}                      @{"BasketIslandDemo1AGA" SYSTEM "agl:c/wbrun A-Games:B/BasketIslandDemo1AGA/BasketIslandDemo1AGA"}
+      @{"BasketIslandDemo2AGA" SYSTEM "agl:c/wbrun A-Games:B/BasketIslandDemo2AGA/BasketIslandDemo2AGA"}                 @{"BAT" SYSTEM "agl:c/wbrun A-Games:B/BAT/BAT"}
+      @{"BAT2" SYSTEM "agl:c/wbrun A-Games:B/BAT2/BAT2"}                                 @{"BAT2De" SYSTEM "agl:c/wbrun A-Games:B/BAT2De/BAT2De"}
+      @{"BAT2Fr" SYSTEM "agl:c/wbrun A-Games:B/BAT2Fr/BAT2Fr"}                               @{"BATDe" SYSTEM "agl:c/wbrun A-Games:B/BATDe/BATDe"}
+      @{"BATFr" SYSTEM "agl:c/wbrun A-Games:B/BATFr/BATFr"}                                @{"BatmanCapedCrusader" SYSTEM "agl:c/wbrun A-Games:B/BatmanCapedCrusader/BatmanCapedCrusader"}
+      @{"BatmanReturns" SYSTEM "agl:c/wbrun A-Games:B/BatmanReturns/BatmanReturns"}                        @{"BatmanTheMovie1Disk" SYSTEM "agl:c/wbrun A-Games:B/BatmanTheMovie1Disk/BatmanTheMovie1Disk"}
+      @{"BatmanTheMovie2Disk" SYSTEM "agl:c/wbrun A-Games:B/BatmanTheMovie2Disk/BatmanTheMovie2Disk"}                  @{"BattleBound" SYSTEM "agl:c/wbrun A-Games:B/BattleBound/BattleBound"}
+      @{"BattleChess" SYSTEM "agl:c/wbrun A-Games:B/BattleChess/BattleChess"}                          @{"BattleChess2" SYSTEM "agl:c/wbrun A-Games:B/BattleChess2/BattleChess2"}
+      @{"BattleChessCD32" SYSTEM "agl:c/wbrun A-Games:B/BattleChessCD32/BattleChessCD32"}                      @{"BattleChessCDTV" SYSTEM "agl:c/wbrun A-Games:B/BattleChessCDTV/BattleChessCDTV"}
+      @{"BattleCommand" SYSTEM "agl:c/wbrun A-Games:B/BattleCommand/BattleCommand"}                        @{"BattleForAshes" SYSTEM "agl:c/wbrun A-Games:B/BattleForAshes/BattleForAshes"}
+      @{"BattleForAshesAmigaPower" SYSTEM "agl:c/wbrun A-Games:B/BattleForAshesAmigaPower/BattleForAshesAmigaPower"}             @{"Battlehawks1942" SYSTEM "agl:c/wbrun A-Games:B/Battlehawks1942/Battlehawks1942"}
+      @{"BattleIsle" SYSTEM "agl:c/wbrun A-Games:B/BattleIsle/BattleIsle"}                           @{"BattleIsle&DataDisks" SYSTEM "agl:c/wbrun A-Games:B/BattleIsle&DataDisks/BattleIsle&DataDisks"}
+      @{"Battlemaster" SYSTEM "agl:c/wbrun A-Games:B/Battlemaster/Battlemaster"}                         @{"Battleships" SYSTEM "agl:c/wbrun A-Games:B/Battleships/Battleships"}
+      @{"BattleSquadron" SYSTEM "agl:c/wbrun A-Games:B/BattleSquadron/BattleSquadron"}                       @{"BattleSquadronDemo" SYSTEM "agl:c/wbrun A-Games:B/BattleSquadronDemo/BattleSquadronDemo"}
+      @{"Battlestorm" SYSTEM "agl:c/wbrun A-Games:B/Battlestorm/Battlestorm"}                          @{"BattlestormCDTV" SYSTEM "agl:c/wbrun A-Games:B/BattlestormCDTV/BattlestormCDTV"}
+      @{"Battletoads" SYSTEM "agl:c/wbrun A-Games:B/Battletoads/Battletoads"}                          @{"BattletoadsCD32" SYSTEM "agl:c/wbrun A-Games:B/BattletoadsCD32/BattletoadsCD32"}
+      @{"BattleValley" SYSTEM "agl:c/wbrun A-Games:B/BattleValley/BattleValley"}                         @{"BCKid" SYSTEM "agl:c/wbrun A-Games:B/BCKid/BCKid"}
+      @{"BeachVolley" SYSTEM "agl:c/wbrun A-Games:B/BeachVolley/BeachVolley"}                          @{"BeastBusters" SYSTEM "agl:c/wbrun A-Games:B/BeastBusters/BeastBusters"}
+      @{"Beastlord" SYSTEM "agl:c/wbrun A-Games:B/Beastlord/Beastlord"}                            @{"Beavers" SYSTEM "agl:c/wbrun A-Games:B/Beavers/Beavers"}
+      @{"BehindTheIronGate" SYSTEM "agl:c/wbrun A-Games:B/BehindTheIronGate/BehindTheIronGate"}                    @{"BehindTheIronGateDe" SYSTEM "agl:c/wbrun A-Games:B/BehindTheIronGateDe/BehindTheIronGateDe"}
+      @{"Belial" SYSTEM "agl:c/wbrun A-Games:B/Belial/Belial"}                               @{"BeneathAStlSky" SYSTEM "agl:c/wbrun A-Games:B/BeneathAStlSky/BeneathAStlSky"}
+      @{"BeneathAStlSkyCD32" SYSTEM "agl:c/wbrun A-Games:B/BeneathAStlSkyCD32/BeneathAStlSkyCD32"}                   @{"BeneathAStlSkyCD32NoVoice" SYSTEM "agl:c/wbrun A-Games:B/BeneathAStlSkyCD32NoVoice/BeneathAStlSkyCD32NoVoice"}
+      @{"BeneathAStlSkyDe" SYSTEM "agl:c/wbrun A-Games:B/BeneathAStlSkyDe/BeneathAStlSkyDe"}                     @{"BeneathAStlSkyFr" SYSTEM "agl:c/wbrun A-Games:B/BeneathAStlSkyFr/BeneathAStlSkyFr"}
+      @{"BeneathAStlSkyIt" SYSTEM "agl:c/wbrun A-Games:B/BeneathAStlSkyIt/BeneathAStlSkyIt"}                     @{"BeneathAStlSkySe" SYSTEM "agl:c/wbrun A-Games:B/BeneathAStlSkySe/BeneathAStlSkySe"}
+      @{"Benefactor" SYSTEM "agl:c/wbrun A-Games:B/Benefactor/Benefactor"}                           @{"BenefactorCD32" SYSTEM "agl:c/wbrun A-Games:B/BenefactorCD32/BenefactorCD32"}
+      @{"BestOfTheBest" SYSTEM "agl:c/wbrun A-Games:B/BestOfTheBest/BestOfTheBest"}                        @{"Betrayal" SYSTEM "agl:c/wbrun A-Games:B/Betrayal/Betrayal"}
+      @{"BetterDeadThanAlien" SYSTEM "agl:c/wbrun A-Games:B/BetterDeadThanAlien/BetterDeadThanAlien"}                  @{"BetterMaths" SYSTEM "agl:c/wbrun A-Games:B/BetterMaths/BetterMaths"}
+      @{"BeverlyHillsCop" SYSTEM "agl:c/wbrun A-Games:B/BeverlyHillsCop/BeverlyHillsCop"}                      @{"BeyondDarkCastle" SYSTEM "agl:c/wbrun A-Games:B/BeyondDarkCastle/BeyondDarkCastle"}
+      @{"BeyondTheIcePalace" SYSTEM "agl:c/wbrun A-Games:B/BeyondTheIcePalace/BeyondTheIcePalace"}                   @{"BezKompromisuPl" SYSTEM "agl:c/wbrun A-Games:B/BezKompromisuPl/BezKompromisuPl"}
+      @{"BigNoseTheCaveman" SYSTEM "agl:c/wbrun A-Games:B/BigNoseTheCaveman/BigNoseTheCaveman"}                    @{"BigRun" SYSTEM "agl:c/wbrun A-Games:B/BigRun/BigRun"}
+      @{"BiingAGADe" SYSTEM "agl:c/wbrun A-Games:B/BiingAGADe/BiingAGADe"}                           @{"BillsTomatoGame" SYSTEM "agl:c/wbrun A-Games:B/BillsTomatoGame/BillsTomatoGame"}
+      @{"BioChallenge" SYSTEM "agl:c/wbrun A-Games:B/BioChallenge/BioChallenge"}                         @{"BionicCommando" SYSTEM "agl:c/wbrun A-Games:B/BionicCommando/BionicCommando"}
+      @{"BiplaneDuel" SYSTEM "agl:c/wbrun A-Games:B/BiplaneDuel/BiplaneDuel"}                          @{"BirdsOfPrey" SYSTEM "agl:c/wbrun A-Games:B/BirdsOfPrey/BirdsOfPrey"}
+      @{"BlackCauldron" SYSTEM "agl:c/wbrun A-Games:B/BlackCauldron/BlackCauldron"}                        @{"BlackCrypt" SYSTEM "agl:c/wbrun A-Games:B/BlackCrypt/BlackCrypt"}
+      @{"BlackLamp" SYSTEM "agl:c/wbrun A-Games:B/BlackLamp/BlackLamp"}                            @{"BlackSectFr" SYSTEM "agl:c/wbrun A-Games:B/BlackSectFr/BlackSectFr"}
+      @{"BlackShadow" SYSTEM "agl:c/wbrun A-Games:B/BlackShadow/BlackShadow"}                          @{"BlackTiger" SYSTEM "agl:c/wbrun A-Games:B/BlackTiger/BlackTiger"}
+      @{"BlackViper" SYSTEM "agl:c/wbrun A-Games:B/BlackViper/BlackViper"}                           @{"BlackViperAGA" SYSTEM "agl:c/wbrun A-Games:B/BlackViperAGA/BlackViperAGA"}
+      @{"BlackViperCD32" SYSTEM "agl:c/wbrun A-Games:B/BlackViperCD32/BlackViperCD32"}                       @{"BladeWarrior" SYSTEM "agl:c/wbrun A-Games:B/BladeWarrior/BladeWarrior"}
+      @{"Blastar" SYSTEM "agl:c/wbrun A-Games:B/Blastar/Blastar"}                              @{"Blasteroids" SYSTEM "agl:c/wbrun A-Games:B/Blasteroids/Blasteroids"}
+      @{"BlazingThunder" SYSTEM "agl:c/wbrun A-Games:B/BlazingThunder/BlazingThunder"}                       @{"BlinkysScarySchool" SYSTEM "agl:c/wbrun A-Games:B/BlinkysScarySchool/BlinkysScarySchool"}
+      @{"Blob" SYSTEM "agl:c/wbrun A-Games:B/Blob/Blob"}                                 @{"BlockOut" SYSTEM "agl:c/wbrun A-Games:B/BlockOut/BlockOut"}
+      @{"BloodMoney" SYSTEM "agl:c/wbrun A-Games:B/BloodMoney/BloodMoney"}                           @{"Bloodnet" SYSTEM "agl:c/wbrun A-Games:B/Bloodnet/Bloodnet"}
+      @{"BloodnetAGA" SYSTEM "agl:c/wbrun A-Games:B/BloodnetAGA/BloodnetAGA"}                          @{"Bloodwych" SYSTEM "agl:c/wbrun A-Games:B/Bloodwych&ExtendedLevels/Bloodwych"}
+      @{"Bloodwych&ExtendedLevels" SYSTEM "agl:c/wbrun A-Games:B/Bloodwych&ExtendedLevels/BloodwychExtendedLevels"}             @{"BlueAngel69" SYSTEM "agl:c/wbrun A-Games:B/BlueAngel69/BlueAngel69"}
+      @{"BlueberryDe" SYSTEM "agl:c/wbrun A-Games:B/BlueberryDe/BlueberryDe"}                          @{"BlueMax" SYSTEM "agl:c/wbrun A-Games:B/BlueMax/BlueMax"}
+      @{"BluesBrothers" SYSTEM "agl:c/wbrun A-Games:B/BluesBrothers/BluesBrothers"}                        @{"BMXSimulator" SYSTEM "agl:c/wbrun A-Games:B/BMXSimulator/BMXSimulator"}
+      @{"BoboFr" SYSTEM "agl:c/wbrun A-Games:B/BoboFr/BoboFr"}                               @{"BobsBadDay" SYSTEM "agl:c/wbrun A-Games:B/BobsBadDay/BobsBadDay"}
+      @{"BobsGarden" SYSTEM "agl:c/wbrun A-Games:B/BobsGarden/BobsGarden"}                           @{"BodyBlows" SYSTEM "agl:c/wbrun A-Games:B/BodyBlows/BodyBlows"}
+      @{"BodyBlowsAGA" SYSTEM "agl:c/wbrun A-Games:B/BodyBlowsAGA/BodyBlowsAGA"}                         @{"BodyBlowsGalactic" SYSTEM "agl:c/wbrun A-Games:B/BodyBlowsGalactic/BodyBlowsGalactic"}
+      @{"BodyBlowsGalacticAGA" SYSTEM "agl:c/wbrun A-Games:B/BodyBlowsGalacticAGA/BodyBlowsGalacticAGA"}                 @{"BomberBob" SYSTEM "agl:c/wbrun A-Games:B/BomberBob/BomberBob"}
+      @{"BombJack" SYSTEM "agl:c/wbrun A-Games:B/BombJack/BombJack"}                             @{"BombPacCD32AGA" SYSTEM "agl:c/wbrun A-Games:B/BombPacCD32AGA/BombPacCD32AGA"}
+      @{"BombPacCD32AGAAminet" SYSTEM "agl:c/wbrun A-Games:B/BombPacCD32AGAAminet/BombPacCD32AGAAminet"}                 @{"Bombuzal" SYSTEM "agl:c/wbrun A-Games:B/Bombuzal/Bombuzal"}
+      @{"BombX" SYSTEM "agl:c/wbrun A-Games:B/BombX/BombX"}                                @{"BonanzaBros" SYSTEM "agl:c/wbrun A-Games:B/BonanzaBros/BonanzaBros"}
+      @{"Booly" SYSTEM "agl:c/wbrun A-Games:B/Booly/Booly"}                                @{"Borobodur" SYSTEM "agl:c/wbrun A-Games:B/Borobodur/Borobodur"}
+      @{"BostonBombClub" SYSTEM "agl:c/wbrun A-Games:B/BostonBombClub/BostonBombClub"}                       @{"Botics" SYSTEM "agl:c/wbrun A-Games:B/Botics/Botics"}
+      @{"BoulderDashConstrKit" SYSTEM "agl:c/wbrun A-Games:B/BoulderDashConstrKit/BoulderDashConstrKit"}                 @{"Brainball" SYSTEM "agl:c/wbrun A-Games:B/Brainball/Brainball"}
+      @{"BrainBlasters" SYSTEM "agl:c/wbrun A-Games:B/BrainBlasters/BrainBlasters"}                        @{"BrainMan" SYSTEM "agl:c/wbrun A-Games:B/BrainMan/BrainMan"}
+      @{"BramStokersDracula" SYSTEM "agl:c/wbrun A-Games:B/BramStokersDracula/BramStokersDracula"}                   @{"Brat" SYSTEM "agl:c/wbrun A-Games:B/Brat/Brat"}
+      @{"Brataccas" SYSTEM "agl:c/wbrun A-Games:B/Brataccas/Brataccas"}                            @{"BreathlessAGA" SYSTEM "agl:c/wbrun A-Games:B/BreathlessAGA/BreathlessAGA"}
+      @{"BreathlessAGA060" SYSTEM "agl:c/wbrun A-Games:B/BreathlessAGA060/BreathlessAGA060"}                     @{"BreathlessDemo" SYSTEM "agl:c/wbrun A-Games:B/BreathlessDemo/BreathlessDemo"}
+      @{"BrianLarasCricket" SYSTEM "agl:c/wbrun A-Games:B/BrianLarasCricket/BrianLarasCricket"}                    @{"BrianLarasCricket96" SYSTEM "agl:c/wbrun A-Games:B/BrianLarasCricket96/BrianLarasCricket96"}
+      @{"BrianTheLion" SYSTEM "agl:c/wbrun A-Games:B/BrianTheLion/BrianTheLion"}                         @{"BrianTheLionAGA" SYSTEM "agl:c/wbrun A-Games:B/BrianTheLionAGA/BrianTheLionAGA"}
+      @{"BridesOfDracula" SYSTEM "agl:c/wbrun A-Games:B/BridesOfDracula/BridesOfDracula"}                      @{"BrutalFootballAGA" SYSTEM "agl:c/wbrun A-Games:B/BrutalFootballAGA/BrutalFootballAGA"}
+      @{"BrutalFootballCD32" SYSTEM "agl:c/wbrun A-Games:B/BrutalFootballCD32/BrutalFootballCD32"}                   @{"BrutalPawsOfFury" SYSTEM "agl:c/wbrun A-Games:B/BrutalPawsOfFury/BrutalPawsOfFury"}
+      @{"BrutalPawsOfFuryCD32" SYSTEM "agl:c/wbrun A-Games:B/BrutalPawsOfFuryCD32/BrutalPawsOfFuryCD32"}                 @{"BSSJaneSeymour" SYSTEM "agl:c/wbrun A-Games:B/BSSJaneSeymour/BSSJaneSeymour"}
+      @{"BubbaNStix" SYSTEM "agl:c/wbrun A-Games:B/BubbaNStix/BubbaNStix"}                           @{"BubbaNStixCD32" SYSTEM "agl:c/wbrun A-Games:B/BubbaNStixCD32/BubbaNStixCD32"}
+      @{"Bubble&Squeak" SYSTEM "agl:c/wbrun A-Games:B/Bubble&Squeak/Bubble&Squeak"}                        @{"Bubble&SqueakAGA" SYSTEM "agl:c/wbrun A-Games:B/Bubble&SqueakAGA/Bubble&SqueakAGA"}
+      @{"Bubble&SqueakCD32" SYSTEM "agl:c/wbrun A-Games:B/Bubble&SqueakCD32/Bubble&SqueakCD32"}                    @{"Bubble+" SYSTEM "agl:c/wbrun A-Games:B/Bubble+/Bubble+"}
+      @{"BubbleBobble" SYSTEM "agl:c/wbrun A-Games:B/BubbleBobble/BubbleBobble"}                         @{"BubbleBobbleNTSC" SYSTEM "agl:c/wbrun A-Games:B/BubbleBobbleNTSC/BubbleBobbleNTSC"}
+      @{"BubbleDizzy" SYSTEM "agl:c/wbrun A-Games:B/BubbleDizzy/BubbleDizzy"}                          @{"BubbleGun" SYSTEM "agl:c/wbrun A-Games:B/BubbleGun/BubbleGun"}
+      @{"BuckRogersCountdownDday" SYSTEM "agl:c/wbrun A-Games:B/BuckRogersCountdownDday/BuckRogersCountdownDday"}              @{"BuckRogersCountdownDdayDe" SYSTEM "agl:c/wbrun A-Games:B/BuckRogersCountdownDdayDe/BuckRogersCountdownDdayDe"}
+      @{"Budokan" SYSTEM "agl:c/wbrun A-Games:B/Budokan/Budokan"}                              @{"BuffaloBillsWildWestShow" SYSTEM "agl:c/wbrun A-Games:B/BuffaloBillsWildWestShow/BuffaloBillsWildWestShow"}
+      @{"BugBash" SYSTEM "agl:c/wbrun A-Games:B/BugBash/BugBash"}                              @{"BugBomber" SYSTEM "agl:c/wbrun A-Games:B/BugBomber/BugBomber"}
+      @{"BuggyBoy" SYSTEM "agl:c/wbrun A-Games:B/BuggyBoy/BuggyBoy"}                             @{"BuilderLand" SYSTEM "agl:c/wbrun A-Games:B/BuilderLand/BuilderLand"}
+      @{"BumpNBurn" SYSTEM "agl:c/wbrun A-Games:B/BumpNBurn/BumpNBurn"}                            @{"BumpNBurnCD32" SYSTEM "agl:c/wbrun A-Games:B/BumpNBurnCD32/BumpNBurnCD32"}
+      @{"BumpysArcadeFantasy" SYSTEM "agl:c/wbrun A-Games:B/BumpysArcadeFantasy/BumpysArcadeFantasy"}                  @{"BunnyBricks" SYSTEM "agl:c/wbrun A-Games:B/BunnyBricks/BunnyBricks"}
+      @{"BurgerMan" SYSTEM "agl:c/wbrun A-Games:B/BurgerMan/BurgerMan"}                            @{"BurningRubber" SYSTEM "agl:c/wbrun A-Games:B/BurningRubber/BurningRubber"}
+      @{"BurningRubberAGA" SYSTEM "agl:c/wbrun A-Games:B/BurningRubberAGA/BurningRubberAGA"}                     @{"Burntime" SYSTEM "agl:c/wbrun A-Games:B/Burntime/Burntime"}
+      @{"BurntimeAGA" SYSTEM "agl:c/wbrun A-Games:B/BurntimeAGA/BurntimeAGA"}                          @{"BurntimeAGADe" SYSTEM "agl:c/wbrun A-Games:B/BurntimeAGADe/BurntimeAGADe"}
+      @{"BurntimeDe" SYSTEM "agl:c/wbrun A-Games:B/BurntimeDe/BurntimeDe"}
+@TOC agl:guides/ag-launch.guide/main
+@endnode

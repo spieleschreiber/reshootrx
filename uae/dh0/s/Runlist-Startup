@@ -1,0 +1,18 @@
+;ClassicWB Runlist-Startup
+;-------------------------
+;GAAE 68K LITE FULL ADV ADVSP P96
+
+C:SetPatch QUIET
+C:Version >NIL:
+C:MakeDir RAM:T RAM:Clipboards RAM:ENV RAM:ENV/Sys
+
+C:Assign >NIL: ENV: RAM:ENV
+C:Assign >NIL: T: RAM:T
+C:Assign >NIL: CLIPS: RAM:Clipboards
+C:Assign >NIL: LAUNCH: SYS:System/BMenu/Files
+
+C:Execute S:Assign-Startup
+
+C:WBRun SYS:System/BMenu/Menus/Runlist
+
+EndCLI >NIL:

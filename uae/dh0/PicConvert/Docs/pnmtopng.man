@@ -1,0 +1,66 @@
+
+
+
+     pnmtopng(1)            AMIGA (27 May 1995)            pnmtopng(1)
+
+
+
+     NAME
+          pnmtopng - convert a portable anymap into a Portable Network
+          Graphics file
+
+     SYNOPSIS
+          pnmtopng [-verbose] [-interlace] [-downscale] [pnmfile]
+
+     DESCRIPTION
+          Reads a portable pixmap as input.  Produces a Portable
+          Network Graphics file as output.
+
+          Color values in PNG files are either eight or sixteen bits
+          wide, so pnmtopng will automatically scale colors to have a
+          maxval of 255 or 65535.  Grayscale files will be produced
+          with bit depths 1, 2, 4, 8 or 16.  An extra pnmdepth step is
+          not necessary.
+
+     OPTIONS
+          -verbose
+               Display the format of the output file.
+
+          -interlace
+               Creates an interlaced PNG file (Adam7).
+
+          -downscale
+               Enables scaling of maxvalues of more then 65535 to 16
+               bit. Since this means loss of image data, the step is
+               not performed by default.
+
+          All flags can be abbreviated to their shortest unique
+          prefix.
+
+     SEE ALSO
+          pngtopnm(1), gif2png(1), pnm(5)
+
+     BUGS
+          Due the fact that PNM files only include image data, it is
+          not possible to preserve extra data (e.g. comments) stored
+          with an image file. Instead of xxxtopnm|pnmtopng, a specific
+          converter should be used, if available. E.g.  gif2png (GIF
+          conversion), etc. (This is not really a bug in pnmtopng,
+          more a general problem with intermediate formats.)
+
+          Information about scaling is not preserved. No sBIT chunks
+          are created.
+
+     AUTHOR
+          Copyright (C) 1995 by Alexander Lehmann, based on pnmtorast,
+          (C) 1989,1990 by Jef Poskanzer.
+
+
+
+
+
+
+     Page 1                                          (printed 7/15/95)
+
+
+

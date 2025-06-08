@@ -1,0 +1,8 @@
+;ClassicWB ShellStack
+;--------------------
+;GAAE 68K LITE FULL ADV ADVSP P96 OS39 UAE
+
+Stack 16384
+Prompt "%N.%S> "
+Alias Clear "Echo *"*E[0;0H*E[J*" "
+Alias XCopy "Copy CLONE "

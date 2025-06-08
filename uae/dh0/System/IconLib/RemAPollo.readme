@@ -1,0 +1,24 @@
+Short:    040\060 MMU Apollo Turboboard Remapper
+Author:   Mikolaj Calusinski <bloelle@priv.gold.pl>
+Uploader: Mikolaj Calusinski <bloelle@priv.gold.pl>
+Version:  1.7
+Type:     util/boot
+
+
+*** Fixed VERY serious bug in MMU table creation code for 060! This bug is in
+all older RemAPollo versions! ***
+
+Finally added full support for 'big' version of Apollo board (BIG thanks to
+Hagen!) Added full support for OS3.9 BB2 - exec and 'multiple-tagged' modules
+are now installed correctly. Resident frame is now build dynamically (=smaller
+size). Updated LoadResident command and KingCON-handler patch. Added improved
+version of HappyENV-handler (bug fixes, date and protection support) and
+bugfixed MountENV command. Added some OS3.9 patches.
+
+RemAPollo is a software package for users of Amiga 1200 computer equipped with
+040/060 Apollo Turboboard. It consists of a few files which can be used to
+remap ROM part of Amiga Operating System, known as Kickstart, to fast memory
+and boot the computer from it. You can move your physical ROM to fast memory
+just to gain more speed or you can use wholely different Kickstart image
+(especially useful if you are a developer).
+

@@ -1,0 +1,279 @@
+## version $VER: SmartInfo.catalog 1.1 (07.12.99)
+## codeset 0
+## language français
+;
+MSG_TRANSLATOR
+Traduction française de Didier Giron\n<girondid@fnac.net>
+;
+MSG_NOMEMORY
+Mémoire insuffisante.\n%lU ko nécessaires.
+;
+MSG_DISK_ERROR
+Impossible d'accéder au fichier %s :\n%s.
+;
+MSG_DIRECTORY_ERROR
+Impossible d'accéder au répertoire %s.\n%s.
+;
+MSG_ABOUT
+Smart Info 1.04 - Réalisé le 30-Nov-1999\n\nCréé par Ilkka Lehtoranta\niti@solutions.fi\n\nCe produit FREEWARE est basé sur\nSFSQuery et SFSdefragmenterGUI\nde John Hendrikx.\n\n%s
+; \x1bcSmart Info 1.04 - Réalisé le 30-Nov-1999\n\nCréé par Ilkka Lehtoranta\niti@solutions.fi\n\nCe produit FREEWARE est basé sur\nSFSQuery et SFSdefragmenterGUI\nde John Hendrikx.\n\n%s
+;
+MSG_020_REQUIRED
+020 ou supérieur requis
+;
+MSG_SFS_ERROR
+Commande rejétée par le système de fichiers.
+;
+MSG_CANT_READ_BITMAP
+Impossible de lire le bitmap.
+;
+MSG_DEFRAGMENT_DONE
+Défragmentation terminée !
+;
+MSG_DEFRAGMENT_ERROR
+L'erreur %ld est survenue pendant la défragmentation.\n\nVeuillez lancer SFSCheck pour contrôler si le volume\n%s\ncomporte des erreurs.
+; \x1bcError %ld occurred during defragment.\n\nPlease run SFScheck to check if volume\n\x1bb%s\x1bn\nhas some kind of errors.
+;
+MSG_CANT_LOCK
+Impossible de verrouiller le volume %s:\n%s.
+; Can't lock volume %s:\n%s.
+;
+MSG_OK_GAD
+*D'acc_ord
+;
+MSG_INTUI_OK_GAD
+D'accord
+;
+MSG_PERFORM_SFSCHECK_GAD
+Lancer _SFScheck
+;
+MSG_PERFORM_SFSCHECK_GAD_HELP
+Lance SFScheck pour ce périphérique.
+;
+MSG_DEFRAGMENT_GAD
+_Défragmenter
+;
+MSG_DEFRAGMENT_GAD_HELP
+Défragmente la partition SFS.
+;
+MSG_PAUSE_DEFRAGMENT_GAD
+_Pauser
+;
+MSG_PAUSE_DEFRAGMENT_GAD_HELP
+Pause la défragmentation.
+;
+MSG_CONTINUE_DEFRAGMENT_GAD
+_Continuer
+;
+MSG_CONTINUE_DEFRAGMENT_GAD_HELP
+Continue la défragmentation.
+;
+MSG_START_DEFRAGMENT_GAD
+Co_mmencer
+;
+MSG_START_DEFRAGMENT_GAD_HELP
+Commence la défragmentation.
+;
+MSG_ABORT_DEFRAGMENT_GAD
+_Annuler
+;
+MSG_ABORT_DEFRAGMENT_GAD_HELP
+Annule la défragmentation.
+;
+MSG_SAVE_PREFS_GAD
+_Sauver
+;
+MSG_SAVE_PREFS_GAD_HELP
+Sauve les préférences.
+;
+MSG_USE_PREFS_GAD
+_Utiliser
+;
+MSG_USE_PREFS_GAD_HELP
+Utilise les préférences.
+;
+MSG_CANCEL_PREFS_GAD
+_Annuler
+;
+MSG_CANCEL_PREFS_GAD_HELP
+Annule la modification des préférences.
+;
+MSG_PREFS_EMPTY_RECYCLED
+Vider le répertoire [RECYCLED]
+;
+MSG_PREFS_ADDBUFFERS
+Mise à jour auto des tampons DOS
+; Auto-add DOS Buffers
+;
+MSG_PREFS_SERIALIZE_DISK
+Mettre à jour la date du volume
+; Update Volume Date
+;
+MSG_DEFRAGMENT_WIN
+Défragmentation
+; Defragment
+;
+MSG_PREFS_WIN
+Préférences (Défragmentation)
+; Settings (defragmenter)
+;
+MSG_USED_BLOCK
+Bloc utilisé
+; Used Block
+;
+MSG_NEW_BLOCK
+Nouveau bloc
+; New Block
+;
+MSG_REMOVED_BLOCK
+Bloc libéré
+; Removed Block
+;
+MSG_GENERAL_INFO_FORMAT
+Date de création %s %s (système de fichiers version %d.%d)
+; Creation date %s %s (filesystem version %d.%d)
+;
+MSG_GENERAL_INFO_FORMAT2
+Date de création %s %s
+; Creation date %s %s
+;
+MSG_GENERAL_INFO_FORMAT3
+Date de création %s %s (système de fichiers version 1.80 ou 1.81)
+; Creation date %s %s (filesystem version 1.80 or 1.81)
+;
+MSG_START_OFFSET
+Offset de départ
+; Start offset
+;
+MSG_END_OFFSET
+Offset de fin
+; End offset
+;
+MSG_DEVICE_API
+Périphérique API
+; Device API
+;
+MSG_BYTES_PER_BLOCK
+Octets par bloc
+; Bytes per block
+;
+MSG_TOTAL_BLOCKS
+Total des blocs
+; Total blocks
+;
+MSG_CACHE_ACCESSES
+Accès au cache
+; Cache accesses
+;
+MSG_CACHE_MISSES
+Cache misses
+; Cache misses
+;
+MSG_READ_AHEAD_CACHE
+Cache read-ahead
+; Read-ahead cache
+;
+MSG_DOS_BUFFERS
+Tampons DOS
+; DOS buffers
+;
+MSG_SFS_SETTINGS
+Réglages SFS
+; SFS settings
+;
+MSG_START_END_OFFSET_FORMAT
+$%08.lx:%08.lx
+; $%08.lx:%08.lx
+;
+MSG_CACHE_SIZE_FORMAT
+%lU x %lU octets (%s)
+; %lU x %lU bytes (%s)
+;
+MSG_COPYBACK
+Copyback
+; Copyback
+;
+MSG_WRITE_THROUGH
+Write-through
+; Write-through
+;
+MSG_NONE
+[NONE]
+; [NONE]
+;
+MSG_CASE_SENSITIVE
+[CASE SENSITIVE]
+; [CASE SENSITIVE]
+;
+MSG_RECYCLED
+[RECYCLED]
+; [RECYCLED]
+;
+MSG_NSD
+NSD (64-bit)
+; NSD (64-bit)
+;
+MSG_TD64
+TD64
+; TD64
+;
+MSG_SCSI_DIRECT
+SCSI direct
+; SCSI direct
+;
+MSG_STANDARD
+Standard
+; Standard
+;
+MSG_PREFS_DEFRAG_GUI_TITLE
+Interface
+; GUI
+;
+MSG_PREFS_DEFRAG_OPTIONS_TITLE
+Options
+; Options
+;
+MSG_PROJECT_MENU
+Projet
+; Project
+;
+MSG_PROJECT_SETTINGS_MENU
+P\0Préférences...
+; S\x00Settings...
+;
+MSG_PROJECT_MUI_SETTINGS_MENU
+M\0Préférences MUI...
+; M\x00MUI Settings...
+;
+MSG_PROJECT_ABOUT_MENU
+I\0A propos...
+; ?\x00About...
+;
+MSG_PROJECT_ABOUT_MUI_MENU
+A propos de MUI...
+; About MUI...
+;
+MSG_PROJECT_QUIT_MENU
+Q\0Quitter
+; Q\x00Quit
+;
+MSG_APP_CREATION_ERROR
+Impossible de créer l'application :\n%s.
+; Can't create application:\n%s.
+;
+MSG_MUIE_NO_MEM
+Mémoire insuffisante
+; not enough memory
+;
+MSG_MUIE_MISSING_LIB
+Bibliothèque manquante
+; library is missing
+;
+MSG_MUIE_NO_AREXX
+ARexx absent
+; no ARexx
+;
+MSG_MUIE_UNKNOWN
+Erreur inconnue
+; unknown error
+;

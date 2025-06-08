@@ -1,0 +1,22 @@
+;ClassicWB RADboot 5
+;-------------------
+
+DH0:C/SetPatch QUIET
+DH0:C/Assign >NIL: SYS: DH0:
+DH0:C/Assign >NIL: C: DH0:C
+C:MakeDir RAM:T RAM:ENV
+C:Assign >NIL: ENV: RAM:ENV
+C:Assign >NIL: T: RAM:T
+C:Assign >NIL: S: DH0:S
+C:Assign >NIL: LIBS: DH0:LIBS
+C:Assign >NIL: DEVS: DH0:DEVS
+C:Assign >NIL: FONTS: DH0:FONTS
+C:Assign >NIL: L: DH0:L
+C:Assign >NIL: LAUNCH: DH0:System/BMenu/Files
+C:Execute S:Assign-Startup
+C:WBRun DH0:System/BMenu/Boot/OtherMenu
+Echo ""
+Echo " Type reboot to restart the OtherMenu"
+Echo " Type reset to boot Workbench"
+Echo ""
+Quit

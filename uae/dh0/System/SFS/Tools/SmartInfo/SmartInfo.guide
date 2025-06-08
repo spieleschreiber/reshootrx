@@ -1,0 +1,137 @@
+@database "SmartInfo.guide"
+@Copyright (C) 1999 by Ilkka Lehtoranta, All Rights Reserved
+@author Ilkka Lehtoranta
+@node main "SmartInfo Documentation -Contents"
+
+
+
+  @{b}SmartInfo version 1.04 30th Nov 1999 · Copyright © 1999 by Ilkka Lehtoranta@{ub}
+
+  @{"About SmartInfo " LINK ABOUT}
+  @{"Requirements    " LINK REQUIREMENTS}
+
+  @{"Defragmenter    " LINK DEFRAG}
+
+  @{"History         " LINK HISTORY}
+  @{"Known Bugs      " LINK BUGS}
+
+  @{"Credits         " LINK CREDITS}
+@endnode
+@node ABOUT "About SmartInfo"
+
+SmartInfo is a SFSQuery and SFSdefragmentGUI replacement.
+@endnode
+@node REQUIREMENTS "Requirements"
+
+        · AmigaOS 3.0 or better
+        · MC68020 or better
+        · MUI 3.8
+        · NList.mcc and NListview.mcc
+        · SmartFileSystem
+        · Fast RAM (SFS doesn't work on a plain A1200 anyway)
+@endnode
+@node DEFRAG "The defragmenter"
+
+You need SFS 1.80 or newer to use the defragmenter, Latest beta can be
+obtained from http://www.xs4all.nl/~hjohn/
+
+Here are some quick notes about the defragmenter:
+
+        · To defragment partiotion you must have SFS 1.80 or newer installed
+          on that partition. You can view disk bitmap even if you are using
+          an older filesystem but you can't start the defragment process.
+          In the future defragmenter will not support versions below 1.84 anymore.
+
+        · Defragmenter's GUI is based on SFSdefragmentGUI by John Hendrikx.
+          But all GUI related bugs are my faults... :-)
+
+        · It is not a bad idea backup your files before using the defragmenter!
+
+        · You can pause or even abort defragmenter when ever you wish (it is
+          always safe).
+
+        · Reset or power failure during defragmentation process _shouldn't_
+          hurt filesystem.
+
+        · You can access partition under defragment process: defragmentation
+          process is 100% transparent although defragmenter very likely
+          slows down your system performance.
+
+        · Remember it is NOT a disk optimizer like ReOrg, (currently)
+          defragmenter defragments _only_ files and free space.
+
+        · You may want add some DOS buffers to speed up the defragmenter.
+          This can be automatized from settings window.
+@endnode
+@node HISTORY "History of SmartInfo"
+
+Version 1.04 (30. Nov 1999):
+----------------------------
+
+        · Improved defragmenter (new options and more speed)
+        · NEW: Spanish catalog by Javier de las Rivas
+        · Removed some enforcer hits, still too many left :I
+        · French catalog is missing but will be added ASAP
+        · Oops! Changed "History of Voimariini" to "History of SmartInfo" ;-)
+          The latest (probably non-working) beta of Voimariini can be obtained from
+          http://webclub.solutions.fi/~iti/beta/ if you are interested.
+
+
+Version 1.03 (23. Oct 1999):
+----------------------------
+
+        · NEW: French catalog by Didier Giron
+        · German catalog updated
+
+
+Version 1.03 (14. Oct 1999):
+----------------------------
+
+        · Non-SFS volumes are not listed anymore
+        · Cachen misses percentage was calculated if there was misses >65535
+        · Reports volume date
+
+        If you are using SFS 1.80 or newer:
+
+        · Defragment option
+        · Reports SFS version
+
+
+Version 1.01 (25. May 1999):
+----------------------------
+
+        · Added German catalog by Michael Lünse
+
+        · Possibly removed Enforcer hit, I don't know...
+          Anyway, it is now a little bit more safe.
+
+
+Version 1.0 (24. May 1999):
+----------------------------
+
+        · First Aminet release
+@endnode
+@node BUGS "Known Bugs"
+
+        · SmartInfo causes some very ugly enforcer hits. This seems to
+          cause random crash on certain configuration.
+        · "Update Volume Date" option seems to be broken.
+        · HappyENV may or may not cause problems... I made a fix but is untested.
+        · There is some minor GUI refresh problems with defragmenter.
+@endnode
+@node CREDITS "Credits"
+
+        Please send comments, bug reports, complaints, ideas etc. to:
+
+        @{b}iti@solutions.fi (Ilkka Lehtoranta)@{ub}
+
+
+        Translations
+        ------------
+
+        French  catalog - Didier Giron <girondid@fnac.net>
+        German  catalog - Michael Luense <m.luense@t-online.de>
+        Spanish catalog - Javier de las Rivas <javierdlr@retemail.es>
+
+        Thanks to Rolf Max Rotvel and Lorens Johansson for ideas and bugreports.
+@endnode

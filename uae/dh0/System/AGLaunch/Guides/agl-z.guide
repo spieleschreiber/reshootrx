@@ -1,0 +1,22 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <Z>
+
+Click game title to play
+
+      @{"ZakMcKracken" SYSTEM "agl:c/wbrun A-Games:Z/ZakMcKracken/ZakMcKracken"}                         @{"ZakMcKrackenDe" SYSTEM "agl:c/wbrun A-Games:Z/ZakMcKrackenDe/ZakMcKrackenDe"}
+      @{"ZakMcKrackenFr" SYSTEM "agl:c/wbrun A-Games:Z/ZakMcKrackenFr/ZakMcKrackenFr"}                       @{"ZakMcKrackenIt" SYSTEM "agl:c/wbrun A-Games:Z/ZakMcKrackenIt/ZakMcKrackenIt"}
+      @{"ZanyGolf" SYSTEM "agl:c/wbrun A-Games:Z/ZanyGolf/ZanyGolf"}                             @{"Zarathrusta" SYSTEM "agl:c/wbrun A-Games:Z/Zarathrusta/Zarathrusta"}
+      @{"Zaxxon1MB" SYSTEM "agl:c/wbrun A-Games:Z/Zaxxon1MB/Zaxxon1MB"}                            @{"Zaxxon512KB" SYSTEM "agl:c/wbrun A-Games:Z/Zaxxon512KB/Zaxxon512KB"}
+      @{"Zeewolf" SYSTEM "agl:c/wbrun A-Games:Z/Zeewolf/Zeewolf"}                              @{"Zeewolf2" SYSTEM "agl:c/wbrun A-Games:Z/Zeewolf2/Zeewolf2"}
+      @{"ZeroGravity" SYSTEM "agl:c/wbrun A-Games:Z/ZeroGravity/ZeroGravity"}                          @{"Ziriax" SYSTEM "agl:c/wbrun A-Games:Z/Ziriax/Ziriax"}
+      @{"Zombi" SYSTEM "agl:c/wbrun A-Games:Z/Zombi/Zombi"}                                @{"ZombiDe" SYSTEM "agl:c/wbrun A-Games:Z/ZombiDe/ZombiDe"}
+      @{"ZombieApocalypse" SYSTEM "agl:c/wbrun A-Games:Z/ZombieApocalypse/ZombieApocalypse"}                     @{"ZombieApocalypse2AGA" SYSTEM "agl:c/wbrun A-Games:Z/ZombieApocalypse2AGA/ZombieApocalypse2AGA"}
+      @{"ZombiFr" SYSTEM "agl:c/wbrun A-Games:Z/ZombiFr/ZombiFr"}                              @{"Zool" SYSTEM "agl:c/wbrun A-Games:Z/Zool/Zool"}
+      @{"Zool2" SYSTEM "agl:c/wbrun A-Games:Z/Zool2/Zool2"}                                @{"Zool2AGA" SYSTEM "agl:c/wbrun A-Games:Z/Zool2AGA/Zool2AGA"}
+      @{"ZoolAGA" SYSTEM "agl:c/wbrun A-Games:Z/ZoolAGA/ZoolAGA"}                              @{"ZoolCD32" SYSTEM "agl:c/wbrun A-Games:Z/ZoolCD32/ZoolCD32"}
+      @{"Zoom" SYSTEM "agl:c/wbrun A-Games:Z/Zoom/Zoom"}                                 @{"ZOut" SYSTEM "agl:c/wbrun A-Games:Z/ZOut/ZOut"}
+      @{"Zyconix" SYSTEM "agl:c/wbrun A-Games:Z/Zyconix/Zyconix"}                              @{"Zynaps" SYSTEM "agl:c/wbrun A-Games:Z/Zynaps/Zynaps"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode

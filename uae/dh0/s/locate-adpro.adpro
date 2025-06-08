@@ -1,0 +1,46 @@
+/*
+**                        L o c a t e   A D P r o
+** 
+**	This ARexx program will attempt to find a currently running ADPro.
+**	If one is not found, then it will attempt to start up an ADPro.
+**
+**	The main guts of this program are imbedded in a sub-routine to make
+**	it easier to glue into your own code.
+**
+**	Example ARexx program for controlling ADPro by ASDG Incorporated.
+** 	Copyright 1991 By  ASDG Incorporated
+**
+*/
+ 
+OPTIONS RESULTS
+
+CALL Locate_ADPro
+
+IF RESULT = 1 THEN SAY "ADPro has been found"
+ELSE SAY "Could not locate or start ADPro"
+EXIT
+
+
+Locate_ADPro:
+
+Max_Seconds_To_Load = 60
+Flag = 0
+LibName = 'rexxsupport.library'
+
+IF POS(LibName , SHOW('Libraries')) = 0 THEN ADDLIB(LibName , 0 , -30 , 0)
+IF POS(LibName , SHOW('Libraries')) = 0 THEN RETURN 0
+
+IF STATEF('adpro:') = "" THEN RETURN 0
+
+TIME('R')
+DO WHILE (Time('E') < Max_Seconds_To_Load) & (POS('ADPro' , SHOW('Ports')) = 0)
+	IF Flag = 0 THEN DO
+		/* Set whatever command line arguments you want. */
+		ADDRESS COMMAND 'run < nil: > nil: adpro:adpro BEHIND MAXMEM=5000000'
+		Flag = 1
+	END
+	ADDRESS COMMAND 'WAIT 1'
+END
+IF POS('ADPro' , SHOW('Ports')) = 0 THEN RETURN 0
+ELSE RETURN 1
+

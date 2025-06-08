@@ -1,0 +1,23 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <U>
+
+Click game title to play
+
+      @{"UFOEnemyUnknownAGA" SYSTEM "agl:c/wbrun A-Games:U/UFOEnemyUnknownAGA/UFOEnemyUnknownAGA"}                   @{"UFOEnemyUnknownCD32" SYSTEM "agl:c/wbrun A-Games:U/UFOEnemyUnknownCD32/UFOEnemyUnknownCD32"}
+      @{"Ugh" SYSTEM "agl:c/wbrun A-Games:U/Ugh/Ugh"}                                  @{"Ultima3" SYSTEM "agl:c/wbrun A-Games:U/Ultima3/Ultima3"}
+      @{"Ultima4" SYSTEM "agl:c/wbrun A-Games:U/Ultima4/Ultima4"}                              @{"Ultima5" SYSTEM "agl:c/wbrun A-Games:U/Ultima5/Ultima5"}
+      @{"Ultima6" SYSTEM "agl:c/wbrun A-Games:U/Ultima6/Ultima6"}                              @{"UltimateBodyBlowsCD32" SYSTEM "agl:c/wbrun A-Games:U/UltimateBodyBlowsCD32/UltimateBodyBlowsCD32"}
+      @{"UltimateGolf" SYSTEM "agl:c/wbrun A-Games:U/UltimateGolf/UltimateGolf"}                         @{"UnderPressure" SYSTEM "agl:c/wbrun A-Games:U/UnderPressure/UnderPressure"}
+      @{"Uninvited" SYSTEM "agl:c/wbrun A-Games:U/Uninvited/Uninvited"}                            @{"UniversalMilitarySim" SYSTEM "agl:c/wbrun A-Games:U/UniversalMilitarySim/UniversalMilitarySim"}
+      @{"UniversalMonsters" SYSTEM "agl:c/wbrun A-Games:U/UniversalMonsters/UniversalMonsters"}                    @{"UniversalWarrior" SYSTEM "agl:c/wbrun A-Games:U/UniversalWarrior/UniversalWarrior"}
+      @{"Universe" SYSTEM "agl:c/wbrun A-Games:U/Universe/Universe"}                             @{"UniverseCD32" SYSTEM "agl:c/wbrun A-Games:U/UniverseCD32/UniverseCD32"}
+      @{"Unreal" SYSTEM "agl:c/wbrun A-Games:U/Unreal/Unreal"}                               @{"UnsensibleSoccer" SYSTEM "agl:c/wbrun A-Games:U/UnsensibleSoccer/UnsensibleSoccer"}
+      @{"UNSquadron" SYSTEM "agl:c/wbrun A-Games:U/UNSquadron/UNSquadron"}                           @{"Untouchables" SYSTEM "agl:c/wbrun A-Games:U/Untouchables/Untouchables"}
+      @{"Uridium21MB" SYSTEM "agl:c/wbrun A-Games:U/Uridium21MB/Uridium21MB"}                          @{"Uridium22MB" SYSTEM "agl:c/wbrun A-Games:U/Uridium22MB/Uridium22MB"}
+      @{"Utopia" SYSTEM "agl:c/wbrun A-Games:U/Utopia/Utopia"}                               @{"Utopia&NewWorlds" SYSTEM "agl:c/wbrun A-Games:U/Utopia&NewWorlds/Utopia&NewWorlds"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode
+
+    

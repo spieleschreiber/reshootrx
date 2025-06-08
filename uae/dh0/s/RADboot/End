@@ -1,0 +1,5 @@
+Echo ""
+Echo " Type reboot to restart RAD"
+Echo " Type reset to boot Workbench"
+Echo ""
+Quit

@@ -1,0 +1,16 @@
+IF EXISTS SYS:WBStartup/Copper
+  Echo ""
+  Echo "BorderBlank is not required when Copper is Enabled"
+  Wait 1
+  Quit
+ELSE
+  IF EXISTS C:BorderBlank_disabled
+    Rename C:BorderBlank_disabled C:BorderBlank
+    Echo ""
+    Echo "BorderBlank is now enabled - please reboot"
+  ELSE
+    Echo ""
+    Echo "ERROR - BorderBlank is already enabled"
+  EndIF
+EndIF
+Wait 1

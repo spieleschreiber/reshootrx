@@ -1,0 +1,66 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <R>
+
+Click game title to play
+
+      @{"RaceDrivin" SYSTEM "agl:c/wbrun A-Games:R/RaceDrivin/RaceDrivin"}                           @{"RaceDrivinNoIntro" SYSTEM "agl:c/wbrun A-Games:R/RaceDrivinNoIntro/RaceDrivinNoIntro"}
+      @{"RackneysIsland" SYSTEM "agl:c/wbrun A-Games:R/RackneysIsland/RackneysIsland"}                       @{"Racter" SYSTEM "agl:c/wbrun A-Games:R/Racter/Racter"}
+      @{"Raffles" SYSTEM "agl:c/wbrun A-Games:R/Raffles/Raffles"}                              @{"RafflesCDTV" SYSTEM "agl:c/wbrun A-Games:R/RafflesCDTV/RafflesCDTV"}
+      @{"RageCAD" SYSTEM "agl:c/wbrun A-Games:R/RageCAD/RageCAD"}                              @{"RageV2" SYSTEM "agl:c/wbrun A-Games:R/RageV2/RageV2"}
+      @{"Raider" SYSTEM "agl:c/wbrun A-Games:R/Raider/Raider"}                               @{"RaidersFr" SYSTEM "agl:c/wbrun A-Games:R/RaidersFr/RaidersFr"}
+      @{"RailroadTycoon" SYSTEM "agl:c/wbrun A-Games:R/RailroadTycoon/RailroadTycoon"}                       @{"RailroadTycoonDe" SYSTEM "agl:c/wbrun A-Games:R/RailroadTycoonDe/RailroadTycoonDe"}
+      @{"RailroadTycoonFr" SYSTEM "agl:c/wbrun A-Games:R/RailroadTycoonFr/RailroadTycoonFr"}                     @{"RainbowIslands" SYSTEM "agl:c/wbrun A-Games:R/RainbowIslands/RainbowIslands"}
+      @{"RainbowWarrior" SYSTEM "agl:c/wbrun A-Games:R/RainbowWarrior/RainbowWarrior"}                       @{"RallyChampionships" SYSTEM "agl:c/wbrun A-Games:R/RallyChampionships/RallyChampionships"}
+      @{"RallyChampionshipsAGA" SYSTEM "agl:c/wbrun A-Games:R/RallyChampionshipsAGA/RallyChampionshipsAGA"}                @{"RallyCrossChallenge" SYSTEM "agl:c/wbrun A-Games:R/RallyCrossChallenge/RallyCrossChallenge"}
+      @{"Rambo3" SYSTEM "agl:c/wbrun A-Games:R/Rambo3/Rambo3"}                               @{"Rampage" SYSTEM "agl:c/wbrun A-Games:R/Rampage/Rampage"}
+      @{"Rampart" SYSTEM "agl:c/wbrun A-Games:R/Rampart/Rampart"}                              @{"RanX" SYSTEM "agl:c/wbrun A-Games:R/RanX/RanX"}
+      @{"RanXDe" SYSTEM "agl:c/wbrun A-Games:R/RanXDe/RanXDe"}                               @{"RanXFr" SYSTEM "agl:c/wbrun A-Games:R/RanXFr/RanXFr"}
+      @{"RatTrap" SYSTEM "agl:c/wbrun A-Games:R/RatTrap/RatTrap"}                              @{"RBI2Baseball" SYSTEM "agl:c/wbrun A-Games:R/RBI2Baseball/RBI2Baseball"}
+      @{"RealGhostbusters" SYSTEM "agl:c/wbrun A-Games:R/RealGhostbusters/RealGhostbusters"}                     @{"Realms" SYSTEM "agl:c/wbrun A-Games:R/Realms/Realms"}
+      @{"RealmsOfArkania" SYSTEM "agl:c/wbrun A-Games:R/RealmsOfArkania/RealmsOfArkania"}                      @{"RealPopeye" SYSTEM "agl:c/wbrun A-Games:R/RealPopeye/RealPopeye"}
+      @{"RedBaron" SYSTEM "agl:c/wbrun A-Games:R/RedBaron/RedBaron"}                             @{"RedBaronDe" SYSTEM "agl:c/wbrun A-Games:R/RedBaronDe/RedBaronDe"}
+      @{"RedHeat" SYSTEM "agl:c/wbrun A-Games:R/RedHeat/RedHeat"}                              @{"RedLightning" SYSTEM "agl:c/wbrun A-Games:R/RedLightning/RedLightning"}
+      @{"RedStormRising" SYSTEM "agl:c/wbrun A-Games:R/RedStormRising/RedStormRising"}                       @{"RedZone" SYSTEM "agl:c/wbrun A-Games:R/RedZone/RedZone"}
+      @{"Reflexity" SYSTEM "agl:c/wbrun A-Games:R/Reflexity/Reflexity"}                            @{"Renaissance" SYSTEM "agl:c/wbrun A-Games:R/Renaissance/Renaissance"}
+      @{"Renegade" SYSTEM "agl:c/wbrun A-Games:R/Renegade/Renegade"}                             @{"Renegade3" SYSTEM "agl:c/wbrun A-Games:R/Renegade3/Renegade3"}
+      @{"Renegades" SYSTEM "agl:c/wbrun A-Games:R/Renegades/Renegades"}                            @{"Resolution101" SYSTEM "agl:c/wbrun A-Games:R/Resolution101/Resolution101"}
+      @{"ReturnOfTheJedi" SYSTEM "agl:c/wbrun A-Games:R/ReturnOfTheJedi/ReturnOfTheJedi"}                      @{"ReturnToAtlantis" SYSTEM "agl:c/wbrun A-Games:R/ReturnToAtlantis/ReturnToAtlantis"}
+      @{"ReturnToGenesis" SYSTEM "agl:c/wbrun A-Games:R/ReturnToGenesis/ReturnToGenesis"}                      @{"Reunion" SYSTEM "agl:c/wbrun A-Games:R/Reunion/Reunion"}
+      @{"ReunionAGA" SYSTEM "agl:c/wbrun A-Games:R/ReunionAGA/ReunionAGA"}                           @{"ReunionAGADe" SYSTEM "agl:c/wbrun A-Games:R/ReunionAGADe/ReunionAGADe"}
+      @{"ReunionDe" SYSTEM "agl:c/wbrun A-Games:R/ReunionDe/ReunionDe"}                            @{"Revelation" SYSTEM "agl:c/wbrun A-Games:R/Revelation/Revelation"}
+      @{"RevengeOfDefender" SYSTEM "agl:c/wbrun A-Games:R/RevengeOfDefender/RevengeOfDefender"}                    @{"RevengeOfMutantCamels" SYSTEM "agl:c/wbrun A-Games:R/RevengeOfMutantCamels/RevengeOfMutantCamels"}
+      @{"RevengeOfMutantCamelsNTSC" SYSTEM "agl:c/wbrun A-Games:R/RevengeOfMutantCamelsNTSC/RevengeOfMutantCamelsNTSC"}            @{"RickDangerous" SYSTEM "agl:c/wbrun A-Games:R/RickDangerous/RickDangerous"}
+      @{"RickDangerous2" SYSTEM "agl:c/wbrun A-Games:R/RickDangerous2/RickDangerous2"}                       @{"Ringside" SYSTEM "agl:c/wbrun A-Games:R/Ringside/Ringside"}
+      @{"RingsOfMedusa" SYSTEM "agl:c/wbrun A-Games:R/RingsOfMedusa/RingsOfMedusa"}                        @{"RingsOfMedusaDe" SYSTEM "agl:c/wbrun A-Games:R/RingsOfMedusaDe/RingsOfMedusaDe"}
+      @{"RingsOfMedusaFr" SYSTEM "agl:c/wbrun A-Games:R/RingsOfMedusaFr/RingsOfMedusaFr"}                      @{"RiseOfTheDragon" SYSTEM "agl:c/wbrun A-Games:R/RiseOfTheDragon/RiseOfTheDragon"}
+      @{"RiseOfTheDragonDe" SYSTEM "agl:c/wbrun A-Games:R/RiseOfTheDragonDe/RiseOfTheDragonDe"}                    @{"RiseOfTheRobotsAGA" SYSTEM "agl:c/wbrun A-Games:R/RiseOfTheRobotsAGA/RiseOfTheRobotsAGA"}
+      @{"RiseOfTheRobotsCD32" SYSTEM "agl:c/wbrun A-Games:R/RiseOfTheRobotsCD32/RiseOfTheRobotsCD32"}                  @{"Risk" SYSTEM "agl:c/wbrun A-Games:R/Risk/Risk"}
+      @{"RiskyWoods" SYSTEM "agl:c/wbrun A-Games:R/RiskyWoods/RiskyWoods"}                           @{"RoadBlasters" SYSTEM "agl:c/wbrun A-Games:R/RoadBlasters/RoadBlasters"}
+      @{"RoadBlastersCracked" SYSTEM "agl:c/wbrun A-Games:R/RoadBlastersCracked/RoadBlastersCracked"}                  @{"RoadkillAGA" SYSTEM "agl:c/wbrun A-Games:R/RoadkillAGA/RoadkillAGA"}
+      @{"RoadkillCD32" SYSTEM "agl:c/wbrun A-Games:R/RoadkillCD32/RoadkillCD32"}                         @{"RoadkillCD32NoIntro" SYSTEM "agl:c/wbrun A-Games:R/RoadkillCD32NoIntro/RoadkillCD32NoIntro"}
+      @{"RoadRash" SYSTEM "agl:c/wbrun A-Games:R/RoadRash/RoadRash"}                             @{"RoadWars" SYSTEM "agl:c/wbrun A-Games:R/RoadWars/RoadWars"}
+      @{"RobinHoodLegendQuest" SYSTEM "agl:c/wbrun A-Games:R/RobinHoodLegendQuest/RobinHoodLegendQuest"}                 @{"RobinsonsRequiem" SYSTEM "agl:c/wbrun A-Games:R/RobinsonsRequiem/RobinsonsRequiem"}
+      @{"RobinsonsRequiemAGA" SYSTEM "agl:c/wbrun A-Games:R/RobinsonsRequiemAGA/RobinsonsRequiemAGA"}                  @{"RoboCop" SYSTEM "agl:c/wbrun A-Games:R/RoboCop/RoboCop"}
+      @{"RoboCop2" SYSTEM "agl:c/wbrun A-Games:R/RoboCop2/RoboCop2"}                             @{"RoboCop3" SYSTEM "agl:c/wbrun A-Games:R/RoboCop3/RoboCop3"}
+      @{"RoboCop3NTSC" SYSTEM "agl:c/wbrun A-Games:R/RoboCop3NTSC/RoboCop3NTSC"}                         @{"RoboSport" SYSTEM "agl:c/wbrun A-Games:R/RoboSport/RoboSport"}
+      @{"Robotnic" SYSTEM "agl:c/wbrun A-Games:R/Robotnic/Robotnic"}                             @{"RocketRanger" SYSTEM "agl:c/wbrun A-Games:R/RocketRanger/RocketRanger"}
+      @{"RocketRangerCensored" SYSTEM "agl:c/wbrun A-Games:R/RocketRangerCensored/RocketRangerCensored"}                 @{"Rockford" SYSTEM "agl:c/wbrun A-Games:R/Rockford/Rockford"}
+      @{"RockNRoll" SYSTEM "agl:c/wbrun A-Games:R/RockNRoll/RockNRoll"}                            @{"RockStarAteMyHamster" SYSTEM "agl:c/wbrun A-Games:R/RockStarAteMyHamster/RockStarAteMyHamster"}
+      @{"RodLand" SYSTEM "agl:c/wbrun A-Games:R/RodLand/RodLand"}                              @{"Rody&Mastico2Fr" SYSTEM "agl:c/wbrun A-Games:R/Rody&Mastico2Fr/Rody&Mastico2Fr"}
+      @{"Rody&Mastico3Fr" SYSTEM "agl:c/wbrun A-Games:R/Rody&Mastico3Fr/Rody&Mastico3Fr"}                      @{"Rody&Mastico4RodyNoelFr" SYSTEM "agl:c/wbrun A-Games:R/Rody&Mastico4RodyNoelFr/Rody&Mastico4RodyNoelFr"}
+      @{"Rody&Mastico5Fr" SYSTEM "agl:c/wbrun A-Games:R/Rody&Mastico5Fr/Rody&Mastico5Fr"}                      @{"Rody&Mastico6Fr" SYSTEM "agl:c/wbrun A-Games:R/Rody&Mastico6Fr/Rody&Mastico6Fr"}
+      @{"Rody&MasticoDe" SYSTEM "agl:c/wbrun A-Games:R/Rody&MasticoDe/Rody&MasticoDe"}                       @{"Rody&MasticoFr" SYSTEM "agl:c/wbrun A-Games:R/Rody&MasticoFr/Rody&MasticoFr"}
+      @{"RogueTrooper" SYSTEM "agl:c/wbrun A-Games:R/RogueTrooper/RogueTrooper"}                         @{"RoketzAGA" SYSTEM "agl:c/wbrun A-Games:R/RoketzAGA/RoketzAGA"}
+      @{"RollerCoasterRumbler" SYSTEM "agl:c/wbrun A-Games:R/RollerCoasterRumbler/RollerCoasterRumbler"}                 @{"RollingRonny" SYSTEM "agl:c/wbrun A-Games:R/RollingRonny/RollingRonny"}
+      @{"RollOrDie" SYSTEM "agl:c/wbrun A-Games:R/RollOrDie/RollOrDie"}                            @{"RomeAD92" SYSTEM "agl:c/wbrun A-Games:R/RomeAD92/RomeAD92"}
+      @{"Rotor" SYSTEM "agl:c/wbrun A-Games:R/Rotor/Rotor"}                                @{"Rotox" SYSTEM "agl:c/wbrun A-Games:R/Rotox/Rotox"}
+      @{"RoundTheBend" SYSTEM "agl:c/wbrun A-Games:R/RoundTheBend/RoundTheBend"}                         @{"RType" SYSTEM "agl:c/wbrun A-Games:R/RType/RType"}
+      @{"RType2" SYSTEM "agl:c/wbrun A-Games:R/RType2/RType2"}                               @{"Rubicon" SYSTEM "agl:c/wbrun A-Games:R/Rubicon/Rubicon"}
+      @{"Ruff&ReddySpaceAdventure" SYSTEM "agl:c/wbrun A-Games:R/Ruff&ReddySpaceAdventure/Ruff&ReddySpaceAdventure"}             @{"Ruffian" SYSTEM "agl:c/wbrun A-Games:R/Ruffian/Ruffian"}
+      @{"RuffNTumble" SYSTEM "agl:c/wbrun A-Games:R/RuffNTumble/RuffNTumble"}                          @{"RugbyTheWorldCup" SYSTEM "agl:c/wbrun A-Games:R/RugbyTheWorldCup/RugbyTheWorldCup"}
+      @{"RunningMan" SYSTEM "agl:c/wbrun A-Games:R/RunningMan/RunningMan"}                           @{"RunTheGauntlet" SYSTEM "agl:c/wbrun A-Games:R/RunTheGauntlet/RunTheGauntlet"}
+      @{"Rushhour" SYSTEM "agl:c/wbrun A-Games:R/Rushhour/Rushhour"}                             @{"RVFHonda" SYSTEM "agl:c/wbrun A-Games:R/RVFHonda/RVFHonda"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode

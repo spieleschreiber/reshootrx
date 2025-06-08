@@ -1,0 +1,34 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <O>
+
+Click game title to play
+
+      @{"Oath" SYSTEM "agl:c/wbrun A-Games:O/Oath/Oath"}                                 @{"Obitus" SYSTEM "agl:c/wbrun A-Games:O/Obitus/Obitus"}
+      @{"Obliterator" SYSTEM "agl:c/wbrun A-Games:O/Obliterator/Obliterator"}                          @{"Obsession" SYSTEM "agl:c/wbrun A-Games:O/Obsession/Obsession"}
+      @{"Odyssey" SYSTEM "agl:c/wbrun A-Games:O/Odyssey/Odyssey"}                              @{"OffShoreWarrior" SYSTEM "agl:c/wbrun A-Games:O/OffShoreWarrior/OffShoreWarrior"}
+      @{"Ogre" SYSTEM "agl:c/wbrun A-Games:O/Ogre/Ogre"}                                 @{"OhNoMoreLemmings" SYSTEM "agl:c/wbrun A-Games:O/OhNoMoreLemmings/OhNoMoreLemmings"}
+      @{"OilImperium" SYSTEM "agl:c/wbrun A-Games:O/OilImperium/OilImperium"}                          @{"OilImperiumDe" SYSTEM "agl:c/wbrun A-Games:O/OilImperiumDe/OilImperiumDe"}
+      @{"Oktagon" SYSTEM "agl:c/wbrun A-Games:O/Oktagon/Oktagon"}                              @{"Omega" SYSTEM "agl:c/wbrun A-Games:O/Omega/Omega"}
+      @{"OmnicronConspiracy" SYSTEM "agl:c/wbrun A-Games:O/OmnicronConspiracy/OmnicronConspiracy"}                   @{"OneOnOne" SYSTEM "agl:c/wbrun A-Games:O/OneOnOne/OneOnOne"}
+      @{"OneStepBeyond" SYSTEM "agl:c/wbrun A-Games:O/OneStepBeyond/OneStepBeyond"}                        @{"Onslaught" SYSTEM "agl:c/wbrun A-Games:O/Onslaught/Onslaught"}
+      @{"OoopsUp" SYSTEM "agl:c/wbrun A-Games:O/OoopsUp/OoopsUp"}                              @{"OperationCleanstreets" SYSTEM "agl:c/wbrun A-Games:O/OperationCleanstreets/OperationCleanstreets"}
+      @{"OperationCombat2" SYSTEM "agl:c/wbrun A-Games:O/OperationCombat2/OperationCombat2"}                     @{"OperationFirestorm" SYSTEM "agl:c/wbrun A-Games:O/OperationFirestorm/OperationFirestorm"}
+      @{"OperationG2Demo" SYSTEM "agl:c/wbrun A-Games:O/OperationG2Demo/OperationG2Demo"}                      @{"OperationHarrier" SYSTEM "agl:c/wbrun A-Games:O/OperationHarrier/OperationHarrier"}
+      @{"OperationJupiterFr" SYSTEM "agl:c/wbrun A-Games:O/OperationJupiterFr/OperationJupiterFr"}                   @{"OperationNeptune" SYSTEM "agl:c/wbrun A-Games:O/OperationNeptune/OperationNeptune"}
+      @{"OperationStealth" SYSTEM "agl:c/wbrun A-Games:O/OperationStealth/OperationStealth"}                     @{"OperationStealthDe" SYSTEM "agl:c/wbrun A-Games:O/OperationStealthDe/OperationStealthDe"}
+      @{"OperationStealthEs" SYSTEM "agl:c/wbrun A-Games:O/OperationStealthEs/OperationStealthEs"}                   @{"OperationStealthFr" SYSTEM "agl:c/wbrun A-Games:O/OperationStealthFr/OperationStealthFr"}
+      @{"OperationStealthIt" SYSTEM "agl:c/wbrun A-Games:O/OperationStealthIt/OperationStealthIt"}                   @{"OperationThunderbolt" SYSTEM "agl:c/wbrun A-Games:O/OperationThunderbolt/OperationThunderbolt"}
+      @{"OperationWolf" SYSTEM "agl:c/wbrun A-Games:O/OperationWolf/OperationWolf"}                        @{"OrientalGames" SYSTEM "agl:c/wbrun A-Games:O/OrientalGames/OrientalGames"}
+      @{"Ork" SYSTEM "agl:c/wbrun A-Games:O/Ork/Ork"}                                  @{"OscarAGA" SYSTEM "agl:c/wbrun A-Games:O/OscarAGA/OscarAGA"}
+      @{"OscarCD32" SYSTEM "agl:c/wbrun A-Games:O/OscarCD32/OscarCD32"}                            @{"OsWALDOfTheIceFloes" SYSTEM "agl:c/wbrun A-Games:O/OsWALDOfTheIceFloes/OsWALDOfTheIceFloes"}
+      @{"OutOfThisWorld" SYSTEM "agl:c/wbrun A-Games:O/OutOfThisWorld/OutOfThisWorld"}                       @{"OutRunEuropa" SYSTEM "agl:c/wbrun A-Games:O/OutRunEuropa/OutRunEuropa"}
+      @{"OutRunSega" SYSTEM "agl:c/wbrun A-Games:O/OutRunSega/OutRunSega"}                           @{"OutRunUSGold" SYSTEM "agl:c/wbrun A-Games:O/OutRunUSGold/OutRunUSGold"}
+      @{"Outzone" SYSTEM "agl:c/wbrun A-Games:O/Outzone/Outzone"}                              @{"Overdrive" SYSTEM "agl:c/wbrun A-Games:O/Overdrive/Overdrive"}
+      @{"OverdriveInfacto" SYSTEM "agl:c/wbrun A-Games:O/OverdriveInfacto/OverdriveInfacto"}                     @{"OverdriveTeam17" SYSTEM "agl:c/wbrun A-Games:O/OverdriveTeam17/OverdriveTeam17"}
+      @{"OverkillAGA" SYSTEM "agl:c/wbrun A-Games:O/OverkillAGA/OverkillAGA"}                          @{"Overlander" SYSTEM "agl:c/wbrun A-Games:O/Overlander/Overlander"}
+      @{"OverlordDemoRowan" SYSTEM "agl:c/wbrun A-Games:O/OverlordDemoRowan/OverlordDemoRowan"}                    @{"OverlordRowan" SYSTEM "agl:c/wbrun A-Games:O/OverlordRowan/OverlordRowan"}
+      @{"OverTheNet" SYSTEM "agl:c/wbrun A-Games:O/OverTheNet/OverTheNet"}                           @{"Oxxonian" SYSTEM "agl:c/wbrun A-Games:O/Oxxonian/Oxxonian"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode

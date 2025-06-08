@@ -1,0 +1,6 @@
+SYS:System/SFS/Shell
+IF EXISTS SYS:WBStartup
+NewShell KCON:/11//175/SFS-Tools/CLOSE S:ShellStack
+ELSE
+NewShell CON:/11//210/SFS-Tools/CLOSE S:ShellStack
+EndIF

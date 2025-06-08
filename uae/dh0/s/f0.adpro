@@ -1,0 +1,28 @@
+/*
+** 
+** This ARexx program can be used to 
+** get around the limit of only being
+** able to launch 50 pre-defined arexx
+** programs from ADPro.
+**
+** Copyright 1990 By  ASDG Incorporated
+*/
+
+OPTIONS RESULTS
+
+ADDRESS "ADPro"
+
+GETFILE '"Enter Rexx Program To Execute:"' "REXX:"
+IF RC ~= 0 THEN EXIT
+File_Name = ADPRO_RESULT
+
+/*
+** YOU MUST REPLACE THE FOLLOWING STRING
+** WITH THE COMPLETE PATH TO WHERE *YOU* KEEP
+** RX!
+*/
+
+RX = "Sys_2.0:REXXC/RX"
+
+ADDRESS "COMMAND" RX File_Name
+

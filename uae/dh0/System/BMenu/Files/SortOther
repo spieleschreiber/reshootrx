@@ -1,0 +1,19 @@
+Stack 16384
+Echo "This script will sort your manual entries in the"
+Echo "'Other' list alphabetically."
+Echo ""
+Echo "Please wait..."
+Echo ""
+IF EXISTS ENV:OtherList
+Kill OtherMenu
+EndIF
+Copy >NIL: OtherMenu/OtherMenu.menu RAM:Other
+Delete >NIL: OtherMenu/OtherMenu.menu
+QSort RAM:Other OtherMenu/OtherMenu.menu
+Delete >NIL: RAM:Other
+IF EXISTS ENV:OtherList
+Delete >NIL: ENV:OtherList
+EndIF
+Echo "All Done!"
+Echo ""
+Ask "Hit return to exit..."

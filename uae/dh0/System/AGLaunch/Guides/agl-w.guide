@@ -1,0 +1,59 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <W>
+
+Click game title to play
+
+      @{"WackyDarts" SYSTEM "agl:c/wbrun A-Games:W/WackyDarts/WackyDarts"}                           @{"WackyRaces" SYSTEM "agl:c/wbrun A-Games:W/WackyRaces/WackyRaces"}
+      @{"WacusTheDetectivePl" SYSTEM "agl:c/wbrun A-Games:W/WacusTheDetectivePl/WacusTheDetectivePl"}                  @{"WalkerCrunched" SYSTEM "agl:c/wbrun A-Games:W/WalkerCrunched/WalkerCrunched"}
+      @{"WalkerDecrunched" SYSTEM "agl:c/wbrun A-Games:W/WalkerDecrunched/WalkerDecrunched"}                     @{"Wall" SYSTEM "agl:c/wbrun A-Games:W/Wall/Wall"}
+      @{"Wanderer3D" SYSTEM "agl:c/wbrun A-Games:W/Wanderer3D/Wanderer3D"}                           @{"Wanted" SYSTEM "agl:c/wbrun A-Games:W/Wanted/Wanted"}
+      @{"Warhead" SYSTEM "agl:c/wbrun A-Games:W/Warhead/Warhead"}                              @{"WarInMiddleEarth" SYSTEM "agl:c/wbrun A-Games:W/WarInMiddleEarth/WarInMiddleEarth"}
+      @{"WarInTheGulf" SYSTEM "agl:c/wbrun A-Games:W/WarInTheGulf/WarInTheGulf"}                         @{"WarlocksQuest" SYSTEM "agl:c/wbrun A-Games:W/WarlocksQuest/WarlocksQuest"}
+      @{"WarlockTheAvenger" SYSTEM "agl:c/wbrun A-Games:W/WarlockTheAvenger/WarlockTheAvenger"}                    @{"Warlords" SYSTEM "agl:c/wbrun A-Games:W/Warlords/Warlords"}
+      @{"WarMachine" SYSTEM "agl:c/wbrun A-Games:W/WarMachine/WarMachine"}                           @{"WarmUp" SYSTEM "agl:c/wbrun A-Games:W/WarmUp/WarmUp"}
+      @{"Warp" SYSTEM "agl:c/wbrun A-Games:W/Warp/Warp"}                                 @{"WarZoneCore" SYSTEM "agl:c/wbrun A-Games:W/WarZoneCore/WarZoneCore"}
+      @{"WarZoneParadox" SYSTEM "agl:c/wbrun A-Games:W/WarZoneParadox/WarZoneParadox"}                       @{"WatchtowerAGA" SYSTEM "agl:c/wbrun A-Games:W/WatchtowerAGA/WatchtowerAGA"}
+      @{"Waterloo" SYSTEM "agl:c/wbrun A-Games:W/Waterloo/Waterloo"}                             @{"Waxworks" SYSTEM "agl:c/wbrun A-Games:W/Waxworks/Waxworks"}
+      @{"WaxworksDe" SYSTEM "agl:c/wbrun A-Games:W/WaxworksDe/WaxworksDe"}                           @{"WaxworksFr" SYSTEM "agl:c/wbrun A-Games:W/WaxworksFr/WaxworksFr"}
+      @{"WayneGretzkyHockey" SYSTEM "agl:c/wbrun A-Games:W/WayneGretzkyHockey/WayneGretzkyHockey"}                   @{"WayneGretzkyHockey2" SYSTEM "agl:c/wbrun A-Games:W/WayneGretzkyHockey2/WayneGretzkyHockey2"}
+      @{"WayOfTheLittleDragon" SYSTEM "agl:c/wbrun A-Games:W/WayOfTheLittleDragon/WayOfTheLittleDragon"}                 @{"WayOfTheLittleDragonAStar" SYSTEM "agl:c/wbrun A-Games:W/WayOfTheLittleDragonAStar/WayOfTheLittleDragonAStar"}
+      @{"WCLeaderBoard" SYSTEM "agl:c/wbrun A-Games:W/WCLeaderBoard/WCLeaderBoard"}                        @{"WCLeaderBoard&DataDisks" SYSTEM "agl:c/wbrun A-Games:W/WCLeaderBoard&DataDisks/WCLeaderBoard&DataDisks"}
+      @{"WeenTheProphecy" SYSTEM "agl:c/wbrun A-Games:W/WeenTheProphecy/WeenTheProphecy"}                      @{"WeenTheProphecyDe" SYSTEM "agl:c/wbrun A-Games:W/WeenTheProphecyDe/WeenTheProphecyDe"}
+      @{"WeenTheProphecyFr" SYSTEM "agl:c/wbrun A-Games:W/WeenTheProphecyFr/WeenTheProphecyFr"}                    @{"WeenTheProphecyIt" SYSTEM "agl:c/wbrun A-Games:W/WeenTheProphecyIt/WeenTheProphecyIt"}
+      @{"WeirdDreams" SYSTEM "agl:c/wbrun A-Games:W/WeirdDreams/WeirdDreams"}                          @{"Welltris" SYSTEM "agl:c/wbrun A-Games:W/Welltris/Welltris"}
+      @{"WembleyRugbyLeague" SYSTEM "agl:c/wbrun A-Games:W/WembleyRugbyLeague/WembleyRugbyLeague"}                   @{"WesternGames" SYSTEM "agl:c/wbrun A-Games:W/WesternGames/WesternGames"}
+      @{"WestPhaser" SYSTEM "agl:c/wbrun A-Games:W/WestPhaser/WestPhaser"}                           @{"Whirligig" SYSTEM "agl:c/wbrun A-Games:W/Whirligig/Whirligig"}
+      @{"WhirligigCracked" SYSTEM "agl:c/wbrun A-Games:W/WhirligigCracked/WhirligigCracked"}                     @{"Whizz" SYSTEM "agl:c/wbrun A-Games:W/Whizz/Whizz"}
+      @{"WhizzAGA" SYSTEM "agl:c/wbrun A-Games:W/WhizzAGA/WhizzAGA"}                             @{"WhoFramedRogerRabbit" SYSTEM "agl:c/wbrun A-Games:W/WhoFramedRogerRabbit/WhoFramedRogerRabbit"}
+      @{"WibbleWorldGiddy" SYSTEM "agl:c/wbrun A-Games:W/WibbleWorldGiddy/WibbleWorldGiddy"}                     @{"Wicked" SYSTEM "agl:c/wbrun A-Games:W/Wicked/Wicked"}
+      @{"WildCupSoccer" SYSTEM "agl:c/wbrun A-Games:W/WildCupSoccer/WildCupSoccer"}                        @{"WildStreets" SYSTEM "agl:c/wbrun A-Games:W/WildStreets/WildStreets"}
+      @{"WildWestWorld" SYSTEM "agl:c/wbrun A-Games:W/WildWestWorld/WildWestWorld"}                        @{"WildWestWorldDe" SYSTEM "agl:c/wbrun A-Games:W/WildWestWorldDe/WildWestWorldDe"}
+      @{"WildWheels" SYSTEM "agl:c/wbrun A-Games:W/WildWheels/WildWheels"}                           @{"WindowWizardFiles" SYSTEM "agl:c/wbrun A-Games:W/WindowWizardFiles/WindowWizardFiles"}
+      @{"WindowWizardImage" SYSTEM "agl:c/wbrun A-Games:W/WindowWizardImage/WindowWizardImage"}                    @{"WindSurfWilly" SYSTEM "agl:c/wbrun A-Games:W/WindSurfWilly/WindSurfWilly"}
+      @{"Wings" SYSTEM "agl:c/wbrun A-Games:W/Wings/Wings"}                                @{"WingsOfDeath" SYSTEM "agl:c/wbrun A-Games:W/WingsOfDeath/WingsOfDeath"}
+      @{"WingsOfFury" SYSTEM "agl:c/wbrun A-Games:W/WingsOfFury/WingsOfFury"}                          @{"WinningPost" SYSTEM "agl:c/wbrun A-Games:W/WinningPost/WinningPost"}
+      @{"WinterCamp" SYSTEM "agl:c/wbrun A-Games:W/WinterCamp/WinterCamp"}                           @{"WinterChallenge" SYSTEM "agl:c/wbrun A-Games:W/WinterChallenge/WinterChallenge"}
+      @{"WinterGames" SYSTEM "agl:c/wbrun A-Games:W/WinterGames/WinterGames"}                          @{"WinterOlympiad88" SYSTEM "agl:c/wbrun A-Games:W/WinterOlympiad88/WinterOlympiad88"}
+      @{"WinterOlympics" SYSTEM "agl:c/wbrun A-Games:W/WinterOlympics/WinterOlympics"}                       @{"WinterSupersports92" SYSTEM "agl:c/wbrun A-Games:W/WinterSupersports92/WinterSupersports92"}
+      @{"WITWIsCarmenSandiego" SYSTEM "agl:c/wbrun A-Games:W/WITWIsCarmenSandiego/WITWIsCarmenSandiego"}                 @{"Wizardry6BaneCosmicForg" SYSTEM "agl:c/wbrun A-Games:W/Wizardry6BaneCosmicForg/Wizardry6BaneCosmicForg"}
+      @{"Wizardry6BaneCosmicForgDe" SYSTEM "agl:c/wbrun A-Games:W/Wizardry6BaneCosmicForgDe/Wizardry6BaneCosmicForgDe"}            @{"Wizball" SYSTEM "agl:c/wbrun A-Games:W/Wizball/Wizball"}
+      @{"Wizkid" SYSTEM "agl:c/wbrun A-Games:W/Wizkid/Wizkid"}                               @{"WizNLiz" SYSTEM "agl:c/wbrun A-Games:W/WizNLiz/WizNLiz"}
+      @{"Wolfchild" SYSTEM "agl:c/wbrun A-Games:W/Wolfchild/Wolfchild"}                            @{"Wolfpack" SYSTEM "agl:c/wbrun A-Games:W/Wolfpack/Wolfpack"}
+      @{"WonderboyInMonsterland" SYSTEM "agl:c/wbrun A-Games:W/WonderboyInMonsterland/WonderboyInMonsterland"}               @{"WonderDog" SYSTEM "agl:c/wbrun A-Games:W/WonderDog/WonderDog"}
+      @{"WoodysWorld" SYSTEM "agl:c/wbrun A-Games:W/WoodysWorld/WoodysWorld"}                          @{"WorldChampBoxingManager" SYSTEM "agl:c/wbrun A-Games:W/WorldChampBoxingManager/WorldChampBoxingManager"}
+      @{"WorldChampionshipSoccer" SYSTEM "agl:c/wbrun A-Games:W/WorldChampionshipSoccer/WorldChampionshipSoccer"}              @{"WorldCircuit" SYSTEM "agl:c/wbrun A-Games:W/WorldCircuit/WorldCircuit"}
+      @{"WorldClassRugby" SYSTEM "agl:c/wbrun A-Games:W/WorldClassRugby/WorldClassRugby"}                      @{"WorldClassRugby5Nations" SYSTEM "agl:c/wbrun A-Games:W/WorldClassRugby5Nations/WorldClassRugby5Nations"}
+      @{"WorldClassRugby95" SYSTEM "agl:c/wbrun A-Games:W/WorldClassRugby95/WorldClassRugby95"}                    @{"WorldClassSoccer" SYSTEM "agl:c/wbrun A-Games:W/WorldClassSoccer/WorldClassSoccer"}
+      @{"WorldCricket" SYSTEM "agl:c/wbrun A-Games:W/WorldCricket/WorldCricket"}                         @{"WorldDarts" SYSTEM "agl:c/wbrun A-Games:W/WorldDarts/WorldDarts"}
+      @{"WorldGames" SYSTEM "agl:c/wbrun A-Games:W/WorldGames/WorldGames"}                           @{"WorldRugby" SYSTEM "agl:c/wbrun A-Games:W/WorldRugby/WorldRugby"}
+      @{"WorldSoccer" SYSTEM "agl:c/wbrun A-Games:W/WorldSoccer/WorldSoccer"}                          @{"WorldsOfLegend" SYSTEM "agl:c/wbrun A-Games:W/WorldsOfLegend/WorldsOfLegend"}
+      @{"WorldTourGolf" SYSTEM "agl:c/wbrun A-Games:W/WorldTourGolf/WorldTourGolf"}                        @{"Worms1MB" SYSTEM "agl:c/wbrun A-Games:W/Worms1MB/Worms1MB"}
+      @{"Worms2MB" SYSTEM "agl:c/wbrun A-Games:W/Worms2MB/Worms2MB"}                             @{"WormsCD321MB" SYSTEM "agl:c/wbrun A-Games:W/WormsCD321MB/WormsCD321MB"}
+      @{"WormsCD322MB" SYSTEM "agl:c/wbrun A-Games:W/WormsCD322MB/WormsCD322MB"}                         @{"WormsDirectorsCutAGA" SYSTEM "agl:c/wbrun A-Games:W/WormsDirectorsCutAGA/WormsDirectorsCutAGA"}
+      @{"Wormsigns" SYSTEM "agl:c/wbrun A-Games:W/Wormsigns/Wormsigns"}                            @{"WrathOfTheDemon" SYSTEM "agl:c/wbrun A-Games:W/WrathOfTheDemon/WrathOfTheDemon"}
+      @{"WrathOfTheDemonCDTV" SYSTEM "agl:c/wbrun A-Games:W/WrathOfTheDemonCDTV/WrathOfTheDemonCDTV"}                  @{"Wreckers" SYSTEM "agl:c/wbrun A-Games:W/Wreckers/Wreckers"}
+      @{"WWFEuropeanRampageTour" SYSTEM "agl:c/wbrun A-Games:W/WWFEuropeanRampageTour/WWFEuropeanRampageTour"}               @{"WWFWrestleMania" SYSTEM "agl:c/wbrun A-Games:W/WWFWrestleMania/WWFWrestleMania"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode

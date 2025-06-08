@@ -1,0 +1,198 @@
+
+
+
+     ilbmtoppm(1)         AMIGA (25 October 1994)         ilbmtoppm(1)
+
+
+
+     NAME
+          ilbmtoppm - convert an IFF-ILBM, IFF-RGBN or IFF-RGB8 file
+          into a portable pixmap
+
+     SYNOPSIS
+          ilbmtoppm [-verbose] [-ignore chunkID]
+          [-isham|-isehb|-isdeep [-cmaponly] [-adjustcolors]
+          [-transparent color] [-maskfile filename] [ILBMfile]
+
+
+     DESCRIPTION
+          Reads an IFF-ILBM, IFF-RGBN or IFF-RGB8 file as input.
+          Produces a portable pixmap as output.  Supported ILBM types
+          are:
+
+          Normal ILBMs
+               1-8 planes with or without colormap, or 9-16 planes
+               with colormap.  If no colormap is present, interprets
+               the pixel values as intensity (grayscale) values.
+               Amiga display modes Extra_Halfbrite (EHB) and Hold-
+               and-modify (HAM) are supported, and the multiplatte
+               formats Palette Change (PCHG chunk), Dynamic HAM/Hires
+               (CTBL chunk) and Sliced HAM (SHAM chunk).  HAM images
+               are limited to 3-10 planes.
+
+          Deep ILBMs
+               9, 12 or 15 planes without colormap, or 18-48 planes
+               (the number of planes must be divisible by 3).  Most
+               deep ILBMs have 24 planes (for 8-bit RGB values).
+
+          Colormap files
+               BMHD + CMAP chunk only, 0 planes.
+
+          Chunks used:
+               BMHD, CMAP, CMYK, CLUT, CAMG, PCHG, CTBL, SHAM, BODY
+
+          Chunks ignored:
+               GRAB, DEST, SPRT, CRNG, CCRT, DYCP, DPPV, DRNG, EPSF,
+               JUNK, CNAM, PRVW
+
+          Other chunks (ignored but displayed in verbose mode):
+               ANNO, AUTH, (c), DPI, FVER, NAME, TEXT
+
+          Unknown chunks are skipped.
+
+     OPTIONS
+          Options marked with (*) can be prefixed with a "no", e.g.
+          '-noverbose'.  All options can be abbreviated to their
+          shortest unique prefix.
+
+
+          -verbose (*)
+
+
+
+     Page 1                                          (printed 1/23/95)
+
+
+
+
+
+
+     ilbmtoppm(1)         AMIGA (25 October 1994)         ilbmtoppm(1)
+
+
+
+               Give some information about the input file.
+
+
+          -ignore chunkID
+               Skip a chunk.  chunkID is the 4-letter IFF chunk
+               identifier of the chunk to be skipped.  This option can
+               appear more than once on the command line.
+
+
+          -isham | -isehb
+               Treat the input file as a HAM or EHB picture, even if
+               these flags or not set in the CAMG chunk (or if there
+               is no CAMG chunk).  This option has no effect with RGBN
+               and RGB8 pictures.
+
+
+          -isnotham | -isnotehb
+               Do not treat the input file as a HAM or EHB picture,
+               even if these flags are set in the CAMG chunk.  This
+               option has no effect with RGBN and RGB8 pictures.
+
+
+          -isdeep
+               Treat an input file with less than 16 planes as a deep
+               ILBM, even if it provides a colormap. The number of
+               planes in the input file must be divisible by 3.  This
+               option has no effect with RGBN and RGB8 pictures.
+
+
+          -isnotdeep
+               Do not treat an input file as a deep ILBM, even if it
+               has more than 8 planes and/or no colormap.  This option
+               has no effect with RGBN and RGB8 pictures.
+
+
+          -adjustcolors (*)
+               Scale a 4-bit colormap or shifted 4-bit colormap to 8
+               bits.  If this option is not used and believes that the
+               colormap consists of 4-bit values or shifted 4-bit
+               values, it prints a warning.  This option has no effect
+               with RGBN and RGB8 pictures.
+
+
+          -cmaponly
+               Extract only the colormap from the input file.  The
+               resulting PPM file will be in P3 ASCII format.  This
+               option results in an error if used with a RGBN or RGB8
+               file.
+
+
+          -transparent color
+               Write transparent pixels in color instead of their
+
+
+
+     Page 2                                          (printed 1/23/95)
+
+
+
+
+
+
+     ilbmtoppm(1)         AMIGA (25 October 1994)         ilbmtoppm(1)
+
+
+
+               colormap entry. The color is specified as in
+               ppmmake(1).
+
+
+          -maskfile filename
+               Generate a mask file from a mask plane or transparent
+               color entry (ILBM), or genlock bits (RGBN/RGB8) and
+               write it to filename. This is a normal PBM image, the
+               same size as the PPM output file.  A pixel value of
+               PBM_WHITE in the mask file means the corresponding in
+               the output file is considered to be transparent,
+               PBM_BLACK indicates an opaque pixel (think of the
+               output file casting a shadow on a white screen).
+
+
+     BUGS
+          Lasso masks are not supported.  CLUT and CMYK chunk code is
+          untested.
+
+
+     REFERENCES
+          Amiga ROM Kernel Reference Manual - Devices (3rd Ed.),
+          Addison Wesley, ISBN 0-201-56775-X, Appendix A: Interchange
+          File Format
+
+
+     SEE ALSO
+          ppm(5), ppmtoilbm(1)
+
+
+     AUTHORS
+          Copyright (C) 1989 by Jef Poskanzer.
+          Modified 1993/1994 by Ingo Wilken
+          (Ingo.Wilken@informatik.uni-oldenburg.de)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     Page 3                                          (printed 1/23/95)
+
+
+

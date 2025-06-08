@@ -1,0 +1,453 @@
+
+;================================= ENGLISH ==================================
+
+(set languages-default 1)
+
+(set #bad-kick "You must be using Kickstart 2.04+ to install SysSpeed")
+
+(set #copy-main "Copying SysSpeed...")
+
+(set #copy-datas "Copying SysSpeed datafiles...")
+
+(set #copy-doc "Copying Documentation...")
+
+(set #copy-powerpacker-library "Copying powerpacker.library to Libs: ...")
+
+(set #copy-boards-library "Copying boards.library to Libs: ...")
+
+(set #copy-xpkmaster-library "Copying xkpmaster.library to Libs: ...")
+
+(set #copy-shri-library "Copying xpkSHRI.library to Libs:Compressors/ ...")
+
+(set #copy-fonts "Copying XEN Font to Fonts: ...")
+
+(set #install-select
+	(cat
+		"Please select the different parts of SysSpeed that you"
+		" would like to install:"
+	)
+)
+
+(set #install-select-help
+	(cat
+		"SysSpeed: The Ultimate Speedtester...\n"
+	)
+)
+
+(set #doc-select
+	(cat
+		"Please select your favourite documentation that you would"
+		" like to install:"
+	)
+)
+
+(set #doc-select-help
+	(cat
+		"Select you favourite documentation!"
+	)
+)
+
+(set #languages-select "\nWhich languages should be installed?")
+
+(set #languages-select-help
+	(cat
+		"Please select your favourite language that should be"
+		" copied to you Locale: directory?"
+	)
+)
+
+(set #item-main "SysSpeed Mainprogram")
+
+(set #item-datas "SysSpeedDatas")
+
+(set #item-doc "Documentation")
+
+(set #item-locale "Locale")
+
+(set #item-libraries "Libraries")
+
+(set #item-fonts "XEN Font")
+
+(set #where-main "Where would you like to install the SysSpeed mainprogram?")
+
+(set #where-main-help
+	(cat
+		"This is the destination directory for the SysSpeed mainprogram"
+	)
+)
+
+(set #where-datas "Where would you like to install Datas for SysSpeed ?")
+
+(set #where-datas-help
+	(cat
+		"This is the destination directory of Datas for SysSpeed!"
+	)
+)
+
+(set #where-doc "Where would you like to install the Documentations?")
+
+(set #install-exit
+	(cat
+		"Thank you for installing SysSpeed ..."
+	)
+)
+
+(set #install-start
+	(cat
+		"\nWelcome to SysSpeed installation utility!\n\n"
+		"Written and performed by f0X/AD!\n"
+	)
+)
+
+;===[ German Documentation ]=================================================
+
+(if (= @language "deutsch")
+ (
+(set languages-default 2)
+
+(set #bad-kick "Man benötigt Kickstart 2.04 oder höher, um SysSpeed benutzen zu können!")
+
+(set #copy-main "Kopiere SysSpeed...")
+
+(set #copy-doc "Kopiere Dokumentation...")
+
+(set #copy-powerpacker-library "Kopiere powerpacker.library ins Libs: ...")
+
+(set #copy-boards-library "Kopiere powerpacker.library ins Libs: ...")
+
+(set #copy-xpkmaster-library "Kopiere xkpmaster.library ins Libs: ...")
+
+(set #copy-shri-library "Kopiere shri.library ins Libs:Compressors/ ...")
+
+(set #copy-fonts "Kopiere XEN Zeichensatz ins Fonts: ...")
+
+(set #install-select
+	(cat
+		"Bitte wähle die einzelnen Teile des SysSpeed's, aus die"
+		" Du installieren möchtest:"
+	)
+)
+
+(set #doc-select
+	(cat
+		"Bitte wähle die Dokumentationen aus die Du installieren"
+		" möchtest:"
+	)
+)
+
+(set #languages-select "\nWelche Sprachen sollen installiert werden?")
+
+(set #languages-select-help
+	(cat
+		"Bitte suche die Sprache für SysSpeed aus, die "
+		" in Dein Locale: Verzeichnis kopiert werden soll!"
+	)
+)
+
+(set #item-main "SysSpeed Hauptprogramm")
+
+(set #item-datas "SysSpeed Datenfiles")
+
+(set #item-doc "Anleitung")
+
+(set #item-locale "Locale")
+
+(set #item-libraries "Libraries")
+
+(set #item-fonts "XEN Zeichensatz")
+
+(set #where-main "Wohin möchtest Du SysSpeed installieren?")
+
+(set #where-main-help
+	(cat
+		"Dies ist das Zielverzeichnis von SysSpeed."
+	)
+)
+
+(set #where-datas "Wohin möchtest Du die Daten von SysSpeed installieren?")
+
+(set #where-datas-help
+	(cat
+		"Dies ist das Zielverzeichnis, von den daten die das"
+		" SysSpeed benötigt!"
+	)
+)
+
+(set #where-doc "Wohin möchtest Du die Dokumentation installieren?")
+
+(set #install-exit
+	(cat
+		"Vielen Dank für die Installation von SysSpeed ..."
+	)
+)
+
+(set #install-start
+	(cat
+		"\nWillkommen zur SysSpeed Installation!\n\n"
+		"Geschrieben von f0X/AD!\n"
+	)
+)
+
+ )
+)
+
+
+;============================== PROGRAM-START================================
+
+(set @default-dest "")
+
+; Check Kickstart (>= v2.0) Version.
+
+(if (< (/ (getversion) 65536) 37)
+	(abort #bad-kick)
+)
+
+(message #install-start)
+
+(set install-default 31)
+
+(if (NOT (exists "Fonts:XEN" (noreq)))
+	(set install-default (BITOR install-default 32))
+)
+
+(welcome)
+
+(set install-files
+	(askoptions
+		(prompt	#install-select)
+		(help	#install-select-help "\n\n" @askoptions-help)
+		(choices
+			#item-main
+			#item-datas
+			#item-doc
+			#item-locale
+			#item-libraries
+			#item-fonts
+		)
+		(default install-default)
+	)
+)
+
+(set startup-files 0)
+
+(if (BITAND install-files 1)
+	(
+	(set main-dest
+		(askdir
+			(prompt	#where-main)
+			(help	#where-main-help "\n\n" @askdir-help)
+			(default "SYS:")
+			)
+		)
+	)
+)
+
+(if (BITAND install-files 2)
+	(set datas-dest
+		(askdir
+			(prompt	#where-datas)
+			(help	#where-datas-help "\n\n" @askdir-help)
+			(default "SYS:")
+		)
+	)
+)
+
+; Check + DefaultSet + Request Of Documentation(s)
+
+(if (BITAND install-files 4)
+	(
+		(if (= @LANGUAGE "deutsch")
+			(set doc-default 2)
+			(set doc-default 1)
+		)
+		(set doc-files
+			(askoptions
+				(prompt	#doc-select)
+					(help	#doc-select-help "\n\n" @askoptions-help)
+					(choices
+						"SysSpeed... English"
+						"SysSpeed... Deutsch"
+					)
+				(default doc-default)
+			)
+		)
+		(set doc-dest
+			(askdir
+				(prompt	#where-doc)
+				(help	@askdir-help)
+				(default "SYS:")
+			)
+		)
+	)
+)
+
+(if (AND (BITAND install-files 8) (= (exists "Locale:") 2))
+	(set	languages
+		(askoptions
+			(prompt	#languages-select)
+			(help	#languages-select-help "\n\n" @askoptions-help)
+			(choices
+				"English"
+				"Deutsch"
+			)
+			(default languages-default)
+		)
+	)
+)
+
+
+;========================== COPY STARTS HERE ===============================
+
+; Copy SysSpeed MainProgram
+
+(if (BITAND install-files 1)
+	(
+		(copyfiles
+			(prompt #copy-main)
+			(source "SysSpeed")
+			(dest main-dest)
+			(files)
+			(infos)
+		)
+	(delete (tackon main-dest ".info"))
+	)
+)
+
+(complete 14)
+
+; Copy DataFiles
+
+(if (BITAND install-files 2)
+	(
+		(copyfiles
+			(prompt #copy-datas)
+			(source "SysSpeedData")
+			(dest (tackon datas-dest "SysSpeedData"))
+			(all)
+		)
+	)
+)
+
+(complete 28)
+
+
+;Copy selected Documentations
+
+(if (BITAND install-files 4)
+	(
+		(set n 0)
+		(while
+			(set doc
+				(select n
+					"SysSpeed_eng.guide"
+					"SysSpeed_ger.guide"
+					""
+				)
+			)
+			(
+				(if (IN doc-files n)
+					(
+						(if (exists (tackon "" doc))
+							(copyfiles
+								(prompt #copy-doc)
+								(source (tackon "" doc))
+								(dest doc-dest)
+								(infos)
+							)
+						)
+					)
+				)
+				(set n (+ n 1))
+			)
+		)
+	(delete (tackon doc-dest ".info"))
+	)
+)
+
+(complete 42)
+
+; Copy catalog files
+
+(if (and (BITAND install-files 8) (= (exists "Locale:") 2))
+	(
+		(set n 0)
+		(while
+			(set language
+				(select n
+					"English"
+					"Deutsch"
+					""
+				)
+			)
+			(
+				(if (IN languages n)
+					(if (<> 0 n)   ; No catalog for english strings...
+						(
+							(set catalogs (tackon "Locale/Catalogs" language))
+							(set destination (tackon "Locale:Catalogs" language))
+							(makedir destination)
+							(if (exists (tackon catalogs "SysSpeed.catalog"))
+								(copylib
+									(prompt #copy-catalog)
+									(source (tackon catalogs "SysSpeed.catalog"))
+									(dest destination)
+								)
+							)
+						)
+					)
+				)
+				(set n (+ n 1))
+			)
+		)
+	)
+)
+
+
+;Copy libraries to libs:
+
+(if (BITAND install-files 16)
+	(
+		(copylib
+			(prompt #copy-powerpacker-library)
+			(source "Libs/powerpacker.library")
+			(dest "Libs:")
+		)
+		(complete 25)
+		(copylib
+			(prompt #copy-boards-library)
+			(source "Libs/boards.library")
+			(dest "Libs:")
+		)
+		(complete 50)
+		(copylib
+			(prompt #copy-xpkmaster-library)
+			(source "Libs/xpkmaster.library")
+			(dest "Libs:")
+		)
+		(complete 75)
+		(copylib
+			(prompt #copy-shri-library)
+			(source "Libs/compressors/xpkshri.library")
+			(dest "Libs:compressors")
+		)
+	)
+)
+
+(complete 90)
+
+(if (BITAND install-files 32)
+	(
+		(copyfiles
+			(prompt #copy-fonts)
+			(source "Fonts")
+			(dest "Fonts:")
+			(all)
+			(fonts)
+		)
+	)
+)
+
+(complete 100)
+
+(EXIT #install-exit)
+

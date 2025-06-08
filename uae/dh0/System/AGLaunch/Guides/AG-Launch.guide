@@ -1,0 +1,25 @@
+@database WHDLoad HyperText Game Launcher
+@WORDWRAP
+@node Main "WHDLoad AmigaGuide Game Launcher - Zetr0 2011"
+        AGL - WHDLoad AmigaGuide Game Launcher: Version 0.7c Alpha
+
+
+Select Directory -
+
+            @{"0-9" LINK agl:guides/agl-0_9.guide/main}   @{" A " LINK agl:guides/agl-A.guide/main}   @{" B " LINK agl:guides/agl-B.guide/main}   @{" C " LINK agl:guides/agl-C.guide/main}   @{" D " LINK agl:guides/agl-D.guide/main}   @{" E " LINK agl:guides/agl-E.guide/main}   @{" F " LINK agl:guides/agl-F.guide/main}   @{" G " LINK agl:guides/agl-G.guide/main}   @{" H " LINK agl:guides/agl-H.guide/main}   
+
+            @{" I " LINK agl:guides/agl-I.guide/main}   @{" J " LINK agl:guides/agl-J.guide/main}   @{" K " LINK agl:guides/agl-K.guide/main}   @{" L " LINK agl:guides/agl-L.guide/main}   @{" M " LINK agl:guides/agl-M.guide/main}   @{" N " LINK agl:guides/agl-N.guide/main}   @{" O " LINK agl:guides/agl-O.guide/main}   @{" P " LINK agl:guides/agl-P.guide/main}   @{" Q " LINK agl:guides/agl-Q.guide/main}   
+
+            @{" R " LINK agl:guides/agl-R.guide/main}   @{" S " LINK agl:guides/agl-S.guide/main}   @{" T " LINK agl:guides/agl-T.guide/main}   @{" U " LINK agl:guides/agl-U.guide/main}   @{" V " LINK agl:guides/agl-V.guide/main}   @{" W " LINK agl:guides/agl-W.guide/main}   @{" X " LINK agl:guides/agl-X.guide/main}   @{" Y " LINK agl:guides/agl-Y.guide/main}   @{" Z " LINK agl:guides/agl-Z.guide/main}
+
+Select by Favourites -
+
+                         [guide to be implemented]
+
+
+     Thanx goes to Bloodwych for Classic Workbench and all his help! 
+           KillerGorilla, Wepl & all the WHDLoad Developers
+
+     With final thanks to Jonathan Potter for the excellent JoyMouse
+
+@endnode

@@ -1,0 +1,16 @@
+IMPORTANT!!!!!
+
+Due to copyright restrictions, I was not able to include the KS 1.3 ROM in
+this package. You will therefore not be able to use the kickstart degrader
+in this package until you obtain a copy of this ROM.
+You can obtain a copy of the ROM by using the GrabKick program in util/misc
+on Aminet. Alternatively, some degraders sold via PD houses have the rom
+already in the package. If it is stored as a separate file, then it should
+be useable with this program. I use the ROM supplied with S-Kick Pro.
+
+The file should be named kick34005.A500 and be 262144 bytes long. It should
+be placed in the DEVS:Kickstarts directory as stated in the main docs.
+
+All other functions will work without the ROM. Please note that you are
+not able to access most IDE hard drives under KS1.3, nor are you able to
+use PCMCIA expansion cards.

@@ -1,0 +1,42 @@
+Stack 16384
+
+Echo "This will remove NewIcon images from Icons leaving them with"
+Echo "OldIcons only in order to increase performance."
+Echo ""
+Echo "Only NewIcons will be affected. NewIcons without OldIcon data"
+Echo "will display a dot and will need updating."
+Echo ""
+Echo "You will need to disable the NewIcon component first in the"
+Echo "ClassicWB settings, or NewIcon data will be protected from"
+Echo "deletion."
+
+LAB Start
+Requestchoice >ENV:Loperat "PeelNewTools""Choose:""Single""Recursive""Quit"
+
+IF $Loperat eq "1"
+Skip Single
+ENDIF
+IF $Loperat eq "2"
+Skip Recursive
+ENDIF
+IF $Loperat eq "0"
+Skip Cancel
+ENDIF
+
+LAB Single
+Requestfile >ENV:Xfilename TITLE "Choose path" PATTERN #?.info MULTISELECT
+PeelNewTools $Xfilename L
+Delete ENV:Xfilename ALL QUIET
+Delete ENV:Loperat ALL QUIET
+Skip Start BACK
+
+LAB Recursive
+Requestfile >ENV:Xfilename TITLE "Choose path" DRAWERSONLY
+PeelNewTools $Xfilename R L
+Delete ENV:Xfilename ALL QUIET
+Delete ENV:Loperat ALL QUIET
+Skip Start BACK
+
+LAB Cancel
+Delete ENV:Loperat ALL QUIET
+EndShell

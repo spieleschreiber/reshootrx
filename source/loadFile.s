@@ -12,7 +12,9 @@ loadFile
 
         move.l  filenamePointer,d1
         move.l  #MODE_OLDFILE,d2
-        CALLDOS Open
+		move.l	DOSBase(pc),a6
+		jsr	_LVOOpen(a6)
+        ;CALLDOS Open
         move.l  d0,FileHandle
         tst.l d0
         beq     Fehler

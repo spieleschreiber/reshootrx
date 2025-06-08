@@ -1,0 +1,14 @@
+;ClassicWB AGLaunch-Startup
+;---------------------------
+;68K LITE FULL ADV ADVSP P96 OS35 OS39
+
+C:Assign REXX: S:
+C:Assign LIBS: SYS:Classes ADD
+C:Assign HELP: SYS:Local/Help DEFER
+C:Assign AGL: SYS:System/AGLaunch
+IF NOT EXISTS RAM:ENV/Sys
+  C:Execute S:Assign-Startup
+EndIF
+C:AddDataTypes REFRESH QUIET
+AGL:
+AGL:C/MultiView AGL:Guides/AG-Launch.guide

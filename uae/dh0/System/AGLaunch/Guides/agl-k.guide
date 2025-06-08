@@ -1,0 +1,42 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <K>
+
+Click game title to play
+
+      @{"K240" SYSTEM "agl:c/wbrun A-Games:K/K240/K240"}                                 @{"KalasPuffExpressenSe1MB" SYSTEM "agl:c/wbrun A-Games:K/KalasPuffExpressenSe1MB/KalasPuffExpressenSe1MB"}
+      @{"KalasPuffExpressenSe512KB" SYSTEM "agl:c/wbrun A-Games:K/KalasPuffExpressenSe512KB/KalasPuffExpressenSe512KB"}            @{"Kamikaze" SYSTEM "agl:c/wbrun A-Games:K/Kamikaze/Kamikaze"}
+      @{"KarateKid2" SYSTEM "agl:c/wbrun A-Games:K/KarateKid2/KarateKid2"}                           @{"KarateKing&CityDefense" SYSTEM "agl:c/wbrun A-Games:K/KarateKing&CityDefense/KarateKing&CityDefense"}
+      @{"KartingGrandPrix" SYSTEM "agl:c/wbrun A-Games:K/KartingGrandPrix/KartingGrandPrix"}                     @{"Katakis1Disk" SYSTEM "agl:c/wbrun A-Games:K/Katakis1Disk/Katakis1Disk"}
+      @{"Katakis2Disk" SYSTEM "agl:c/wbrun A-Games:K/Katakis2Disk/Katakis2Disk"}                         @{"KellyX" SYSTEM "agl:c/wbrun A-Games:K/KellyX/KellyX"}
+      @{"KGB" SYSTEM "agl:c/wbrun A-Games:K/KGB/KGB"}                                  @{"KGBDe" SYSTEM "agl:c/wbrun A-Games:K/KGBDe/KGBDe"}
+      @{"KGBFr" SYSTEM "agl:c/wbrun A-Games:K/KGBFr/KGBFr"}                                @{"KickOff" SYSTEM "agl:c/wbrun A-Games:K/KickOff/KickOff"}
+      @{"KickOff&ExtraTime1Disk" SYSTEM "agl:c/wbrun A-Games:K/KickOff&ExtraTime1Disk/KickOff&ExtraTime1Disk"}               @{"KickOff&ExtraTime2Disk" SYSTEM "agl:c/wbrun A-Games:K/KickOff&ExtraTime2Disk/KickOff&ExtraTime2Disk"}
+      @{"KickOff2" SYSTEM "agl:c/wbrun A-Games:K/KickOff2/KickOff2"}                             @{"KickOff216" SYSTEM "agl:c/wbrun A-Games:K/KickOff216/KickOff216"}
+      @{"KickOff2CV" SYSTEM "agl:c/wbrun A-Games:K/KickOff2CV/KickOff2CV"}                           @{"KickOff2De" SYSTEM "agl:c/wbrun A-Games:K/KickOff2De/KickOff2De"}
+      @{"KickOff2Es" SYSTEM "agl:c/wbrun A-Games:K/KickOff2Es/KickOff2Es"}                           @{"KickOff2FinalWhistle" SYSTEM "agl:c/wbrun A-Games:K/KickOff2FinalWhistle/KickOff2FinalWhistle"}
+      @{"KickOff2FinalWhistleCV" SYSTEM "agl:c/wbrun A-Games:K/KickOff2FinalWhistleCV/KickOff2FinalWhistleCV"}               @{"KickOff2FinalWhistleDe" SYSTEM "agl:c/wbrun A-Games:K/KickOff2FinalWhistleDe/KickOff2FinalWhistleDe"}
+      @{"KickOff2Fr" SYSTEM "agl:c/wbrun A-Games:K/KickOff2Fr/KickOff2Fr"}                           @{"KickOff2It" SYSTEM "agl:c/wbrun A-Games:K/KickOff2It/KickOff2It"}
+      @{"KickOff2PlusWorldCup90" SYSTEM "agl:c/wbrun A-Games:K/KickOff2PlusWorldCup90/KickOff2PlusWorldCup90"}               @{"KickOff2PlusWorldCup90De" SYSTEM "agl:c/wbrun A-Games:K/KickOff2PlusWorldCup90De/KickOff2PlusWorldCup90De"}
+      @{"KickOff2PlusWorldCup90Fr" SYSTEM "agl:c/wbrun A-Games:K/KickOff2PlusWorldCup90Fr/KickOff2PlusWorldCup90Fr"}             @{"KickOff2PlusWorldCup90It" SYSTEM "agl:c/wbrun A-Games:K/KickOff2PlusWorldCup90It/KickOff2PlusWorldCup90It"}
+      @{"KickOff2ReturnToEurope" SYSTEM "agl:c/wbrun A-Games:K/KickOff2ReturnToEurope/KickOff2ReturnToEurope"}               @{"KidChaos" SYSTEM "agl:c/wbrun A-Games:K/KidChaos/KidChaos"}
+      @{"KidChaosCD32" SYSTEM "agl:c/wbrun A-Games:K/KidChaosCD32/KidChaosCD32"}                         @{"KidGloves" SYSTEM "agl:c/wbrun A-Games:K/KidGloves/KidGloves"}
+      @{"KidGloves2" SYSTEM "agl:c/wbrun A-Games:K/KidGloves2/KidGloves2"}                           @{"Kikstart2" SYSTEM "agl:c/wbrun A-Games:K/Kikstart2/Kikstart2"}
+      @{"Kikugi" SYSTEM "agl:c/wbrun A-Games:K/Kikugi/Kikugi"}                               @{"Killerball" SYSTEM "agl:c/wbrun A-Games:K/Killerball/Killerball"}
+      @{"KillingCloud" SYSTEM "agl:c/wbrun A-Games:K/KillingCloud/KillingCloud"}                         @{"KillingGameShow" SYSTEM "agl:c/wbrun A-Games:K/KillingGameShow/KillingGameShow"}
+      @{"KillingMachine" SYSTEM "agl:c/wbrun A-Games:K/KillingMachine/KillingMachine"}                       @{"KingmakerQuestForTheCrown" SYSTEM "agl:c/wbrun A-Games:K/KingmakerQuestForTheCrown/KingmakerQuestForTheCrown"}
+      @{"KingOfChicago" SYSTEM "agl:c/wbrun A-Games:K/KingOfChicago/KingOfChicago"}                        @{"KingsQuest" SYSTEM "agl:c/wbrun A-Games:K/KingsQuest/KingsQuest"}
+      @{"KingsQuest2" SYSTEM "agl:c/wbrun A-Games:K/KingsQuest2/KingsQuest2"}                          @{"KingsQuest3" SYSTEM "agl:c/wbrun A-Games:K/KingsQuest3/KingsQuest3"}
+      @{"KingsQuest4" SYSTEM "agl:c/wbrun A-Games:K/KingsQuest4/KingsQuest4"}                          @{"KingsQuest5" SYSTEM "agl:c/wbrun A-Games:K/KingsQuest5/KingsQuest5"}
+      @{"KingsQuest5De" SYSTEM "agl:c/wbrun A-Games:K/KingsQuest5De/KingsQuest5De"}                        @{"KingsQuest5It" SYSTEM "agl:c/wbrun A-Games:K/KingsQuest5It/KingsQuest5It"}
+      @{"KingsQuest6" SYSTEM "agl:c/wbrun A-Games:K/KingsQuest6/KingsQuest6"}                          @{"KingsQuest6De" SYSTEM "agl:c/wbrun A-Games:K/KingsQuest6De/KingsQuest6De"}
+      @{"KingsQuest6Fr" SYSTEM "agl:c/wbrun A-Games:K/KingsQuest6Fr/KingsQuest6Fr"}                        @{"KingsQuestEnhanced" SYSTEM "agl:c/wbrun A-Games:K/KingsQuestEnhanced/KingsQuestEnhanced"}
+      @{"KirosQuest" SYSTEM "agl:c/wbrun A-Games:K/KirosQuest/KirosQuest"}                           @{"Klax" SYSTEM "agl:c/wbrun A-Games:K/Klax/Klax"}
+      @{"KnightForce" SYSTEM "agl:c/wbrun A-Games:K/KnightForce/KnightForce"}                          @{"Knightmare" SYSTEM "agl:c/wbrun A-Games:K/Knightmare/Knightmare"}
+      @{"KnightsOfTheCrystallion" SYSTEM "agl:c/wbrun A-Games:K/KnightsOfTheCrystallion/KnightsOfTheCrystallion"}              @{"KnightsOfTheCrystallionDe" SYSTEM "agl:c/wbrun A-Games:K/KnightsOfTheCrystallionDe/KnightsOfTheCrystallionDe"}
+      @{"KnightsOfTheSky" SYSTEM "agl:c/wbrun A-Games:K/KnightsOfTheSky/KnightsOfTheSky"}                      @{"Kristal" SYSTEM "agl:c/wbrun A-Games:K/Kristal/Kristal"}
+      @{"KrustysSuperFunHouse" SYSTEM "agl:c/wbrun A-Games:K/KrustysSuperFunHouse/KrustysSuperFunHouse"}                 @{"KryptonEgg" SYSTEM "agl:c/wbrun A-Games:K/KryptonEgg/KryptonEgg"}
+      @{"Kult" SYSTEM "agl:c/wbrun A-Games:K/Kult/Kult"}                                 @{"Kwasimodo" SYSTEM "agl:c/wbrun A-Games:K/Kwasimodo/Kwasimodo"}
+      @{"KwikSnax" SYSTEM "agl:c/wbrun A-Games:K/KwikSnax/KwikSnax"}
+@TOC agl:guides/ag-launch.guide/main
+@endnode

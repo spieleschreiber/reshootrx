@@ -1,0 +1,42 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <E>
+
+Click game title to play
+
+      @{"EaglesRider" SYSTEM "agl:c/wbrun A-Games:E/EaglesRider/EaglesRider"}                          @{"Eco" SYSTEM "agl:c/wbrun A-Games:E/Eco/Eco"}
+      @{"EcoPhantoms" SYSTEM "agl:c/wbrun A-Games:E/EcoPhantoms/EcoPhantoms"}                          @{"EddTheDuck" SYSTEM "agl:c/wbrun A-Games:E/EddTheDuck/EddTheDuck"}
+      @{"EddTheDuck2" SYSTEM "agl:c/wbrun A-Games:E/EddTheDuck2/EddTheDuck2"}                          @{"Elfmania" SYSTEM "agl:c/wbrun A-Games:E/Elfmania/Elfmania"}
+      @{"ElfMicroValue" SYSTEM "agl:c/wbrun A-Games:E/ElfMicroValue/ElfMicroValue"}                        @{"ElfOcean" SYSTEM "agl:c/wbrun A-Games:E/ElfOcean/ElfOcean"}
+      @{"Eliminator" SYSTEM "agl:c/wbrun A-Games:E/Eliminator/Eliminator"}                           @{"Elite" SYSTEM "agl:c/wbrun A-Games:E/Elite/Elite"}
+      @{"EliteAdvanced" SYSTEM "agl:c/wbrun A-Games:E/EliteAdvanced/EliteAdvanced"}                        @{"Elvira" SYSTEM "agl:c/wbrun A-Games:E/Elvira/Elvira"}
+      @{"Elvira2" SYSTEM "agl:c/wbrun A-Games:E/Elvira2/Elvira2"}                              @{"Elvira2De" SYSTEM "agl:c/wbrun A-Games:E/Elvira2De/Elvira2De"}
+      @{"Elvira2Es" SYSTEM "agl:c/wbrun A-Games:E/Elvira2Es/Elvira2Es"}                            @{"Elvira2Fr" SYSTEM "agl:c/wbrun A-Games:E/Elvira2Fr/Elvira2Fr"}
+      @{"Elvira2It" SYSTEM "agl:c/wbrun A-Games:E/Elvira2It/Elvira2It"}                            @{"ElviraArcade" SYSTEM "agl:c/wbrun A-Games:E/ElviraArcade/ElviraArcade"}
+      @{"ElviraDe" SYSTEM "agl:c/wbrun A-Games:E/ElviraDe/ElviraDe"}                             @{"ElviraFr" SYSTEM "agl:c/wbrun A-Games:E/ElviraFr/ElviraFr"}
+      @{"EmlynHughesIntlSoccer" SYSTEM "agl:c/wbrun A-Games:E/EmlynHughesIntlSoccer/EmlynHughesIntlSoccer"}                @{"Emmanuelle" SYSTEM "agl:c/wbrun A-Games:E/Emmanuelle/Emmanuelle"}
+      @{"EmmanuelleDe" SYSTEM "agl:c/wbrun A-Games:E/EmmanuelleDe/EmmanuelleDe"}                         @{"EmmanuelleEs" SYSTEM "agl:c/wbrun A-Games:E/EmmanuelleEs/EmmanuelleEs"}
+      @{"EmmanuelleFr" SYSTEM "agl:c/wbrun A-Games:E/EmmanuelleFr/EmmanuelleFr"}                         @{"EMotion" SYSTEM "agl:c/wbrun A-Games:E/EMotion/EMotion"}
+      @{"EmpireSoccer94" SYSTEM "agl:c/wbrun A-Games:E/EmpireSoccer94/EmpireSoccer94"}                       @{"EmpireStrikesBack" SYSTEM "agl:c/wbrun A-Games:E/EmpireStrikesBack/EmpireStrikesBack"}
+      @{"EnchantedLand" SYSTEM "agl:c/wbrun A-Games:E/EnchantedLand/EnchantedLand"}                        @{"Encounter" SYSTEM "agl:c/wbrun A-Games:E/Encounter/Encounter"}
+      @{"EnemyTempestOfViolence" SYSTEM "agl:c/wbrun A-Games:E/EnemyTempestOfViolence/EnemyTempestOfViolence"}               @{"EnemyTempestOfViolenceDe" SYSTEM "agl:c/wbrun A-Games:E/EnemyTempestOfViolenceDe/EnemyTempestOfViolenceDe"}
+      @{"Enforcer" SYSTEM "agl:c/wbrun A-Games:E/Enforcer/Enforcer"}                             @{"EnglandChampSpecial" SYSTEM "agl:c/wbrun A-Games:E/EnglandChampSpecial/EnglandChampSpecial"}
+      @{"Enlightenment" SYSTEM "agl:c/wbrun A-Games:E/Enlightenment/Enlightenment"}                        @{"Entity" SYSTEM "agl:c/wbrun A-Games:E/Entity/Entity"}
+      @{"EntityNoIntro" SYSTEM "agl:c/wbrun A-Games:E/EntityNoIntro/EntityNoIntro"}                        @{"Epic" SYSTEM "agl:c/wbrun A-Games:E/Epic/Epic"}
+      @{"Epic&MissionDisk" SYSTEM "agl:c/wbrun A-Games:E/Epic&MissionDisk/Epic&MissionDisk"}                     @{"Erik" SYSTEM "agl:c/wbrun A-Games:E/Erik/Erik"}
+      @{"EscapeFromColditz" SYSTEM "agl:c/wbrun A-Games:E/EscapeFromColditz/EscapeFromColditz"}                    @{"EscapeFTPOTRobotMonsters" SYSTEM "agl:c/wbrun A-Games:E/EscapeFTPOTRobotMonsters/EscapeFTPOTRobotMonsters"}
+      @{"EskadraPl" SYSTEM "agl:c/wbrun A-Games:E/EskadraPl/EskadraPl"}                            @{"EskimoGames" SYSTEM "agl:c/wbrun A-Games:E/EskimoGames/EskimoGames"}
+      @{"EspanaTheGames92" SYSTEM "agl:c/wbrun A-Games:E/EspanaTheGames92/EspanaTheGames92"}                     @{"ESWAT" SYSTEM "agl:c/wbrun A-Games:E/ESWAT/ESWAT"}
+      @{"ETsRugbyLeague" SYSTEM "agl:c/wbrun A-Games:E/ETsRugbyLeague/ETsRugbyLeague"}                       @{"EuropeanChampionsOcean" SYSTEM "agl:c/wbrun A-Games:E/EuropeanChampionsOcean/EuropeanChampionsOcean"}
+      @{"EuropeanFootballChamp" SYSTEM "agl:c/wbrun A-Games:E/EuropeanFootballChamp/EuropeanFootballChamp"}                @{"EvilDawn" SYSTEM "agl:c/wbrun A-Games:E/EvilDawn/EvilDawn"}
+      @{"Excalibur" SYSTEM "agl:c/wbrun A-Games:E/Excalibur/Excalibur"}                            @{"Executioner" SYSTEM "agl:c/wbrun A-Games:E/Executioner/Executioner"}
+      @{"Exile" SYSTEM "agl:c/wbrun A-Games:E/Exile/Exile"}                                @{"Exolon" SYSTEM "agl:c/wbrun A-Games:E/Exolon/Exolon"}
+      @{"Explora2Fr" SYSTEM "agl:c/wbrun A-Games:E/Explora2Fr/Explora2Fr"}                           @{"Explora3Fr" SYSTEM "agl:c/wbrun A-Games:E/Explora3Fr/Explora3Fr"}
+      @{"ExploraFr" SYSTEM "agl:c/wbrun A-Games:E/ExploraFr/ExploraFr"}                            @{"Extase" SYSTEM "agl:c/wbrun A-Games:E/Extase/Extase"}
+      @{"Exterminator" SYSTEM "agl:c/wbrun A-Games:E/Exterminator/Exterminator"}                         @{"ExtractorsPreviewCD32" SYSTEM "agl:c/wbrun A-Games:E/ExtractorsPreviewCD32/ExtractorsPreviewCD32"}
+      @{"Extrial" SYSTEM "agl:c/wbrun A-Games:E/Extrial/Extrial"}                              @{"Eye" SYSTEM "agl:c/wbrun A-Games:E/Eye/Eye"}
+      @{"EyeOfHorus" SYSTEM "agl:c/wbrun A-Games:E/EyeOfHorus/EyeOfHorus"}                           @{"EyeOfTheBeholder" SYSTEM "agl:c/wbrun A-Games:E/EyeOfTheBeholder/EyeOfTheBeholder"}
+      @{"EyeOfTheBeholder2" SYSTEM "agl:c/wbrun A-Games:E/EyeOfTheBeholder2/EyeOfTheBeholder2"}                    @{"EyeOfTheBeholder2De" SYSTEM "agl:c/wbrun A-Games:E/EyeOfTheBeholder2De/EyeOfTheBeholder2De"}
+      @{"EyeOfTheBeholderDe" SYSTEM "agl:c/wbrun A-Games:E/EyeOfTheBeholderDe/EyeOfTheBeholderDe"}
+@TOC agl:guides/ag-launch.guide/main
+@endnode

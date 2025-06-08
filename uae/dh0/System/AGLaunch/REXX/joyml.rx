@@ -1,0 +1,5 @@
+/*AREXX amiga guide whdload launcher .agl*/
+
+SAY 'joymouse runner'
+
+ADDRESS COMMAND  'AGL:progs/joymouse/joymouse 6 >NIL:'

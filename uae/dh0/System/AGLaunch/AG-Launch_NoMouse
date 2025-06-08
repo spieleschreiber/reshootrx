@@ -1,0 +1,10 @@
+;Launching file for AmigaGuide Game Launcher
+
+;assign local directory
+Assign AGL: ""
+
+;run support program
+AGL:Progs/JoyMouse/JoyMouse 6
+
+;run application
+AGL:C/MultiView AGL:Guides/AG-Launch.guide

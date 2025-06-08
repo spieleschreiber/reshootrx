@@ -1,0 +1,3 @@
+Echo ""
+Echo "Floppy Disk Cache is now available"
+WBRun SYS:System/FDcache

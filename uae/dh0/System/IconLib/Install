@@ -1,0 +1,43 @@
+;PeterK Icons Install script
+
+FailAt 21
+echo "This script will add PeterK PNG Icon support to"
+echo "the ClassicWB"
+echo ""
+ask "Would you like to install PNG Icon support?"
+IF NOT WARN
+SKIP FAIL
+ELSE
+IF EXISTS SYS:C/FastColors
+SKIP ERROR
+ELSE
+Copy >NIL: "SYS:C/LoadModule" "SYS:System/IconLib/Disable/C/" CLONE
+Copy >NIL: "SYS:C/LoadResident" "SYS:System/IconLib/Disable/C/" CLONE
+Copy >NIL: "SYS:Libs/icon.library" "SYS:System/IconLib/Disable/Libs/" CLONE
+Copy >NIL: "SYS:S/Startup-Sequence" "SYS:System/IconLib/Disable/S/" CLONE
+
+Copy >NIL: "SYS:System/IconLib/S/Startup-Sequence" "SYS:S/Startup-Sequence" CLONE
+Copy >NIL: "SYS:System/IconLib/C/FastColors" "SYS:C/" CLONE
+Copy >NIL: "SYS:System/IconLib/C/GrayscaleOnOff" "SYS:C/" CLONE
+Copy >NIL: "SYS:System/IconLib/C/IconFramesOFF" "SYS:C/" CLONE
+Copy >NIL: "SYS:System/IconLib/C/IconFramesON" "SYS:C/" CLONE
+Copy >NIL: "SYS:System/IconLib/C/IconGhostingOff" "SYS:C/" CLONE
+Copy >NIL: "SYS:System/IconLib/C/IconsTo24BitDmaMem" "SYS:C/" CLONE
+Copy >NIL: "SYS:System/IconLib/C/IconsToFastMem" "SYS:C/" CLONE
+Copy >NIL: "SYS:System/IconLib/C/LoadModule" "SYS:C/" CLONE
+Copy >NIL: "SYS:System/IconLib/C/LoadResident" "SYS:C/" CLONE
+Copy >NIL: "SYS:System/IconLib/C/OutlineIconText" "SYS:C/" CLONE
+Copy >NIL: "SYS:System/IconLib/C/ShadowIconText" "SYS:C/" CLONE
+Copy >NIL: "SYS:System/IconLib/Libs/icon.library_68020" "SYS:Libs/icon.library" CLONE
+ENDIF
+ENDIF
+echo ""
+echo "PNG Icon support is now enabled - please reboot"
+endshell
+LAB ERROR
+echo ""
+echo "ERROR - PNG Icon support is already enabled"
+endshell
+LAB FAIL
+echo ""
+echo "PNG Icon support has NOT been enabled"

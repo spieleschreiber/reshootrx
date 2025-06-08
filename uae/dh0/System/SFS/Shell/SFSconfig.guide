@@ -1,0 +1,181 @@
+@DATABASE SFSconfig
+@MASTER SFSconfig.guide
+@$VER: SFSconfig.guide 1.1 (12.10.1999) (W) by Martin Steigerwald
+@AUTHOR Martin Steigerwald
+@REM $Id: SFSconfig.guide 1.2 2002/03/23 18:26:07 Helios Exp $
+
+@NODE MAIN "SFSconfig - A tool to query and set SFS parameters"
+
+@{b}@{fg shine}SFSconfig.guide 1.2 (23.3.2002)@{fg text}@{ub}
+@{b}@{fg shine}SFSconfig 1.3 (23.3.2002)@{fg text}@{ub}
+
+@{b}(W) by Martin Steigerwald@{ub}
+
+
+    @{"Introduction" LINK Introduction}
+    @{"Legal stuff!" LINK Legalstuff}
+    @{"Requirements" LINK Requirements}
+    @{"Usage"        LINK Usage}
+    @{"History"      LINK History}
+    @{"Support"      LINK Support}
+    @{"Thanks"       LINK Thanks}
+
+@ENDNODE
+
+@NODE Introduction "Introduction"
+
+This is a small utility to query and/or set some parameters of a specified
+SmartFilesystem partition.
+
+You can set the cache, some data flush timeouts and the maximum filename
+length. You can query whether the partition is case sensitive or has a
+recycled directory. These to parameters are not settable.
+
+@ENDNODE
+
+@NODE Legalstuff "Legal stuff!"
+
+Neither me nor John Hendrikx - the author of the wonderful SFS - take
+responsibility for any damage that this tool causes. To make a long
+DISCLAIMER short: THERE ARE NO WARRANTIES WHATSOEVER.
+
+SFSconfig is licenced under GPL V2 or newer from now on.
+
+@ENDNODE
+
+@NODE Requirements "Requirements"
+
+- AmigaOS 2.04
+
+- SmartFilesystem
+
+- A wonderful Amiga ;)
+
+@ENDNODE
+
+
+@NODE Usage "Usage"
+
+SFSobject has the following template:
+
+DEVICE/A,LINES/N,READAHEAD=READAHEADSIZE/N,MAXNAMELENGTH=MAXNAME/N,
+ACTIVITYFLUSH/N,INACTIVITYFLUSH/N,COPYBACK/S,NOCOPYBACK/S:
+
+@{b}DEVICE@{ub}
+
+The device whose parameters you want to change.
+
+@{b}LINES@{ub}
+
+Cache lines to be used.
+
+@{b}READAHEAD@{ub}
+
+Number of bytes each readahead cache line should contain. Cache size thus
+is calculated as follows: LINES * READAHEAD.
+
+@{b}MAXNAMELENGTH@{ub}
+
+Maximum filename length. Can be from 30 to 120.
+
+@{b}ACTIVITYFLUSH@{ub}
+
+Activity flush timeout. The number of seconds after SFS @{b}must@{ub} flush
+pending writes even when it is active doing stuff. Can be from 5 seconds
+to 120 seconds.
+
+@{b}INACTIVITYFLUSH@{ub}
+
+Inactivity flush timeout. The number of seconds after SFS @{b}must@{ub} flush
+pending writes even when it is inactive doing stuff. Can be from 1 seconds
+to 5 seconds.
+
+@{b}COPYBACK@{ub}
+
+Enable copyback mode for the read ahead cache.
+
+@{b}NOCOPYBACK@{ub}
+
+Disable copyback mode for the read ahead cache.
+
+
+@{b}Note:@{ub} None of this settings is permanet. SFS forgets them after a reboot.
+To make them permant add the proper SFSconfig command lines to your
+Startup-Sequence - good for setting cache for the boot partition as early
+as possible - or User-Startup.
+
+Of cause COPYBACK and NOCOPYBACK are mutually exclusive.
+
+
+@{b}Examples:@{ub}
+
+Setting a partition to 30 char maximum file name length:
+SFSconfig PART: MAXNAME 30
+
+Speeding up a partition of a fast and big SCSI harddisk (needs 3MB of Fast
+RAM ;-):
+SFSconfig PART: LINES 100 READAHEAD 32768
+
+Speed up a SmartFilesystem floppy disk:
+SFSconfig SF0: ACTIVITYFLUSH 120
+
+@ENDNODE
+
+@NODE History "History"
+
+revision 1.4
+date: 2002/03/23 18:14:44;  author: Helios;  state: Exp;  lines: +49 -36
+- now compiled with StormGCC, needed a *lot* of changes in this
+  tiny piece of code
+  (using NO_INLINE_LIBCALLS #define to work around severe problems
+  when using inlines with tag based functions like Printf())
+- not residentable anymore... linker moans about 32 bit amiga.lib
+  references. well you can fix it, there's the source ...
+- ... cause SFSconfig is under GPL now
+- added proper returning of error codes... have to use exit() instead
+  of return since something is broken in StormGCC startup code
+
+revision 1.3
+date: 1999/10/14 23:13:51;  author: helios;  state: Exp;  lines: +5 -5
+- adapted to StormC 4 beta. StormC found a few missing ";"
+  StormC didn't moan about
+- recompiled with StormC 4 beta. Executable 44 bytes
+  smaller ;-)
+
+revision 1.2
+date: 1999/10/14 17:41:28;  author: helios;  state: Exp;  lines: +15 -8
+- some cosmetic changes
+- more PrintFault() calls
+
+revision 1.1
+date: 1999/10/07 22:36:37;  author: helios;  state: Exp;
+Initial revision
+
+@ENDNODE
+
+@NODE Support "Support"
+
+Email suggestions, bug reports, whatever to:
+
+Martin Steigerwald
+
+@{b}Email:@{ub} Helios@Lichtvollst.de
+@{b}WWW:@{ub}   http://Lichtvollst.de
+@{b}ICQ:@{ub}   34355756 (rarely)
+
+The latest version of SFSobject can be obtained at:
+
+http://helios.lichtvollst.de/amigs/
+
+@ENDNODE
+
+@NODE Thanks "Thanks"
+
+John Hendrikx for developing the wonderful SmartFilesystem.
+
+Jörg Strohmayer for valuable hints on my bloated code ;-).
+
+All I forgot.
+
+@ENDNODE
+

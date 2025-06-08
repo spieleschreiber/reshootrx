@@ -1,0 +1,9 @@
+IF EXISTS C:AntiClick
+  Rename C:AntiClick C:AntiClick_disabled
+  Echo ""
+  Echo "AntiClick is now disabled - please reboot"
+ELSE
+  Echo ""
+  Echo "ERROR - AntiClick is already disabled"
+EndIF
+Wait 1

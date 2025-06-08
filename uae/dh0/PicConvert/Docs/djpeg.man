@@ -1,0 +1,264 @@
+
+
+
+DJPEG(1)                                                 DJPEG(1)
+
+
+[1mNAME[0m
+       djpeg - decompress a JPEG file to an image file
+
+[1mSYNOPSIS[0m
+       [1mdjpeg[0m [ [4moptions[0m ] [ [4mfilename[0m ]
+
+
+[1mDESCRIPTION[0m
+       [1mdjpeg[0m  decompresses  the  named JPEG file, or the standard
+       input if no file is named, and produces an image  file  on
+       the  standard output.  PBMPLUS (PPM/PGM), BMP, GIF, Targa,
+       or  RLE  (Utah  Raster  Toolkit)  output  format  can   be
+       selected.   (RLE  is  supported only if the URT library is
+       available.)
+
+[1mOPTIONS[0m
+       All  switch  names  may  be  abbreviated;   for   example,
+       [1m-grayscale[0m  may  be  written  [1m-gray[0m  or  [1m-gr[0m.  Most of the
+       "basic" switches can be abbreviated to as  little  as  one
+       letter.  Upper and lower case are equivalent (thus [1m-GIF[0m is
+       the same as [1m-gif[0m).  British spellings  are  also  accepted
+       (e.g.,  [1m-greyscale[0m), though for brevity these are not men­
+       tioned below.
+
+       The basic switches are:
+
+       [1m-colors[0m [4mN[0m
+              Reduce image to at most N colors.  This reduces the
+              number  of colors used in the output image, so that
+              it can be displayed on  a  colormapped  display  or
+              stored  in a colormapped file format.  For example,
+              if you have an 8-bit display, you'd need to  reduce
+              to 256 or fewer colors.
+
+       [1m-quantize[0m [4mN[0m
+              Same  as [1m-colors[0m.  [1m-colors[0m is the recommended name,
+              [1m-quantize[0m is provided only for  backwards  compati­
+              bility.
+
+       [1m-fast[0m  Select recommended processing options for fast, low
+              quality output.  (The default  options  are  chosen
+              for  highest  quality  output.)  Currently, this is
+              equivalent to [1m-dct[0m [1mfast[0m [1m-nosmooth[0m [1m-onepass[0m  [1m-dither[0m
+              [1mordered[0m.
+
+       [1m-grayscale[0m
+              Force gray-scale output even if JPEG file is color.
+              Useful for viewing on  monochrome  displays;  also,
+              [1mdjpeg[0m runs noticeably faster in this mode.
+
+       [1m-scale[0m [4mM/N[0m
+              Scale  the output image by a factor M/N.  Currently
+              the scale factor must be 1/1,  1/2,  1/4,  or  1/8.
+              Scaling  is  handy if the image is larger than your
+
+
+
+                           15 June 1995                         1
+
+
+
+
+
+DJPEG(1)                                                 DJPEG(1)
+
+
+              screen; also, [1mdjpeg[0m runs much faster  when  scaling
+              down the output.
+
+       [1m-bmp[0m   Select  BMP  output format (Windows flavor).  8-bit
+              colormapped  format  is  emitted  if   [1m-colors[0m   or
+              [1m-grayscale[0m  is  specified,  or  if the JPEG file is
+              gray-scale; otherwise, 24-bit full-color format  is
+              emitted.
+
+       [1m-gif[0m   Select  GIF output format.  Since GIF does not sup­
+              port more than 256 colors, [1m-colors[0m [1m256[0m  is  assumed
+              (unless you specify a smaller number of colors).
+
+       [1m-os2[0m   Select  BMP output format (OS/2 1.x flavor).  8-bit
+              colormapped  format  is  emitted  if   [1m-colors[0m   or
+              [1m-grayscale[0m  is  specified,  or  if the JPEG file is
+              gray-scale; otherwise, 24-bit full-color format  is
+              emitted.
+
+       [1m-pnm[0m   Select PBMPLUS (PPM/PGM) output format (this is the
+              default format).  PGM is emitted if the  JPEG  file
+              is gray-scale or if [1m-grayscale[0m is specified; other­
+              wise PPM is emitted.
+
+       [1m-rle[0m   Select RLE output format.  (Requires URT  library.)
+
+       [1m-targa[0m Select  Targa  output format.  Gray-scale format is
+              emitted if  the  JPEG  file  is  gray-scale  or  if
+              [1m-grayscale[0m  is  specified;  otherwise,  colormapped
+              format is emitted if [1m-colors[0m is  specified;  other­
+              wise, 24-bit full-color format is emitted.
+
+       Switches for advanced users:
+
+       [1m-dct[0m [1mint[0m
+              Use integer DCT method (default).
+
+       [1m-dct[0m [1mfast[0m
+              Use fast integer DCT (less accurate).
+
+       [1m-dct[0m [1mfloat[0m
+              Use floating-point DCT method.  The float method is
+              very slightly more accurate than  the  int  method,
+              but  is  much  slower  unless your machine has very
+              fast  floating-point  hardware.   Also  note   that
+              results  of  the  floating-point  method  may  vary
+              slightly across machines, while the integer methods
+              should  give the same results everywhere.  The fast
+              integer method is much less accurate than the other
+              two.
+
+       [1m-dither[0m [1mfs[0m
+              Use  Floyd-Steinberg  dithering  in color quantiza­
+              tion.
+
+
+
+                           15 June 1995                         2
+
+
+
+
+
+DJPEG(1)                                                 DJPEG(1)
+
+
+       [1m-dither[0m [1mordered[0m
+              Use ordered dithering in color quantization.
+
+       [1m-dither[0m [1mnone[0m
+              Do not use dithering  in  color  quantization.   By
+              default,  Floyd-Steinberg dithering is applied when
+              quantizing colors; this is slow  but  usually  pro­
+              duces  the  best results.  Ordered dither is a com­
+              promise between speed and quality; no dithering  is
+              fast  but  usually  looks  awful.   Note that these
+              switches have no effect unless  color  quantization
+              is being done.  Ordered dither is only available in
+              [1m-onepass[0m mode.
+
+       [1m-map[0m [4mfile[0m
+              Quantize to the colors used in the specified  image
+              file.   This is useful for producing multiple files
+              with identical color maps, or for forcing a  prede­
+              fined set of colors to be used.  The [4mfile[0m must be a
+              GIF or PPM file. This option overrides [1m-colors[0m  and
+              [1m-onepass[0m.
+
+       [1m-nosmooth[0m
+              Use a faster, lower-quality upsampling routine.
+
+       [1m-onepass[0m
+              Use  one-pass  instead  of two-pass color quantiza­
+              tion.  The one-pass method is faster and needs less
+              memory,  but  it  produces  a  lower-quality image.
+              [1m-onepass[0m is ignored unless you also say [1m-colors[0m  [4mN[0m.
+              Also,  the one-pass method is always used for gray-
+              scale output (the two-pass method is no improvement
+              then).
+
+       [1m-maxmemory[0m [4mN[0m
+              Set limit for amount of memory to use in processing
+              large images.  Value is in thousands of  bytes,  or
+              millions of bytes if "M" is attached to the number.
+              For example, [1m-max[0m [1m4m[0m  selects  4000000  bytes.   If
+              more space is needed, temporary files will be used.
+
+       [1m-outfile[0m [4mname[0m
+              Send output image to the named file, not  to  stan­
+              dard output.
+
+       [1m-verbose[0m
+              Enable debug printout.  More [1m-v[0m's give more output.
+              Also, version information is printed at startup.
+
+       [1m-debug[0m Same as [1m-verbose[0m.
+
+[1mEXAMPLES[0m
+       This example decompresses the JPEG file foo.jpg, automati­
+       cally quantizes to 256 colors, and saves the output in GIF
+
+
+
+                           15 June 1995                         3
+
+
+
+
+
+DJPEG(1)                                                 DJPEG(1)
+
+
+       format in foo.gif:
+
+              [1mdjpeg[0m [1m-gif[0m [4mfoo.jpg[0m [1m>[0m [4mfoo.gif[0m
+
+[1mHINTS[0m
+       To get a quick preview of an  image,  use  the  [1m-grayscale[0m
+       and/or  [1m-scale[0m  switches.   [1m-grayscale[0m  [1m-scale[0m  [1m1/8[0m is the
+       fastest case.
+
+       Several options are available that trade off image quality
+       to gain speed.  [1m-fast[0m turns on the recommended settings.
+
+       [1m-dct[0m [1mfast[0m and/or [1m-nosmooth[0m gain speed at a small sacrifice
+       in  quality.   When  producing  a  color-quantized  image,
+       [1m-onepass[0m  [1m-dither[0m  [1mordered[0m  is fast but much lower quality
+       than the default behavior.  [1m-dither[0m [1mnone[0m may give  accept­
+       able  results in two-pass mode, but is seldom tolerable in
+       one-pass mode.
+
+       If you are fortunate enough to  have  very  fast  floating
+       point  hardware,  [1m-dct[0m  [1mfloat[0m may be even faster than [1m-dct[0m
+       [1mfast[0m.  But on most machines [1m-dct[0m [1mfloat[0m is slower than [1m-dct[0m
+       [1mint[0m; in this case it is not worth using, because its theo­
+       retical accuracy advantage is too small to be  significant
+       in practice.
+
+[1mENVIRONMENT[0m
+       [1mJPEGMEM[0m
+              If  this  environment variable is set, its value is
+              the default memory limit.  The value  is  specified
+              as  described  for  the [1m-maxmemory[0m switch.  [1mJPEGMEM[0m
+              overrides the default value specified when the pro­
+              gram  was  compiled, and itself is overridden by an
+              explicit [1m-maxmemory[0m.
+
+[1mSEE[0m [1mALSO[0m
+       [1mcjpeg[0m(1), [1mjpegtran[0m(1), [1mrdjpgcom[0m(1), [1mwrjpgcom[0m(1)
+       [1mppm[0m(5), [1mpgm[0m(5)
+       Wallace, Gregory K.  "The JPEG Still  Picture  Compression
+       Standard", Communications of the ACM, April 1991 (vol. 34,
+       no. 4), pp. 30-44.
+
+[1mAUTHOR[0m
+       Independent JPEG Group
+
+[1mBUGS[0m
+       Arithmetic coding is not supported for legal reasons.
+
+       Still not as fast as we'd like.
+
+
+
+
+
+
+
+
+                           15 June 1995                         4
+
+

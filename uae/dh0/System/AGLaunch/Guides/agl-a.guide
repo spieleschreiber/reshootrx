@@ -1,0 +1,83 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <A>
+
+Click game title to play
+
+      @{"A10TankKiller2Disk" SYSTEM "agl:c/wbrun a-games:A/A10TankKiller2Disk/A10TankKiller2Disk"}                   @{"A10TankKiller3Disk" SYSTEM "agl:c/wbrun a-games:A/A10TankKiller3Disk/A10TankKiller3Disk"}
+      @{"Aaargh" SYSTEM "agl:c/wbrun a-games:A/Aaargh/Aaargh"}                               @{"AbandonedPlaces" SYSTEM "agl:c/wbrun a-games:A/AbandonedPlaces/AbandonedPlaces"}
+      @{"AbandonedPlaces2" SYSTEM "agl:c/wbrun a-games:A/AbandonedPlaces2/AbandonedPlaces2"}                     @{"AbandonedPlacesDe" SYSTEM "agl:c/wbrun a-games:A/AbandonedPlacesDe/AbandonedPlacesDe"}
+      @{"Abracadabra" SYSTEM "agl:c/wbrun a-games:A/Abracadabra/Abracadabra"}                          @{"Academy" SYSTEM "agl:c/wbrun a-games:A/Academy/Academy"}
+      @{"ACSYSDemoAGA" SYSTEM "agl:c/wbrun a-games:A/ACSYSDemoAGA/ACSYSDemoAGA"}                         @{"ActionFighter" SYSTEM "agl:c/wbrun a-games:A/ActionFighter/ActionFighter"}
+      @{"AddamsFamily" SYSTEM "agl:c/wbrun a-games:A/AddamsFamily/AddamsFamily"}                         @{"Adrenalynn" SYSTEM "agl:c/wbrun a-games:A/Adrenalynn/Adrenalynn"}
+      @{"AdvancedDestroyerSim" SYSTEM "agl:c/wbrun a-games:A/AdvancedDestroyerSim/AdvancedDestroyerSim"}                 @{"AdvancedSkiSimulator" SYSTEM "agl:c/wbrun a-games:A/AdvancedSkiSimulator/AdvancedSkiSimulator"}
+      @{"AdvantageTennis" SYSTEM "agl:c/wbrun a-games:A/AdvantageTennis/AdvantageTennis"}                      @{"AdventureConstructionSet" SYSTEM "agl:c/wbrun a-games:A/AdventureConstructionSet/AdventureConstructionSet"}
+      @{"AdventuresOfQuik&Silva" SYSTEM "agl:c/wbrun a-games:A/AdventuresOfQuik&Silva/AdventuresOfQuik&Silva"}               @{"AdventuresOfRobinHood" SYSTEM "agl:c/wbrun a-games:A/AdventuresOfRobinHood/AdventuresOfRobinHood"}
+      @{"AdventuresOfWillyBeamish" SYSTEM "agl:c/wbrun a-games:A/AdventuresOfWillyBeamish/AdventuresOfWillyBeamish"}             @{"AfterBurnerActivision" SYSTEM "agl:c/wbrun a-games:A/AfterBurnerActivision/AfterBurnerActivision"}
+      @{"AfterBurnerSega" SYSTEM "agl:c/wbrun a-games:A/AfterBurnerSega/AfterBurnerSega"}                      @{"AfterTheWar" SYSTEM "agl:c/wbrun a-games:A/AfterTheWar/AfterTheWar"}
+      @{"AGE" SYSTEM "agl:c/wbrun a-games:A/AGE/AGE"}                                  @{"Agony" SYSTEM "agl:c/wbrun a-games:A/Agony/Agony"}
+      @{"AgonyDemo" SYSTEM "agl:c/wbrun a-games:A/AgonyDemo/AgonyDemo"}                            @{"AigleDOrFr" SYSTEM "agl:c/wbrun a-games:A/AigleDOrFr/AigleDOrFr"}
+      @{"Airball" SYSTEM "agl:c/wbrun a-games:A/Airball/Airball"}                              @{"AirborneRanger" SYSTEM "agl:c/wbrun a-games:A/AirborneRanger/AirborneRanger"}
+      @{"AirSupport" SYSTEM "agl:c/wbrun a-games:A/AirSupport/AirSupport"}                           @{"Akira" SYSTEM "agl:c/wbrun a-games:A/Akira/Akira"}
+      @{"AladdinAGA" SYSTEM "agl:c/wbrun a-games:A/AladdinAGA/AladdinAGA"}                           @{"Alcatraz" SYSTEM "agl:c/wbrun a-games:A/Alcatraz/Alcatraz"}
+      @{"AlchemyDemo" SYSTEM "agl:c/wbrun a-games:A/AlchemyDemo/AlchemyDemo"}                          @{"AlfredChicken" SYSTEM "agl:c/wbrun a-games:A/AlfredChicken/AlfredChicken"}
+      @{"Alianator" SYSTEM "agl:c/wbrun a-games:A/Alianator/Alianator"}                            @{"Alien3" SYSTEM "agl:c/wbrun a-games:A/Alien3/Alien3"}
+      @{"AlienBash" SYSTEM "agl:c/wbrun a-games:A/AlienBash/AlienBash"}                            @{"AlienBash2" SYSTEM "agl:c/wbrun a-games:A/AlienBash2/AlienBash2"}
+      @{"AlienBreed" SYSTEM "agl:c/wbrun a-games:A/AlienBreed/AlienBreed"}                           @{"AlienBreed2" SYSTEM "agl:c/wbrun a-games:A/AlienBreed2/AlienBreed2"}
+      @{"AlienBreed2AGA" SYSTEM "agl:c/wbrun a-games:A/AlienBreed2AGA/AlienBreed2AGA"}                       @{"AlienBreed3D2AGA2MB" SYSTEM "agl:c/wbrun a-games:A/AlienBreed3D2AGA2MB/AlienBreed3D2AGA2MB"}
+      @{"AlienBreed3D2AGA4MB" SYSTEM "agl:c/wbrun a-games:A/AlienBreed3D2AGA4MB/AlienBreed3D2AGA4MB"}                  @{"AlienBreed3DAGA" SYSTEM "agl:c/wbrun a-games:A/AlienBreed3DAGA/AlienBreed3DAGA"}
+      @{"AlienBreed3DAGAFixed" SYSTEM "agl:c/wbrun a-games:A/AlienBreed3DAGAFixed/AlienBreed3DAGAFixed"}                 @{"AlienBreedSpecialEdition" SYSTEM "agl:c/wbrun a-games:A/AlienBreedSpecialEdition/AlienBreedSpecialEdition"}
+      @{"AlienBreedStory" SYSTEM "agl:c/wbrun a-games:A/AlienBreedStory/AlienBreedStory"}                      @{"AlienBreedTowerAssault" SYSTEM "agl:c/wbrun a-games:A/AlienBreedTowerAssault/AlienBreedTowerAssault"}
+      @{"AlienBreedTowerAssaultAGA" SYSTEM "agl:c/wbrun a-games:A/AlienBreedTowerAssaultAGA/AlienBreedTowerAssaultAGA"}            @{"AlienDrugLords" SYSTEM "agl:c/wbrun a-games:A/AlienDrugLords/AlienDrugLords"}
+      @{"AlienFishFinger" SYSTEM "agl:c/wbrun a-games:A/AlienFishFinger/AlienFishFinger"}                      @{"AlienLegion" SYSTEM "agl:c/wbrun a-games:A/AlienLegion/AlienLegion"}
+      @{"AlienStorm" SYSTEM "agl:c/wbrun a-games:A/AlienStorm/AlienStorm"}                           @{"AlienSyndrome" SYSTEM "agl:c/wbrun a-games:A/AlienSyndrome/AlienSyndrome"}
+      @{"AlienWorld" SYSTEM "agl:c/wbrun a-games:A/AlienWorld/AlienWorld"}                           @{"Aliex" SYSTEM "agl:c/wbrun a-games:A/Aliex/Aliex"}
+      @{"AllanBordersCricket" SYSTEM "agl:c/wbrun a-games:A/AllanBordersCricket/AllanBordersCricket"}                  @{"AllNewWorldOfLemmingsAGA" SYSTEM "agl:c/wbrun a-games:A/AllNewWorldOfLemmingsAGA/AllNewWorldOfLemmingsAGA"}
+      @{"AlloAllo" SYSTEM "agl:c/wbrun a-games:A/AlloAllo/AlloAllo"}                             @{"AllTerrainRacing" SYSTEM "agl:c/wbrun a-games:A/AllTerrainRacing/AllTerrainRacing"}
+      @{"AllTerrainRacingXmasDemo" SYSTEM "agl:c/wbrun a-games:A/AllTerrainRacingXmasDemo/AllTerrainRacingXmasDemo"}             @{"Alpha1" SYSTEM "agl:c/wbrun a-games:A/Alpha1/Alpha1"}
+      @{"AlphaWaves" SYSTEM "agl:c/wbrun a-games:A/AlphaWaves/AlphaWaves"}                           @{"AlteredBeast" SYSTEM "agl:c/wbrun a-games:A/AlteredBeast/AlteredBeast"}
+      @{"AlteredDestiny" SYSTEM "agl:c/wbrun a-games:A/AlteredDestiny/AlteredDestiny"}                       @{"AmazingSpiderMan" SYSTEM "agl:c/wbrun a-games:A/AmazingSpiderMan/AmazingSpiderMan"}
+      @{"Amberstar" SYSTEM "agl:c/wbrun a-games:A/Amberstar/Amberstar"}                            @{"AmberstarDe" SYSTEM "agl:c/wbrun a-games:A/AmberstarDe/AmberstarDe"}
+      @{"AmberstarDeFast" SYSTEM "agl:c/wbrun a-games:A/AmberstarDeFast/AmberstarDeFast"}                      @{"AmberstarFast" SYSTEM "agl:c/wbrun a-games:A/AmberstarFast/AmberstarFast"}
+      @{"Amegas" SYSTEM "agl:c/wbrun a-games:A/Amegas/Amegas"}                               @{"AmericanTagTeamWrestling" SYSTEM "agl:c/wbrun a-games:A/AmericanTagTeamWrestling/AmericanTagTeamWrestling"}
+      @{"AmigaKarate" SYSTEM "agl:c/wbrun a-games:A/AmigaKarate/AmigaKarate"}                          @{"Amnios" SYSTEM "agl:c/wbrun a-games:A/Amnios/Amnios"}
+      @{"Anarchy" SYSTEM "agl:c/wbrun a-games:A/Anarchy/Anarchy"}                              @{"AnotherWorld" SYSTEM "agl:c/wbrun a-games:A/AnotherWorld/AnotherWorld"}
+      @{"AnotherWorldFr" SYSTEM "agl:c/wbrun a-games:A/AnotherWorldFr/AnotherWorldFr"}                       @{"AnotherWorldIt" SYSTEM "agl:c/wbrun a-games:A/AnotherWorldIt/AnotherWorldIt"}
+      @{"AnstossDe" SYSTEM "agl:c/wbrun a-games:A/AnstossDe/AnstossDe"}                            @{"Antago" SYSTEM "agl:c/wbrun a-games:A/Antago/Antago"}
+      @{"Apache" SYSTEM "agl:c/wbrun a-games:A/Apache/Apache"}                               @{"ApacheFlight" SYSTEM "agl:c/wbrun a-games:A/ApacheFlight/ApacheFlight"}
+      @{"ApanoSin" SYSTEM "agl:c/wbrun a-games:A/ApanoSin/ApanoSin"}                             @{"ApanoSinDe" SYSTEM "agl:c/wbrun a-games:A/ApanoSinDe/ApanoSinDe"}
+      @{"APBFiles" SYSTEM "agl:c/wbrun a-games:A/APBFiles/APBFiles"}                             @{"APBImage" SYSTEM "agl:c/wbrun a-games:A/APBImage/APBImage"}
+      @{"ApidyaAudios" SYSTEM "agl:c/wbrun a-games:A/ApidyaAudios/ApidyaAudios"}                         @{"ApidyaKaiko" SYSTEM "agl:c/wbrun a-games:A/ApidyaKaiko/ApidyaKaiko"}
+      @{"Apocalypse" SYSTEM "agl:c/wbrun a-games:A/Apocalypse/Apocalypse"}                           @{"Apprentice" SYSTEM "agl:c/wbrun a-games:A/Apprentice/Apprentice"}
+      @{"Aquablast" SYSTEM "agl:c/wbrun a-games:A/Aquablast/Aquablast"}                            @{"AquanautF1Licenceware" SYSTEM "agl:c/wbrun a-games:A/AquanautF1Licenceware/AquanautF1Licenceware"}
+      @{"AquaticGames" SYSTEM "agl:c/wbrun a-games:A/AquaticGames/AquaticGames"}                         @{"Aquaventura" SYSTEM "agl:c/wbrun a-games:A/Aquaventura/Aquaventura"}
+      @{"ArabianNights" SYSTEM "agl:c/wbrun a-games:A/ArabianNights/ArabianNights"}                        @{"ArabianNightsCD32" SYSTEM "agl:c/wbrun a-games:A/ArabianNightsCD32/ArabianNightsCD32"}
+      @{"ArcadeFruitMachine" SYSTEM "agl:c/wbrun a-games:A/ArcadeFruitMachine/ArcadeFruitMachine"}                   @{"ArcadePool" SYSTEM "agl:c/wbrun a-games:A/ArcadePool/ArcadePool"}
+      @{"ArcadePoolAGA" SYSTEM "agl:c/wbrun a-games:A/ArcadePoolAGA/ArcadePoolAGA"}                        @{"ArcadePoolCD32" SYSTEM "agl:c/wbrun a-games:A/ArcadePoolCD32/ArcadePoolCD32"}
+      @{"ArcadeSnookerAGA" SYSTEM "agl:c/wbrun a-games:A/ArcadeSnookerAGA/ArcadeSnookerAGA"}                     @{"ArcadeTriviaQuiz" SYSTEM "agl:c/wbrun a-games:A/ArcadeTriviaQuiz/ArcadeTriviaQuiz"}
+      @{"ArcherMacleansBillardAmcn" SYSTEM "agl:c/wbrun a-games:A/ArcherMacleansBillardAmcn/ArcherMacleansBillardAmcn"}            @{"ArcherMacleansPool" SYSTEM "agl:c/wbrun a-games:A/ArcherMacleansPool/ArcherMacleansPool"}
+      @{"Archipelagos" SYSTEM "agl:c/wbrun a-games:A/Archipelagos/Archipelagos"}                         @{"Archon" SYSTEM "agl:c/wbrun a-games:A/Archon/Archon"}
+      @{"Archon2" SYSTEM "agl:c/wbrun a-games:A/Archon2/Archon2"}                              @{"Arcticfox" SYSTEM "agl:c/wbrun a-games:A/Arcticfox/Arcticfox"}
+      @{"Arena" SYSTEM "agl:c/wbrun a-games:A/Arena/Arena"}                                @{"Arkanoid" SYSTEM "agl:c/wbrun a-games:A/Arkanoid/Arkanoid"}
+      @{"ArkanoidNTSC" SYSTEM "agl:c/wbrun a-games:A/ArkanoidNTSC/ArkanoidNTSC"}                         @{"ArkanoidRevengeOfDoh" SYSTEM "agl:c/wbrun a-games:A/ArkanoidRevengeOfDoh/ArkanoidRevengeOfDoh"}
+      @{"ArmageddonMan" SYSTEM "agl:c/wbrun a-games:A/ArmageddonMan/ArmageddonMan"}                        @{"Armalyte" SYSTEM "agl:c/wbrun a-games:A/Armalyte/Armalyte"}
+      @{"ArmourGeddon" SYSTEM "agl:c/wbrun a-games:A/ArmourGeddon/ArmourGeddon"}                         @{"ArmourGeddon2" SYSTEM "agl:c/wbrun a-games:A/ArmourGeddon2/ArmourGeddon2"}
+      @{"ArmyMoves" SYSTEM "agl:c/wbrun a-games:A/ArmyMoves/ArmyMoves"}                            @{"Arnie" SYSTEM "agl:c/wbrun a-games:A/Arnie/Arnie"}
+      @{"Arnie2" SYSTEM "agl:c/wbrun a-games:A/Arnie2/Arnie2"}                               @{"Artura" SYSTEM "agl:c/wbrun a-games:A/Artura/Artura"}
+      @{"AshesOfEmpire" SYSTEM "agl:c/wbrun a-games:A/AshesOfEmpire/AshesOfEmpire"}                        @{"AshesOfEmpireDe" SYSTEM "agl:c/wbrun a-games:A/AshesOfEmpireDe/AshesOfEmpireDe"}
+      @{"Assassin" SYSTEM "agl:c/wbrun a-games:A/Assassin/Assassin"}                             @{"AssassinSpecialEdition" SYSTEM "agl:c/wbrun a-games:A/AssassinSpecialEdition/AssassinSpecialEdition"}
+      @{"Astaroth" SYSTEM "agl:c/wbrun a-games:A/Astaroth/Astaroth"}                             @{"Astatin" SYSTEM "agl:c/wbrun a-games:A/Astatin/Astatin"}
+      @{"AsterixOpGetafix" SYSTEM "agl:c/wbrun a-games:A/AsterixOpGetafix/AsterixOpGetafix"}                     @{"AsterixOpHinkelsteinDe" SYSTEM "agl:c/wbrun a-games:A/AsterixOpHinkelsteinDe/AsterixOpHinkelsteinDe"}
+      @{"AstroMarineCorps" SYSTEM "agl:c/wbrun a-games:A/AstroMarineCorps/AstroMarineCorps"}                     @{"Atax" SYSTEM "agl:c/wbrun a-games:A/Atax/Atax"}
+      @{"ATF2" SYSTEM "agl:c/wbrun a-games:A/ATF2/ATF2"}                                 @{"AtomicRoboKid" SYSTEM "agl:c/wbrun a-games:A/AtomicRoboKid/AtomicRoboKid"}
+      @{"Atomino" SYSTEM "agl:c/wbrun a-games:A/Atomino/Atomino"}                              @{"AtominoDe" SYSTEM "agl:c/wbrun a-games:A/AtominoDe/AtominoDe"}
+      @{"Atomix" SYSTEM "agl:c/wbrun a-games:A/Atomix/Atomix"}                               @{"ATrain" SYSTEM "agl:c/wbrun a-games:A/ATrain/ATrain"}
+      @{"ATrain&ConstructionSet" SYSTEM "agl:c/wbrun a-games:A/ATrain&ConstructionSet/ATrain&ConstructionSet"}               @{"ATrainCz" SYSTEM "agl:c/wbrun a-games:A/ATrainCz/ATrainCz"}
+      @{"ATrainDe" SYSTEM "agl:c/wbrun a-games:A/ATrainDe/ATrainDe"}                             @{"ATrainFr" SYSTEM "agl:c/wbrun a-games:A/ATrainFr/ATrainFr"}
+      @{"AufschwungOstDe" SYSTEM "agl:c/wbrun a-games:A/AufschwungOstDe/AufschwungOstDe"}                      @{"AuntArcticAdventure" SYSTEM "agl:c/wbrun a-games:A/AuntArcticAdventure/AuntArcticAdventure"}
+      @{"AustraloPiticusMechanicus" SYSTEM "agl:c/wbrun a-games:A/AustraloPiticusMechanicus/AustraloPiticusMechanicus"}            @{"AventuresDeMoktarFr" SYSTEM "agl:c/wbrun a-games:A/AventuresDeMoktarFr/AventuresDeMoktarFr"}
+      @{"Awesome" SYSTEM "agl:c/wbrun a-games:A/Awesome/Awesome"}                              @{"AwesomeDemo" SYSTEM "agl:c/wbrun a-games:A/AwesomeDemo/AwesomeDemo"}
+      @{"AxelsMagicHammer" SYSTEM "agl:c/wbrun a-games:A/AxelsMagicHammer/AxelsMagicHammer"}                     @{"AxeOfRage" SYSTEM "agl:c/wbrun a-games:A/AxeOfRage/AxeOfRage"}
+      @{"AztecChallenge" SYSTEM "agl:c/wbrun a-games:A/AztecChallenge/AztecChallenge"}                       
+@TOC agl:guides/ag-launch.guide/main
+@endnode

@@ -1,0 +1,109 @@
+/* MAKE-HAME */
+
+/*
+** This Arexx program is supplied for your convenience. It can be used to
+** create rendered data suitable for turning into HAM-E mode displayable
+** (and savable) data. This program requires ADPro 2 or later.
+**
+** Copyright 1991 By  ASDG Incorporated
+*/
+
+OPTIONS RESULTS
+ADDRESS "ADPro"
+NL = '0A'X
+
+VERSION
+IF (WORD(ADPRO_RESULT , 1) < 2) THEN DO
+	OKAY1 "This program requires ADPro 2 or later."
+	EXIT
+END
+
+/* Note how we started. */
+
+PWIDTH
+OLD_PALETTE_MODE = ADPRO_RESULT
+
+
+/* Let user decide which mode we should work in */
+
+STRING = "Current palette mode is:" OLD_PALETTE_MODE || NL || NL
+STRING = STRING || "Hit OK to use ENHANCED mode." || NL
+STRING = STRING || "Hit CANCEL to use NORMAL mode."
+
+OKAY2 STRING
+
+IF RC ~= 0 THEN DO
+	PWIDTH "ENHANCED"
+	IF RC ~= 0 THEN DO
+		OKAY2 "Cannot switch into Enhanced Mode." || NL || "Continue?"
+		IF RC = 0 THEN EXIT
+	END
+END
+ELSE DO
+	PWIDTH "NORMAL"
+END
+
+/* Let user decide between HAM and HAM8 */
+
+RENDERING_MODE = "HAM8"
+COLORS_USED    = 60
+
+STRING =           "Hit OK to render in 8 bit-plane" || NL || "HAM mode (262,144) colors." || NL || NL
+STRING = STRING || "Hit CANCEL to render  in 6 bit-" || NL || "plane HAM mode (4096 colors)." || NL || NL
+
+OKAY2 STRING
+
+IF RC = 0 THEN DO
+	RENDERING_MODE = "HAM"
+	COLORS_USED = 16
+END
+
+/* Set up the user's wishes. */
+
+POFFSET 0
+IF RC ~= 0 THEN DO
+	OKAY1 "POFFSET failed:" || NL || RC ADPRO_RESULT
+	EXIT
+END
+
+PTOTAL RENDERING_MODE
+IF RC ~= 0 THEN DO
+	OKAY1 "PTOTAL failed:" || NL || RC ADPRO_RESULT 
+	EXIT
+END
+
+PUSED COLORS_USED
+IF RC ~= 0 THEN DO
+	OKAY1 "PUSED failed:" || NL || RC ADPRO_RESULT
+	EXIT
+END
+
+RENDER_TYPE "CUST"
+IF RC ~= 0 THEN DO
+	OKAY1 "RENDER_TYPE failed:" || NL || RC ADPRO_RESULT
+	EXIT
+END
+
+EXECUTE
+IF RC ~= 0 THEN DO
+	OKAY1 "EXECUTE failed:" || NL || RC ADPRO_RESULT
+	EXIT
+END
+
+SFORMAT "HAME"
+IF RC ~= 0 THEN DO
+	OKAY1 "Could not select the HAME saver."
+	EXIT
+END
+
+/* Display image for 4 seconds, you can change 
+** the delay to what you want.
+*/
+
+SAVE "DONTCARE" "IMAGE" "DISPLAY" 200
+
+IF RC ~= 0 THEN DO
+	OKAY1 "HAME save failed." || NL || RC ADPRO_RESULT
+	EXIT
+END
+

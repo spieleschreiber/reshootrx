@@ -1,0 +1,811 @@
+                                RemAPollo V1.7
+
+                       Eccentric Creations (TM) Product
+
+                 (c) Mikolaj Calusinski 1998-2002. Freeware.
+
+                                 User Manual
+
+Introduction
+------------
+
+RemAPollo - 040\060 MMU Apollo Turboboard Remapper is freeware but copyrighted
+software. It has been written as a result of my depression arising from the
+sad fact that no working MMU remapper program was available for Apollo board.
+We, Apollo users, were in worse position than our Blizzard owning friends;
+they are able to modify their Kickstart ROMs as easily as setting one jumper
+on their board. We couldn't do that - our boards have no dedicated jumpers and
+there were no software to support us in our Kickstart changing needs. But,
+hopefully, this inequality will end now thanks to RemAPollo.
+
+Please, notice the fact, that although RemAPollo is no longer BETA, bugs are
+always possible. Please contact me in case of any trouble caused by remapper;
+detailed bug reports are welcome. For contact address see 'Author' section
+below. Also, be sure to carefully read this manual!
+
+Distribution
+------------
+
+RemAPollo package may be distributed freely, providing the following criteria
+are met:
+
+ - None of the files in the RemAPollo distribution archive may be modified or
+   omitted.
+
+ - No money is charged for it apart from media and small handling fee.
+
+ - RemAPollo package may be included in freely distributable software
+   libraries, but it CANNOT appear on commercial CD-ROMs (including all kind
+   of coverdiscs). If you want to include RemAPollo on your CD-ROM you must
+   ask for my permission first. This does not apply to AminetCD series;
+   Administrator of Aminet, Urban M¤ller, has my full permission to place
+   RemAPollo package on AminetCD.
+
+ - RemAPollo may not be bundled with any commercial hardware or software
+   product without prior written consent from me.
+
+Disclaimer
+----------
+
+YOU USE RemAPollo FILES TOTALLY ON YOUR OWN RISK. I TAKE NO RESPOSIBILITY FOR
+ANY DAMAGE CAUSED BY USING RemAPollo PACKAGE.
+
+What is that actually for?
+--------------------------
+
+RemAPollo is a software package for users of Amiga 1200 computer equipped with
+040/060 Apollo Turboboard. It consists of a few files which can be used to
+remap ROM part of Amiga Operating System, known as Kickstart, to fast memory
+and boot the computer from it. You can move your physical ROM to fast memory
+just to gain more speed or you can use wholely different Kickstart image
+(especially useful if you are a developer). For more details see Usage
+section.
+
+Files
+-----
+
+RemAPollo package consists of the following files:
+
+- 68060.pch - patch file for 68060.library, version 60.02 to version 60.10
+
+- Converter - command used to convert BlizKick modules (of no patch type) to
+  RemAPollo compatible format.
+
+- CopyIDEfixPrefs - a little command used to copy new IDEFix prefs file to
+  IDEfix executable. Can be used by those who want to load IDEfix via MODULES
+  option of RemAPollo
+
+- DRAP - Apollo Remapper Deallocator
+
+- ExecP - small Kickstart45 revision fixer; use it with exec module from OS
+  3.9 BB2 (corrects Kickstart revision number as shown f.ex. in WB/About req)
+
+- FakeLOCAL - this hackish program is to force Apollo fast memory attributes
+  to report LOCAL bit set (on 3.x Kickstart also KICK bit is set) on
+  coldstart. Thanks to it most of the residents will load itself to fastmem.
+  NOTE: This is a HACK and can be used ONLY along with RemAPollo program! For
+  experienced users ONLY! You should well understand meaning of LOCAL bit to
+  use this! Beware!
+
+- KReader - a short command for saving current Kickstart to file
+  ram:Kickstart. Now it has been enhanced with 'F' option which should be used
+  if you want to be sure that Kickstart will be saved directly from chips.
+
+- LoadResident - CLI command for loading/unloading or listing of resident
+  modules; can be used to add/remove files to resident list without the need
+  of re-running RemAPollo.
+
+- Modules/fixramlib - module to correct bug in KS 2.x in ramlib subsystem;
+  allows oparation of resident AFTERDOS modules (eg. HappyENV-handler module).
+  You don't need this for Kickstart 3.x
+
+- Modules/fixramlib.s - source code to this module
+
+- Modules/HappyConfig - special command which allows passing startup options
+  for HappyENV-handler module. Usage: 'HappyENV-handler,TO,STARTUP/K/F:',
+  where: first argument specifies location of HappyENV-handler module (default
+  is L:), TO specifies name of modified handler and STARTUP keyword is used
+  for entering startup options of the handler. Full list of available options
+  and their explanation can be found in original HappyENV guide. To remove all
+  the options just do not specify STARTUP argument. Examples:
+  'HappyConfig STARTUP NOREQ' - instructs the handler to stay silent on
+  unrecognized/unsupported packets
+  'HappyConfig' - removes all options
+
+- Modules/HappyENV-handler - improved verion for this known handler originally
+  written by Martin Gierich, in version 1.3 which supports resident
+  installation
+
+- Modules/KingCON-handler.pch - spatch patch for KingCON-handler 1.3, 020+
+  version to make KingCON resident installable (thus replacing original
+  con-handler completely)
+
+- Modules/MountENV - improved version of MountENV command
+
+- Modules/noclick - updated version of BlizKick patch module, which turns off
+  floppy drive clicking
+
+- Modules/noclick.s - source code to this module
+
+- MuDRAP - Apollo Remapper Deallocator for use with 68040/060.library from
+  mmu.library package
+
+- patch - special patcher for 68040/60.library
+
+- RemAPollo - main remaper program
+
+- RemAPollo.doc - this doc
+
+- RemAPollo.doc.info
+
+- RemAPollo.doc.pl - Polish version of manual
+
+- RemAPollo.doc.pl.info
+
+- RemAPollo.info - cute icon (by my brother Jack :)
+
+- RemAPollo.readme - short Aminet description
+
+- Reset - reset tool
+
+- RUX - OS3.5/3.9 ROM Update eXtractor - a little command supporting "one
+  reset at cold boot" OS3.5/3.9 installation (also see Additional Notes
+  section)
+
+Copyrights
+----------
+
+Amiga, AmigaOS and Kickstart are Copyright ~ 1985-1999 Amiga International,
+Inc.
+BlizKick is Copyright ~ 1996-2000 PitPlane Productions.
+Fusion is Copyright ~1997 By Jim Drew & Microcode Solutions
+HappyENV-handler is Copyright 1995-1997 Martin Gierich
+IDEfix is Copyright 1993 - 1999 Elaborate Bytes, Oliver Kastl.
+KingCON-handler is Copyright ~ 1993,1994 David Larsson
+mmu.library project ~ 1998-2000 the mmu.library development group, THOR
+RemAPollo is Copyright ~ 1998-2000 Mikolaj Calusinski.
+ShapeShifter is ~ Copyright 1993-1999 Christian Bauer.
+spatch is Copyright ~ 1992 SAS Institute, Inc.
+
+Requirements
+------------
+
+For proper operation of RemAPollo package you require:
+
+- an Amiga 1200 or 4000
+
+- at least 2.0 (V36) Kickstart in ROM (this should not be a problem :-)
+
+- Apollo 040 or 060 Turboboard (the processor must have fully working MMU)
+  loaded with at least 1MB of fast memory
+
+- original 040.library from Commodore in versions 37.10 or 37.30 (or OS3.5
+  44.2) if you are using 68040 processor or 060.library supplied with the
+  board (currently only version 60.10 is supported) if you are using 68060
+  processor.
+
+
+Installation
+------------
+
+Installation, however simple, requires some steps which should be followed
+strictly and carefully, else system will almost certainly cause you trouble.
+As RemAPollo is not for absolute beginners, there is no installation script
+provided - you are required to do all the work by hand.
+
+                                      1.
+
+First - and this is VERY important - you should patch 040(060).library. In
+RemAPollo package there is a special program for this purpose called 'patch'.
+If your 040(060).library is located in LIBS: and is not crunched (as it should
+be in normal setup) all you have to do is type in a shell window command
+'patch' without any parameters. The program will inform you about results of
+its work. Please note that for 68040 processor only original libraries from
+Commodore are supported; if you are using newer 3rd party library (probably
+from Phase5) you will need to stop to do so or RemAPollo will not work. There
+is really no need to use Phase5's libraries with Apollo board, believe me;
+they were designed for Blizzard turbos.
+
+If your library is crunched, first decrunch it and invoke 'patch' program with
+path parameter pointing to this decrunched library. After patch is done you
+can recrunch library again.
+
+This patch is ABSOLUTELY necessary if you want your system to boot reliably
+with mapped Kickstart. Your Amiga may seem to work well without the patch but
+this is simply asking yourself for trouble; sooner or later your system may
+crash. If you want to know further details see Additional notes section.
+
+Some older versions of Apollo060 came with 68060.library in version 60.02
+sadly not supported by my patch program (which requires at least 60.10). To
+aid users of such a board I included special patch '68060.pch', which should
+be applied to the library using SAS/C freely distributable 'spatch' program.
+First patch your 68060.library to version 60.10 and then use my patch program
+on it.
+
+                                      2.
+
+After above patch is done, you should copy command 'DRAP' (Apollo Remapper
+Deallocator) to your C: directory. Till the version of 1.11 you had to place
+a call for it in the very first line just after SetPatch in your
+startup-sequence. Since the version 1.12 of DRAP this is no longer required;
+you can invoke it whenever you want - preferably as a first command. Here
+comes recommended beginning of startup-sequence:
+
+...
+DRAP
+If WARN
+RemAPollo MAC QUIET
+EndIf
+SetPatch QUIET
+...
+
+This little program is not absolutely necessary for proper operation of system
+with remapped Kickstart but its use is very strongly encouraged. It will free
+some memory used by remapper during boot (67720 bytes to be exact) and
+generally restore the system to more stable and efficient state. If you intend
+to use MAC patch (see Usage) this program *MUST* be run or Fusion will crash.
+Its use will also speed up system a bit as it moves first page of memory,
+which contains absolute location 4 and happens to be in slooow chip mem, to
+fast memory. Finally, DRAP will writeprotect mapped Kickstart. You can keep
+its invocation in startup-sequence all the time - even when you want to boot
+directly from your ROM Kickstart without the help of remapper - as it will do
+exactly nothing (except setting return code to 5 [WARN]) while relocation is
+not active.
+
+As of version 1.8 there is a little more control over DRAP activities. You can
+invoke it without any parameters (recommended) or you can issue any
+combination of two new switches: ND=NODEALLOC or RH=RESTOREHANDLER.
+
+The first one is used to prevent DRAP from deallocating memory (67720 bytes)
+used for temporary MMU tables. These tables are no longer needed as soon as
+68040.library installed its own MMU tree, so most of the time you should not
+specify this switch. However if you think you cannot live without a statram
+ramdisk (SDx:) or have problems with improperly written resident software
+(SIMBug is a good example) you should use NODEALLOC. You will not get back
+67720 bytes of fast memory (who cares these times) but your SD0 will work as
+usual.
+
+The second parameter (RESTOREHANDLER) can be specified to order DRAP to
+restore original value of CPU Bus-Error handler. This is not recommended,
+since after using this switch all attempts of writing to ROM area (which is
+stupid BTW, but can happen accidentally) will cause a GURU on normal setup
+(without Enforcer running).
+
+As of version 1.12 a slightly new way of initialization has been introduced to
+DRAP - it can now open 68040\60.library, so there is now no requirement to
+load it after SetPatch. Also, a new NR (NOREMAP) switch has been added; it can
+be used to switch off remapping of zero memory page from chip to fast ram.
+Additionally improved compatibility of this operation. See bugs section for
+more explanation.
+
+                                      3.
+
+When two above steps are completed, you can finally use the remapper itself.
+See Usage.
+
+
+Relocation will survive between resets as long as exec base remains valid and
+ColdCapture vector is not changed. To get rid of the resident and return to
+original ROM Kickstart just use supplied 'Reset' command with HARD parameter.
+It will clear execbase pointer thus removing all resident code from your
+system.
+
+From RemAPollo version 1.6 new, more convenient method of selfremoval has been
+introduced. You must have three button mouse for this to work - if you want to
+remove relocation just keep MMB (Middle Mouse Button) pressed during reset.
+The screen should turn red and the relocation will be removed.
+
+Usage
+-----
+
+RemAPollo main program can be invoked from both environments: CLI and WB.
+WB tooltypes are almost identical to CLI parameters, so let's discuss the
+latter.
+
+Standard template (can be obtained via use of question mark) looks like this:
+
+KICKFILE,MAC/S,NF=NOPAGEFIX/S,REBFIX/S,IMJ/S,FORCE/S,QUIET/S,
+USE=USEKICKPTRS/S,MODULES/K/F:
+
+None of parameters is required. If you do not supply any parameters, current
+ROM Kickstart will be remapped, patched and the computer will perform reset.
+You will boot with the same Kickstart as in ROM, but with one very useful
+difference: remapper patches Kickstart in such a way, that fast memory is
+usable to the system very early. Thanks to it exec can use this fast memory
+for early initialization, placing there own library base and supervisor
+stack, so you no longer need patches like FastExec. Additionally you are able
+to mount recoverable ramdrives (RADs) in fast memory!
+
+KICKFILE parameter is used to specify location of optional Kickstart image
+file you want your computer to boot from and operate on. Only 512KB images
+with $1114 header or 256KB images with $1111 header and a correct checksum are
+supported. Since release 1.4 RemAPollo can be used to remap pre-2.0 (256KB)
+Kickstarts.
+
+Since version 0.994 of RemAPollo Kickstart files can be compressed.
+Decompression is done via xfdmaster.library so make sure you have installed it
+if you want to pack your Kick files.
+
+MAC - use this switch to reserve first 16KB of chip memory as required by
+Fusion, Apple Macintosh software emulator for Amiga. You will not need to use
+any RsrvCold, RsrvWarm or PrepareEmul-like tools in your startup-sequence
+then. Naturally, this switch allows proper operation of ShapeShifter as well.
+Do not forget to run 'DRAP' command after SetPatch though!
+
+NF or NOPAGEFIX - this parameter is only useful with 2.x Kickstart images; on
+versions 3.x is completely ignored. It is used to switch off fixing of the
+first memory page performed automatically on 2.x Kickstarts by remapper. On
+those Kickstarts, chip memory is linked to system memlist from location $400.
+Because 040/060 processors have MMU page resolution of at least 4kb, it is
+better to start chip memory from adequately aligned location such as $1000.
+Mapper does this by properly fixing exec initialization routines; starting
+from Kickstart 3.0 the fix is no longer necessary as it is performed already
+by Kickstart itself. If, for some reason, you do not want to change original
+behaviour of 2.x Kickstarts regarding chip memory init, specify NOPAGEFIX.
+This parameter is overridden by the use of MAC switch.
+
+FORCE - specify this if you want to remap Kickstart in spite of the fact, that
+relocation is already active. Normally, remapper will not try to start mapping
+process when it detects that this has been done already (so you can use mapper
+in your startup-sequence without looping reboots).
+
+QUIET - ideal option for those, who want to use remapper permanently in
+startup-sequence. It stops all text output from RemAPollo and shortens delay
+before rebooting.
+
+---> As of version 1.2 a new IMJ option has been added; it can be used to
+disable MEM jumper of the board (so the fast memory always will be visible).
+
+---> As of version 1.6 a new REBFIX option has ben added; use this special
+switch if you have problems with cards in ZORROII extension board. Due to
+Apollo bug, sometimes there are problems with AutoConfig(TM) protocol - this
+switch attempts to correct them but because of its hackish nature use it ONLY
+if you have problems.
+
+You can abort remapping process while not in quiet mode by pressing standard
+CTRL-C break.
+
+*****************************************************************************
+**** WARNING! THE FOLLOWING SECTION IS FOR ADVANCED USERS ONLY! WARNING! ****
+*****************************************************************************
+
+---> As of version 0.980¤ a new MODULES option has been added:
+
+MODULES - this keyword can be used to specify optional files, you want to make
+resident in one go with the Kickstart. If used, it *MUST* appear as a very
+last option in commandline. The number of files is limited only by available
+memory (and commandline length). You can supply here any file, which contains
+a valid resident ROMTAG structure (for example: most libraries and
+filesystems). Additionally, it can be used to make IDEFix reset resident (see
+Bugs section for some oddities).
+
+From version 0.996 you can use BlizKick modules with RemAPollo! These come in
+two types: patch and extresbuf. Patch ones can be applied directly using
+MODULES option, while extresbuf-type require converting prior to installation.
+Use supplied program 'Converter' to fix them.
+
+From version 1.2 you are no longer required to enter full path to modules each
+time if they are located in the same directory. For example let's assume you
+want to load three BlizKick modules located in DEVS:Mods/ directory. In old
+versions you had to type something like this:
+
+"...MODULES DEVS:Mods/noclick DEVS:Mods/FixMath404 DEVS:Mods/ramlibstack"
+
+Since 1.2 version you must enter the path only first time:
+
+"RemAPollo MODULES DEVS:Mods/noclick FixMath404 ramlibstack"
+
+---> As of version 0.991¤ a new USEKICKPTRS option has been added:
+
+USE or USEKICKPTRS - this switch forces remapper to use current KickTag and
+KickMem residents list. Thanks to this option you can use other resident
+programs and still have only one reset at coldstart. To make this work you
+have to run these additional programs BEFORE RemAPollo and you should
+configure them to not perform reset! For exaple - if you need to use
+BootControl proram by Oliver Kastl and want to have only one reboot at start,
+you should place the following in your startup-sequence:
+
+BootControl INSTALL		;NOTE: there's no 'BOOT' switch used!
+RemAPollo DEVS:Kick3.1 MAC QUIET USE	;USE makes the mapper see BootControl
+SetPatch QUIET
+DRAP
+...
+
+Please note that all the residents installed this way will be placed in LOCAL
+memory which on most systems means chip memory. To overcome this I wrote a
+little hack program, called FakeLOCAL. This program should be placed as a
+very first command in your startup-sequence, so the above example will look
+like this:
+
+FakeLOCAL
+BootControl INSTALL		;NOTE: there's no 'BOOT' switch used!
+RemAPollo DEVS:Kick3.1 MAC QUIET USE	;USE makes the mapper see BootControl
+SetPatch QUIET
+DRAP
+...
+
+Now, the BootControl program will load into Apollo fast memory.
+
+NOTE: FAkeLOCAL is a HACK and can be used ONLY along with RemAPollo program!
+For experienced users ONLY! You should well understand meaning of LOCAL bit to
+use this! Beware!
+
+*****************************************************************************
+*****************************************************************************
+*****************************************************************************
+
+If you need an example - I use the following phrases in start of my
+startup-sequence:
+
+DRAP
+If WARN
+FakeLOCAL	;I use this only because of MountCD below!
+MountCD CD0 QUIET
+RemAPollo MAC QUIET USE MODULES C:IDEfix L:KingCON-handler FastFileSystem
+EndIf
+SetPatch QUIET
+
+I have 3.1 ROMs so no need to specify Kickstart image, but if you use 3.0, you
+can issue something like this:
+
+RemAPollo DEVS:Kickstart3.1 MAC QUIET MODULES c:IDEFix L:FastFileSystem
+
+Of course, you must have appropriate Kickstart image file in DEVS: to do this.
+
+Additional Notes
+----------------
+
+Resident code of RemAPollo is protected with checksum to assure proper booting
+- program will turn the screen red and hard reset the machine when any change
+in resident segment is found.
+
+Mapper uses ColdCapture vector to survive between reboots, so you should not
+run any other programs which make use of this vector. Also, CPU Bus Error
+vector ($00000008) is replaced and should remain in this state until SetPatch
+opens 68040(60).library. After that you should run DRAP command which restores
+this vector to original (NOTE: as of version 1.8 of DRAP the vector is not
+restored by default. You can force its restoration by 'DRAP RH'). Take above
+facts into account when examining system with antivirus program.
+
+To allow Kickstart mapping, RemAPollo must build MMU translation tables which
+consume some memory. I tried to limit amount of this memory as much as
+possible, so mapper uses 8KB MMU pages. Unfortunately, this design conflicts
+with the way Commodore's 040.library and Apollo's 060.library install their
+own 4K tables. These libraries do not switch MMU off before loading root
+pointers resulting in unpredictable system behaviour. Look at this code from
+040.library in version 37.30:
+
+(following routine is entered with enabled MMU in 8K mode, as done by mapper)
+
+	ori.w	#$700,SR
+	pflusha
+	move.l	(A0)+,D0
+	movec	D0,URP		;!!! URP points to 4K tables!!!
+	move.l	(A0)+,D0
+	movec	D0,SRP		;!!! SRP points to 4K tables!!! - BOOOM!
+	move.l	(A0)+,D0
+	movec	D0,TC		;MMU is switched to 4K mode, little late...
+	pflusha
+	moveq	#0,D0
+	movec	D0,ITT0
+	movec	D0,ITT1
+	movec	D0,DTT0
+	movec	D0,DTT1
+	rte
+
+To work properly, above routine should start with something like this...
+
+	ori.w	#$700,SR
+	moveq	#0,d0
+	movec	d0,TC		;switch MMU off
+	pflusha
+
+...and that's exactly what does the 'patch' program.
+
+NOTE: If you are going to remap Kickstart from file, please make sure you have
+a proper version of it! The file must contain image of Kickstart which is in
+original, unmodified form and designed to work on your computer. So, if you
+have an Amiga A1200, RemAPollo cannot be used with A4000's (40.7x) kickfiles.
+
+                                     ***
+
+OS3.5/3.9 users, read below:
+
+You have probably wondered if RemAPollo could be used with OS 3.5/3.9 updates.
+Fear not, it can. All versions of RemAPollo are compatible with the latest OS
+updates and there should be no problems with possible future OS releases.
+However, newer releases of RemAPollo go even further to aid you with
+transparent OS3.5/3.9 installation. There is a special 'RUX' tool included,
+which can be used to extract some OS3.5/3.9 modules from file 'AmigaOS ROM
+Update' (usually placed in DEVS:) obsoleting default SetPatch installation.
+RUX comes with the following command line options:
+
+FILE,A600/S,A1200/S,A3000/S,A4000I/S,A4000S/S
+
+FILE - specifies location of 'AmigaOS ROM Update' file (default is to search
+in DEVS:)
+
+Other switches denote type of machine modules are to be extracted for:
+
+A600 - you should never specify this switch, as these modules are designed to
+       be compatible with 68000 CPU
+A1200 - most of the time this should be the switch of your choice
+A3000 - for Amiga 3000
+A4000I - for Amiga 4000 if you use only its embedded IDE interface
+A4000S - for Amiga 4000T with real SCSI controller
+
+So, after using default OS3.5/3.9 installer, you can make the following
+corrections:
+
+1. make a directory in your LIBS: named, say, OS3.5
+2. move workbench.library and icon.library from LIBS: to LIBS:OS3.5/
+3. remember to MOVE them (so make sure they are not visible in LIBS:)
+4. assuming you have A1200 and 'AmigaOS ROM Update' file is placed in DEVS:,
+open yur shell, change current directry to LIBS:OS3.5/ and enter 'RUX A1200'
+5. some files will be created, named OS_ModuleX, where 'X' is a successive
+module number; these are resident modules you should use with MODULES option
+of Remapollo. If you want to know real name of a module, look at its comment
+6. remove 'AmigaOS ROM Update' file from DEVS: (recommended) or use
+NOROMUPDATE option of SetPatch
+
+Beginning of your startup-sequence should resemble something like this
+(customize this according to your setup and liking of course):
+
+DRAP
+If WARN
+;--------- the following in one line of course
+RemAPollo DEVS:Kick3.1 MAC QUIET MODULES LIBS:OS3.5/OS_Module1 OS_Module2
+OS_Module3 workbench.library icon.library
+;---------
+EndIf
+SetPatch QUIET NOROMUPDATE
+...
+
+Usually, you can skip first module (OS_Module1) and in case you use IDEFix or
+FastATA (PowerFlyer) also skip scsi.device module. You can tell the actual
+module name (and real function) from its comment.
+
+Thanks to this installation, you will still have only one reset at coldstart.
+
+
+                                     ***
+
+MMU.library users can now try (mostly experimental) MuDRAP proggy. If you
+think you need to use mmu.library aware 040/060.library, you have to use
+MuDRAP instead of regular DRAP command. Due to the way mmu.library works, the
+installation of RemAPollo files are slightly different. You should place
+RemAPollo BEFORE SetPatch and MuDRAP commands in your startup-sequence and
+muDRAP has to be run just AFTER SetPatch:
+
+... RemAPollo <options>
+SetPatch
+MuDRAP <options>
+ ...
+
+Note, that you DO NOT need to patch mmu.lib's 68040/060.library!
+
+WARNING!: Included MuDRAP version is experimental and should be used ONLY with
+68040/060.library from mmu.lib package!!! Using MuDRAP with any other version
+of 68040/060 may yeld undefined results!!!
+
+                                     ***
+
+Bugs
+----
+
+Recoverable ramdisk driven by statram.device (SDx:) will no longer work as
+supposed when default installation of RemAPollo has been made. To make it work
+again you must invoke DRAP with 'ND' option in startup-sequence. The above
+does not apply to users of RemAPollo >1.4 with two separately-configured (non
+continuous) fast mem banks on their board.
+
+OXYPatcher does not mount its port properly on most systems. It is not my
+fault - OXYPatcher is very buggy.
+
+As of version 119.11 (3.1) of IDEfix its preferences are no longer stored into
+main executable. This is somewhat annoying if you intend to load IDEfix by
+MODULES option of RemAPollo. To overcome this I included a little command -
+CopyIDEfixPrefs, which copies your prefs from a new SYS:Prefs/IDEfix.prefs
+file to the IDEfix executable.
+
+I've got several reports stating that RemAPollo does not allow some of old
+games to work properly (this applied to so called NDOS-floppy games fixed to
+operate on newer CPUs and enhanced with HD loaders). Gfx corruption and
+sometimes even crashes were observed. All this mess was caused by DRAP program
+default mapping of reserved low chip-memory location to board's fast memory.
+Strictly speaking it was not my fault, as no OS-compliant program should use
+nonallocated memory. But to enhance compatibility I changed the way DRAP does
+the mapping - it should work ok now. If you still experience problems, you can
+disable the mapping completely using NR (or NOREMAP) option of DRAP. Please
+note howerver, that after using Fusion (Apple Macintosh emulator) you will
+have the same problem again, as Fusion remaps whole first 16kb of chip memory
+to fastmem by itself. This applies to systems without RemAPollo running as
+well.
+
+
+History
+-------
+
+V0.1ALPHA - (??.9.98) - internal hardcoded versions for my own use
+
+V0.96¤ - (23.12.98) - first semi-public release, to selected betatesters only
+
+V0.97¤ - (1.1.99) fixes:
+ - caches are now invalidated prior enabling
+ - only instruction cache is enabled at start
+ - resident now checks ROM checksum - hard reset when incorrect
+
+V0.973¤ - (8.1.99)
+ - added fix for $c00000 mem recognition (this should cure yellow-screen
+   crashes occuring on some systems). Thanks for Arkadiusz Winiarek and Marcin
+   Ostrowski for reporting this.
+
+V0.974¤ - (12.1.99)
+ - added 060 flag to execbase when 060 detected
+
+V0.975¤ - (13.1.99)
+ - better resident code recognition (you can use *polite* programs that grab
+   coldcapture vector now). First truly public version.
+
+V0.976¤ - (26.1.99)
+ - changed the header of mapped Kickstart to 'MM' to avoid confusion when
+   trying to map Kickstart image processed by Remapollo
+
+V0.977¤ - (28.1.99)
+ - fixed bug in reset routine
+
+V0.980¤ - (1.2.99)
+ - MAJOR: added possibility to install resident modules (like IdeFix, betas
+   from AmigaInc., etc.) in one go with the Kickstart
+
+V0.981¤ - (4.2.99)
+ - fixed  mem allocation bugs with modules option
+ 
+V0.982¤ - (5.2.99)
+ - check for doubling modules
+ - some internal changes
+
+0.983¤ Thu Feb 11 22:52:40 1999
+- WB mode bugs introduced in 0.982 fixed
+- added 8 bytes of safety margin to AllocAbs
+
+0.984¤ Sun Feb 21 11:26:15 1999
+- some serious rewrites to make RA work on A4000 started
+- no longer compatible with previous versions (RemAPollo and DRAP)
+
+0.985¤ Mon Feb 22 17:42:31 1999
+- internal changes in resident segment code
+- fixed a few additional serious bugs with MODULES option
+
+0.986¤ Fri Mar 05 21:41:59 1999
+- fixed serious bug introduced in 0.985 (resident frame)
+
+0.987¤ Sat Mar 13 14:41:48 1999
+- housekeeping changes & cleanups
+
+0.988¤ Mon Mar 15 22:30:16 1999
+- housekeeping cleanups
+- fixed a long-standing serious bug in bus-error handler (write protect
+  violation in Kickstart area caused removal of the mapping)
+
+0.989¤ Sat Mar 20 22:01:33 1999
+- added special code for A4000 "feature"
+- fixed bug in WB mode MODULES option
+
+0.990¤ Sun Apr 11 15:19:08 1999
+- replaced BSS section by a direct memory allocation
+
+0.991¤ Tue Apr 13 15:20:40 1999
+- added USEKICKPTRS option
+
+0.993¤ Fri Apr 23 21:54:10 1999
+- QUIET option is now disabled when fatal error occured
+- removed support for A4000 due to technical reasons
+- second public Aminet release
+
+0.994¤ Wed May 12 13:26:34 1999
+- added support for packed Kickfiles (xfdmaster.library)
+
+0.995¤ Mon May 17 12:11:18 1999
+- rewritten for optimized frames
+- again made incompatible with previous releases :)
+- restored partial support for A4k; must have first SIMM slot empty for this!
+
+0.996¤ Thu Jun 10 11:36:36 1999
+- fixed serious bug in 060 version of bus-error handler
+- added support for BlizKick modules; patch type only
+- fixed bug with modulenames containing space
+
+0.997¤ Sun Jun 27 02:24:41 1999
+- changed reset routines a little (trying to compensate for Apollo bug)
+- rewritten 060 handler; hope this finally fixes all the bugs
+
+1.0 Sun Jul 04 15:44:17 1999
+- final (?) release
+
+1.1 Mon Sep 06 22:56:31 1999
+- corrected bug with leading spaces in MODULES commandline
+- fixed small bugs in resident frame code
+- added trace switch for 040 handler and fixed small bug in 060 handler
+
+1.2 Sun Oct 17 17:31:27 1999
+- added automatic directory change while loading modules
+- fixed bug with modules mem deallocation after ctrl-c
+- added IMJ switch
+
+1.3 Sat Dec 25 12:29:54 1999
+- restored reset code from 1.0 version; should work with all boards now
+- again rewritten parts of bus-error handler
+
+1.4
+- MAJOR: added support for Kick1.x
+- fixed small bug with modules parser
+
+1.5
+- minor bugfix with MODULES option on KS2x
+- small fix in 040 bus-error handler
+- MMU temp table is now placed starting from lower bank (so SD0: should work
+  on systems with non continuous mem banks without 'DRAP ND')
+
+1.6
+- fixed serious bug (trashing of pr_Result2 on program fail)
+- rearrange Kick fixing code so exec and expansion can now be replaced by
+  patch type modules (you can install own exec/expansion libraries!)
+- fixed MAC problems with Exec44
+- added MMB removal check
+- fixed *HORRIBLE* bug in AddMemList() patch code. Fortunately, nobody has
+  noticed ;)
+- added REBFIX switch for people equipped with ZORRO Micronik boards
+
+1.7
+
+- added full support for 'big' Apollos. Finally!
+- resident frame is built dynamically now
+- enhanced module loader: now it can properly recognize and install files
+  consisting of more than one ROMTag
+- added support for exec.library installed via KickTags
+- MAJOR: fixed very serious bug in 060 MMU tables: lev B pointers were not
+  aligned properly
+
+Thanks
+------
+
+Big thanks must go to Harry Sintonen who sent me some early infos about 040
+MMU - it was long ago but they helped me to recognize the problem I intended
+to confront with; thanks again mate!
+
+Warm kisses to Motorola ;-) for excellent Literature Distribution Center which
+provides all the customers with various kinds of printed manuals. For free!
+I didn't have to register as a certified developer, issue any monthly fees nor
+sign any NDAs just to get access to information. Incredible for people used to
+Commodore's policy, but true. ;-)
+
+Last (but not least) - thanks to all alfatesters who agreed to risk integrity
+of their systems while fighting with numerous versions of RemAPollo
+(especially to Marcin Ostrowski for helping me to notice serious bug; hope you
+finally will manage to set your system stright again... ;)
+
+Special thanks to Olivier Fabre for bugreports and testing new versions of
+handler on 060.
+
+Very special thanks to Hagen Hagemann for excellent support. :-)
+
+Thanks for Rafal Mrozkiewicz and Thomas Richter who help me to realize that
+Motorola has increased alignment requirements for MMU descriptors in 68060
+CPU.
+
+Also I wish to thank my brother Jacek for Polish version of this manual (I'm
+so lazy... :)
+
+This program is dedicated to Ministry - the band creating music, not (c)rap.
+
+Author
+------
+My e-mail address (this is preferred way of contact): bloelle@priv.gold.pl or
+bloelle@polbox.com
+
+
+I hope you find this little proggy useful. Have fun!
+                                                            Mike.
+
+           ------------> AMIGA - THE BEST COMPUTER EVER <------------

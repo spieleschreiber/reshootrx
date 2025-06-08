@@ -1,0 +1,132 @@
+
+
+
+     pngtopnm(1)           AMIGA (06 June 1995)            pngtopnm(1)
+
+
+
+     NAME
+          pngtopnm - convert a Portable Network Graphics file into a
+          portable anymap
+
+     SYNOPSIS
+          pngtopnm [-verbose] [-text] [-alpha|-mix] [pngfile]
+
+     DESCRIPTION
+          Reads a Portable Network Graphics as input.  Produces a
+          portable anymap as output.  The type of the output file
+          depends on the input file - if it's black & white, a pbm
+          file is written, else if it's grayscale a pgm file, else a
+          ppm file.
+
+     OPTIONS
+          -verbose
+               Display the format of the input file and the type of
+               the output file.
+
+          -alpha
+               Output the alpha channel or transparency mask of the
+               image. The result is either a pbm file or pgm file,
+               depeding on whether different levels of transparency
+               appear.
+
+          -mix Compose the image with the transparency or alpha mask
+               against a black background.
+
+          -text
+               Print tEXt, zTXt and tIME chunks to stderr.
+
+          All flags can be abbreviated to their shortest unique
+          prefix.
+
+     SEE ALSO
+          pnmtopng(1), ptot(1), pnm(5)
+
+     BUGS
+          Due the fact that PNM files only include image data, it is
+          not possible to preserve extra data (e.g. comments) stored
+          with an image file. Instead of pngtopnm|pnmtoxxx, a specific
+          converter should be used, if available. E.g.  ptot (PNG to
+          TIFF conversion), etc. (This is not really a bug in
+          pngtopnm, more a general problem with intermediate formats.)
+
+          Information about scaling is not used.  sBIT chunks are
+          ignored.
+
+          -mix should use the background color, if specified, instead
+          of black.
+
+     AUTHOR
+
+
+
+     Page 1                                          (printed 7/15/95)
+
+
+
+
+
+
+     pngtopnm(1)           AMIGA (06 June 1995)            pngtopnm(1)
+
+
+
+          Copyright (C) 1995 by Alexander Lehmann.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     Page 2                                          (printed 7/15/95)
+
+
+

@@ -1,0 +1,66 @@
+
+
+
+     ppmtobmp(1)            AMIGA (26 Oct 1992)            ppmtobmp(1)
+
+
+
+     NAME
+          ppmtobmp - convert a portable pixmap into a BMP file
+
+     SYNOPSIS
+          ppmtobmp [-windows] [-os2] [ppmfile]
+
+     DESCRIPTION
+          Reads a portable pixmap as input.  Produces a Microsoft
+          Windows or OS/2 BMP file as output.
+
+     OPTIONS
+          -windows
+               Tells the program to produce a Microsoft Windows BMP
+               file.
+
+          -os2 Tells the program to produce an OS/2 BMP file.  (This
+               is the default.)
+
+          All flags can be abbreviated to their shortest unique
+          prefix.
+
+     SEE ALSO
+          bmptoppm(1), ppm(5)
+
+     AUTHOR
+          Copyright (C) 1992 by David W. Sanderson.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     Page 1                                           (printed 3/1/94)
+
+
+

@@ -1,0 +1,32 @@
+;ClassicWB Update Script
+
+stack 16384
+echo "You are about to apply an update pack to the ClassicWB"
+echo ""
+ASK "Are you sure you want to continue?"
+
+IF NOT WARN
+SKIP FAIL
+ELSE
+  IF EXISTS SYS:System/Update/Update.zip
+  unzip -o SYS:System/Update/Update.zip -d SYS:
+  delete >NIL: SYS:System/Update/Update.zip
+  ELSE
+  SKIP MISSING
+  ENDIF
+  IF EXISTS SYS:System/Update/Update-Sequence
+  execute SYS:System/Update/Update-Sequence
+  delete >NIL: SYS:System/Update/Update-Sequence  
+  ENDIF
+ENDIF
+  echo ""
+  ASK "ClassicWB updated! Hit return to EXIT"
+  wait 3
+  endshell
+LAB MISSING
+  echo ""
+  echo "No update pack found in the SYS:System/Update folder"
+  wait 3
+LAB FAIL
+  echo ""
+  echo "ClassicWB has NOT been updated"

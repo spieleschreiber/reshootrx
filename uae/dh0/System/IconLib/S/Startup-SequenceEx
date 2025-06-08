@@ -1,0 +1,43 @@
+; Set ECHO ON
+
+AddBuffers >NIL: DF0: 95
+
+Version >NIL: icon.library 46 REVISION 4
+If WARN
+   LoadResident >NIL: LIBS:icon.library REBOOT
+EndIf
+
+SetPatch QUIET ; if V44 then don't use LoadResident
+
+PatchWB  >NIL: ; optional
+PatchRAM >NIL: ; optional
+MinStack       ; optional
+
+MakeDir RAM:T RAM:Clipboards RAM:ENV RAM:ENV/Sys
+Copy >NIL: ENVARC: RAM:ENV ALL NOREQ
+Copy >NIL: ENVARC:sys/def_RAM.info RAM:disk.info
+
+Assign >NIL: ENV:     RAM:ENV
+Assign >NIL: T:       RAM:T
+Assign >NIL: KEYMAPS: DEVS:Keymaps
+Assign >NIL: LOCALE:  SYS:Locale
+Assign >NIL: LIBS:    SYS:Classes ADD
+
+FBlit      ; must be FBlit 3.79+ to work correctly
+           ; this needs a correct ENVARC:FBlit.cfg
+
+NiRTGset ENV:NewIcons.prefs   ; RTG mode for FBlit
+
+IPrefs     ; v39 or v40
+
+Run    >NIL: NewIcons         ; or in User-Startup
+
+FPPrefs    ; for MWB colors
+
+; FastColors ; use the faster colormapping mode
+             ; comment it out for better quality
+
+; Run  >NIL: Wait 3 +  ; use this with set ECHO ON
+             LoadWB
+
+EndCLI >NIL:

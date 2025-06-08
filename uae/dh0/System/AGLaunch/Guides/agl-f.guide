@@ -1,0 +1,71 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <F>
+
+Click game title to play
+
+      @{"F1" SYSTEM "agl:c/wbrun A-Games:F/F1/F1"}                                   @{"F15StrikeEagle2" SYSTEM "agl:c/wbrun A-Games:F/F15StrikeEagle2/F15StrikeEagle2"}
+      @{"F16CombatPilot" SYSTEM "agl:c/wbrun A-Games:F/F16CombatPilot/F16CombatPilot"}                       @{"F17Challenge" SYSTEM "agl:c/wbrun A-Games:F/F17Challenge/F17Challenge"}
+      @{"F19StealthFighter" SYSTEM "agl:c/wbrun A-Games:F/F19StealthFighter/F19StealthFighter"}                    @{"F1Tornado" SYSTEM "agl:c/wbrun A-Games:F/F1Tornado/F1Tornado"}
+      @{"F1WorldChampionshipEd" SYSTEM "agl:c/wbrun A-Games:F/F1WorldChampionshipEd/F1WorldChampionshipEd"}                @{"F29Retaliator" SYSTEM "agl:c/wbrun A-Games:F/F29Retaliator/F29Retaliator"}
+      @{"F40PursuitSimulator" SYSTEM "agl:c/wbrun A-Games:F/F40PursuitSimulator/F40PursuitSimulator"}                  @{"FA18Interceptor" SYSTEM "agl:c/wbrun A-Games:F/FA18Interceptor/FA18Interceptor"}
+      @{"FaeryTaleAdventure" SYSTEM "agl:c/wbrun A-Games:F/FaeryTaleAdventure/FaeryTaleAdventure"}                   @{"Falcon" SYSTEM "agl:c/wbrun A-Games:F/Falcon/Falcon"}
+      @{"Falcon&MissionDisks" SYSTEM "agl:c/wbrun A-Games:F/Falcon&MissionDisks/Falcon&MissionDisks"}                  @{"FantasticDizzy" SYSTEM "agl:c/wbrun A-Games:F/FantasticDizzy/FantasticDizzy"}
+      @{"FantasticVoyage" SYSTEM "agl:c/wbrun A-Games:F/FantasticVoyage/FantasticVoyage"}                      @{"FantasticVoyageCDTV" SYSTEM "agl:c/wbrun A-Games:F/FantasticVoyageCDTV/FantasticVoyageCDTV"}
+      @{"FantasyFlyer" SYSTEM "agl:c/wbrun A-Games:F/FantasyFlyer/FantasyFlyer"}                         @{"FantasyFlyerAGA" SYSTEM "agl:c/wbrun A-Games:F/FantasyFlyerAGA/FantasyFlyerAGA"}
+      @{"FantasyWorldDizzy" SYSTEM "agl:c/wbrun A-Games:F/FantasyWorldDizzy/FantasyWorldDizzy"}                    @{"Fascination" SYSTEM "agl:c/wbrun A-Games:F/Fascination/Fascination"}
+      @{"FascinationDe" SYSTEM "agl:c/wbrun A-Games:F/FascinationDe/FascinationDe"}                        @{"FascinationFr" SYSTEM "agl:c/wbrun A-Games:F/FascinationFr/FascinationFr"}
+      @{"FascinationIt" SYSTEM "agl:c/wbrun A-Games:F/FascinationIt/FascinationIt"}                        @{"FastFood" SYSTEM "agl:c/wbrun A-Games:F/FastFood/FastFood"}
+      @{"FastFoodDizzyCollection" SYSTEM "agl:c/wbrun A-Games:F/FastFoodDizzyCollection/FastFoodDizzyCollection"}              @{"FastLane" SYSTEM "agl:c/wbrun A-Games:F/FastLane/FastLane"}
+      @{"FatalHeritageDe" SYSTEM "agl:c/wbrun A-Games:F/FatalHeritageDe/FatalHeritageDe"}                      @{"FateGatesOfDawn" SYSTEM "agl:c/wbrun A-Games:F/FateGatesOfDawn/FateGatesOfDawn"}
+      @{"FateGatesOfDawnDe" SYSTEM "agl:c/wbrun A-Games:F/FateGatesOfDawnDe/FateGatesOfDawnDe"}                    @{"FatmanCapedConsumer" SYSTEM "agl:c/wbrun A-Games:F/FatmanCapedConsumer/FatmanCapedConsumer"}
+      @{"FatmanCapedConsumerAGA" SYSTEM "agl:c/wbrun A-Games:F/FatmanCapedConsumerAGA/FatmanCapedConsumerAGA"}               @{"FearsAGA" SYSTEM "agl:c/wbrun A-Games:F/FearsAGA/FearsAGA"}
+      @{"FearsAGACensored" SYSTEM "agl:c/wbrun A-Games:F/FearsAGACensored/FearsAGACensored"}                     @{"FearsCD32" SYSTEM "agl:c/wbrun A-Games:F/FearsCD32/FearsCD32"}
+      @{"FederationOfFreeTraders" SYSTEM "agl:c/wbrun A-Games:F/FederationOfFreeTraders/FederationOfFreeTraders"}              @{"FernandezMustDie" SYSTEM "agl:c/wbrun A-Games:F/FernandezMustDie/FernandezMustDie"}
+      @{"Feud" SYSTEM "agl:c/wbrun A-Games:F/Feud/Feud"}                                 @{"FidelityChessmaster2100" SYSTEM "agl:c/wbrun A-Games:F/FidelityChessmaster2100/FidelityChessmaster2100"}
+      @{"FIFAInternationalSoccer" SYSTEM "agl:c/wbrun A-Games:F/FIFAInternationalSoccer/FIFAInternationalSoccer"}              @{"FighterBomber" SYSTEM "agl:c/wbrun A-Games:F/FighterBomber/FighterBomber"}
+      @{"FightinSpirit" SYSTEM "agl:c/wbrun A-Games:F/FightinSpirit/FightinSpirit"}                        @{"FightinSpiritAGA" SYSTEM "agl:c/wbrun A-Games:F/FightinSpiritAGA/FightinSpiritAGA"}
+      @{"FinalAssault" SYSTEM "agl:c/wbrun A-Games:F/FinalAssault/FinalAssault"}                         @{"FinalBattle" SYSTEM "agl:c/wbrun A-Games:F/FinalBattle/FinalBattle"}
+      @{"FinalBattleDe" SYSTEM "agl:c/wbrun A-Games:F/FinalBattleDe/FinalBattleDe"}                        @{"FinalBlow" SYSTEM "agl:c/wbrun A-Games:F/FinalBlow/FinalBlow"}
+      @{"FinalCountdown" SYSTEM "agl:c/wbrun A-Games:F/FinalCountdown/FinalCountdown"}                       @{"FinalFight" SYSTEM "agl:c/wbrun A-Games:F/FinalFight/FinalFight"}
+      @{"Fire&Brimstone" SYSTEM "agl:c/wbrun A-Games:F/Fire&Brimstone/Fire&Brimstone"}                       @{"Fire&Forget" SYSTEM "agl:c/wbrun A-Games:F/Fire&Forget/Fire&Forget"}
+      @{"Fire&Forget2" SYSTEM "agl:c/wbrun A-Games:F/Fire&Forget2/Fire&Forget2"}                         @{"Fire&Ice" SYSTEM "agl:c/wbrun A-Games:F/Fire&Ice/Fire&Ice"}
+      @{"Fire&IceCD32" SYSTEM "agl:c/wbrun A-Games:F/Fire&IceCD32/Fire&IceCD32"}                         @{"Fire&IceXmasDemo" SYSTEM "agl:c/wbrun A-Games:F/Fire&IceXmasDemo/Fire&IceXmasDemo"}
+      @{"Fireblaster" SYSTEM "agl:c/wbrun A-Games:F/Fireblaster/Fireblaster"}                          @{"FireForce" SYSTEM "agl:c/wbrun A-Games:F/FireForce/FireForce"}
+      @{"FireForceCD32" SYSTEM "agl:c/wbrun A-Games:F/FireForceCD32/FireForceCD32"}                        @{"Firehawk" SYSTEM "agl:c/wbrun A-Games:F/Firehawk/Firehawk"}
+      @{"Firepower" SYSTEM "agl:c/wbrun A-Games:F/Firepower/Firepower"}                            @{"Firestar" SYSTEM "agl:c/wbrun A-Games:F/Firestar/Firestar"}
+      @{"FirstContact" SYSTEM "agl:c/wbrun A-Games:F/FirstContact/FirstContact"}                         @{"FirstSamurai" SYSTEM "agl:c/wbrun A-Games:F/FirstSamurai/FirstSamurai"}
+      @{"Fish" SYSTEM "agl:c/wbrun A-Games:F/Fish/Fish"}                                 @{"FistFighter" SYSTEM "agl:c/wbrun A-Games:F/FistFighter/FistFighter"}
+      @{"Flaschbier" SYSTEM "agl:c/wbrun A-Games:F/Flaschbier/Flaschbier"}                           @{"FlaschbierNoIntro" SYSTEM "agl:c/wbrun A-Games:F/FlaschbierNoIntro/FlaschbierNoIntro"}
+      @{"Flashback" SYSTEM "agl:c/wbrun A-Games:F/Flashback/Flashback"}                            @{"FlashbackCz" SYSTEM "agl:c/wbrun A-Games:F/FlashbackCz/FlashbackCz"}
+      @{"FlashbackDe" SYSTEM "agl:c/wbrun A-Games:F/FlashbackDe/FlashbackDe"}                          @{"FlashbackFr" SYSTEM "agl:c/wbrun A-Games:F/FlashbackFr/FlashbackFr"}
+      @{"FlashbackIt" SYSTEM "agl:c/wbrun A-Games:F/FlashbackIt/FlashbackIt"}                          @{"FlightOfTheAmazonQueen" SYSTEM "agl:c/wbrun A-Games:F/FlightOfTheAmazonQueen/FlightOfTheAmazonQueen"}
+      @{"FlightOfTheIntruder" SYSTEM "agl:c/wbrun A-Games:F/FlightOfTheIntruder/FlightOfTheIntruder"}                  @{"FlimbosQuest" SYSTEM "agl:c/wbrun A-Games:F/FlimbosQuest/FlimbosQuest"}
+      @{"FlinkCD32" SYSTEM "agl:c/wbrun A-Games:F/FlinkCD32/FlinkCD32"}                            @{"Flintstones" SYSTEM "agl:c/wbrun A-Games:F/Flintstones/Flintstones"}
+      @{"FlipFlop" SYSTEM "agl:c/wbrun A-Games:F/FlipFlop/FlipFlop"}                             @{"Flipit&Magnose" SYSTEM "agl:c/wbrun A-Games:F/Flipit&Magnose/Flipit&Magnose"}
+      @{"Flood" SYSTEM "agl:c/wbrun A-Games:F/Flood/Flood"}                                @{"Floor13" SYSTEM "agl:c/wbrun A-Games:F/Floor13/Floor13"}
+      @{"FluchtAusColditzDe" SYSTEM "agl:c/wbrun A-Games:F/FluchtAusColditzDe/FluchtAusColditzDe"}                   @{"FlyFighter" SYSTEM "agl:c/wbrun A-Games:F/FlyFighter/FlyFighter"}
+      @{"FlyHarder" SYSTEM "agl:c/wbrun A-Games:F/FlyHarder/FlyHarder"}                            @{"FlyHarderCD32" SYSTEM "agl:c/wbrun A-Games:F/FlyHarderCD32/FlyHarderCD32"}
+      @{"FlyingShark" SYSTEM "agl:c/wbrun A-Games:F/FlyingShark/FlyingShark"}                          @{"FoolsErrand" SYSTEM "agl:c/wbrun A-Games:F/FoolsErrand/FoolsErrand"}
+      @{"FootballerOfTheYear2" SYSTEM "agl:c/wbrun A-Games:F/FootballerOfTheYear2/FootballerOfTheYear2"}                 @{"FootballManagerWCEd" SYSTEM "agl:c/wbrun A-Games:F/FootballManagerWCEd/FootballManagerWCEd"}
+      @{"FootballManagerWCEdDe" SYSTEM "agl:c/wbrun A-Games:F/FootballManagerWCEdDe/FootballManagerWCEdDe"}                @{"ForgottenWorlds" SYSTEM "agl:c/wbrun A-Games:F/ForgottenWorlds/ForgottenWorlds"}
+      @{"Formula1GrandPrix" SYSTEM "agl:c/wbrun A-Games:F/Formula1GrandPrix/Formula1GrandPrix"}                    @{"FormulaOneGrandPrix3Disk" SYSTEM "agl:c/wbrun A-Games:F/FormulaOneGrandPrix3Disk/FormulaOneGrandPrix3Disk"}
+      @{"FormulaOneGrandPrix4Disk" SYSTEM "agl:c/wbrun A-Games:F/FormulaOneGrandPrix4Disk/FormulaOneGrandPrix4Disk"}             @{"FoundationsWaste" SYSTEM "agl:c/wbrun A-Games:F/FoundationsWaste/FoundationsWaste"}
+      @{"FourCrystalsOfTrazere" SYSTEM "agl:c/wbrun A-Games:F/FourCrystalsOfTrazere/FourCrystalsOfTrazere"}                @{"Frankenstein" SYSTEM "agl:c/wbrun A-Games:F/Frankenstein/Frankenstein"}
+      @{"FranticFreddie" SYSTEM "agl:c/wbrun A-Games:F/FranticFreddie/FranticFreddie"}                       @{"FreakOut" SYSTEM "agl:c/wbrun A-Games:F/FreakOut/FreakOut"}
+      @{"Freedom" SYSTEM "agl:c/wbrun A-Games:F/Freedom/Freedom"}                              @{"FreedomDe" SYSTEM "agl:c/wbrun A-Games:F/FreedomDe/FreedomDe"}
+      @{"FreedomEs" SYSTEM "agl:c/wbrun A-Games:F/FreedomEs/FreedomEs"}                            @{"FreedomFr" SYSTEM "agl:c/wbrun A-Games:F/FreedomFr/FreedomFr"}
+      @{"Frenetic" SYSTEM "agl:c/wbrun A-Games:F/Frenetic/Frenetic"}                             @{"FrightNight" SYSTEM "agl:c/wbrun A-Games:F/FrightNight/FrightNight"}
+      @{"Frontier" SYSTEM "agl:c/wbrun A-Games:F/Frontier/Frontier"}                             @{"FrontierCD32" SYSTEM "agl:c/wbrun A-Games:F/FrontierCD32/FrontierCD32"}
+      @{"FrontierCz" SYSTEM "agl:c/wbrun A-Games:F/FrontierCz/FrontierCz"}                           @{"FrontierDe" SYSTEM "agl:c/wbrun A-Games:F/FrontierDe/FrontierDe"}
+      @{"FrontierFr" SYSTEM "agl:c/wbrun A-Games:F/FrontierFr/FrontierFr"}                           @{"FrostByte" SYSTEM "agl:c/wbrun A-Games:F/FrostByte/FrostByte"}
+      @{"FullContact" SYSTEM "agl:c/wbrun A-Games:F/FullContact/FullContact"}                          @{"FullMetalPlanete" SYSTEM "agl:c/wbrun A-Games:F/FullMetalPlanete/FullMetalPlanete"}
+      @{"FuryOfTheFurries" SYSTEM "agl:c/wbrun A-Games:F/FuryOfTheFurries/FuryOfTheFurries"}                     @{"FuryOfTheFurriesCD32" SYSTEM "agl:c/wbrun A-Games:F/FuryOfTheFurriesCD32/FuryOfTheFurriesCD32"}
+      @{"Fusion" SYSTEM "agl:c/wbrun A-Games:F/Fusion/Fusion"}                               @{"FutureBasketball" SYSTEM "agl:c/wbrun A-Games:F/FutureBasketball/FutureBasketball"}
+      @{"FutureBikeSimulator" SYSTEM "agl:c/wbrun A-Games:F/FutureBikeSimulator/FutureBikeSimulator"}                  @{"FutureClassicsCollection" SYSTEM "agl:c/wbrun A-Games:F/FutureClassicsCollection/FutureClassicsCollection"}
+      @{"FutureShock" SYSTEM "agl:c/wbrun A-Games:F/FutureShock/FutureShock"}                          @{"FutureTank" SYSTEM "agl:c/wbrun A-Games:F/FutureTank/FutureTank"}
+      @{"FutureWars" SYSTEM "agl:c/wbrun A-Games:F/FutureWars/FutureWars"}                           @{"FutureWarsDe" SYSTEM "agl:c/wbrun A-Games:F/FutureWarsDe/FutureWarsDe"}
+      @{"Fuzzball" SYSTEM "agl:c/wbrun A-Games:F/Fuzzball/Fuzzball"}                             @{"FuzzballNoIntro" SYSTEM "agl:c/wbrun A-Games:F/FuzzballNoIntro/FuzzballNoIntro"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode

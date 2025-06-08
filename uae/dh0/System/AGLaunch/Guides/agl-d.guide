@@ -1,0 +1,98 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <D>
+
+Click game title to play
+
+      @{"DalekAttack" SYSTEM "agl:c/wbrun A-Games:D/DalekAttack/DalekAttack"}                          @{"DaleyThompsonsOC1Disk" SYSTEM "agl:c/wbrun A-Games:D/DaleyThompsonsOC1Disk/DaleyThompsonsOC1Disk"}
+      @{"DaleyThompsonsOC2Disk" SYSTEM "agl:c/wbrun A-Games:D/DaleyThompsonsOC2Disk/DaleyThompsonsOC2Disk"}                @{"Damage" SYSTEM "agl:c/wbrun A-Games:D/Damage/Damage"}
+      @{"DamagePreview" SYSTEM "agl:c/wbrun A-Games:D/DamagePreview/DamagePreview"}                        @{"Damocles" SYSTEM "agl:c/wbrun A-Games:D/Damocles/Damocles"}
+      @{"DanDare3" SYSTEM "agl:c/wbrun A-Games:D/DanDare3/DanDare3"}                             @{"DangerousStreetsAGA" SYSTEM "agl:c/wbrun A-Games:D/DangerousStreetsAGA/DangerousStreetsAGA"}
+      @{"Darius+" SYSTEM "agl:c/wbrun A-Games:D/Darius+/Darius+"}                              @{"DarkCentury" SYSTEM "agl:c/wbrun A-Games:D/DarkCentury/DarkCentury"}
+      @{"DarkFusion" SYSTEM "agl:c/wbrun A-Games:D/DarkFusion/DarkFusion"}                           @{"Darkman" SYSTEM "agl:c/wbrun A-Games:D/Darkman/Darkman"}
+      @{"Darkmere" SYSTEM "agl:c/wbrun A-Games:D/Darkmere/Darkmere"}                             @{"DarkQueenOfKrynn" SYSTEM "agl:c/wbrun A-Games:D/DarkQueenOfKrynn/DarkQueenOfKrynn"}
+      @{"DarkSeed" SYSTEM "agl:c/wbrun A-Games:D/DarkSeed/DarkSeed"}                             @{"DarkSeedCD32" SYSTEM "agl:c/wbrun A-Games:D/DarkSeedCD32/DarkSeedCD32"}
+      @{"DarkSeedDe" SYSTEM "agl:c/wbrun A-Games:D/DarkSeedDe/DarkSeedDe"}                           @{"DarkSeedEs" SYSTEM "agl:c/wbrun A-Games:D/DarkSeedEs/DarkSeedEs"}
+      @{"DarkSeedFr" SYSTEM "agl:c/wbrun A-Games:D/DarkSeedFr/DarkSeedFr"}                           @{"DarkSide" SYSTEM "agl:c/wbrun A-Games:D/DarkSide/DarkSide"}
+      @{"Datastorm" SYSTEM "agl:c/wbrun A-Games:D/Datastorm/Datastorm"}                            @{"DawnPatrol" SYSTEM "agl:c/wbrun A-Games:D/DawnPatrol/DawnPatrol"}
+      @{"DawnPatrolDe" SYSTEM "agl:c/wbrun A-Games:D/DawnPatrolDe/DawnPatrolDe"}                         @{"DaysOfThunder" SYSTEM "agl:c/wbrun A-Games:D/DaysOfThunder/DaysOfThunder"}
+      @{"DeathBringerEmpire" SYSTEM "agl:c/wbrun A-Games:D/DeathBringerEmpire/DeathBringerEmpire"}                   @{"DeathBringerSpotlight" SYSTEM "agl:c/wbrun A-Games:D/DeathBringerSpotlight/DeathBringerSpotlight"}
+      @{"DeathKnightsOfKrynn" SYSTEM "agl:c/wbrun A-Games:D/DeathKnightsOfKrynn/DeathKnightsOfKrynn"}                  @{"DeathKnightsOfKrynnDe" SYSTEM "agl:c/wbrun A-Games:D/DeathKnightsOfKrynnDe/DeathKnightsOfKrynnDe"}
+      @{"DeathMask" SYSTEM "agl:c/wbrun A-Games:D/DeathMask/DeathMask"}                            @{"DeathMaskAGA" SYSTEM "agl:c/wbrun A-Games:D/DeathMaskAGA/DeathMaskAGA"}
+      @{"DeathOrGloryDe" SYSTEM "agl:c/wbrun A-Games:D/DeathOrGloryDe/DeathOrGloryDe"}                       @{"DeathSword" SYSTEM "agl:c/wbrun A-Games:D/DeathSword/DeathSword"}
+      @{"DeathTrap" SYSTEM "agl:c/wbrun A-Games:D/DeathTrap/DeathTrap"}                            @{"DeconstructionAGA" SYSTEM "agl:c/wbrun A-Games:D/DeconstructionAGA/DeconstructionAGA"}
+      @{"Deep" SYSTEM "agl:c/wbrun A-Games:D/Deep/Deep"}                                 @{"DeepCore" SYSTEM "agl:c/wbrun A-Games:D/DeepCore/DeepCore"}
+      @{"DeepSpace" SYSTEM "agl:c/wbrun A-Games:D/DeepSpace/DeepSpace"}                            @{"Defender2" SYSTEM "agl:c/wbrun A-Games:D/Defender2/Defender2"}
+      @{"DefenderOfTheCrown" SYSTEM "agl:c/wbrun A-Games:D/DefenderOfTheCrown/DefenderOfTheCrown"}                   @{"DefenderOfTheCrown2CD32" SYSTEM "agl:c/wbrun A-Games:D/DefenderOfTheCrown2CD32/DefenderOfTheCrown2CD32"}
+      @{"DefenderOfTheCrownCDTV" SYSTEM "agl:c/wbrun A-Games:D/DefenderOfTheCrownCDTV/DefenderOfTheCrownCDTV"}               @{"DefenderRatsoft" SYSTEM "agl:c/wbrun A-Games:D/DefenderRatsoft/DefenderRatsoft"}
+      @{"DefendersOfTheEarth" SYSTEM "agl:c/wbrun A-Games:D/DefendersOfTheEarth/DefendersOfTheEarth"}                  @{"DefenseurCouronne2CD32Fr" SYSTEM "agl:c/wbrun A-Games:D/DefenseurCouronne2CD32Fr/DefenseurCouronne2CD32Fr"}
+      @{"DefensorDeLaCorona2CD32Es" SYSTEM "agl:c/wbrun A-Games:D/DefensorDeLaCorona2CD32Es/DefensorDeLaCorona2CD32Es"}            @{"Deflektor" SYSTEM "agl:c/wbrun A-Games:D/Deflektor/Deflektor"}
+      @{"DejaVu2LostInLasVegas" SYSTEM "agl:c/wbrun A-Games:D/DejaVu2LostInLasVegas/DejaVu2LostInLasVegas"}                @{"DejaVuANightmareComesTrue" SYSTEM "agl:c/wbrun A-Games:D/DejaVuANightmareComesTrue/DejaVuANightmareComesTrue"}
+      @{"Deliverance" SYSTEM "agl:c/wbrun A-Games:D/Deliverance/Deliverance"}                          @{"DeluxeGalaga" SYSTEM "agl:c/wbrun A-Games:D/DeluxeGalaga/DeluxeGalaga"}
+      @{"DeluxeGalagaAGA" SYSTEM "agl:c/wbrun A-Games:D/DeluxeGalagaAGA/DeluxeGalagaAGA"}                      @{"DeluxePacman" SYSTEM "agl:c/wbrun A-Games:D/DeluxePacman/DeluxePacman"}
+      @{"DeluxePacmanAGA" SYSTEM "agl:c/wbrun A-Games:D/DeluxePacmanAGA/DeluxePacmanAGA"}                      @{"DeluxeStripPoker" SYSTEM "agl:c/wbrun A-Games:D/DeluxeStripPoker/DeluxeStripPoker"}
+      @{"DeluxeStripPoker2" SYSTEM "agl:c/wbrun A-Games:D/DeluxeStripPoker2/DeluxeStripPoker2"}                    @{"DeluxeStripPoker2&DDisks" SYSTEM "agl:c/wbrun A-Games:D/DeluxeStripPoker2&DDisks/DeluxeStripPoker2&DDisks"}
+      @{"DemonBlue" SYSTEM "agl:c/wbrun A-Games:D/DemonBlue/DemonBlue"}                            @{"Demoniak" SYSTEM "agl:c/wbrun A-Games:D/Demoniak/Demoniak"}
+      @{"Denaris1Disk" SYSTEM "agl:c/wbrun A-Games:D/Denaris1Disk/Denaris1Disk"}                         @{"Denaris2Disk" SYSTEM "agl:c/wbrun A-Games:D/Denaris2Disk/Denaris2Disk"}
+      @{"Denjoy" SYSTEM "agl:c/wbrun A-Games:D/Denjoy/Denjoy"}                               @{"DennisAGA" SYSTEM "agl:c/wbrun A-Games:D/DennisAGA/DennisAGA"}
+      @{"DenverJeFaisDesCouleursFr" SYSTEM "agl:c/wbrun A-Games:D/DenverJeFaisDesCouleursFr/DenverJeFaisDesCouleursFr"}            @{"DesertStrike" SYSTEM "agl:c/wbrun A-Games:D/DesertStrike/DesertStrike"}
+      @{"Destroyer" SYSTEM "agl:c/wbrun A-Games:D/Destroyer/Destroyer"}                            @{"Detonator" SYSTEM "agl:c/wbrun A-Games:D/Detonator/Detonator"}
+      @{"Deuteros" SYSTEM "agl:c/wbrun A-Games:D/Deuteros/Deuteros"}                             @{"DeviousDesigns" SYSTEM "agl:c/wbrun A-Games:D/DeviousDesigns/DeviousDesigns"}
+      @{"DGeneration" SYSTEM "agl:c/wbrun A-Games:D/DGeneration/DGeneration"}                          @{"DGenerationAGA" SYSTEM "agl:c/wbrun A-Games:D/DGenerationAGA/DGenerationAGA"}
+      @{"DGenerationCD32" SYSTEM "agl:c/wbrun A-Games:D/DGenerationCD32/DGenerationCD32"}                      @{"DickTracy" SYSTEM "agl:c/wbrun A-Games:D/DickTracy/DickTracy"}
+      @{"DickTracyAdventure" SYSTEM "agl:c/wbrun A-Games:D/DickTracyAdventure/DickTracyAdventure"}                   @{"DieHard2" SYSTEM "agl:c/wbrun A-Games:D/DieHard2/DieHard2"}
+      @{"DifensoreCorona2CD32It" SYSTEM "agl:c/wbrun A-Games:D/DifensoreCorona2CD32It/DifensoreCorona2CD32It"}               @{"Digger" SYSTEM "agl:c/wbrun A-Games:D/Digger/Digger"}
+      @{"DiggersAGA" SYSTEM "agl:c/wbrun A-Games:D/DiggersAGA/DiggersAGA"}                           @{"DiggersCD32" SYSTEM "agl:c/wbrun A-Games:D/DiggersCD32/DiggersCD32"}
+      @{"DimosQuest" SYSTEM "agl:c/wbrun A-Games:D/DimosQuest/DimosQuest"}                           @{"DinosaurDetectiveAgency" SYSTEM "agl:c/wbrun A-Games:D/DinosaurDetectiveAgency/DinosaurDetectiveAgency"}
+      @{"DinoWars" SYSTEM "agl:c/wbrun A-Games:D/DinoWars/DinoWars"}                             @{"Disc" SYSTEM "agl:c/wbrun A-Games:D/Disc/Disc"}
+      @{"Discovery" SYSTEM "agl:c/wbrun A-Games:D/Discovery/Discovery"}                            @{"DisposableHero" SYSTEM "agl:c/wbrun A-Games:D/DisposableHero/DisposableHero"}
+      @{"DisposableHeroCD32" SYSTEM "agl:c/wbrun A-Games:D/DisposableHeroCD32/DisposableHeroCD32"}                   @{"DisposableHeroFast" SYSTEM "agl:c/wbrun A-Games:D/DisposableHeroFast/DisposableHeroFast"}
+      @{"DizzyCollection" SYSTEM "agl:c/wbrun A-Games:D/DizzyCollection/DizzyCollection"}                      @{"DizzyDice" SYSTEM "agl:c/wbrun A-Games:D/DizzyDice/DizzyDice"}
+      @{"DizzyPanic" SYSTEM "agl:c/wbrun A-Games:D/DizzyPanic/DizzyPanic"}                           @{"DizzyPrinceOfTheYolkfolk" SYSTEM "agl:c/wbrun A-Games:D/DizzyPrinceOfTheYolkfolk/DizzyPrinceOfTheYolkfolk"}
+      @{"DizzysExcellentAdventures" SYSTEM "agl:c/wbrun A-Games:D/DizzysExcellentAdventures/DizzysExcellentAdventures"}            @{"Dogfight15MB15MB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight15MB15MB/Dogfight15MB15MB"}
+      @{"Dogfight15MB1MB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight15MB1MB/Dogfight15MB1MB"}                      @{"Dogfight15MB2MB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight15MB2MB/Dogfight15MB2MB"}
+      @{"Dogfight15MB512KB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight15MB512KB/Dogfight15MB512KB"}                    @{"Dogfight1MB15MB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight1MB15MB/Dogfight1MB15MB"}
+      @{"Dogfight1MB1MB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight1MB1MB/Dogfight1MB1MB"}                       @{"Dogfight1MB2MB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight1MB2MB/Dogfight1MB2MB"}
+      @{"Dogfight1MB512KB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight1MB512KB/Dogfight1MB512KB"}                     @{"Dogfight2MB15MB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight2MB15MB/Dogfight2MB15MB"}
+      @{"Dogfight2MB1MB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight2MB1MB/Dogfight2MB1MB"}                       @{"Dogfight2MB2MB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight2MB2MB/Dogfight2MB2MB"}
+      @{"Dogfight2MB512KB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight2MB512KB/Dogfight2MB512KB"}                     @{"Dogfight512KB15MB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight512KB15MB/Dogfight512KB15MB"}
+      @{"Dogfight512KB1MB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight512KB1MB/Dogfight512KB1MB"}                     @{"Dogfight512KB2MB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight512KB2MB/Dogfight512KB2MB"}
+      @{"Dogfight512KB512KB" SYSTEM "agl:c/wbrun A-Games:D/Dogfight512KB512KB/Dogfight512KB512KB"}                   @{"DogsOfWar" SYSTEM "agl:c/wbrun A-Games:D/DogsOfWar/DogsOfWar"}
+      @{"DojoDan" SYSTEM "agl:c/wbrun A-Games:D/DojoDan/DojoDan"}                              @{"DomanPl" SYSTEM "agl:c/wbrun A-Games:D/DomanPl/DomanPl"}
+      @{"Dominator" SYSTEM "agl:c/wbrun A-Games:D/Dominator/Dominator"}                            @{"Dominium" SYSTEM "agl:c/wbrun A-Games:D/Dominium/Dominium"}
+      @{"DonaldsAlphabetChase" SYSTEM "agl:c/wbrun A-Games:D/DonaldsAlphabetChase/DonaldsAlphabetChase"}                 @{"DonkeyKong" SYSTEM "agl:c/wbrun A-Games:D/DonkeyKong/DonkeyKong"}
+      @{"DonkTheSamuraiDuck" SYSTEM "agl:c/wbrun A-Games:D/DonkTheSamuraiDuck/DonkTheSamuraiDuck"}                   @{"DonkTheSamuraiDuckAGA" SYSTEM "agl:c/wbrun A-Games:D/DonkTheSamuraiDuckAGA/DonkTheSamuraiDuckAGA"}
+      @{"Doodlebug" SYSTEM "agl:c/wbrun A-Games:D/Doodlebug/Doodlebug"}                            @{"Doofus" SYSTEM "agl:c/wbrun A-Games:D/Doofus/Doofus"}
+      @{"DoubleAgent" SYSTEM "agl:c/wbrun A-Games:D/DoubleAgent/DoubleAgent"}                          @{"DoubleDragon" SYSTEM "agl:c/wbrun A-Games:D/DoubleDragon/DoubleDragon"}
+      @{"DoubleDragon2" SYSTEM "agl:c/wbrun A-Games:D/DoubleDragon2/DoubleDragon2"}                        @{"DoubleDragon3" SYSTEM "agl:c/wbrun A-Games:D/DoubleDragon3/DoubleDragon3"}
+      @{"DownhillChallenge" SYSTEM "agl:c/wbrun A-Games:D/DownhillChallenge/DownhillChallenge"}                    @{"DragonBreed" SYSTEM "agl:c/wbrun A-Games:D/DragonBreed/DragonBreed"}
+      @{"DragonFighter" SYSTEM "agl:c/wbrun A-Games:D/DragonFighter/DragonFighter"}                        @{"Dragonflight" SYSTEM "agl:c/wbrun A-Games:D/Dragonflight/Dragonflight"}
+      @{"DragonflightDe" SYSTEM "agl:c/wbrun A-Games:D/DragonflightDe/DragonflightDe"}                       @{"DragonflightFr" SYSTEM "agl:c/wbrun A-Games:D/DragonflightFr/DragonflightFr"}
+      @{"DragonsBreath" SYSTEM "agl:c/wbrun A-Games:D/DragonsBreath/DragonsBreath"}                        @{"DragonsBreathDe" SYSTEM "agl:c/wbrun A-Games:D/DragonsBreathDe/DragonsBreathDe"}
+      @{"DragonsBreathFr" SYSTEM "agl:c/wbrun A-Games:D/DragonsBreathFr/DragonsBreathFr"}                      @{"DragonScape" SYSTEM "agl:c/wbrun A-Games:D/DragonScape/DragonScape"}
+      @{"DragonsKingdomDemo" SYSTEM "agl:c/wbrun A-Games:D/DragonsKingdomDemo/DragonsKingdomDemo"}                   @{"DragonsLair" SYSTEM "agl:c/wbrun A-Games:D/DragonsLair/DragonsLair"}
+      @{"DragonsLair&EscapeFast" SYSTEM "agl:c/wbrun A-Games:D/DragonsLair&EscapeFast/DragonsLair&EscapeFast"}               @{"DragonsLair&EscapeSlow" SYSTEM "agl:c/wbrun A-Games:D/DragonsLair&EscapeSlow/DragonsLair&EscapeSlow"}
+      @{"DragonsLair2" SYSTEM "agl:c/wbrun A-Games:D/DragonsLair2/DragonsLair2"}                         @{"DragonsLair3" SYSTEM "agl:c/wbrun A-Games:D/DragonsLair3/DragonsLair3"}
+      @{"DragonsLairEscapeDemoNTSC" SYSTEM "agl:c/wbrun A-Games:D/DragonsLairEscapeDemoNTSC/DragonsLairEscapeDemoNTSC"}            @{"DragonsLairEscapeFast" SYSTEM "agl:c/wbrun A-Games:D/DragonsLairEscapeFast/DragonsLairEscapeFast"}
+      @{"DragonsLairEscapeSlow" SYSTEM "agl:c/wbrun A-Games:D/DragonsLairEscapeSlow/DragonsLairEscapeSlow"}                @{"DragonSpirit" SYSTEM "agl:c/wbrun A-Games:D/DragonSpirit/DragonSpirit"}
+      @{"Dragonstone" SYSTEM "agl:c/wbrun A-Games:D/Dragonstone/Dragonstone"}                          @{"DragonstoneCD32" SYSTEM "agl:c/wbrun A-Games:D/DragonstoneCD32/DragonstoneCD32"}
+      @{"DragonStrike" SYSTEM "agl:c/wbrun A-Games:D/DragonStrike/DragonStrike"}                         @{"DragonTiles" SYSTEM "agl:c/wbrun A-Games:D/DragonTiles/DragonTiles"}
+      @{"DragonTiles2" SYSTEM "agl:c/wbrun A-Games:D/DragonTiles2/DragonTiles2"}                         @{"DragonTilesAGA" SYSTEM "agl:c/wbrun A-Games:D/DragonTilesAGA/DragonTilesAGA"}
+      @{"DragonWars" SYSTEM "agl:c/wbrun A-Games:D/DragonWars/DragonWars"}                           @{"DragonWarsDe" SYSTEM "agl:c/wbrun A-Games:D/DragonWarsDe/DragonWarsDe"}
+      @{"Drakkhen" SYSTEM "agl:c/wbrun A-Games:D/Drakkhen/Drakkhen"}                             @{"DrakkhenDe" SYSTEM "agl:c/wbrun A-Games:D/DrakkhenDe/DrakkhenDe"}
+      @{"DrakkhenFr" SYSTEM "agl:c/wbrun A-Games:D/DrakkhenFr/DrakkhenFr"}                           @{"DrDoomsRevenge1Disk" SYSTEM "agl:c/wbrun A-Games:D/DrDoomsRevenge1Disk/DrDoomsRevenge1Disk"}
+      @{"DrDoomsRevengeNTSC2Disk" SYSTEM "agl:c/wbrun A-Games:D/DrDoomsRevengeNTSC2Disk/DrDoomsRevengeNTSC2Disk"}              @{"DreamWeb" SYSTEM "agl:c/wbrun A-Games:D/DreamWeb/DreamWeb"}
+      @{"DreamWebAGA" SYSTEM "agl:c/wbrun A-Games:D/DreamWebAGA/DreamWebAGA"}                          @{"DreamWebAGADe" SYSTEM "agl:c/wbrun A-Games:D/DreamWebAGADe/DreamWebAGADe"}
+      @{"DreamWebDe" SYSTEM "agl:c/wbrun A-Games:D/DreamWebDe/DreamWebDe"}                           @{"Driller" SYSTEM "agl:c/wbrun A-Games:D/Driller/Driller"}
+      @{"Drip" SYSTEM "agl:c/wbrun A-Games:D/Drip/Drip"}                                 @{"DrivinForce" SYSTEM "agl:c/wbrun A-Games:D/DrivinForce/DrivinForce"}
+      @{"DrMario" SYSTEM "agl:c/wbrun A-Games:D/DrMario/DrMario"}                              @{"DuckTales" SYSTEM "agl:c/wbrun A-Games:D/DuckTales/DuckTales"}
+      @{"Dune" SYSTEM "agl:c/wbrun A-Games:D/Dune/Dune"}                                 @{"Dune2" SYSTEM "agl:c/wbrun A-Games:D/Dune2/Dune2"}
+      @{"DuneDe" SYSTEM "agl:c/wbrun A-Games:D/DuneDe/DuneDe"}                               @{"DuneFr" SYSTEM "agl:c/wbrun A-Games:D/DuneFr/DuneFr"}
+      @{"DuneIt" SYSTEM "agl:c/wbrun A-Games:D/DuneIt/DuneIt"}                               @{"DungeonMaster" SYSTEM "agl:c/wbrun A-Games:D/DungeonMaster/DungeonMaster"}
+      @{"DungeonMaster2AGA" SYSTEM "agl:c/wbrun A-Games:D/DungeonMaster2AGA/DungeonMaster2AGA"}                    @{"DungeonQuest" SYSTEM "agl:c/wbrun A-Games:D/DungeonQuest/DungeonQuest"}
+      @{"DungeonsOfAvalon" SYSTEM "agl:c/wbrun A-Games:D/DungeonsOfAvalon/DungeonsOfAvalon"}                     @{"DungeonsOfAvalon2" SYSTEM "agl:c/wbrun A-Games:D/DungeonsOfAvalon2/DungeonsOfAvalon2"}
+      @{"Dux" SYSTEM "agl:c/wbrun A-Games:D/Dux/Dux"}                                  @{"DynaBlaster" SYSTEM "agl:c/wbrun A-Games:D/DynaBlaster/DynaBlaster"}
+      @{"DynamiteDux" SYSTEM "agl:c/wbrun A-Games:D/DynamiteDux/DynamiteDux"}                          @{"DynastyWars" SYSTEM "agl:c/wbrun A-Games:D/DynastyWars/DynastyWars"}
+      @{"Dyter07" SYSTEM "agl:c/wbrun A-Games:D/Dyter07/Dyter07"}
+@TOC agl:guides/ag-launch.guide/main
+@endnode

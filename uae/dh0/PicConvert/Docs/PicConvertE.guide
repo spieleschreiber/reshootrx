@@ -1,0 +1,15 @@
+@database CD_MM_OPUS5.guide
+@AUTHOR "Eckhard Ludwig"
+@(c) "Copyright © 1996 Eckhard Ludwig"
+@$VER: PicConvert.guide 1.1
+@width 80
+
+@node "Main" "Picture Converter V1.1"
+
+
+  Sorry, there is no English Doc available yet.
+  If you need an documentation, please contact us.
+
+
+     @{"German Documentation" link "PicConvertD.guide/main" 0}
+@endnode

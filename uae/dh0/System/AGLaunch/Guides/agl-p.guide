@@ -1,0 +1,83 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <P>
+
+Click game title to play
+
+      @{"P47Thunderbolt" SYSTEM "agl:c/wbrun A-Games:P/P47Thunderbolt/P47Thunderbolt"}                       @{"PacLand" SYSTEM "agl:c/wbrun A-Games:P/PacLand/PacLand"}
+      @{"PacMania" SYSTEM "agl:c/wbrun A-Games:P/PacMania/PacMania"}                             @{"Pandora" SYSTEM "agl:c/wbrun A-Games:P/Pandora/Pandora"}
+      @{"Pang" SYSTEM "agl:c/wbrun A-Games:P/Pang/Pang"}                                 @{"Pango" SYSTEM "agl:c/wbrun A-Games:P/Pango/Pango"}
+      @{"PanzaKickBoxing" SYSTEM "agl:c/wbrun A-Games:P/PanzaKickBoxing/PanzaKickBoxing"}                      @{"PanzaKickBoxingFr" SYSTEM "agl:c/wbrun A-Games:P/PanzaKickBoxingFr/PanzaKickBoxingFr"}
+      @{"Paperboy" SYSTEM "agl:c/wbrun A-Games:P/Paperboy/Paperboy"}                             @{"Paperboy2" SYSTEM "agl:c/wbrun A-Games:P/Paperboy2/Paperboy2"}
+      @{"Paradroid901MB" SYSTEM "agl:c/wbrun A-Games:P/Paradroid901MB/Paradroid901MB"}                       @{"Paradroid90512KB" SYSTEM "agl:c/wbrun A-Games:P/Paradroid90512KB/Paradroid90512KB"}
+      @{"ParaglidingSimulation" SYSTEM "agl:c/wbrun A-Games:P/ParaglidingSimulation/ParaglidingSimulation"}                @{"Paramax" SYSTEM "agl:c/wbrun A-Games:P/Paramax/Paramax"}
+      @{"ParasolStars" SYSTEM "agl:c/wbrun A-Games:P/ParasolStars/ParasolStars"}                         @{"PassingShot" SYSTEM "agl:c/wbrun A-Games:P/PassingShot/PassingShot"}
+      @{"Patrician" SYSTEM "agl:c/wbrun A-Games:P/Patrician/Patrician"}                            @{"PatrizierDe" SYSTEM "agl:c/wbrun A-Games:P/PatrizierDe/PatrizierDe"}
+      @{"Pawn" SYSTEM "agl:c/wbrun A-Games:P/Pawn/Pawn"}                                 @{"Pegasus" SYSTEM "agl:c/wbrun A-Games:P/Pegasus/Pegasus"}
+      @{"PenthouseHotNumsDlxAGADe" SYSTEM "agl:c/wbrun A-Games:P/PenthouseHotNumsDlxAGADe/PenthouseHotNumsDlxAGADe"}             @{"PenthouseHotNumsDlxDe" SYSTEM "agl:c/wbrun A-Games:P/PenthouseHotNumsDlxDe/PenthouseHotNumsDlxDe"}
+      @{"Perihelion" SYSTEM "agl:c/wbrun A-Games:P/Perihelion/Perihelion"}                           @{"PersianGulfInferno" SYSTEM "agl:c/wbrun A-Games:P/PersianGulfInferno/PersianGulfInferno"}
+      @{"PersonalNightmare" SYSTEM "agl:c/wbrun A-Games:P/PersonalNightmare/PersonalNightmare"}                    @{"PeterBeardsleysIF" SYSTEM "agl:c/wbrun A-Games:P/PeterBeardsleysIF/PeterBeardsleysIF"}
+      @{"PeterBeardsleysIFCracked" SYSTEM "agl:c/wbrun A-Games:P/PeterBeardsleysIFCracked/PeterBeardsleysIFCracked"}             @{"PeterSchmeichelSoccer" SYSTEM "agl:c/wbrun A-Games:P/PeterSchmeichelSoccer/PeterSchmeichelSoccer"}
+      @{"PGAEuropeanTour" SYSTEM "agl:c/wbrun A-Games:P/PGAEuropeanTour/PGAEuropeanTour"}                      @{"PGAEuropeanTourAGA" SYSTEM "agl:c/wbrun A-Games:P/PGAEuropeanTourAGA/PGAEuropeanTourAGA"}
+      @{"PGAEuropeanTourCD32" SYSTEM "agl:c/wbrun A-Games:P/PGAEuropeanTourCD32/PGAEuropeanTourCD32"}                  @{"Phalanx" SYSTEM "agl:c/wbrun A-Games:P/Phalanx/Phalanx"}
+      @{"Phantasie" SYSTEM "agl:c/wbrun A-Games:P/Phantasie/Phantasie"}                            @{"Phantasie3" SYSTEM "agl:c/wbrun A-Games:P/Phantasie3/Phantasie3"}
+      @{"PhantomFighter" SYSTEM "agl:c/wbrun A-Games:P/PhantomFighter/PhantomFighter"}                       @{"PharaohsCurse" SYSTEM "agl:c/wbrun A-Games:P/PharaohsCurse/PharaohsCurse"}
+      @{"Phobia" SYSTEM "agl:c/wbrun A-Games:P/Phobia/Phobia"}                               @{"PhotonStorm" SYSTEM "agl:c/wbrun A-Games:P/PhotonStorm/PhotonStorm"}
+      @{"PickNPile" SYSTEM "agl:c/wbrun A-Games:P/PickNPile/PickNPile"}                            @{"PierreIsOutToLunchAGA" SYSTEM "agl:c/wbrun A-Games:P/PierreIsOutToLunchAGA/PierreIsOutToLunchAGA"}
+      @{"PierreIsOutToLunchCD32" SYSTEM "agl:c/wbrun A-Games:P/PierreIsOutToLunchCD32/PierreIsOutToLunchCD32"}               @{"PinballDreams" SYSTEM "agl:c/wbrun A-Games:P/PinballDreams/PinballDreams"}
+      @{"PinballFantasies" SYSTEM "agl:c/wbrun A-Games:P/PinballFantasies/PinballFantasies"}                     @{"PinballFantasiesAGA" SYSTEM "agl:c/wbrun A-Games:P/PinballFantasiesAGA/PinballFantasiesAGA"}
+      @{"PinballFntsies" SYSTEM "agl:c/wbrun A-Games:P/PinballFntsies/PinballFntsies"}                       @{"PinballFntsiesAGA" SYSTEM "agl:c/wbrun A-Games:P/PinballFntsiesAGA/PinballFntsiesAGA"}
+      @{"PinballFntsiesAGAChip" SYSTEM "agl:c/wbrun A-Games:P/PinballFntsiesAGAChip/PinballFntsiesAGAChip"}                @{"PinballFntsiesAGANTSC" SYSTEM "agl:c/wbrun A-Games:P/PinballFntsiesAGANTSC/PinballFntsiesAGANTSC"}
+      @{"PinballFntsiesAGANTSCChip" SYSTEM "agl:c/wbrun A-Games:P/PinballFntsiesAGANTSCChip/PinballFntsiesAGANTSCChip"}            @{"PinballFntsiesCD32" SYSTEM "agl:c/wbrun A-Games:P/PinballFntsiesCD32/PinballFntsiesCD32"}
+      @{"PinballFntsiesCD32Chip" SYSTEM "agl:c/wbrun A-Games:P/PinballFntsiesCD32Chip/PinballFntsiesCD32Chip"}               @{"PinballHazard" SYSTEM "agl:c/wbrun A-Games:P/PinballHazard/PinballHazard"}
+      @{"PinballIllusionsAGA" SYSTEM "agl:c/wbrun A-Games:P/PinballIllusionsAGA/PinballIllusionsAGA"}                  @{"PinballIllusionsCD32" SYSTEM "agl:c/wbrun A-Games:P/PinballIllusionsCD32/PinballIllusionsCD32"}
+      @{"PinballMagic" SYSTEM "agl:c/wbrun A-Games:P/PinballMagic/PinballMagic"}                         @{"PinballManiaAGA" SYSTEM "agl:c/wbrun A-Games:P/PinballManiaAGA/PinballManiaAGA"}
+      @{"PinballPreludeAGA" SYSTEM "agl:c/wbrun A-Games:P/PinballPreludeAGA/PinballPreludeAGA"}                    @{"PinballWizard" SYSTEM "agl:c/wbrun A-Games:P/PinballWizard/PinballWizard"}
+      @{"PinballWizardPrerelease" SYSTEM "agl:c/wbrun A-Games:P/PinballWizardPrerelease/PinballWizardPrerelease"}              @{"Pinkie" SYSTEM "agl:c/wbrun A-Games:P/Pinkie/Pinkie"}
+      @{"PinkPanther" SYSTEM "agl:c/wbrun A-Games:P/PinkPanther/PinkPanther"}                          @{"PipeDream" SYSTEM "agl:c/wbrun A-Games:P/PipeDream/PipeDream"}
+      @{"PipelineNomad" SYSTEM "agl:c/wbrun A-Games:P/PipelineNomad/PipelineNomad"}                        @{"PipelineOracle" SYSTEM "agl:c/wbrun A-Games:P/PipelineOracle/PipelineOracle"}
+      @{"PipeMania" SYSTEM "agl:c/wbrun A-Games:P/PipeMania/PipeMania"}                            @{"Pirates" SYSTEM "agl:c/wbrun A-Games:P/Pirates/Pirates"}
+      @{"PiratesGoldCD32" SYSTEM "agl:c/wbrun A-Games:P/PiratesGoldCD32/PiratesGoldCD32"}                      @{"PitFighter" SYSTEM "agl:c/wbrun A-Games:P/PitFighter/PitFighter"}
+      @{"Plague" SYSTEM "agl:c/wbrun A-Games:P/Plague/Plague"}                               @{"Plan9FromOuterSpace" SYSTEM "agl:c/wbrun A-Games:P/Plan9FromOuterSpace/Plan9FromOuterSpace"}
+      @{"Platoon" SYSTEM "agl:c/wbrun A-Games:P/Platoon/Platoon"}                              @{"PlayroomFr" SYSTEM "agl:c/wbrun A-Games:P/PlayroomFr/PlayroomFr"}
+      @{"Plotting" SYSTEM "agl:c/wbrun A-Games:P/Plotting/Plotting"}                             @{"Plutos" SYSTEM "agl:c/wbrun A-Games:P/Plutos/Plutos"}
+      @{"Pod" SYSTEM "agl:c/wbrun A-Games:P/Pod/Pod"}                                  @{"PokerNightsDe" SYSTEM "agl:c/wbrun A-Games:P/PokerNightsDe/PokerNightsDe"}
+      @{"PoliceQuest" SYSTEM "agl:c/wbrun A-Games:P/PoliceQuest/PoliceQuest"}                          @{"PoliceQuest2" SYSTEM "agl:c/wbrun A-Games:P/PoliceQuest2/PoliceQuest2"}
+      @{"PoliceQuest3" SYSTEM "agl:c/wbrun A-Games:P/PoliceQuest3/PoliceQuest3"}                         @{"PoliceQuest3De" SYSTEM "agl:c/wbrun A-Games:P/PoliceQuest3De/PoliceQuest3De"}
+      @{"Pong" SYSTEM "agl:c/wbrun A-Games:P/Pong/Pong"}                                 @{"Pool" SYSTEM "agl:c/wbrun A-Games:P/Pool/Pool"}
+      @{"PoolOfRadiance" SYSTEM "agl:c/wbrun A-Games:P/PoolOfRadiance/PoolOfRadiance"}                       @{"PoolsOfDarkness" SYSTEM "agl:c/wbrun A-Games:P/PoolsOfDarkness/PoolsOfDarkness"}
+      @{"Popeye2" SYSTEM "agl:c/wbrun A-Games:P/Popeye2/Popeye2"}                              @{"Populous" SYSTEM "agl:c/wbrun A-Games:P/Populous/Populous"}
+      @{"Populous&DataDisks" SYSTEM "agl:c/wbrun A-Games:P/Populous&DataDisks/Populous&DataDisks"}                   @{"Populous2" SYSTEM "agl:c/wbrun A-Games:P/Populous2/Populous2"}
+      @{"Populous2&ChallengeGames" SYSTEM "agl:c/wbrun A-Games:P/Populous2&ChallengeGames/Populous2&ChallengeGames"}             @{"PopulousWorldEditor" SYSTEM "agl:c/wbrun A-Games:P/PopulousWorldEditor/PopulousWorldEditor"}
+      @{"Portal" SYSTEM "agl:c/wbrun A-Games:P/Portal/Portal"}                               @{"PortesDuTempsFr" SYSTEM "agl:c/wbrun A-Games:P/PortesDuTempsFr/PortesDuTempsFr"}
+      @{"PortsOfCall" SYSTEM "agl:c/wbrun A-Games:P/PortsOfCall/PortsOfCall"}                          @{"PostmanPat" SYSTEM "agl:c/wbrun A-Games:P/PostmanPat/PostmanPat"}
+      @{"POW" SYSTEM "agl:c/wbrun A-Games:P/POW/POW"}                                  @{"Power" SYSTEM "agl:c/wbrun A-Games:P/Power/Power"}
+      @{"PowerDrift1Disk" SYSTEM "agl:c/wbrun A-Games:P/PowerDrift1Disk/PowerDrift1Disk"}                      @{"PowerDrift2Disk" SYSTEM "agl:c/wbrun A-Games:P/PowerDrift2Disk/PowerDrift2Disk"}
+      @{"PowerDrive" SYSTEM "agl:c/wbrun A-Games:P/PowerDrive/PowerDrive"}                           @{"Powerdrome" SYSTEM "agl:c/wbrun A-Games:P/Powerdrome/Powerdrome"}
+      @{"Powermonger" SYSTEM "agl:c/wbrun A-Games:P/Powermonger/Powermonger"}                          @{"PowermongerWW1Edition" SYSTEM "agl:c/wbrun A-Games:P/PowermongerWW1Edition/PowermongerWW1Edition"}
+      @{"PowerPinball" SYSTEM "agl:c/wbrun A-Games:P/PowerPinball/PowerPinball"}                         @{"PowerPinballCDTV" SYSTEM "agl:c/wbrun A-Games:P/PowerPinballCDTV/PowerPinballCDTV"}
+      @{"Powerplay" SYSTEM "agl:c/wbrun A-Games:P/Powerplay/Powerplay"}                            @{"PowerplayDe" SYSTEM "agl:c/wbrun A-Games:P/PowerplayDe/PowerplayDe"}
+      @{"PowerplayEs" SYSTEM "agl:c/wbrun A-Games:P/PowerplayEs/PowerplayEs"}                          @{"PowerplayFr" SYSTEM "agl:c/wbrun A-Games:P/PowerplayFr/PowerplayFr"}
+      @{"Powerstyx" SYSTEM "agl:c/wbrun A-Games:P/Powerstyx/Powerstyx"}                            @{"PPHammer" SYSTEM "agl:c/wbrun A-Games:P/PPHammer/PPHammer"}
+      @{"Predator" SYSTEM "agl:c/wbrun A-Games:P/Predator/Predator"}                             @{"Predator2" SYSTEM "agl:c/wbrun A-Games:P/Predator2/Predator2"}
+      @{"PrehistoricTale" SYSTEM "agl:c/wbrun A-Games:P/PrehistoricTale/PrehistoricTale"}                      @{"Prehistorik" SYSTEM "agl:c/wbrun A-Games:P/Prehistorik/Prehistorik"}
+      @{"Premiere" SYSTEM "agl:c/wbrun A-Games:P/Premiere/Premiere"}                             @{"PremiereCD32" SYSTEM "agl:c/wbrun A-Games:P/PremiereCD32/PremiereCD32"}
+      @{"PrimalRageAGA" SYSTEM "agl:c/wbrun A-Games:P/PrimalRageAGA/PrimalRageAGA"}                        @{"PrimeMover" SYSTEM "agl:c/wbrun A-Games:P/PrimeMover/PrimeMover"}
+      @{"PrinceDePerseFr" SYSTEM "agl:c/wbrun A-Games:P/PrinceDePerseFr/PrinceDePerseFr"}                      @{"PrinceOfPersia" SYSTEM "agl:c/wbrun A-Games:P/PrinceOfPersia/PrinceOfPersia"}
+      @{"PrinceOfPersiaDe" SYSTEM "agl:c/wbrun A-Games:P/PrinceOfPersiaDe/PrinceOfPersiaDe"}                     @{"Prison" SYSTEM "agl:c/wbrun A-Games:P/Prison/Prison"}
+      @{"ProBoxingSimulator" SYSTEM "agl:c/wbrun A-Games:P/ProBoxingSimulator/ProBoxingSimulator"}                   @{"ProjectX" SYSTEM "agl:c/wbrun A-Games:P/ProjectX/ProjectX"}
+      @{"ProjectXSE" SYSTEM "agl:c/wbrun A-Games:P/ProjectXSE/ProjectXSE"}                           @{"ProjectXSECD32" SYSTEM "agl:c/wbrun A-Games:P/ProjectXSECD32/ProjectXSECD32"}
+      @{"Projectyle" SYSTEM "agl:c/wbrun A-Games:P/Projectyle/Projectyle"}                           @{"Prophecy1VikingChild" SYSTEM "agl:c/wbrun A-Games:P/Prophecy1VikingChild/Prophecy1VikingChild"}
+      @{"ProPowerBoatSimulator" SYSTEM "agl:c/wbrun A-Games:P/ProPowerBoatSimulator/ProPowerBoatSimulator"}                @{"ProSoccer2190" SYSTEM "agl:c/wbrun A-Games:P/ProSoccer2190/ProSoccer2190"}
+      @{"ProspectorInTheMazesOfXor" SYSTEM "agl:c/wbrun A-Games:P/ProspectorInTheMazesOfXor/ProspectorInTheMazesOfXor"}            @{"ProTennisSimulatorFiles" SYSTEM "agl:c/wbrun A-Games:P/ProTennisSimulatorFiles/ProTennisSimulatorFiles"}
+      @{"ProTennisSimulatorImage" SYSTEM "agl:c/wbrun A-Games:P/ProTennisSimulatorImage/ProTennisSimulatorImage"}              @{"ProTennisTour" SYSTEM "agl:c/wbrun A-Games:P/ProTennisTour/ProTennisTour"}
+      @{"ProTennisTour2" SYSTEM "agl:c/wbrun A-Games:P/ProTennisTour2/ProTennisTour2"}                       @{"Psyborg" SYSTEM "agl:c/wbrun A-Games:P/Psyborg/Psyborg"}
+      @{"PsychoSanta" SYSTEM "agl:c/wbrun A-Games:P/PsychoSanta/PsychoSanta"}                          @{"PubTriviaSimulator" SYSTEM "agl:c/wbrun A-Games:P/PubTriviaSimulator/PubTriviaSimulator"}
+      @{"PuffysSaga" SYSTEM "agl:c/wbrun A-Games:P/PuffysSaga/PuffysSaga"}                           @{"Puggsy" SYSTEM "agl:c/wbrun A-Games:P/Puggsy/Puggsy"}
+      @{"PulsatorDemoAGA" SYSTEM "agl:c/wbrun A-Games:P/PulsatorDemoAGA/PulsatorDemoAGA"}                      @{"PurpleSaturnDay" SYSTEM "agl:c/wbrun A-Games:P/PurpleSaturnDay/PurpleSaturnDay"}
+      @{"PushOver" SYSTEM "agl:c/wbrun A-Games:P/PushOver/PushOver"}                             @{"Putty" SYSTEM "agl:c/wbrun A-Games:P/Putty/Putty"}
+      @{"PuttyCD32" SYSTEM "agl:c/wbrun A-Games:P/PuttyCD32/PuttyCD32"}                            @{"PuttySquadDemoAGA" SYSTEM "agl:c/wbrun A-Games:P/PuttySquadDemoAGA/PuttySquadDemoAGA"}
+      @{"Puzznic" SYSTEM "agl:c/wbrun A-Games:P/Puzznic/Puzznic"}                              @{"Pyramax" SYSTEM "agl:c/wbrun A-Games:P/Pyramax/Pyramax"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode

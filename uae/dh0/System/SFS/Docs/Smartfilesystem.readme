@@ -1,0 +1,108 @@
+Short:        Smart Filesystem
+Author:       John Hendrikx, Joerg Strohmayer
+Uploader:     Joerg Strohmayer <nospam@gmx.de>
+Type:         disk/misc
+Version:      1.277
+Requires:     68020 or better, AmigaOS 3.0 or better
+Architecture: ppc-amigaos >= 4.0.5; m68k-amigaos >= 3.0.0
+Distribution: Aminet
+
+------------------------------------------------------------
+
+AmigaOS 3.x/m68k and AmigaOS 4/PPC Smart Filesystem developed by
+Joerg Strohmayer based on John Hendrikx' SFS 1.84, archive and
+documentation updates up to 1.236 by Raphael Pilarczyk.
+
+For updates check my SFS homepage http://strohmayer.org/sfs/
+
+
+------------------------------------------------------------
+                 USE AT YOUR OWN RISK!
+------------------------------------------------------------
+
+For more information read the included documentation
+
+Introduction
+------------
+
+Smart Filesystem is a new filesystem for your Amiga.
+A filesystem's main purpose is to store files on a disk in
+such a way that they can be located and used quickly.  How
+this is done is up to the filesystem.  The way information
+is stored on your disk has a large impact on speed and space
+efficiency, and so these factors can vary a lot from
+filesystem to filesystem.
+
+Smart Filesystem was created to provide you with an
+alternative to the Fast Fileystem.  Smart Filesystem makes
+more efficient use of your disk space (max speed with
+512 bytes/block!), has better performance in most areas and
+will allow for new features never seen before in an Amiga
+filesystem.
+
+Features
+--------
+ o FAST seeking. Even in extremely large files.
+
+ o FAST reading of directories.
+
+ o FAST reading/writing of files.
+
+ o FAST defragmentation routines (100% transparent built-in optimiser)
+
+ o Disk space is used VERY efficiently.
+
+ o Blocksizes of 512 bytes up to 32768 bytes are supported.
+   (512 BYTES FOR BEST PERFORMANCE IN 99%)
+
+ o The length of file and dir names can be 107 characters. The lenght
+   of 'pathes' can be 255 characters (AmigaOS 3.x, unlimited in
+   AmigaOS4).
+
+ o Volumename can be 30 characters.
+
+ o The length of comments can be 79 characters (like FFS)
+
+ o The size of a file is limited to about 4 GB (DOSType 'SFS\0',
+   several TB with DOSType 'SFS\2').
+
+ o Support for partitions larger than 4 GB or located (partially)
+   beyond the 4 GB barrier on your drive.  There is support for the
+   New Style Devices (NSD) and the 64-bit trackdisk commands (TD64)
+   which support 64 bit access.
+
+ o Supports partitions of up to 128 GB (DOSType 'SFS\0', for 'SFS\2'
+   partitions the limit is 1 TB, but it can be more depending on the
+   blocksize, with 32KB/Block it's 64 TB).
+
+ o Modifying data on your disk is very safe.  Even if your system is
+   resetted, crashes or suffers from powerloss your disk will not be
+   corrupted and will not require long validation procedures before
+   you will be able to use it again. In the worst case you will
+   only lose the last few modifications made to the disk.
+
+ o There is a built-in configurable read-ahead cache system which
+   tries to speed up small disk accesses.  This cache has as a
+   primary purpose to speed up directory reading but also works very
+   well to speed up files read by applications which use small 
+   buffers.
+
+ o Supports Notification and ExamineAll.
+
+ o Supports softlinks (hardlinks are not supported for now).
+
+ o Using the SFSformat command you can format your SFS partition with
+   case sensitive file and directory names. Default is case insensitive
+   (like FFS).
+
+ o There is a special directory which contains the last 350 (!) files
+   which were deleted. (see sfsformat.txt)
+
+
+
+Unimplemented features
+----------------------
+ o HardLinks
+ o ACTION_LOCK_RECORD
+ o ACTION_FREE_RECORD
+ o ACTION_MAKE_LINK (soft links only at the moment)

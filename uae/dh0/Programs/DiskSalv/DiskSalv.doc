@@ -1,0 +1,1188 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           [1mDDD[0m  [1mIII[0m [1mSSSS[0m [1mK[0m  [1mK[0m [1mSSSS[0m   [1mA[0m   [1mL[0m  [1mV[0m   [1mV[0m      [1m222[0m 
+           [1mD[0m  [1mD[0m  [1mI[0m  [1mS[0m    [1mK[0m [1mK[0m  [1mS[0m     [1mA[0m [1mA[0m  [1mL[0m  [1mV[0m   [1mV[0m         [1m2[0m
+           [1mD[0m  [1mD[0m  [1mI[0m  [1mSSSS[0m [1mKK[0m   [1mSSSS[0m [1mA[0m   [1mA[0m [1mL[0m  [1mV[0m   [1mV[0m        [1m2[0m 
+           [1mD[0m  [1mD[0m  [1mI[0m     [1mS[0m [1mK[0m [1mK[0m     [1mS[0m [1mAAAAA[0m [1mL[0m  [1mV[0m   [1mV[0m       [1m2[0m  
+           [1mD[0m  [1mD[0m  [1mI[0m     [1mS[0m [1mK[0m  [1mK[0m    [1mS[0m [1mA[0m   [1mA[0m [1mL[0m   [1mV[0m [1mV[0m       [1m2[0m   
+           [1mDDD[0m  [1mIII[0m [1mSSSS[0m [1mK[0m  [1mK[0m [1mSSSS[0m [1mA[0m   [1mA[0m [1mLLLL[0m [1mV[0m        [1m2222[0m
+
+
+
+
+
+
+
+
+
+
+               The Original Amiga Disk Salvage Program
+
+
+              Recovering your data for over seven years
+
+
+
+
+
+
+
+
+
+
+                            Cheap Manual 
+                                 for 
+                              DiskSalv 
+
+                              Version 2
+                            Revision 11.30
+                            April 10, 1994
+
+                 Copyright ©1992-1994 by Dave Haynie
+                         All Rights Reserved 
+
+
+
+
+
+
+
+
+
+
+
+[1mCOPYRIGHT[0m 
+
+          This  manual  is  Copyright  ©1992-1994  by Dave Haynie. All
+Rights Reserved.  As part of the DiskSalv2 11.30 release, this  manual
+may  be  used  in  electronic or printed form along with the DiskSalv2
+program.  It may not be sold in any form, though a reasonable  copying
+and  handling  charge is acceptable, as long as the complete DiskSalv2
+distribution is included.  
+
+
+[1mDISCLAIMER[0m 
+
+          The information and the DiskSalv program  are  provided  "as
+is" without  warranty  of  any kind, either expressed or implied.  The
+entire risk as to the accuracy of the information herein is assumed by 
+you.   Dave  Haynie  does  not  warrant,  guarantee,   or   make   any
+representations  regarding  the  use of, or the results of the use of,
+the information or the  DiskSalv  program  in  terms  of  correctness,
+accuracy, reliability,  currentness,  or  otherwise.  In no event will
+Dave  Haynie  be  liable  for   direct,   indirect,   incidental,   or
+consequential  damages resulting from any defect in the information or
+the DiskSalv program even if he has been advised of the possibility of 
+such damages.  
+
+
+[1mCREDITS[0m 
+
+          This manual was prepared with [1manro[0m, an nroff-like utility by 
+Steve Anderson. With all the sophisticated word processors and DTPs  I
+have  around,  I couldn't find anything that would simply give me some
+formatted ANSI text.  Until [4meveryone[0m has a way to deal with  IFF-FTXT,
+ANSI  will  remain  the only printer independent formatted text format
+available.  
+
+          Amiga, AmigaDOS, Intuition,  KickStart,  and  Workbench  are
+trademarks of Commodore-Amiga, Inc.  
+
+          The  DiskSalv  program,  its code, this manual, the DiskSalv
+icons, and  anything  else  distributed  with  this  package  are  the
+original  work  of  Dave  Haynie. Thanks go out to the Commodore-Amiga
+Software Engineering group for suggestions on  the  DiskSalv  GUI  and
+other Amiga  software  standards.    Countless  others  assisted  with
+suggestions, testing, and miscellaneous feedback which has also proved 
+invaluable.  
+                             -Dave Haynie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DiskSalv Version 2 Release 11.30                                Page 3
+
+[1m0[0m. [1mINTRODUCTION[0m 
+
+          DiskSalv Version 2 is a disk recovery program for all  Amiga
+file  system  devices  that  use any of the 2.04/2.1/3.0 file systems.
+DiskSalv will scan (analyze) a bad disk volume for anything  that  can
+be recovered, and will restore these items to any AmigaDOS volume.  It 
+can   also   attempt   to  fix  a  bad  volume  in  place  under  most
+circumstances.   DiskSalv  is  a  complete  redesign  of  the  orignal
+DiskSalv  program,  with  a  new  AmigaDOS-2.0-compliant  command-line
+interface, new Intuition interface, and tons of new features.  
+
+          This is designed to be a fairly  complete,  quickly  written
+and minimally  edited  manual  of  DiskSalv Version 2's features.  The
+built-in help system works as an adjunct to this, and it works  simply
+--  press the HELP key with the mouse positioned over something, and a
+short description of that something will pop up in a requester.  
+
+          Better documentation will  be  supplied  if  you  order  the
+commercial   release,  DiskSalv  Version  3,  which  is  currently  in
+development.  This will  eventually  include  a  professional  quality
+manual with pictures, better "how to", "why bother", and "theory of it 
+all" sections.      This  is  all  explained  in  the  "Licensing  and
+Distribution" section.  Additionally, the core  of  that  manual  will
+become an AmigaGuide manual.  
+
+          The  DiskSalv  3  program offers an improved GUI, additional
+modes for backup, disk scrubbing,  undelete-in-place,  and  bad  block
+mapping.   The  various salvage and repair functions are being kept as
+similar as possible between the two versions.  So any  bugs  in  these
+areas or basic improvements will be added to both versions.  
+
+
+[1m1[0m. [1mSTARTING UP[0m 
+
+          DiskSalv  Version 2 (from here on referred to as "DiskSalv")
+is a program designed to "salvage" damaged hard disks.  There are  two
+basic    classes   of   salvage   operation,   "Recover-by-Copy"   and
+"Fix-in-Place". In the former  case,  DiskSalv  analyzes  a  disk  and
+attempts  to restore any files and directories from a damaged AmigaDOS
+file system device to a good  one.    In  the  latter  case,  DiskSalv
+attempts  to  find faulty disk objects and remove them from the disk's
+directory/file hierarchy so that the disk's FileSystem  will  validate
+it.  
+
+
+[1m1[0m.[1m1 CLI OPERATION[0m 
+
+          In  the  simplest  case, DiskSalv can be used very much like
+DiskSalv V1.42, the AmigaDOS "DiskCopy"  program,  or  any  number  of
+other CLI-based  programs.    The  user  simply types a command at the
+command line, and the program goes to work.  For example,  to  recover
+files  from  a  bad disk in DH0: and restore them on a good disk DH1:,
+the user will type: 
+
+          1> DiskSalv FROM DH0: TO DH1: 
+
+Here the "FROM" and "TO" required CLI keywords.  There are quite a few 
+more keywords, which control a good portion of  DiskSalv's  operation.
+However,  to  access  every feature, it's necessary to use the program
+interactively under Intuition. The AmigaDOS template is  displayed  as
+     follows: 
+
+
+
+Page 4                                DiskSalv Version 2 Release 11.30
+
+     DiskSalv Version 2 Copyright (c) 1991-1994 by Dave Haynie
+
+     FROM/K, TO/K, MODE/K, FILESYSTEM/K, DEFAULTFS/K, TAGCHAR/K,
+     PUBSCREEN/K, MEMCHUNK/N, PATHMAX/N, DISKCACHE/N, LOWMEM/S,
+     NOSIZECHECK/S, QUICKSCAN/S, NOWARNING/S, NODATES/S, NONOTES/S,
+     NOPROTECT/S, KEEPDOS/S,KILLDOS/S, NODEEPSCAN/S, INTERACTIVE/S,
+     REJECTION/N, MAKELINKS/S,S MALLWINDOW/S, BIGBLOCKS/T, LOADDEV/K,
+     RETRY/N
+
+The meaning  of  these keywords is given below.  Note that any keyword
+can also be used as an icon variable (tooltype).  
+
+     [1mFROM[0m 
+          The "FROM" keyword specifies an  input  device,  the  device
+          that will  be operated on.  This must be a DOS device, not a
+          subdirectory or assignment, and it must be based on  one  of
+          the standard file systems with underlying device driver.  
+
+     [1mTO[0m 
+          The "TO" keyword specifies an output device, the device that 
+          will  receive any recover-by-copy files that DiskSalv finds.
+          This may be any AmigaDOS device,  volume,  or  subdirectory.
+          If  a  non-existant  subdirectory  is specified, one will be
+          generated.  
+
+     [1mMODE[0m 
+          There are several kinds  of  functions  that  DiskSalv  will
+          run.   The  default  is  "Salvage", which causes DiskSalv to
+          work just like the  original  DiskSalv.  Other  modes  cause
+          other actions: 
+
+     [1mSALVAGE[0m 
+          This is   the  basic  Recover-by-Copy  function.    DiskSalv
+          attempts to restore every  file  it  finds  from  the  input
+          device to  the output device.  The user can select the files
+          to actually restore.  
+
+     [1mUNDELETE[0m 
+          This is another Recover-by-Copy function.   It  is  used  on
+          undamaged partitions  to  find  deleted files.  The user can
+          interactively pick which files are actually restored in this 
+          way.  
+
+     [1mVALIDATE[0m 
+          This is the simplest Fix-In-Place function.  It can repair a 
+          device that hasn't been severely damaged.  On most  devices,
+          the  scan used in this mode is much faster than other scans,
+          but it can slow down on very large volumes.    As  with  all
+          Fix-In-Place  functions,  any  file  that must be eliminated
+          from disk will be displayed in a  file  list  once  the  fix
+          operation has completed.  
+
+     [1mREPAIR[0m 
+          This is  a  more  advanced Fix-In-Place function.  It does a
+          traditional DiskSalv scan, and it can find more  files  than
+          the Validate function can.  It can also live with partitions 
+          that are more damaged than those Validate will handle.  
+
+     [1mUNFORMAT[0m 
+          This  function  runs  a  Fix-In-Place  operation designed to
+          recover every properly formed directory or file on  a  disk,
+          regardless   of   the   current   contents   of  the  disk's
+
+
+DiskSalv Version 2 Release 11.30                                Page 5
+
+          directories.  This is the mode to choose in the case  of  an
+          accidental  Format  being called on a disk (although nothing
+          can  be  recovered  if  a  full  format  runs  its  complete
+          course).   This  mode  will  resurrect any file that's still
+          intact, so it's usable as a  large-scale  Undelete-in-place,
+          though   it  offers  no  control  over  what  actually  gets
+          undeleted.  
+
+     [1mFILESYSTEM[0m 
+          This allows the user to specify the file system  to  use  on
+          the input  device.    Normally,  DiskSalv  will  determine a
+          partition's file system from its root block.   If  for  some
+          reason that information is unavailable or wrong, this allows 
+          the file system type to be specified by force.  
+
+               [1mOFS[0m 
+                    Original AmigaDOS FileSystem.  
+
+               [1mFFS[0m 
+                    1.3-compatible Fast FileSystem.  
+
+               [1mOFS Intl[0m.  
+                    International  character set aware version of OFS.
+                    International  file  systems   treat   diacritical
+                    characters  properly  with  respect  to  the  case
+                    independence expected in an Amiga file system.  
+
+               [1mFFS Intl[0m.  
+                    International character set aware version of FFS.  
+
+               [1mDC[0m-[1mOFS[0m 
+                    Directory  caching  version  of   OFS.   Directory
+                    caching  file  systems  keep  a  secondary  packed
+                    record of file  data  to  provide  fast  directory
+                    listings.  
+
+               [1mDC[0m-[1mFFS[0m 
+                    Directory caching version of FFS.  
+
+               [1mBest[0m-[1mGuess[0m 
+                    DiskSalv will pick one of the FileSystems it knows 
+                    about,  based  on  an  analysis  of  the disk done
+                    during the Scan. This is the standard default file 
+                    system (eg, default if  no  alternate  default  is
+                    selected).  
+
+     [1mDEFAULTFS[0m 
+          This  allows  the user to specify the fallback FileSystem to
+          use on the input device.  Normally, DiskSalv will  determine
+          a  partition's  FileSystem  from its root block, but if that
+          root block is damaged, DiskSalv needs this fallback.  
+
+     [1mTAGCHAR[0m 
+          This allows the user to specify which character to  use  for
+          tagging  selected  files  on the Output screen file browser.
+          The default is '*'.  
+
+     [1mPUBSCREEN[0m 
+          This specifies the public screen for DiskSalv  to  start  up
+          on.   If  none  is  specified, DiskSalv will start up on the
+          Workbench screen (eg, default public screen).  
+
+
+
+Page 6                                DiskSalv Version 2 Release 11.30
+
+     [1mMEMCHUNK[0m 
+          This specifies the memory chunk size for  DiskSalv's  chunky
+          allocator to  use.    By default, this is 4K, and can be set
+          between 1K and 128K.  
+
+     [1mPATHMAX[0m 
+          This specifies the maximum length  of  a  file  path.    The
+          default value is 512 bytes, and can be set between 256 bytes 
+          and 4K.  
+
+     [1mDISKCACHE[0m 
+          This  specifies the number of blocks to be used for the disk
+          cache (which is actually a pre-fetch buffer).   The  default
+          size  is  8  blocks, and can be set between 0 (no cache) and
+          255 blocks.  
+
+     [1mLOWMEM[0m 
+          This specifies low-memory mode.  If  DiskSalv  runs  out  of
+          memory  on  a system in normal mode, it may be successful in
+          low-memory mode.    This  automatically  causes  the  chunky
+          allocator, file path buffer, and disk cache to go to minimum 
+          sizes.   It  cuts out a number of other internal things that
+          generally just affect performance rather than success.  
+
+     [1mNOSIZECHECK[0m 
+          This inhibits automatic size checking of the output  volume.
+          Normally,  DiskSalv watches the size of the output volume to
+          have an idea ahead of time that a volume will fill up.  Some 
+          devices, such as RAM:,  are  dynamically  sized  and  always
+          indicate  full  when  asked,  so  this  parameter  is mainly
+          intended for such devices (DiskSalv  actually  invokes  this
+          automatically  for  RAM:,  but it would have to be specified
+          manually for other such devices).  
+
+     [1mQUICKSCAN[0m 
+          This specifies a faster disk scanning mode.  The speed of  a
+          disk  scan  is  improved  by  cutting  down  on  the  visual
+          display.  DiskSalv will still show a "gas-guage"  indicator,
+          but it won't list objects as they are encountered.  
+
+     [1mNOWARNING[0m 
+          DiskSalv will normally attach a warning or error message, as 
+          a  FileNote,  to  any file it restores via a Recover-by-Copy
+          operation that it considers suspect or  bad.    This  option
+          will inhibit such action.  
+
+     [1mNODATES[0m 
+          This  option  will  inhibit restoration of the original file
+          date in Recover-by-Copy operations.  
+
+     [1mNONOTES[0m 
+          This  option  will  inhibit  restoration  of  the   original
+          FileNote in Recover-by-Copy operations (though warning notes 
+          will override original notes).  
+
+     [1mNOPROTECT[0m 
+          This   option  will  inhibit  restoration  of  the  original
+          protection codes in Recover-by-Copy operations.  
+
+     [1mKEEPDOS[0m 
+          The FileSystem (eg, AmigaDOS) is usually locked out from the 
+          input device during scan  and  recovery  operations.    This
+
+
+DiskSalv Version 2 Release 11.30                                Page 7
+
+          option will prevent such a lockout.  Fix-In-Place operations 
+          are  not  affected  by  this,  as  they absolutely require a
+          FileSystem lockout since they are modifying the input  disk.
+          Note  that  allowing  any  writes to the input disk during a
+          DiskSalv operation will almost certainly cause  DiskSalv  to
+          malfunction.  
+
+     [1mKILLDOS[0m 
+          This  option forces DiskSalv to do its job without using any
+          device  directed  DOS  functions  or  file  system  packets.
+          Normally,  DiskSalv uses a handfull of DOS library functions
+          on input disks.  This is designed to make DiskSalv safe  for
+          use  on  disks  that  crash  AmigaDOS or the particular file
+          system in use.  This is a somewhat dangerous  option,  since
+          it  prevents  DiskSalv from locking the file system out of a
+          device (since that requires a file system packet).  It works 
+          best on devices that can't  be  given  to  AmigaDOS  because
+          they're too damaged.  Note that DOS is automatically avoided 
+          on unmounted devices.  
+
+     [1mNODEEPSCAN[0m 
+          This  inhibits  extra  low-level  processing from being done
+          floppy disks.  Such processing can recover data not normally 
+          accessable through the trackdisk.device, but it causes extra 
+          memory to be used.  
+
+     [1mINTERACTIVE[0m 
+          This forces DiskSalv  into  interactive  operation  (eg,  it
+          waits for user input).  When run from the CLI, DiskSalv will 
+          by  default  do  as  much as it can non-interactively before
+          going into interactive mode.  
+
+     [1mREJECTION[0m 
+          This specifies a filter strength, between  1  and  10,  that
+          influences  DiskSalv's  assessment  of whether or not a disk
+          block matches a specific block type.  This is generally left 
+          at the default, 6.  
+
+     [1mMAKELINKS[0m 
+          This causes DiskSalv to actually create links on the  output
+          volume.   Normally  it  instead  creates a script file which
+          will create the links.  
+
+     [1mSMALLWINDOW[0m 
+          This causes DiskSalv to build  a  minimal  scanning  display
+          window, even on large screens.  
+
+     [1mBIGBLOCKS[0m 
+          This  lets  the  user  specifiy whether support for multiple
+          sectors per  block  is  enabled.     On   pre-V39   systems,
+          occasionally  DOS  devices  claimed  for some reason to have
+          more than one sector per block.  Since real support of  this
+          didn't  appear  until  the  V40 FileSystem, which apparently
+          needs V39 to run, multiple sector per block support  is  off
+          by  default  in  on  a pre-V39 system, on by default for V39
+          systems and above.  
+
+     [1mLOADDEV[0m 
+          This argument takes  the  name  of  a  DOSDrivers-compatible
+          device  description  file, which it will load and set as the
+          current input device.  
+
+
+
+Page 8                                DiskSalv Version 2 Release 11.30
+
+     [1mRETRY[0m 
+          This argument changes the number of retries a  device  drive
+          will run  on  a read failure.  USE THIS OPTION WITH CAUTION!
+          This function uses the convention  of  the  trackdisk.device
+          for  retry  count, which isn't guaranteed to be supported by
+          other device drivers.  In general, the default  retry  count
+          is what  you  want to use.  When a device has a large number
+          of errors, it can be processed much faster by  setting  this
+          parameter  as  low  as zero, if the selected device supports
+          this convention.  If not, there's a  chance  it  will  cause
+          some  unknown  problem,  so  it's best to use only as a last
+          resort.  
+
+
+[1m1[0m.[1m2 WORKBENCH OPERATION[0m 
+
+          DiskSalv can be run from the Workbench by double-clicking on 
+its Icon. Normally,  this  brings  up  DiskSalv  interactively,  where
+options  are  set  via standard 2.0-level Intuition interface objects.
+However, any of  the  command-line  parameters  may  be  set  as  Icon
+ToolTypes   to   set   DiskSalv  up  for  other-than-standard  default
+conditions and other special things.  
+
+
+[1m1[0m.[1m3 THE DISKSALV GUI[0m 
+
+          No matter how you enter DiskSalv, you're going  to  wind  up
+seeing  some  aspect  of  the  program's GUI. If you run interactively
+either from the CLI or from Workbench,  you  will  start  out  in  the
+"Input  Window". Here is where various parameters are set that control
+how the program will "scan", or learn about, a given input disk.  Once 
+all input information is set  up,  the  program  moves  to  the  "Scan
+Window",   which   basically   monitors  disk  scan  and  Fix-In-Place
+operation, where applicable.  If it's appropriate (files are found  in
+a   Recover-by-Copy   mode   or  damaged  files  are  found  during  a
+Fix-In-Place operation), the Scan Window will give way to the  "Output
+Window". This windows accepts input to select the objects that will be 
+restored and the device to restore them to.  
+
+          While  DiskSalv's interface is based on Intuition, there are
+keyboard equivalents for practically anything you can do from  gadgets
+or windows.    The  gadget  shortcuts  are  generally  indicated by an
+underlined letter in the text  of  the  particular  gadget,  and  will
+change from  language  to language.  For gadgets that cycle or scroll,
+the direction of movement will change based on whether the shortcut is 
+typed with the shift key pressed.  A few  windows  have  gadgets  with
+extra  functions  or  non-text  gadgets  that have keyboard shortcuts.
+Those shortcuts are mentioned in the this  manual  in  the  particular
+section relating to that gadet.  
+
+          Menus also have keyboard shortcuts, which are always invoked 
+with the  right Amiga key and a single letter pressed together.  These
+are indicated in the menus, in the normal  Intuition  fashion.    Note
+that  these,  too,  can  change  according  to the localization of the
+program, so the actual values aren't called out here.  
+
+
+[1m2[0m.[1m0 THE INPUT WINDOW[0m 
+
+          The Input Window is where a device is selected.  There are a 
+series of gadgets and menu items that can control the way things  work
+here.  The gadgets are as follows: 
+
+
+DiskSalv Version 2 Release 11.30                                Page 9
+
+     [1mDevice For Scan[0m 
+          This  list  gadget  displays  a list of recoverable devices.
+          One of these must be selected to run a scan.  These are  all
+          listed  by  physical  AmigaDOS  name,  never  by  volume  or
+          assigned name.  A disk icon or DOSDrivers icon  can  now  be
+          dropped into the DiskSalv window to update this selection.  
+
+     [1mFileSystem[0m: 
+          This  gadget  is  a  cycle gadget that allows any of the six
+          aforementioned file systems to be selected.  When you select 
+          a device, this gadget will be set to DiskSalv's  best  guess
+          at  that  device's  file  system, or the default if DiskSalv
+          can't make a good guess.  Therefore, the  user  is  able  to
+          pick  a different one if DiskSalv didn't make a good choice.
+          See section 1.1, "FILESYSTEM", for a list  of  these.    The
+          "Best-Guess"  option  runs a special statistics tracking and
+          analysis routine to determine the most  likely  file  system
+          for any given device.  
+
+     [1mMode[0m: 
+          This  cycle  gadget  lets  the  user  select  an appropriate
+          recovery operation.  Interlocks are  managed  here  to  make
+          certain  that  the  specified operation and specified device
+          will work together.  See section 1.1, "MODE", for a list  of
+          the FileSystem names.  
+
+     [1mSet Filter[0m...  
+          This  gadget  brings  up  the  "Disk  Scan  Filter  Options"
+          window.  This window allows various options  to  be  set  to
+          control  partial  scans  of  a  disk, exclusions by AmigaDOS
+          pattern name or protection bits, etc.  See section 2.1 for a 
+          full explanation of this window.  
+
+     [1mDevice Info[0m...  
+          This  gadget  brings  up  a  "Physical  Device  Information"
+          requester  which  gives  partitioning  and  other  low-level
+          information on the selected device.  
+
+     [1mScan[0m 
+          This gadget starts the disk analysis phase of  the  DiskSalv
+          program.   Once  the other phases are complete, the user may
+          return  to  the  Input  Window  without  having  to  restart
+          DiskSalv.  
+
+          There  are  two  menus on the Input Window. One of these can
+call up a variety  of  miscellaneous  functions,  the  other  controls
+toggling  of a few control options, and the ability to save these back
+to the DiskSalv icon.  The mens are as follows: 
+
+     [1mProject[0m/[1mAbout[0m...  
+          This item brings up a  requester  with  information  on  the
+          version   of   DiskSalv,   its  distribution  license,  some
+          Shareware data, and where to write me about DiskSalv.  
+
+     [1mProject[0m/[1mHelp[0m...  
+          This item brings up a requester with a brief explanation  of
+          the Input Window.  
+
+     [1mProject[0m/[1mLog File[0m...  
+          This  item  brings up a file requester for the specification
+          of a log file.  This file must be on a device other than the 
+          input device.  When a log file is specified,  DiskSalv  will
+
+
+Page 10                               DiskSalv Version 2 Release 11.30
+
+          write a record of its activity during all phases out to that 
+          file.  
+
+     [1mProject[0m/[1mRestore[0m...  
+          This   item  brings  up  the  "Stream  Restoration  Options"
+          requester, which allows the user to specify input and output 
+          paths for restoration of a DiskSalv archive  file.    Please
+          see  section  3 for information on creating DiskSalv archive
+          files.  
+
+     [1mProject[0m/[1mCustom[0m...  
+          This item brings up the "Custom Window". The  Custom  Window
+          is  an advanced option that can be used to search a disk for
+          logical  partitions  or  specify  partitions  based  on  the
+          low-level components.  
+
+     [1mProject[0m/[1mSave Device[0m...  
+          This  item saves the currently selected "Device for Scan" as
+          a description file for the AmigaDOS Mount command.  
+
+     [1mProject[0m/[1mLoad Device[0m...  
+          This item loads a specified AmigaDOS device description file 
+          as a DiskSalv "virtual" device.  The name of the device will 
+          be the name of the description file.  
+
+     [1mProject[0m/[1mQuit[0m 
+          This item closes the DiskSalv  program.    Its  function  is
+          identical  to  that of the Close gadget on the DiskSalv main
+          window.  
+
+     [1mSettings[0m/[1mDOS Lock[0m 
+          The FileSystem (eg, AmigaDOS) is usually locked out from the 
+          input device during scan  and  recovery  operations.    This
+          option toggles  prevention  of such a lockout.  Fix-In-Place
+          operations are not affected  by  this,  as  they  absolutely
+          require  a  file system lockout since they are modifying the
+          input disk.  Note that allowing any writes to the input disk 
+          during a DiskSalv  operation  will  almost  certainly  cause
+          DiskSalv to malfunction.  
+
+     [1mSettings[0m/[1mLow Memory[0m 
+          This option  toggles  low-memory mode.  If DiskSalv runs out
+          of memory on a system in normal mode, it may  be  successful
+          in low-memory  mode.    This automatically causes the chunky
+          allocator, file path buffer, and disk cache to go to minimum 
+          sizes.  It cuts out a number of other internal  things  that
+          generally just affect performance rather than success.  
+
+     [1mSettings[0m/[1mSmall Window[0m 
+          This option  toggles  automatic window sizing.  Normall, the
+          DiskSalv scanner will open a large window if  it  finds  the
+          current screen  supports  it.    This  will force use of the
+          small window for all scans, regardless of the screen size.  
+
+     [1mSettings[0m/[1mQuick Scan[0m 
+          This option  selects  the  quick  scanning  option  for  the
+          scanner.   With  this  set,  the  scanning  process will run
+          faster by not displaying any data on the files  encountered.
+
+     [1mSettings[0m/[1mSave Settings[0m 
+          This  options  saves  various  Input screen variables to the
+          DiskSalv tools icon.  
+
+
+DiskSalv Version 2 Release 11.30                               Page 11
+
+[1m2[0m.[1m1 THE DISK SCAN FILTER OPTIONS WINDOW[0m 
+
+          The  "Disk  Scan  Filter  Options"  window  allows   several
+modifiers  to  be  set that affect the scan phase of a Recover-by-Copy
+operations.  These modifiers are ignored by  Fix-In-Place  operations,
+which must  examine  a disk in its entirety to perform correctly.  The
+window has standard "Ok" and "Cancel" gadgets, which  use  and  ignore
+the effect  of the current filter options settings, respectively.  The
+other gadgets are as follows: 
+
+     [1mFile Pattern[0m 
+          The string gadget takes in an AmigaDOS file pattern.  During 
+          the scan of a  disk,  any  file  matching  this  pattern  is
+          recorded, while any file not matching is ignored.  This acts 
+          on  links as well as files, but not on directories, since at
+          the time a directory is scanned, there's no way to  tell  if
+          it  will be needed by a child object that's further into the
+          disk.  
+
+     [1mDisk Scan Range[0m 
+          This gadget is composed of two pointers, which can be  moved
+          to  modify  the  part  of  the  input  disk that is actually
+          scanned.  The start and finishing blocks on  that  disk  are
+          indicated next  to  the gadget.  The gadget is hard-wired to
+          make certain that  the  start  of  the  disk  is  below  the
+          finish.   This  can be moved from the keyboard with left and
+          right cursor keys, unshifted or shifted.  
+
+     [1mProtection Bits[0m 
+          This is a group of gadgets which control  matching  of  each
+          file  encountered against the seven defined protection bits.
+          A "Don't Care" setting matches  any  level,  a  "Match  Set"
+          setting  matches  a  bit  that's logically set, and a "Match
+          Clear" setting matches a bit that's logically clear.  
+
+
+[1m2[0m.[1m2 THE CUSTOM WINDOW[0m 
+
+          The Custom Window is a fork  off  the  main  DiskSalv  Input
+Window that is used for dealing with special device cases.  An unknown 
+disk,  a  disk  with  lost  partitioning  information,  or  other such
+problems can  be  solved  here.    An  input  device  is  entered  via
+exec-level device  name  and  unit  number.    Dropping a disk icon or
+DOSDrivers type  file  into  this  window  will  update  these  fields
+automatically.   The  user can specify the partitioning information or
+ ask DiskSalv to  go  looking  for  partitions.    In  a  search,  the
+partition's  logical  name  can  be  specified  as a search target, or
+DiskSalv can be instructed to find all partitions on the disk.   There
+          are fifteen gadgets here: 
+
+     [1mCreate[0m 
+          The  Create  gadget builds one "virtual device" based on the
+          information supplied  here.    This   requires   the   basic
+          partitioning  information,  exec device name and unit, and a
+          DOS Name which  is  used  in  the  "Device  For  Scan"  list
+          gadget.   Any  such virtual device is listed in parentheses,
+          and only the "Salvage" operation can be used on them.  
+
+     [1mSearch[0m 
+          This function starts a search on  the  given  disk  for  one
+          volume that matches the given pattern.  
+
+
+
+Page 12                               DiskSalv Version 2 Release 11.30
+
+     [1mAnalyze[0m 
+          This function starts a scan of the defined range of the disk 
+          for any  partitions.   The base block of a partition will be
+          used as its name if no root is found.  If a root  is  found,
+          its  name  will  be  used  instead  in the "Device For Scan"
+          list.  
+
+     [1mCancel[0m 
+          Leave this window without performing any kind of scan.  
+
+     [1mDevice Name[0m: 
+          This is the Exec device used to manage  the  disk,  such  as
+          "scsi.device".  Be very careful in selecting this properly.  
+
+     [1mName[0m/[1mPattern[0m: 
+          This  is  a  DOS Name for "Created" volumes, or a pattern to
+          apply to a search for a specific volume or as a  volume-name
+          filter for full analysis.  
+
+     [1mUnit[0m: 
+          The  unit number for the Exec device names in "Device Name".
+          Be very careful in selecting this properly.  
+
+     [1mSectors[0m/[1mTrack[0m: 
+          This is the number of sectors assigned per disk track.  
+
+     [1mBytes[0m/[1mSector[0m: 
+          This is the basic block size for the  device.    While  most
+          things  in the system are set up for 512 byte blocks, larger
+          disks may  use  larger  block   sizes.      These   are   in
+          powers-of-two, 512 bytes or larger.  
+
+     [1mSectors[0m/[1mBlock[0m: 
+          This  parameter  allows  for a variable effective block size
+          per  partition  while  having   a   consistent   number   of
+          bytes/sector throughout a disk.  Block size is Sectors/Block 
+          * Bytes/Sector. By default, this is only available under V39 
+          or later file systems.  
+
+     [1mLow Sector[0m: 
+          This  is  the  starting  position  on the input device to be
+          searched.  Since we're not searching a logical partition but 
+          in fact a physical disk, this number is a direct disk sector 
+          number (this specifies the physical block to map to  logical
+          block 0 for the Create operation).  
+
+     [1mHigh Sector[0m: 
+          This is the last physical block to scan for all operations.  
+
+     [1mFlags[0m: 
+          These are device-driver specific flags.  
+
+     [1mMemory Type[0m: 
+          This  cycle  gadget  allows  the user to specify the type of
+          memory to use for disk  buffers.    Types  include  DEFAULT,
+          CHIP, FAST, and DMA-24.  
+
+          There are only two menu items on the single menu attached to 
+the Custom Window. The first is the "Project/Help..." item, which pops 
+up  a  requester  box  describing the Custom Window. The other item is
+"Project/Quit", which will terminate the DiskSalv program.  
+
+
+
+DiskSalv Version 2 Release 11.30                               Page 13
+
+[1m3[0m. [1mTHE SCAN WINDOW[0m 
+
+          The Scan Window is entered once the user selected  the  Scan
+gadget  of the Input Window. In normal operation, the Scan window will
+have two gadgets, two menu items,  and  four  informational  displays.
+The "Stop"  gadget  will  cause the scan to stop where it is.  This is
+only available  for  Recover-by-Copy  operations,  since  Fix-In-Place
+operations need  to  scan  the  entire  disk.  The other gadget is the
+"Pause" gadget, which will freeze the scan where it is until  told  to
+go on.  
+
+          The two menu items are "Project/Help..." and "Project/Quit". 
+The  former will display some information about the Scan Window, while
+the latter will cause the DiskSalv program  to  quit,  just  like  the
+Close gadget  will.  During Fix-In-Place operations, the Quit function
+will take some time if  invoked  during  some  of  the  latter  fixing
+phases,   since   DiskSalv  doesn't  want  to  leave  the  disk  in  a
+questionable state.  
+
+          The "Current Operation" display indicates what  DiskSalv  is
+actually doing  at  any  given  time during the scan.  To the right of
+this  is  the  "Device  Scan"  box,  which  keeps  track  of  scanning
+statistics,  like  the  current  block  and  number of Files or Errors
+encountered.  Below this is the "fuel guage", which is always used  to
+indicate the  progress  of  the  current  phase.    Below  that is the
+"Scanning Results" display, which indicates the type and name of  each
+object found, as well as other statistics (this is basically what gets 
+written out  to  the  log  file,  if there is a log file).  On a large
+display, this is eleven lines long, on a small display its five  lines
+long.   The  QUICKSCAN  option  eliminates  this  part  of the display
+altogether.  
+
+
+[1m4[0m. [1mTHE OUTPUT WINDOW[0m 
+
+          All Recover-by-Copy operations and  Fix-In-Place  operations
+with  corrupt  files  end  the  scanning  process  and open the Output
+Window. This is where objects and the output path are selected  for  a
+Restore (eg,  Recover-by-Copy)  operation.  This window's GUI consists
+of twelve gadgets and ten menu items.  The gadgets are as follows: 
+
+     [1mSalvage File List [0m([1metc[0m) 
+          The scrolling file list, labelled somewhat  differently  for
+          each  function,  is where files are selected for restoration
+          to a new volume.  Clicking on a  file  or  link  alternately
+          tags  or  clears  that  object,  and  makes it the "current"
+          object  (displayed  in  the  text  gadget  below  the   list
+          gadget).   Clicking on a directory once makes it the current
+          object, but does not tag it.  Clicking again  on  that  same
+          directory   causes   this   "browser"   to  "move"  to  that
+          directory.  There are keyboard shorts for  this  too.    The
+          standard gadget short (shown in the list title), will scroll 
+          the  selected  item  in  the  list,  but  won't  actually do
+          anything with it.  The space bar will  toggle  selection  of
+          file objects, or enter directories.  
+
+     [1mOutput Path[0m 
+          This  specifies two gadgets, a disk icon gadget and a string
+          gadget.   Clicking  on  the  disk  icon  brings  up  a  file
+          requester,  while  clicking on the string requester lets the
+          user enter a path by hand.  This path is the  place  to  put
+          any recovered  files.    It  can  be a device, directory, or
+
+
+Page 14                               DiskSalv Version 2 Release 11.30
+
+          possibly  a  "stream",  depending  on  the  setting  of  the
+          "Archive Stream"  option.    If  a non-existant directory is
+          specified, it is created.  An output device can  be  entered
+          here simply by dropping its disk icon into the window.  
+
+     [1mSalvage[0m 
+          This gadget  begins  the  file  restoration.    It  won't be
+          selectable until at least something is tagged in the Salvage 
+          List and proper output device parameters have been entered.  
+
+     [1mFile List Action[0m 
+          The remaining gadgets are  part  of  the  File  List  Action
+          group.   These  control tags on objects, browser navigation,
+          and other aspects of the file list.  Note that  only  tagged
+          files are operated on by "Forget" or "Salvage".  
+
+     [1mParent[0m 
+          This  gadget  brings  the  file  browser up by one directory
+          level.  
+
+     [1mRoot[0m 
+          This gadget brings the file brower up to the  top  directory
+          level.  
+
+     [1mForget[0m 
+          This  gadget  removes  any  tagged  objects from the browser
+          list.  It has no effect on the object as it exists on-disk.  
+
+     [1mInfo[0m...  
+          Statistics on  the  "current"  object  are  displayed  in  a
+          requester when this is selected.  
+
+     [1mSelect Directory[0m 
+          This will recursively tag every object in the hierarchy of a 
+          directory.  If the current object is a directory, it's used, 
+          otherwise the present (displayed) directory is used.  
+
+     [1mSelect Files[0m 
+          Like "Select Directory", but tags only files.  
+
+     [1mClear Directory[0m 
+          Like "Select Directory", but recursively untags objects.  
+
+     [1mClear Files[0m 
+          Like "Clear Directory", but untags only files.  
+
+          Most  of the menu items are designed to support the settings
+of different restore-time parameters.  The menu items are: 
+
+     [1mProject[0m/[1mHelp[0m...  
+          This option pops up with a brief description of  the  Output
+          window.  
+
+     [1mProject[0m/[1mNew Device[0m...  
+          This  option  resets  DiskSalv  and  starts over back at the
+          Input Window.  
+
+     [1mProject[0m/[1mQuit[0m 
+          This option, like  the  close  gadget,  causes  DiskSalv  to
+          cleanly exit.  
+
+     [1mSettings[0m/[1mSize Check[0m 
+
+
+DiskSalv Version 2 Release 11.30                               Page 15
+
+          This  toggles  automatic size checking of the output volume.
+          Normally, DiskSalv watches the size of the output volume  to
+          have an idea ahead of time that a volume will fill up.  Some 
+          devices,  such  as  RAM:,  are  dynamically sized and always
+          indicate full  when  asked,  so  this  parameter  is  mainly
+          intended  for  such  devices (DiskSalv actually invokes this
+          automatically for RAM:, but it would have  to  be  specified
+          manually for other such devices).  
+
+     [1mSettings[0m/[1mWarning Notes[0m 
+          This  toggles  whether or not DiskSalv will attach a warning
+          or error message, as a FileNote, to any file it restores via 
+          a Recover-by-Copy operation that  it  considers  suspect  or
+          bad.  
+
+     [1mSettings[0m/[1mNotes Restored[0m 
+          This  toggles  restoration  the  original  FileNote  to  any
+          restored object.    Warning  notes  will  override  original
+          notes).  This option will inhibit such an action.  
+
+     [1mSettings[0m/[1mProtection Restored[0m 
+          This toggles restoration of the original protection codes on 
+          any object.  This option will inhibit such an action.  
+
+     [1mSettings[0m/[1mDate Restored[0m 
+          This  toggles  restoration  of the original AmigaDOS date to
+          all output objects.  
+
+     [1mSettings[0m/[1mArchive Stream[0m 
+          This determines which I/O formation is used for  the  output
+          device.   By  default, the OUTPUT device is a directory, and
+          DiskSalv regenerates the specified directory tree  as  found
+          on the  input  disk.    When  Archive  Stream  mode  is set,
+          DiskSalv  writes  out  everything  in  a  structured  output
+          stream.   This  stream is turned back to a directory tree by
+          using the Project/Restore option on the Input Window.  Since
+          this  formatted  stream  makes  all disk objects appear as a
+          single file, it can be piped though  compression  tools  and
+          processed through other interesting programs as desirable.  
+
+     [1mSettings[0m/[1mSave Settings[0m 
+          When  selected,  this  saves the state of the toggle options
+          other than "Archive Stream" out to the DiskSalv.info file.  
+
+
+[1m5[0m. [1mTHE RECOVERY WINDOW[0m 
+
+          The Recovery Window looks  exactly  like  the  Scan  window,
+mainly because  it is the Scan Window just doing something else.  This
+window displays each file as  it's  restored  to  the  output  device.
+Along  the way, if the output device fails or gets full, DiskSalv will
+prompt the user  to  skip  the  file,  change  the  media,  or  change
+devices.   When  a  device  change  is requested, the Output window is
+called up again to secure a new device input the normal way.  At  that
+point, only files left yet-to-be restored will be out on disk.  
+
+
+[1m6[0m. [1mLICENSING AND DISTRIBUTION[0m 
+
+          This  program,  DiskSalv  2, is distributed as ShareWare. It
+may be freely redistributed, but  no  charges  other  than  reasonable
+copying and  handling  fees  may  be  collected.    The program may be
+
+
+Page 16                               DiskSalv Version 2 Release 11.30
+
+distributed only as originally  released,  in  the  complete  archived
+form.   No changes of any kind may be made to the DiskSalv 2 binary or
+archive, and I will not answer for any problems that may result from a 
+modified binary.  The suggested basic registration fee is US$10, which 
+gets you an entry in  my  database  of  users  and  a  certificate  of
+registration by  return mail.  At the time of registration, the latest
+release can be ordered for US$5. Later  updates  can  be  ordered  for
+US$10  with  proof of registration (registration number will do if the
+and address is the same).  
+
+          The commercial version offer has changed somewhat since  the
+V11.27  ShareWare  release of DiskSalv. Hopefully everyone (especially
+those who have already sent in money) will be happy with  this.    The
+price  is still US$40, plus additional tax or postage, as shown on the
+price list.  The complete commercial package includes the new DiskSalv 
+3, the AmigaGuide manual, and the printed manual.  
+
+          If you send money beyond the registration fee,  it  will  be
+used  for  updates  if  less  than  the  commercial  fee,  unless I am
+otherwise instructed.  Money beyond the commercial fee will  also  get
+you updates, unless I am otherwise instructed.  
+
+          The  place  to send any and all inquiries, bug reports, etc.
+is: 
+                    Dave Haynie
+                    284 Memorial Avenue
+                    Gibbstown, NJ 08027
+                    USA
+
+                    You can also contact me electronically:
+                              email:	daveh@cbmvax.commodore.com
+                              	hazy@cup.portal.com
+                              	hazy@bix.com
+                              FAX:	+1-609-224-0442
+
+          If you're not from the  USA,  you  can  pay  in  your  local
+currency if  you  send a cash equivalent.  Foreign personal checks and
+some other draft forms generally have the banks keeping about 1/2  the
+money on  a  US$10 registration fee.  Most countries have a way to get
+US fund checks, such as postal money  orders,  that  go  through  just
+fine.  I'm not trying to sound greedy here by any means, I just prefer 
+either  you  or I get that $10 or so, not the banks, even if I need to
+go to the city and convert the cash myself once I collect a reasonable 
+amount.  Of course, if your country's laws prohibit sending  cash  out
+of the country or something similar, you may not want to do this.  
+
+          Also   of  interest  to  foreign  Amiga  users  is  language
+support.   DiskSalv  fully  supports  the  AmigaDOS  2.1  localization
+library mechanism.    Some  locale  catalogs  are  included  with this
+initial release.  Additional locale support should be available  at  a
+later date.    Translations  of the commercial manual may be possible,
+but none are guaranteed yet.  That pretty much depends  on  whether  I
+sign up with any foreign distributer.  
+
+          If  you're  a  commercial interest, you can contact me about
+non-exclusive bundling deals if you're interested.  Dealers  or  other
+groups  should  contact  me  about  volume  discounts  on  the  deluxe
+distribution.  And I'm not opposed to  going  through  a  distributer,
+either  for  US  or  foreign  distribution, assuming we can work out a
+deal.  I have been talking with some, but no deals  have  been  signed
+yet.  
+
+
+
+DiskSalv Version 2 Release 11.30                               Page 17
+
+[1mSCANNER CODES[0m 
+
+          The  DiskSalv  Scanner  (the  window, used in many different
+operations, that displays the bar graph, mode, blocks count,  results,
+etc.)  generates  useful information on what happened during a scan of
+any kind.  If you select a log file  (via  the  "Project/LoG  File..."
+menu  item on the input window, the scanner text that often scrolls by
+too fast is stored to this file.  Every result is tagged with  a  four
+character  code,  indicating  what  has  been found, the action taken,
+etc.  Users can  search  for  particular  things  in  a  log  file  by
+searching for these codes.  The codes are explained below.  
+
+     ????  
+          This indicates  a  block  that DiskSalv can't indentify.  In
+          OFS file systems, all blocks should have  type  headers,  so
+          you'll see  this  if one doesn't.  In FFS file systems, data
+          blocks are untyped and this code isn't used.  
+
+     [1mDATA[0m 
+          This indicates an OFS data block.  Data blocks  in  FFS  are
+          untyped.  
+
+     [1mDCSH[0m 
+          This indicates  a  directory cache block.  It's possible for
+          DiskSalv to find directory cache blocks in  partitions  that
+          aren't  using  directory  cached file systems (for instance,
+          maybe the disk used to have a directory cached  file  system
+          but now  doesn't).    DiskSalv doesn't store directory cache
+          block information except when  processing  either  directory
+          cached or Best-Guess file systems.  
+
+     [1mDELD[0m 
+          This  indicates  that  DiskSalv has determined a disk object
+          was deleted on-disk.  This code is generated  during  Repair
+          or Unformat operations.  
+
+     [1mDLNK[0m 
+          This indicates a hard directory link.  
+
+     [1mERR[0m!  
+          This indicates  a  physical (hard) read error.  While a file
+          system in operation may report  errors  (such  as  "checksum
+          error",  "not a DOS disk", etc.), most errors are "soft", in
+          that they're only errors in a  file  system  data  structure
+          somewhere.   If,  for  some  reason,  a disk's device driver
+          can't physically read a particular block,  DiskSalv  reports
+          that in this way.  
+
+     [1mFILE[0m 
+          This indicates a normal file header.  
+
+     [1mFLNK[0m 
+          This indicates a hard file link.  
+
+     [1mFREE[0m 
+          This indicates   an   unused   disk   block.    Due  to  the
+          aforementioned block typing conventions, DiskSalv  can  only
+          determine if  a  block  is  unused  on  an OFS disk.  On FFS
+          disks, there's no way to be certain if a block is  currently
+          used,  previously  used,  or  never  used with 100% accuracy
+          (from the block data alone, obviously DiskSalv knows how  to
+          find data blocks by tracing through files).  
+
+
+Page 18                               DiskSalv Version 2 Release 11.30
+
+     [1mGOOD[0m 
+          During  a  Validate,  Repair,  or Unformat operation, a disk
+          object that has been determined  to  be  valid  on  disk  is
+          reported with this code.  
+
+     [1mKILL[0m 
+          During  a  Validate,  Repair,  or Unformat operation, a disk
+          object that DiskSalv has to  delete  from  the  active  disk
+          structure,  due to some kind of corruption, is reported with
+          this code.  
+
+     [1mLIST[0m 
+          This indicates a list, or "file  extension"  block.    Every
+          file  header  block (reported with the "FILE" code) contains
+          the location of a number of that  file's  data  blocks  (the
+          actual  number  depends  on  the  size  of  the  partition's
+          "block"; for 512 byte blocks, a  file  header  can  directly
+          reference 72  data  blocks).    When a file needs to contain
+          more data, additional data blocks are  located  via  one  or
+          more  of  these  extension  blocks, each of which references
+          another group of data blocks.  
+
+     [1mROOT[0m 
+          This indicates a root directory block.  Each  partition  has
+          only one   root   block.    However,  if  several  different
+          partitions have been on the same disk  from  time  to  time,
+          it's possible to see a few root blocks reported, since those 
+          from a previous format may still be around.  
+
+     [1mSLNK[0m 
+          This indicates   a  symbolic  link.    Currently,  Commodore
+          doesn't support the  symbolic  link  conventions  that  were
+          implemented  in AmigaDOS 2.0. However, DiskSalv will attempt
+          to deal with one if encountered.  
+
+     [1mUDIR[0m 
+          This indicates a "User Directory", a normal subdirectory.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

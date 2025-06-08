@@ -1,0 +1,18 @@
+
+
+WARNING: 0.17 working on >4GB disks only with NewStyleDevices (NSD)
+
+         Not with TD64!! You must start NSDPatch before or new Setpatch.
+
+
+WARNING: 0.17 working on >4GB disks only with NewStyleDevices (NSD)
+
+         Not with TD64!! You must start NSDPatch before or new SetPatch.
+
+
+You need gtlayout.library (Aminet)
+
+0.17
+- Should work with partitions with a blocksize <> 512 bytes (again).
+
+

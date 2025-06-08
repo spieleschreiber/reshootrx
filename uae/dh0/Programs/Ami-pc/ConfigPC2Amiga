@@ -1,0 +1,428 @@
+; Configuration script for the PC2Am program
+
+;Indicator types
+(set ISTR0 "None")
+(set ISTR1 "LED")
+(set ISTR2 "Gopher-like")
+(set ISTR3 "Background")
+;(set ISTR4 "Mouse")
+
+;Speeds
+(set SPEED0 "1200")
+(set SPEED1 "2400")
+(set SPEED2 "4800")
+(set SPEED3 "9600")
+(set SPEED4 "19200")
+(set SPEED5 "38400")
+(set SPEED6 "57600")
+(set SPEED7 "115200")
+
+;Cables
+(set CABLE0 "LapLink 4W")
+(set CABLE1 "Special 8W")
+
+
+
+(procedure EditConfig
+
+  ; Set transfer type
+  (set OldXferType XferType)
+  (set XferType
+    (askchoice 
+      (prompt "Select port to use")
+      (choices "Serial" "Parallel")
+      (default XferType)
+      (help 
+        "You have to select whether you want to use parallel or serial transfer. "
+        "It depends on the cable you have. For serial, you need serial null-modem "
+        "cable, for parallel LapLink cable, sometimes called parallel null-modem. "
+        "You can also build a special parallel cable and get faster transfers, "
+        "but this needs hardware experience. More info about cables can be found "
+        "in PC2Am.guide, section 'How to run program/Cables.'.\n"
+        "Parallel transfers are faster, but there are strong limitations in the "
+        "cable length. Over a serial, you can use multiserial card. There are "
+        "also parallel cards, but I din't get any technical info about it."
+      )
+    )
+  )
+
+  (if (= XferType 1)
+    (
+      (set Device "PC2AmParallel.device")
+      (set Timeout 10)
+      (set Unit 0)
+      (set Flags
+        (askchoice
+          (prompt "Which cable do you use")
+          (choices CABLE0 CABLE1)
+          (default Flags)
+          (help
+           "\n"
+           "LAPLINK 4W is standard parallel null-modem cable, using four data wires "
+           "in each direction.\n\n"
+           "SPECIAL 8W cable cannot be bought, you must made it. But then you can "
+           "get faster transfer rates. It uses eight lines to transfer data and "
+           "needs Enhanced Parallel Port (EPP) or ECP port.\n\n"
+           "For more info and wiring diagrams see "
+           "PC2Am.guide, section HowToRunProgram/Cables."
+          )
+        )
+      )
+    )
+  )
+
+  (if (= XferType 0)
+    (
+
+      ; Set device
+      (if (<> XferType OldXferType)
+        (set Device "serial.device")
+      )
+
+      (set DevOK 0)
+      (until (= DevOK 1)
+        (set DefDev ("DEVS:/%s" Device))
+        (set Device
+          (fileonly
+            (askfile
+              (prompt "Select device you want to use. For parallel transfer "
+                      "select PC2AmPar.device. Click on HELP for further details")
+              (help 
+                "You have to select device to communicate via. It will mostly be \"serial.device\" "
+                "but you can also use \"artser.device\" etc. But remember that some devices don't "
+                "support the Break() function (baudbandit.device), so they cannot be "
+                "used.\n\nFor parallel transfer is used device called PC2AmParallel.device."
+              )
+              (default DefDev)
+            )
+          )
+        )
+
+        (set DevOK 1)
+        (if (= Device "parallel.device")
+          (
+            (message
+              "PC2Amiga does not use standard parallel.device for the transfer. "
+              "For parallel transfers it uses its own device called 'PC2AmParallel.device'. "
+              "If you wanted to set parallel transfer use this one. Now you will have to select "
+              "the device again.\n"
+              "Better way is to select parallel transfer (in previous requester)."
+            )
+            (set DevOK 0)
+          )
+        )
+      )
+
+      ; Set unit
+      (set Unit
+        (asknumber
+          (prompt "Select unit of the device")
+          (help "This will be mostly zero. You will have to change it only if you use a multiserial card.")
+          (default Unit)
+        )
+      )
+
+      ; Set Flags
+      (set Flags
+        (asknumber
+          (prompt "Select open flags of the device")
+          (help "This will be mostly zero. You will have to change it only if you use a multiserial card.")
+          (range -2147483648 2147483647)
+          (default Flags)
+        )
+      )
+
+      ; Set baud rate
+      ; Find baud code
+      (set BaudCode 0)
+      (while (AND (> BaudRate (+ 0 (select BaudCode SPEED0 SPEED1 SPEED2 SPEED3 SPEED4 SPEED5 SPEED6 SPEED7))) (< BaudCode 7))
+        (set BaudCode (+ BaudCode 1))
+      )
+      (set BaudRate
+        (+ 0
+          (select 
+            (askchoice 
+              (prompt "Select baud rate")
+              (choices SPEED0 SPEED1 SPEED2 SPEED3 SPEED4 SPEED5 SPEED6 SPEED7)
+              (default BaudCode)
+              (help 
+              "You have to select baud rate to communicate on. It is important to set "
+              "this baudrate to the same value on both Amiga and PC. Selecting too big "
+              "baudrate may cause infunctionality, low baudrates lowers transfer speed. "
+              "If you have at least A500 and 386SX/40, you can choose 57600."
+              )
+            )
+            SPEED0 SPEED1 SPEED2 SPEED3 SPEED4 SPEED5 SPEED6 SPEED7
+          )
+        )
+      )
+
+      ;Set timeout
+      (set Timeout
+        (asknumber
+          (prompt "Set timeout\nNote, that it is in TENTHS of second.")
+          (help
+            "Timeout is the time, after which Amiga will try to restore "
+            "send PC a break, to make it reply packet etc. Good value is about"
+            "20 (2 secs) or a little bit more. High values do not have sense, "
+            "because there will be spent much time in waiting for PC. But setting "
+            "it too small may cause many timeouts when working with slower device "
+            "(floppy) or on small baud rates.\n\n"
+            "When you use parallel transfer, you should set this value to 100 or similar value."
+          )
+          (default Timeout)
+        )
+      )
+    )
+  )
+
+  ;Set MaxTransfer
+  (set MaxTransfer
+    (asknumber
+      (prompt "Set maximal length of a packet.")
+      (range 312 8192)
+      (help
+        "Here you can set the maximal length of packet, that is transfered via "
+        "serial (parallel) line. Note that it is used only for sending files, "
+        "because other packets (open, ...) are only about 20 bytes long. So set "
+        "it to a lower value only when you can list directories well (listing main "
+        "PC: directory takes shorter packets that listing "true" directory on PC). "
+        "Usually, you can keep this value at least 4096 or even 8192."
+      )
+      (default MaxTransfer)
+    )
+  )
+
+  ; Set if we want to pretend SetComment
+  (set PretendSCom 0)
+  (if (>= HighCyl 16)
+    (set PretendSCom 1)
+  )
+  (set PretendSCom
+    (askoptions
+      (prompt "Can PC2Amiga pretend SetComment() was succesfull ?")
+      (choices "Do pretend")
+      (default PretendSCom)
+      (help
+        "MS-DOS filesystem does not support file comments, so PC2Amiga doesn't "
+        "support it too and returns 'Action not known'. But some disk managers "
+        "sets comment of file when copying and puts up a requester when they "
+        "got error from filesystem, which may be very annoying. If you turn "
+        "on this option, PC2Amiga will answer 'OK' to SetComment() requests "
+        "like it successfuly set the comment, although it didn't do anything."
+      )
+    )
+  )
+
+  ;Set progress indicator
+  (set IndicType
+    (askchoice 
+      (prompt "Select progress indicator type")
+      (choices ISTR0 ISTR1 ISTR2 ISTR3)
+      (default IndicType)
+      (help 
+        "Progress indicator is something that tells you the communication is "
+        "still working (data are transfering). Here's a description of supported "
+        "types:\n\n"
+        "NONE - No indicator will be used\n\n"        
+        "LED - Power LED brightness will be turned after sending each packet. "
+        "So when communication works, you will see LED flashing. But it may confuse "
+        "you, because it looks like you have been visited by a guru (system crash)."
+        "It may also interfere with a music playing program, because turning LED "
+        "turns also ON/OFF audio filter.\n\n"
+        "GOPHER-LIKE - In the PC2Amiga commodity window, there's a square, in which "
+        "you will see rotating line. But you have to popup PC2Amiga to see it, so you "
+        "cannot look at it all the time.\n\n"
+        "BACKGROUND - After sending every packet, background flashes. Maybe good for "
+        "some people, but for me it is too \"hard\" indication.\n\n"
+;        "MOUSE - Mouse will flash as when unpacking by PowerPacker."
+      )
+    )
+  )
+
+  ; Hotkey qualifier
+  (set HotKeyQ
+    (askoptions
+      (prompt "Choose qualifiers for commodity hotkey. If you don't select any, hotkey will be disabled.")
+      (choices "CTRL" "LALT" "RALT" "LSHIFT" "RSHIFT" "LCOMMAND" "RCOMMAND")
+      (default HotKeyQ)
+      (help 
+        "PC2Amiga window can be now popped up by a hotkey. "
+        "Here you select hotkey 'shifting'. In the next requester "
+        "you will select the key itself."
+      )
+    )
+  )
+
+  (set HotKeyC
+    (askstring
+      (prompt "Enter KEY for the hotkey {shifting has been selected "
+              "before.} Only first char is considered."
+      )
+      (default HotKeyC)
+      (help "This is the hotkey that the PC2Amiga window will open on.")
+    )
+  )
+
+  (set MaxErr (BITAND HighCyl 15))
+  (if (= MaxErr 0) ((set MaxErr 4)))
+  (set MaxErr
+    (asknumber
+      (prompt
+        "Choose number of errors to popup error requester.\n"
+        "Set it to 0 for no requester.\n"
+        "Do not change if you don't have any idea what is it for !"
+      )
+      (range 0 14)
+      (help
+        "When PC2Amiga cannot transfer packet for a long time, it pops up "
+        "a requester informing user there is some problem. It is for new "
+        "users, but it may be useful also in other situations.\n"
+        "In this dialog, you set the number of fails to popup this requester. "
+        "When you set it to 0 for no requests. "
+      )
+      (default (- MaxErr 1))
+    )
+  )
+  (set MaxErr (+ MaxErr 1))
+  
+  (set Priority
+    (asknumber
+      (range -128 127)
+      (prompt
+        "Set task priority for pc2amiga-handler. Help will tell you what is "
+        "this for."
+      )
+      (help
+        "If you use PC2Amiga via parallel, you may be confused that it almost "
+        "freezes your system while it is transfering. Especially some people "
+        "running BBSes and having some files on PC hated it.\n"
+        "By default, PC2Amiga has priority of 5 so there is no big danger it will be "
+        "interrupted while transfering, which could cause timeout. But if you "
+        "want to use your Amiga while transferring, you may set this to 0 or "
+        "-1. Normal programs will run OK. But when there will be heavy system "
+        "load, PC2Amiga will be unable to transfer.\n"
+        "Modify this value only when PC2Amiga is running OK on your machine and "
+        "you have real reasons to do it."
+      )
+      (default Priority)
+    )
+  )
+)
+
+; /***********************\
+; *                       *
+; *  Program starts here  *
+; *                       *
+; \***********************/
+
+(if (<= (getversion (resident)) (* 37 65536))
+  (abort "Sorry, this script works only for systems 2.1 and later (kickstart version 37+)")
+)
+
+(if (= (exists "c:GetPCSpecs") 0)
+  (abort "Cannot find command 'c:GetPCSpecs'. If you haven't installed PC2Amiga yet, you must do it before running this configuration script.")
+)
+
+(if (= (exists "c:SetPCSpecs") 0)
+  (abort "Cannot find command 'c:SetPCSpecs'. If you haven't installed PC2Amiga yet, you must do it before running this configuration script.")
+)
+
+(user 2)
+
+(set FileName 
+  (askfile
+    (prompt "Please enter where you have installed the device specification file (\"PC\").")
+    (help
+      "There's a device specification file (called \"PC\"), which also contains "
+      "configuration data. Configuration script needs to know where it is to change "
+      "it. It should be either in the SYS:Storage/DOSDrivers or DEVS:DOSDrivers directory."
+    )
+    (default "SYS:Storage/DOSDrivers/PC")
+  )
+)
+
+(if (= (exists FileName) 0)
+  (abort "The file you have entered does not exist !")
+)
+
+(run ("GetPCSpecs %s" FileName))
+
+; Get original values
+(set Device (getenv "P2A_DEVICE"))
+(set Unit (+ 0 (getenv "P2A_UNIT")))
+(set Flags (+ 0 (getenv "P2A_FLAGS")))
+(set BaudRate (+ 0 (getenv "P2A_BAUD")))
+(set MaxTransfer (+ 0 (getenv "P2A_MAXTRANSFER")))
+(set Timeout (+ 0 (getenv "P2A_TIMEOUT")))
+(set HFlags (+ 0 (getenv "P2A_BLOCKSPERTRACK")))
+(set LowCyl (+ 0 (getenv "P2A_LOWCYL")))
+(set HighCyl (+ 0 (getenv "P2A_HIGHCYL")))
+(set IndicType (BITAND HFlags 7))
+(set HotKeyQ (/ (BITAND LowCyl $F00) $100))
+(set HotKeyC (getenv "P2A_HOTKEY"))
+(set Priority (+ 0 (getenv "P2A_PRIORITY")))
+
+(set XferType (= Device "PC2AmParallel.device"))
+
+(until
+  (= Result 1)
+  (EditConfig)
+  ; Set some vars
+  (set TSecs (/ Timeout 10))
+  (set TTent (- Timeout (* TSecs 10)))
+  (set Result 
+    (if (= XferType 1)
+      (
+        (askbool
+          (prompt
+            "Confirm settings:\n\n"
+            ("Using PARALLEL port\nCable: %s\n" (select Flags CABLE0 CABLE1))
+            ("Indicator: %s\n" (select IndicType ISTR0 ISTR1 ISTR2 ISTR3))
+          )
+          (help "Script asks you to confirm your selection.")
+        )
+      )
+      (
+        (askbool
+          (prompt
+            "Confirm settings:\n\nUsing SERIAL port\n"
+            ("Device: %s\nUnit: %ld\nFlags: %ld\nBaudRate: %ld\nTimeout: %ld.%lds\n" Device Unit Flags BaudRate TSecs TTent)
+            ("Indicator: %s\n" (select IndicType ISTR0 ISTR1 ISTR2 ISTR3))
+          )
+          (help "Script asks you to confirm your selection.")
+        )
+      )
+    )
+  )
+)
+
+
+; Copy values to env vars
+(set HFlags IndicType)
+(set LowCyl (* HotKeyQ $100))
+(set HighCyl (+ MaxErr (* 16 PretendSCom)))
+(textfile (dest "ENV:P2A_DEVICE") (append Device))
+(textfile (dest "ENV:P2A_UNIT") (append Unit))
+(textfile (dest "ENV:P2A_FLAGS") (append Flags))
+(textfile (dest "ENV:P2A_BAUD") (append BaudRate))
+(textfile (dest "ENV:P2A_MAXTRANSFER") (append MaxTransfer))
+(textfile (dest "ENV:P2A_TIMEOUT") (append Timeout))
+(textfile (dest "ENV:P2A_BLOCKSPERTRACK") (append HFlags))
+(textfile (dest "ENV:P2A_LOWCYL") (append LowCyl))
+(textfile (dest "ENV:P2A_HIGHCYL") (append HighCyl))
+(textfile (dest "ENV:P2A_HOTKEY") (append HotKeyC))
+(textfile (dest "ENV:P2A_PRIORITY") (append Priority))
+
+(run ("SetPCSpecs %s T:PC" FileName))
+
+(copyfiles
+  (source "t:PC")
+  (dest (pathonly FileName))
+)
+
+
+(exit "\n\nDON'T FORGET TO SETUP ALSO THE PC PART\n(USING THE \"PC2AMCFG.EXE\" PROGRAM)")
+
+(welcome)
+

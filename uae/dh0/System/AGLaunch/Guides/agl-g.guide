@@ -1,0 +1,56 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <G>
+
+Click game title to play
+
+      @{"Gainforce" SYSTEM "agl:c/wbrun A-Games:G/Gainforce/Gainforce"}                            @{"GalacticConqueror" SYSTEM "agl:c/wbrun A-Games:G/GalacticConqueror/GalacticConqueror"}
+      @{"GalacticEmpire" SYSTEM "agl:c/wbrun A-Games:G/GalacticEmpire/GalacticEmpire"}                       @{"GalacticTheXmasEdition1MB" SYSTEM "agl:c/wbrun A-Games:G/GalacticTheXmasEdition1MB/GalacticTheXmasEdition1MB"}
+      @{"GalacticTheXmasEdition2MB" SYSTEM "agl:c/wbrun A-Games:G/GalacticTheXmasEdition2MB/GalacticTheXmasEdition2MB"}            @{"GalacticWarriorRats" SYSTEM "agl:c/wbrun A-Games:G/GalacticWarriorRats/GalacticWarriorRats"}
+      @{"Galaga92" SYSTEM "agl:c/wbrun A-Games:G/Galaga92/Galaga92"}                             @{"Galaxy89" SYSTEM "agl:c/wbrun A-Games:G/Galaxy89/Galaxy89"}
+      @{"GalaxyBlast" SYSTEM "agl:c/wbrun A-Games:G/GalaxyBlast/GalaxyBlast"}                          @{"GalaxyForce2" SYSTEM "agl:c/wbrun A-Games:G/GalaxyForce2/GalaxyForce2"}
+      @{"GaldregonsDomain" SYSTEM "agl:c/wbrun A-Games:G/GaldregonsDomain/GaldregonsDomain"}                     @{"GameOfHarmony" SYSTEM "agl:c/wbrun A-Games:G/GameOfHarmony/GameOfHarmony"}
+      @{"GamesSummerEdition" SYSTEM "agl:c/wbrun A-Games:G/GamesSummerEdition/GamesSummerEdition"}                   @{"Ganymed" SYSTEM "agl:c/wbrun A-Games:G/Ganymed/Ganymed"}
+      @{"GarfieldAWintersTail" SYSTEM "agl:c/wbrun A-Games:G/GarfieldAWintersTail/GarfieldAWintersTail"}                 @{"GarfieldBigFatHairyDeal" SYSTEM "agl:c/wbrun A-Games:G/GarfieldBigFatHairyDeal/GarfieldBigFatHairyDeal"}
+      @{"Garrison" SYSTEM "agl:c/wbrun A-Games:G/Garrison/Garrison"}                             @{"Garrison2" SYSTEM "agl:c/wbrun A-Games:G/Garrison2/Garrison2"}
+      @{"GaryLinekersHotShot" SYSTEM "agl:c/wbrun A-Games:G/GaryLinekersHotShot/GaryLinekersHotShot"}                  @{"GatewayToSavageFrontier" SYSTEM "agl:c/wbrun A-Games:G/GatewayToSavageFrontier/GatewayToSavageFrontier"}
+      @{"Gauntlet2" SYSTEM "agl:c/wbrun A-Games:G/Gauntlet2/Gauntlet2"}                            @{"Gauntlet3" SYSTEM "agl:c/wbrun A-Games:G/Gauntlet3/Gauntlet3"}
+      @{"Gazza2" SYSTEM "agl:c/wbrun A-Games:G/Gazza2/Gazza2"}                               @{"GearWorks" SYSTEM "agl:c/wbrun A-Games:G/GearWorks/GearWorks"}
+      @{"GeeBeeAirRally" SYSTEM "agl:c/wbrun A-Games:G/GeeBeeAirRally/GeeBeeAirRally"}                       @{"Geisha" SYSTEM "agl:c/wbrun A-Games:G/Geisha/Geisha"}
+      @{"GeishaDe" SYSTEM "agl:c/wbrun A-Games:G/GeishaDe/GeishaDe"}                             @{"GeishaEs" SYSTEM "agl:c/wbrun A-Games:G/GeishaEs/GeishaEs"}
+      @{"GeishaFr" SYSTEM "agl:c/wbrun A-Games:G/GeishaFr/GeishaFr"}                             @{"GeminiWing" SYSTEM "agl:c/wbrun A-Games:G/GeminiWing/GeminiWing"}
+      @{"GemStoneLegend" SYSTEM "agl:c/wbrun A-Games:G/GemStoneLegend/GemStoneLegend"}                       @{"GemX" SYSTEM "agl:c/wbrun A-Games:G/GemX/GemX"}
+      @{"Genesia" SYSTEM "agl:c/wbrun A-Games:G/Genesia/Genesia"}                              @{"GenesiaFr" SYSTEM "agl:c/wbrun A-Games:G/GenesiaFr/GenesiaFr"}
+      @{"GhostBattle" SYSTEM "agl:c/wbrun A-Games:G/GhostBattle/GhostBattle"}                          @{"Ghostbusters2" SYSTEM "agl:c/wbrun A-Games:G/Ghostbusters2/Ghostbusters2"}
+      @{"Ghostbusters2NTSC" SYSTEM "agl:c/wbrun A-Games:G/Ghostbusters2NTSC/Ghostbusters2NTSC"}                    @{"GhoulsNGhosts" SYSTEM "agl:c/wbrun A-Games:G/GhoulsNGhosts/GhoulsNGhosts"}
+      @{"Giddy2HeroInAnEggShell" SYSTEM "agl:c/wbrun A-Games:G/Giddy2HeroInAnEggShell/Giddy2HeroInAnEggShell"}               @{"Giganoid" SYSTEM "agl:c/wbrun A-Games:G/Giganoid/Giganoid"}
+      @{"GlobalGladiators" SYSTEM "agl:c/wbrun A-Games:G/GlobalGladiators/GlobalGladiators"}                     @{"GlobalTrek" SYSTEM "agl:c/wbrun A-Games:G/GlobalTrek/GlobalTrek"}
+      @{"Globdule" SYSTEM "agl:c/wbrun A-Games:G/Globdule/Globdule"}                             @{"GlobduleNTSC" SYSTEM "agl:c/wbrun A-Games:G/GlobduleNTSC/GlobduleNTSC"}
+      @{"Globulus" SYSTEM "agl:c/wbrun A-Games:G/Globulus/Globulus"}                             @{"GLOCR360" SYSTEM "agl:c/wbrun A-Games:G/GLOCR360/GLOCR360"}
+      @{"GNius" SYSTEM "agl:c/wbrun A-Games:G/GNius/GNius"}                                @{"GnomeAlone" SYSTEM "agl:c/wbrun A-Games:G/GnomeAlone/GnomeAlone"}
+      @{"Goal" SYSTEM "agl:c/wbrun A-Games:G/Goal/Goal"}                                 @{"Gobliiins" SYSTEM "agl:c/wbrun A-Games:G/Gobliiins/Gobliiins"}
+      @{"Gobliins2" SYSTEM "agl:c/wbrun A-Games:G/Gobliins2/Gobliins2"}                            @{"Gobliins2De" SYSTEM "agl:c/wbrun A-Games:G/Gobliins2De/Gobliins2De"}
+      @{"Gobliins2Fr" SYSTEM "agl:c/wbrun A-Games:G/Gobliins2Fr/Gobliins2Fr"}                          @{"Gobliins2It" SYSTEM "agl:c/wbrun A-Games:G/Gobliins2It/Gobliins2It"}
+      @{"Goblins3" SYSTEM "agl:c/wbrun A-Games:G/Goblins3/Goblins3"}                             @{"Godfather" SYSTEM "agl:c/wbrun A-Games:G/Godfather/Godfather"}
+      @{"Gods" SYSTEM "agl:c/wbrun A-Games:G/Gods/Gods"}                                 @{"GodsDemo" SYSTEM "agl:c/wbrun A-Games:G/GodsDemo/GodsDemo"}
+      @{"GoldenAxe" SYSTEM "agl:c/wbrun A-Games:G/GoldenAxe/GoldenAxe"}                            @{"GoldenEagle" SYSTEM "agl:c/wbrun A-Games:G/GoldenEagle/GoldenEagle"}
+      @{"GoldenPath" SYSTEM "agl:c/wbrun A-Games:G/GoldenPath/GoldenPath"}                           @{"GoldOfTheAztecs" SYSTEM "agl:c/wbrun A-Games:G/GoldOfTheAztecs/GoldOfTheAztecs"}
+      @{"Goldrunner" SYSTEM "agl:c/wbrun A-Games:G/Goldrunner/Goldrunner"}                           @{"Goldrunner2" SYSTEM "agl:c/wbrun A-Games:G/Goldrunner2/Goldrunner2"}
+      @{"Goldrunner2&SceneryDisks" SYSTEM "agl:c/wbrun A-Games:G/Goldrunner2&SceneryDisks/Goldrunner2&SceneryDisks"}             @{"GoldRush" SYSTEM "agl:c/wbrun A-Games:G/GoldRush/GoldRush"}
+      @{"GoofysRailwayExpress" SYSTEM "agl:c/wbrun A-Games:G/GoofysRailwayExpress/GoofysRailwayExpress"}                 @{"GraemeSounessSoccerManagr" SYSTEM "agl:c/wbrun A-Games:G/GraemeSounessSoccerManagr/GraemeSounessSoccerManagr"}
+      @{"GraemeSounessVectorSoccer" SYSTEM "agl:c/wbrun A-Games:G/GraemeSounessVectorSoccer/GraemeSounessVectorSoccer"}            @{"GrahamGoochSecondInnings" SYSTEM "agl:c/wbrun A-Games:G/GrahamGoochSecondInnings/GrahamGoochSecondInnings"}
+      @{"GrahamGoochWCCricket" SYSTEM "agl:c/wbrun A-Games:G/GrahamGoochWCCricket/GrahamGoochWCCricket"}                 @{"GrahamGoochWCCricketSE" SYSTEM "agl:c/wbrun A-Games:G/GrahamGoochWCCricketSE/GrahamGoochWCCricketSE"}
+      @{"GrandMonsterSlam" SYSTEM "agl:c/wbrun A-Games:G/GrandMonsterSlam/GrandMonsterSlam"}                     @{"GrandPrix5002Fr" SYSTEM "agl:c/wbrun A-Games:G/GrandPrix5002Fr/GrandPrix5002Fr"}
+      @{"GrandPrixCircuit" SYSTEM "agl:c/wbrun A-Games:G/GrandPrixCircuit/GrandPrixCircuit"}                     @{"GrandPrixMaster" SYSTEM "agl:c/wbrun A-Games:G/GrandPrixMaster/GrandPrixMaster"}
+      @{"Gravity" SYSTEM "agl:c/wbrun A-Games:G/Gravity/Gravity"}                              @{"GravityForce" SYSTEM "agl:c/wbrun A-Games:G/GravityForce/GravityForce"}
+      @{"GreatCourts" SYSTEM "agl:c/wbrun A-Games:G/GreatCourts/GreatCourts"}                          @{"GreatCourts2" SYSTEM "agl:c/wbrun A-Games:G/GreatCourts2/GreatCourts2"}
+      @{"GreatGianaSisters" SYSTEM "agl:c/wbrun A-Games:G/GreatGianaSisters/GreatGianaSisters"}                    @{"Gremlins2" SYSTEM "agl:c/wbrun A-Games:G/Gremlins2/Gremlins2"}
+      @{"GridStart" SYSTEM "agl:c/wbrun A-Games:G/GridStart/GridStart"}                            @{"GuardianAngel" SYSTEM "agl:c/wbrun A-Games:G/GuardianAngel/GuardianAngel"}
+      @{"GuardianCD32" SYSTEM "agl:c/wbrun A-Games:G/GuardianCD32/GuardianCD32"}                         @{"GuildOfThieves" SYSTEM "agl:c/wbrun A-Games:G/GuildOfThieves/GuildOfThieves"}
+      @{"GuldkornExpressenDk1MB" SYSTEM "agl:c/wbrun A-Games:G/GuldkornExpressenDk1MB/GuldkornExpressenDk1MB"}               @{"GuldkornExpressenDk512KB" SYSTEM "agl:c/wbrun A-Games:G/GuldkornExpressenDk512KB/GuldkornExpressenDk512KB"}
+      @{"Gunship" SYSTEM "agl:c/wbrun A-Games:G/Gunship/Gunship"}                              @{"Gunship2000" SYSTEM "agl:c/wbrun A-Games:G/Gunship2000/Gunship2000"}
+      @{"Gunship2000AGA" SYSTEM "agl:c/wbrun A-Games:G/Gunship2000AGA/Gunship2000AGA"}                       @{"Gunship2000CD32" SYSTEM "agl:c/wbrun A-Games:G/Gunship2000CD32/Gunship2000CD32"}
+      @{"GuySpy" SYSTEM "agl:c/wbrun A-Games:G/GuySpy/GuySpy"}                               @{"GuySpyCDTV" SYSTEM "agl:c/wbrun A-Games:G/GuySpyCDTV/GuySpyCDTV"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode

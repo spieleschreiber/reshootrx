@@ -1,0 +1,9 @@
+;ClassicWB Assign-Startup
+;------------------------
+;GAAE 68K LITE FULL ADV ADVSP P96 OS39
+
+Assign >NIL: A-Demos: SYS:Demos
+Assign >NIL: A-Games: SYS:Games
+Assign >NIL: A-MyFiles: SYS:MyFiles
+Assign >NIL: A-Programs: SYS:Programs
+Assign >NIL: A-Temp: SYS:Temp

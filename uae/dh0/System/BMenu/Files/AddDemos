@@ -1,0 +1,22 @@
+Stack 16384
+Echo "Creating new Demos list from the A-Demos: directory."
+Echo ""
+Echo "Only WHDLoad demos will be detected. Please add normal"
+Echo "demos manually to the 'Other' text file provided."
+Echo ""
+Echo "Please wait - this may take some time!"
+Echo ""
+IF EXISTS ENV:DemosList
+Kill DemosMenu
+EndIF
+Delete >NIL: DemosMenu/DemosMenu.menu
+FSearch >RAM:Demos A-Demos: PAT=#?.info TXT=slave ALL
+Rep RAM:Demos .info ""
+QSort RAM:Demos DemosMenu/DemosMenu.menu
+Delete >NIL: RAM:Demos
+IF EXISTS ENV:DemosList
+Delete >NIL: ENV:DemosList
+EndIF
+Echo "All Done!"
+Echo ""
+Ask "Hit return to exit..."

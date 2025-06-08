@@ -1,0 +1,15 @@
+;ClassicWB EdFiles-Startup
+;-------------------------
+;GAAE 68K LITE FULL ADV ADVSP P96 UAE
+
+C:SetPatch QUIET
+C:Version >NIL:
+C:MakeDir RAM:T RAM:Clipboards RAM:ENV RAM:ENV/Sys
+
+C:Assign >NIL: ENV: RAM:ENV
+C:Assign >NIL: T: RAM:T
+C:Assign >NIL: CLIPS: RAM:Clipboards
+
+C:WBRun SYS:System/BMenu/Menus/Bootup
+
+EndCLI >NIL:

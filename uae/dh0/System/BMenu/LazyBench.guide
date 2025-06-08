@@ -1,0 +1,945 @@
+@database LazyBench.guide
+@master STAT-RAM:LazyBench.guide
+@node "MAIN" "LazyBench.guide"
+
+                                LazyBench V1.20
+
+  Copyright © 1993-1995, Werther 'Mircko' Pirani - Freely Distributable
+
+     @{" Legal Issues " link "LEGAL_ISSUES" }
+     @{" Introduction " link "INTRODUCTION" }
+     @{" System Requirements " link "REQUIREMENTS" }
+     @{" Installation " link "INSTALLATION" }
+     @{" Configuration " link "CONFIGURATION" }
+     @{" Utilization " link "UTILIZATION" }
+     @{" Troubleshooting " link "TROUBLESHOOTING" }
+     @{" Aknowledgments " link "ACKNOWLEDGEMENTS" }
+     @{" Feedback " link "FEEDBACK" }
+
+@endnode
+
+@node "LEGAL_ISSUES" "Legal Issues"
+ Legal Issues
+
+     @{" Product Distribution " link "DISTRIBUTION" }
+     @{" Software License " link "LICENSE" }
+     @{" Warranty " link "NO_WARRANTY" }
+     @{" Disclaimer of Responsibility " link "DISCLAIMER" }
+
+@endnode
+
+@node "DISTRIBUTION" "Product Distribution Information"
+ Distribution
+
+     Briefly, LazyBench is Copyrighted by Werther 'Mircko' Pirani
+     (referred to as "the Author") but is Freely Distributable as long
+     as the following restrictions are met:
+
+     *  The distributor may not charge a fee beyond that of the cost of
+        obtaining a public domain disk from a PD library.
+     *  The distributor agrees to cease distributing the program and any
+        data involved if requested to do so by the Author.
+     *  The distributor may only distribute an unmodified copy of the
+        original program archive, with all supplied documentation and
+        copyright notices intact.
+     *  Magazines CAN distribute LazyBench, by means of a cover-mounted
+        floppy disk or CD, BUT they have to ask for a written permission
+        from the Author FIRST.  Even under these circumstances, they are
+        bound to the same restrictions as any other distributor, which
+        can be found in the @{" Software License " link "LICENSE" }.
+        
+     The original distribution includes:
+
+        LazyBench                  16472 bytes
+        LazyBench.info               726 bytes
+        LazyBench.guide            35759 bytes
+        Lazybench.guide.info         503 bytes
+
+     If one or more of the above is missing, then your distribution is
+     incomplete, or altered; the possibility exists that this program has
+     been altered, or could be infected with a virus.  Please, remove it
+     immediately and do a search on your favourite BBS or PD Library.  If
+     all else fails, you can get a complete distribution from me; more
+     details can be found in the @{" Feedback " link "FEEDBACK" } section.
+@endnode
+
+@node "LICENSE" "Software License for LazyBench V1.20"
+ License
+
+     1.  This license applies to the product called "LazyBench", a
+     program for the Amiga computer system, written and published by
+     Werther 'Mircko' Pirani (referred to as "the Author"), and the
+     accompanying documentation, example files, and anything else
+     included with the original distribution.  The terms "Program" and
+     "LazyBench" below refer to this product distribution.  The licensee
+     refers to "You".
+
+     2.  You may copy and distribute verbatim copies of the program's
+     executable code and documentation as You receive it, in any medium,
+     provided that You conspicuously and appropriately publish only the
+     original, unmodified program, with all of the copyright notices and
+     disclaimers of warranty intact and including all of the accompanying
+     documentation, example files, and other files that came with the
+     original distribution.
+
+     3.  You may not copy and/or distribute the Program without the
+     accompanying documentation and other additional files that came with
+     the original distribution.  You may not copy and/or distribute
+     modified versions of the Program.
+
+     4.  You may not copy, modify, sublicense, distribute or transfer the
+     Program except as expressly provided under this license.  Any
+     attempt to otherwise copy, modify, sublicense, distribute or
+     transfer the Program is void, and will automatically terminate your
+     rights to use the Program under this license.  However, parties who
+     have received copies, or rights to use copies, from You under this
+     license will not have their licenses terminated so long as such
+     parties remain in full compliance.
+     
+     5.  By copying, distributing and/or using the Program You indicate
+     your acceptance of this license and all its terms and conditions.
+
+     6.  Each time You redistribute the Program, the recipient
+     automatically receives a license from the original licensor to
+     copy, distribute and/or use the Program subject to these terms and
+     conditions.  You may not impose any further restrictions on the
+     recipients' exercise of the rights granted herein.
+
+     7.  You may not disassemble, decompile, re-source or otherwise
+     reverse engineer the Program.
+
+     8.  You may use the Program as long as You like: it's Freely
+     Distributable and you're not supposed to register or to  pay any
+     money for it.
+
+     9.  If You wish to incorporate parts of the Program into other
+     programs, write to the Author to ask for a written permission.
+
+     10.  You agree to cease distributing the Program and data involved
+     if requested to do so by the Author.
+
+     11.  You may charge a fee to recover distribution costs.  The fee
+     for diskette distribution may not be more than the cost to obtain a
+     public domain disk from a PD Library.
+
+@endnode
+
+@node "NO_WARRANTY" "No Warranty"
+ No Warranty
+
+     THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+     APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING, THE
+     COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS"
+     WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED,
+     INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+     MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE
+     RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.
+     SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL
+     NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+     IN NO EVENT, UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN
+     WRITING, WILL ANY COPYRIGHT HOLDER OR ANY OTHER PARTY WHO MAY
+     REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR
+     DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL
+     DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM
+     (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED
+     INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE
+     OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH
+     HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+     DAMAGES.
+
+@endnode
+
+@node "DISCLAIMER" "Disclaimer of Responsibilty"
+ Disclaimer
+
+     No warranty, either express or implied, is made regarding the
+     fitness or merchantability of the Program.
+
+     Werther 'Mircko' Pirani (referred to as "the Author"), reserves the
+     right to not develop any future versions of the Program.
+
+     The  Author will try to make a good faith attempt at correcting any
+     problems if any are discovered, but is in no way required, nor
+     bound to correct them.
+
+     The Author neither assumes nor accept any responsibility for the
+     use or misuse of the Program.  He also will not be held liable for
+     damages or loss of profit or any other damages arising out of the
+     use, or inability to use the Program.
+
+     Werther 'Mircko' Pirani will not be liable for any damage arising
+     from the failure of the Program to perform as described, or any
+     destruction of other programs or data residing on a system
+     attempting to run the Program.  While the Author knows of no
+     damaging errors, the user of the Program uses it at his or her own
+     risk.
+
+@endnode
+
+@node "INTRODUCTION" "Introduction"
+ Introduction
+
+     LazyBench is the perfect solution for lazy people with a hard disk
+     crammed full of goodies, which are too difficult to reach because
+     they are buried away in drawers inside drawers, inside drawers,
+     inside drawers... I could go on forever but... I'm too lazy! ;-)
+
+     Seriously speaking, LazyBench installs as a Commodity and quietly
+     waits in the background.  From then on, you can use its hot key to
+     pop up its window and effortlessly launch your favourite
+     applications (Tools or Projects) from a @{" ListView " link "LISTVIEW" }.
+
+     LazyBench is 100% OS compliant and has been extensively tested with
+     tools like Enforcer and Mungwall, has a real font adaptative GUI
+     with a dynamic layout engine, supports @{" Locale " link "LOCALE"}, virtual and public
+     screens, third parties graphics boards, and is fully user
+     configurable.
+
+     Usually these features come at a price, in terms of executable size,
+     performance, or both, but not in this case: LazyBench is just 16472
+     bytes long, works well even with a plain 68000 CPU, and doesn't need
+     any custom libraries, handlers or devices that aren't already a part
+     of the Amiga's operating system.
+@endnode
+
+@node "REQUIREMENTS" "System Requirements"
+ System Requirements
+
+     LazyBench requires at least V37 (OS  2.04) of the Amiga Operating
+     System but you'll need V38 (OS  2.1) for a fully localized
+     LazyBench.  Finally, if you're lucky enough to have V39 (OS 3.00) or
+     later, LazyBench will use new look menus, the default wait pointer
+     and other niceties such as an improved @{" ListView " link "LISTVIEW" }.
+
+@endnode
+
+@node "INSTALLATION" "Installation"
+ Installation
+
+     1) Copy LazyBench and its icon to your SYS:WBStartup drawer.
+
+     2) Open the WBStartup drawer, then click on the LazyBench icon and
+        select the item 'Information...' from the  Workbench "Icons" menu
+        to edit the @{" ToolTypes " link "TOOL_TYPES" } according to your personal needs and
+        tastes.
+
+     3) Click on the "Save" gadget to register your preferences.
+
+     4) Double-click on the LazyBench icon to activate it or reboot your
+        Amiga.  Since you've placed LazyBench in the WBStartup drawer,
+        each time you reboot it will automatically be launched for you.
+
+     5) Enjoy!
+@endnode
+
+@node "TOOL_TYPES" "ToolTypes"
+ ToolTypes
+
+     @{" Basics " link "BASICS" }
+
+     Like any other Commodity, LazyBench deals with these standard
+     ToolTypes:
+
+     @{" CX_POPKEY " link "CX_POPKEY" }
+     @{" CX_POPUP " link "CX_POPUP" }
+     @{" CX_PRI " link "CX_PRI" }
+     @{" TOOLPRI " link "TOOLPRI" }
+
+     Furthermore, you may want to experiment with these extra ToolTypes:
+
+     @{" AUTOHIDE " link "AUTOHIDE" }
+     @{" DONOTWAIT " link "DONOTWAIT" }
+     @{" EDITOR " link "EDITOR" }
+     @{" FONT " link "FONT" }
+     @{" FONTSIZE " link "FONTSIZE" }
+     @{" ITEMS " link "ITEMS" }
+     @{" NOGADGETS " link "NOGADGETS" }
+     @{" PUBSCREEN " link "PUBSCREEN" }
+     @{" SELFATTACH " link "SELFATTACH" }
+     @{" SORT " link "SORT" }
+
+@endnode
+
+@node "BASICS" "ToolTypes Basics"
+ Basics
+
+     Applications started from Workbench receive their arguments in the
+     form of ToolTypes which usually take this form:
+
+        KEYWORD=argument
+
+     or simply:
+
+        KEYWORD
+
+     In the first example you specify an argument (either a number or a
+     string) for the KEYWORD, while in the latter the KEYWORD is rather
+     a toggle which activates or deactivates a particular feature, so you
+     don't have to supply any number or string.  Still, if you're
+     unwilling to edit the ToolTypes, don't panic: LazyBench has its
+     own internal defaults, that is, some preset values, so you can use
+     it straight away!
+
+
+     NOTE  1: Case differences do not matter when you're entering the
+     information.
+
+     NOTE  2: Do not use any spaces around the equal sign in a ToolType
+     entry.
+
+@endnode
+
+@node "CX_POPKEY" "CX_POPKEY ToolType"
+ CX_POPKEY (internal default: CX_POPKEY=ralt help)
+
+     This is the hot key to make the LazyBench window pop up. By default
+     the combination is Right Alt Help.  No matter which screen is in the
+     foreground, this hot key is always active, so choose this one
+     carefully to avoid any conflict with other Commodities or
+     applications.  Refer to your Workbench manual and read the chapter
+     about Commodities for more details, and for key modifiers.
+
+@endnode
+
+@node "CX_POPUP" "CX_POPUP ToolType"
+ CX_POPUP (internal default: CX_POPUP=no)
+
+     Use CX_POPUP=yes if you want LazyBench to open its window as soon
+     as it is launched, or use the hot key specified by the @{" CX_POPKEY " link "CX_POPKEY" }
+     ToolType.
+
+@endnode
+
+@node "CX_PRI" "CX_PRI ToolType"
+ CX_PRI (internal default: CX_PRI=0)
+
+     You can set the priority for the LazyBench priority by entering a
+     value from -128 to 127.  Zero, however, is fine and you probably
+     won't need to experiment with it.  If another commodity with the
+     same hotkey is installed, the one with the higher priority will
+     activate.
+
+@endnode
+
+@node "TOOLPRI" "TOOLPRI ToolType"
+ TOOLPRI (system default: TOOLPRI=0)
+
+     This tooltype, used by the Workbench when LazyBench, or any other
+     program in the WBStartup drawer, is started, will tell the Workbench
+     to set it to this priority.  For an explanation of priorities, refer
+     to your AmigaDOS manuals.  Zero is a common default, and there is
+     little need to change it.
+
+@endnode
+
+@node "AUTOHIDE" "AUTOHIDE ToolType"
+ AUTOHIDE (toggle, no internal default)
+
+     When LazyBench launches an application its window stays open and
+     it's up to you to close it if you really want to.  On the other
+     hand, you can use the AUTOHIDE Tool Type to make LazyBench
+     automatically close its window as soon as an application is
+     launched.
+
+@endnode
+
+@node "DONOTWAIT" "DONOTWAIT ToolType"
+ DONOTWAIT (toggle, no internal default)
+
+     If you omit this ToolType you could have unwanted requesters
+     during boot time.  If you get messages that say "LazyBench has not
+     returned", tell it not to wait and then go set this ToolType; it
+     tells the Workbench that this application should not be "waited upon"
+     to finish before launching the next program in the WBStartup drawer.
+
+@endnode
+
+@node "EDITOR" "EDITOR ToolType"
+ EDITOR (internal default: EDITOR=C:Ed)
+
+     LazyBench can invoke the editor of your choice so that you can add
+     or remove items from the @{" configuration " link "CONFIGURATION" } file with the minimum of
+     fuss. Just use something like:
+
+        EDITOR=SYS:Tools/Memacs
+
+     to choose the editor you feel most comfortable with and let
+     LazyBench take care about the rest.
+
+
+     NOTE 1:  You can use autodetaching editors as long as they don't
+     make a backup copy of the file being saved.  These editors put a
+     lock on the configuration file, preventing LazyBench from reading it
+     and causing a bit of confusion.
+     Either disable the backup feature or use an editor which doesn't
+     autodetach.
+
+     NOTE 2:  LazyBench uses the standard Notification System available
+     from V37 and later of the Amiga Operating System, so changes to the
+     configuration file can be made externally.  That is, load your
+     preferred text editor or word processor, edit the configuration
+     file, save it as a simple ASCII file, and bingo! Changes are
+     acknowledged immediately, even if they've not been made from within
+     LazyBench.
+
+@endnode
+
+@node "FONT" "FONT ToolType"
+ FONT (internal default: FONT=topaz)
+
+     No matter which kind of font you select, the LazyBench window and
+     its gadgets will always have the right size and ratio. You can use:
+
+     FONT=ICON to use the default Workbench icon font;
+
+     FONT=SYSTEM to use the default System font;
+
+     FONT=SCREEN to use the default Screen font;
+
+     FONT=fontname (no .font suffix) to use a different font altogether;
+
+
+     NOTE:  Read  the section  about the @{" FONTSIZE " link "FONTSIZE" } Tool Type for finer
+     control over font support.
+
+@endnode
+
+@node "FONTSIZE" "FONTSIZE ToolType"
+ FONTSIZE (internal default: FONTSIZE=8)
+
+     This one is pretty obvious:  once you've selected a font, you can
+     specify it's point size.  What's not so obvious though, is that this
+     ToolType works even with one of the default icon/system/screen font.
+     In the latter case, you can:
+
+     *  Omit the FONTSIZE ToolType to use the same point size as the
+        default icon/system/screen font;
+     *  Specify a different size to use the default icon/system/screen
+        font with a different point size;
+
+     Hint:  This is especially useful with the default screen font. Since
+     system requesters are displayed using this font, you could choose a
+     small(ish) point size for the screen and select a bigger point size
+     for LazyBench itself.  On an interlaced 640 x 512 Workbench, a 15
+     point screen font and FONTSIZE=18 are quite nice.
+
+
+     NOTE 1:  Be sure to ask for an existing point size or the OS will
+     give you an algorithmically generated one.  No big deal, but if the
+     font was a bitmap font, and not an outline font (like the
+     CompuGraphic fonts that are available and can be used), it'll look
+     pretty ugly.  That's because the system is trying to scale a bitmap,
+     instead of a mathematical definition for a bitmap (which is what an
+     outline font is).
+
+     NOTE 2:  Don't ask for point sizes too large, or the LazyBench
+     window won't fit on the screen and will be hideously clipped by the
+     OS. Nonetheless, you could still quit LazyBench and experiment with
+     a smaller point size.
+
+@endnode
+
+@node "ITEMS" "ITEMS ToolType"
+ ITEMS (internal default: ITEMS=5)
+
+     This Tool Types tells LazyBench how many items to display in the
+     @{" ListView " link "LISTVIEW" } at once.  Also, you could find it useful to maintain a
+     fixed ratio between the LazyBench window and the screen scpecified
+     by the @{" PUBSCREEN " link "PUBSCREEN" } ToolType, especially with interlaced and/or
+     bigger screens.
+
+
+     NOTE 1:  You can't use a value smaller than 5.
+
+     NOTE 2:  Don't use a value too big, or the LazyBench window won't
+     fit on the screen and will be hideously clipped by the OS.  However,
+     you would still be able to quit LazyBench and experiment with a
+     smaller value.
+
+@endnode
+
+@node "NOGADGETS" "NOGADGTES ToolType"
+ NOGADGETS (toggle, no internal default)
+
+     By default, LazyBench draws three gadgets at the bottom of the
+     @{" ListView " link "LISTVIEW" }:
+
+     @{" About... " link "ABOUT_GAD" }
+     @{" Hide " link "HIDE_GAD" }
+     @{" Edit... " link "EDIT_GAD" }
+
+     Since the same options (plus a few more) are available from the
+     @{" Project " link "PROJECT" } menu and its keyboard  shortcuts, once you're comfortable
+     enough with LazyBench you'll probably prefer a smaller window with
+     no gadgets at all.  Also, you could prefer a gadgetless window each
+     time your localized LazyBench has very "wordy" gadgets and,
+     consequentially, a very large window!
+
+@endnode
+
+@node "PUBSCREEN" "PUBSCREEN ToolType"
+ PUBSCREEN (internal default: PUBSCREEN=Workbench)
+
+     This ToolType tells LazyBench where to pop up its window.  The
+     default is the Workbench screen, but you can choose any other public
+     screen.
+
+
+     NOTE:  LazyBench doesn't create the specified public screen for you.
+     In other words, the public screen must already exist, or LazyBench
+     won't be able to open its window there.
+
+@endnode
+
+@node "SELFATTACH" "SELFATTACH ToolType"
+ SELFATTACH (toggle, no internal default)
+
+     Tells LazyBench to attach an item named 'LazyBench...' under the
+     Workbench "Tools" menu so, apart from using the LazyBench hotkey,
+     you could select this item to display its window.
+
+
+     NOTE:  Read the section about the @{" CX_POPUP " link "CX_POPUP" } ToolType for more
+     details about the LazyBench hot key.
+
+@endnode
+
+@node "SORT" "SORT ToolType"
+ SORT (internal default: no sort)
+
+     By default, LazyBench lists items from the @{" configuration " link "CONFIGURATION" } file in
+     the same order you've enterd them.  Nonetheless, should you prefer a
+     more organized listing, you could use:
+
+     SORT=A-Z to have entries listed in ascendant order
+
+     SORT=Z-A to have entries listed in descendant order
+
+
+     NOTE: Any other combination produces no sort at all.
+
+@endnode
+
+@node "CONFIGURATION" "Configuration"
+ Configuration
+
+     Just create the file "ENVARC:LazyBench/LazyBench.menu".  This is a
+     plain text file, so you can use the editor you feel most comfortable
+     with.  LazyBench reads this file to know about the applications you
+     would like to launch without opening drawers and rearranging
+     windows.
+
+     Actually, you can use LazyBench itself to create this file.  If you
+     start LazyBench, and "ENVARC:LazyBench/LazyBench.menu" doesn't
+     exist, it asks whether you want to create one or not.  Clicking on
+     the 'Yes' gadget will invoke the editor specified by the @{" EDITOR " link "EDITOR" }
+     ToolType.
+
+     Each line in this configuration file is the complete filename (path
+     & name) for the application you want to launch from LazyBench. Each
+     line can be up to 256 characters in length. Here's an example:
+
+          SYS:Utilities/Clock
+          SYS:Tools/Calculator
+          Work:FinalCopy_II/FinalCopy_II
+          Work:NComm/NComm
+          Work:Games/Amoeba Invaders
+
+     Please note the space in the filename from the last line.  If a
+     directory or an application name contains spaces, you don't have to
+     use double quotes:  just type the full filename as above.
+
+     Incidentally, in the @{" ListView " link "LISTVIEW" } you'll see just the applications
+     name, not the full filenames, so in this case you'll see items named
+     "Clock", "Calculator", "FinalCopy_II", "NComm" and "Amoeba
+     Invaders".
+
+
+     Also, you could also use a line like this:
+
+          Work:WriteStuff/Documents/Letter
+
+     where "Letter" is a document (a Project) rather than an application
+     (a  Tool).  In this case, choosing the item named "Letter" from the
+     LazyBench @{" ListView " link "LISTVIEW" } would launch the word processor used to create
+     such a document, which in turn would open the file named "Letter".
+
+
+     NOTE:  You can  have an unlimited number of applications listed in
+     the configuration file.  Well, as long as you have enough free RAM,
+     that is!
+
+@endnode
+
+@node "UTILIZATION" "Utilization"
+ Utilization
+
+     As to start with, you must open the LazyBench window.  This can be
+     accomplished by:
+
+     1)  Using its hotkey.  No matter which screen is in the foreground,
+         the hotkey causes the screen specified by the @{" PUBSCREEN " link "PUBSCREEN" }
+         ToolType to come to the foreground and the LazyBench window to
+         open.  The default hotkey is the combination "Right Alt Help"
+         (press the Right Alt key, hold it down and press the Help key)
+         but you are free to pick up the one you prefer.  Read the
+         section about the @{" CX_POPKEY " link "CX_POPKEY" } ToolType for more details.
+
+     2)  Select the item 'LazyBench...' from the Workbench "Tools" menu.
+         This is handy if the Workbench screen is already in the
+         foreground but is available only if you've specified the
+         @{" SELFATTACH " link "SELFATTACH" } ToolType.
+
+
+     Once the LazyBench window is displayed, you are presented with:
+
+     The @{" ListView " link "LISTVIEW" }
+     The @{" Gadgets " link "GADGETS" }
+     The @{" Project " link "PROJECT" } menu
+
+@endnode
+
+@node "LISTVIEW" "ListView"
+ ListView
+
+     The ListView is much like a regular file requester but this time the
+     items displayed in the view box are applications you can launch from
+     LazyBench rather than files in a directory.
+
+     If the list is longer than can be accomodated by the view box, you
+     can move through the list by:
+
+     * Clicking on the scroll arrows;
+     * Dragging the scroll bar;
+     * Clicking on the scroll box;
+
+
+     If you hate mice, you could use the arrow keys instead:
+
+     * Up to scroll up by one item;
+     * Shift-Up to scroll up by one "page";
+     * Down to scroll down by one item;
+     * Shift-Down to scroll down by one "page";
+
+     Using this method, the currently selected item is displayed just at
+     the bottom of the ListView or, if you are running OS 3.0 or later,
+     the currently selected item becomes highlighted.
+
+
+     The simplest and quickest way to launch an application is to
+     double-click on a ListView item or to press the ENTER key after you
+     have made a selection.
+
+@endnode
+
+@node "GADGETS" "Gadgets"
+ Gadgets
+
+     Unless you've specified the @{" NOGADGETS " link "NOGADGETS" } Tool Type, three gadgets
+     are displayed at the bottom of the window:
+
+     @{" About... " link "ABOUT_GAD" }
+     @{" Hide " link "HIDE_GAD" }
+     @{" Edit... " link "EDIT_GAD" }
+
+     You can click on these gadgets or you can use their single key
+     equivalent denoted by the underscore (the '_' symbol) to perform
+     the desired action.
+
+
+     NOTE 1:  Using the latter method, the action is performed only on
+     the key release so, should you change your mind, it's possible to
+     press any other key which has no meaning to LazyBench (including
+     Control, Shift, Alt, Amiga and Caps Lock) to abort the operation.
+
+     NOTE 2:  Single key equivalent is available only when the gadgets
+     are displayed.  That is, you can't use it if you've specified the
+     @{" NOGADGETS " link "NOGADGETS" } ToolType.
+
+     NOTE 3:  The same functionalities are available through LazyBench
+     @{" Project " link "PROJECT" } menu and by the usual Right Amiga - key combination so,
+     should you prefer a smaller window, you could specify the
+     @{" NOGADGTES " link "NOGADGETS" } ToolType and work with no gadgets at all.
+
+@endnode
+
+@node "ABOUT_GAD" "'About...' Gadget"
+ 'About...' Gadget (single key equivalent: A)
+
+     Displays LazyBench version number, Copyright status and how to
+     contact the Author of such a fine Commodity! :-)
+
+@endnode
+
+@node "HIDE_GAD" "'Hide' Gadget"
+ 'Hide' Gadget (single key equivalent: H)
+
+     Closes the window and let LazyBench running in the background.  Same
+     as clicking on the window close gadget.
+
+     To reopen the window just use the LazyBench hot key or, if you've
+     specified the @{" SELFATTACH " link "SELFATTACH" } ToolType, select 'LazyBench...' from the
+     Workbench "Tools" menu.
+
+
+     NOTE:  Read the section about the @{" CX_POPKEY " link "CX_POPKEY" } ToolType for more
+     details about hot keys.
+
+@endnode
+
+@node "EDIT_GAD" "'Edit...' Gadget"
+ 'Edit...' Gadget (single key equivalent: E)
+
+     Invokes your editor, which in turn opens the @{" configuration " link "CONFIGURATION" } file.
+
+     Just edit the file to add or remove applications and save it as a
+     simple ascii file:  LazyBench will automatically update the
+     @{" ListView " link "LISTVIEW" } for you.
+
+
+     NOTE:  Read the section about the @{" EDITOR " link "EDITOR" } ToolType for more
+     details.
+
+@endnode
+
+@node "PROJECT" "'Project' Menu"
+ 'Project' Menu
+
+     This is the only LazyBench menu and the items available are:
+
+     @{" Edit... " link "EDIT_ITEM" } *
+     @{" Hide " link "HIDE_ITEM" } *
+     @{" Snapshot " link "SNAPSHOT_ITEM" }
+     @{" UnSnapshot " link "UNSNAPSHOT_ITEM" }
+     @{" About... " link "ABOUT_ITEM" } *
+     @{" Quit... " link "QUIT_ITEM" }
+
+
+     NOTE:  The '*' symbol denotes menu items which, unless you specify
+     the @{" NOGADGETS " link "NOGADGETS" } ToolType, are also available in the form of gadgets
+     which have single key equivalents.
+
+@endnode
+
+@node "EDIT_ITEM" "'Edit...' Menu Item"
+ 'Edit...' Menu Item (keyboard shortcut: Right Amiga E)
+
+     Invokes your editor, which in turn opens the @{" configuration " link "CONFIGURATION" } file.
+
+     Just edit the file to add or remove applications and save it as a
+     simple ascii file:  LazyBench will automatically update the
+     @{" ListView " link "LISTVIEW" } for you.
+
+
+     NOTE:  Read the section about the @{" EDITOR " link "EDITOR" } ToolType for more
+     details.
+
+@endnode
+
+@node "HIDE_ITEM" "'Hide' Menu Item"
+ 'Hide' Menu Item (keyboard shortcut: Right Amiga H)
+
+     Closes the window and let LazyBench running in the background.  Same
+     as clicking on the window close gadget.
+
+     To reopen the window just use the LazyBench hotkey, or, if you've
+     specified the @{" SELFATTACH " link "SELFATTACH" } ToolType, select 'LazyBench...' from the
+     Workbench "Tools" menu.
+
+
+     NOTE:  Read the section about the @{" CX_POPKEY " link "CX_POPKEY" } ToolType for more
+     details about hot keys.
+
+@endnode
+
+@node "SNAPSHOT_ITEM" "'Snapshot' Menu Item"
+ 'Snapshot' Menu Item (keyboard shortcut: Right Amiga S)
+
+     By default, LazyBench displays its window in the upper left corner
+     of the (visible portion  of the) public screen specified by the
+     @{" PUBSCREEN " link "PUBSCREEN" } ToolType.
+
+     Nonetheless, should you prefer to have the LazyBench window pop up
+     at a fixed position, just drag it where you want it to open and
+     select this menu item.  From then on,  until you select the
+     @{" UnSnapshot " link "UNSNAPSHOT_ITEM" } menu item, the window will pop up there.
+
+@endnode
+
+@node "UNSNAPSHOT_ITEM" "'UnSnapshot' Menu Item"
+ 'UnSnapshot' Menu Item (keyboard shortcut: Right Amiga U)
+
+     This menu item deletes any position information saved by the
+     @{" Snapshot " link "SNAPSHOT_ITEM" } menu item and reverts the LazyBench window to its default
+     behaviour.  In other words, the LazyBench window will pop up in the
+     upper left corner of the (visible  portion  of the) public screen
+     specified by the @{" PUBSCREEN " link "PUBSCREEN" } ToolType.
+
+@endnode
+
+@node "ABOUT_ITEM" "'About...' Menu Item"
+ 'About...' Menu Item (keyboard shortcut: Right Amiga ?)
+
+     Displays LazyBench version number, Copyright status and how to
+     contact the Author of such a fine Commodity! :-)
+
+@endnode
+
+@node "QUIT_ITEM" "'Quit...' Menu Item"
+ 'Quit...' Menu Item (keyboard shortcut: Right Amiga Q)
+
+     This menu item represents the only way to quit LazyBench.
+
+
+     NOTE  1: You need to quit LazyBench if you've changed one or more of
+     its @{" ToolTypes " link "TOOL_TYPES" } and want the modifications to have any effect!
+
+     NOTE  2:  This item is ghosted (you can't  select it) as long as
+     applications launched by LazyBench are still running.
+
+@endnode
+
+@node "TROUBLESHOOTING" "Troubleshooting"
+ Troubleshooting
+
+     Due to its simplicity, LazyBench shouldn't need any troubleshooting
+     at all.  Nonetheless, if one or more items are present in the
+     @{" configuration " link "CONFIGURATION" } file but are not displayed in the @{" ListView " link "LISTVIEW" }, you
+     may want to look for one of the following:
+
+
+     1)  Either you've made a typo or you have gotten the filename for
+         one or more applications wrong;
+
+     2)  The filename is correct but doesn't belong to a Tool or to a
+         Project.  A directory perhaps?!?
+
+     3)  The filename is right and the application is really a tool or a
+         project but has no icon.  LazyBench purpose is to launch an
+         application without having to double-click on its icon, so
+         you're definitely out of luck:  how can you double-click on
+         something with no icon at all?!? :-)
+
+
+     Furthermore, if LazyBench quits with the message "Cannot install
+     LazyBench as a Commodity" either you've entered a hotkey already in
+     use by another Commodity or you've entered an illegal hotkey.
+     Please check the @{" CX_POPKEY " link "CX_POPKEY" } ToolType and refer to your Workbench
+     manual for more details about Commodities.
+
+@endnode
+
+@node "ACKNOWLEDGEMENTS" "Acknowledgements"
+ Aknowledgements
+
+     LazyBench isn't a one man team product anymore.  Thanks to UseNet,
+     I've been able to get in touch with other Amiga enthusiasts who
+     spent part of their valuable time giving useful suggestions, hunting
+     obscure bugs, translating this doc file and creating the catalogs
+     needed for Locale support.
+
+     As a net result, LazyBench has drastically improved since its last
+     official incarnation (V1.14), so the least I can do is give credit
+     where credit's due:
+
+     @{" Documentation " link "DOCUMENTATION" }
+     @{" Beta Testing " link "BETA_TESTING" }
+     @{" Translation " link "TRANSLATION" }
+
+@endnode
+
+@node "DOCUMENTATION" "Documentation"
+ Documentation
+
+     I wrote the original doc file in AmigaGuide format, but, since
+     English is not my native language, Gregory Block took the time (and
+     selfless courage!) to proofread, edit and even rewrite the more
+     ambiguous sections.  In other words, thanks a 1,000,000 Greg!
+
+
+     Note from the Editor:
+
+     No, I did NOT add this just to feed my ego; I just filled my name
+     in.  And thanks to Werther for LazyBench, and for those neat little
+     candies he makes!
+
+@endnode
+
+@node "BETA_TESTING" "Beta Testing"
+ Beta Testing
+
+     The following people didn't just beta test LazyBench:  they put it
+     through real torture tests! :-)
+     Furthermore, they provided very useful suggestions, most of which
+     have made their way into this LazyBench release, so I really want to
+     thank:
+
+     Gregory R Block
+     Herb Brown
+     Nicolas Dade
+     Maxwell Daymon
+     Gib Gilbertson
+     Karsten Klump
+     Michael Wiedmer
+
+     It's been a pleasure to work with you!
+
+@endnode
+
+@node "TRANSLATION" "Translation"
+ Translation
+
+     The following people gave their contribution with the creation of
+     localized guides and catalogs, which are available at NO EXTRA COST
+     either by e-mail or snail mail.  See @{" Feedback " link "FEEDBACK" } for details.
+
+     dansk                  Peter Andresen
+     deutsch                Wolfgang Finkenzeller, Karsten Klump
+     français               Philippe Brand
+     nederlands             Michiel Willems
+     norsk                  Andreas Dobloug
+     suomi                  Lauri Aalto
+     svenska                Erik Bystrom
+
+     As promised in comp.sys.amiga.* when I was looking for translators,
+     you *REALLY* have my eternal gratitude! :-)
+@endnode
+
+@node "FEEDBACK" "Feedback"
+ Feedback
+
+     LazyBench is freely distributable, so I'm not asking for money.
+     Anyway, if you are using LazyBench I'd really appreciate if you just
+     let me know it.  Also, suggestions, bug reports, positive criticism
+     and contributions are welcomed at the following addresses:
+
+          e-mail:     werther@karunko.nervous.com
+
+
+     If all else fails, you can always reach me by snail mail (even a
+     simple postcard will do):
+
+          Werther 'Mircko' Pirani
+          Via Mario Torresi, 74
+          60128 Ancona
+          ITALY
+@endnode
+
+@node "LOCALE" "Locale"
+ Locale
+
+    Although LazyBench V1.20 supports Locale, this distribution archive
+    doesn't contain any translated guide or catalog -- and the reason
+    is two-fold:
+
+    1) I didn't want this archive to become another 500K monster;
+
+    2) I don't know how many people are actually interested in using
+       localized docs and applications and I'd like to gauge the
+       situation by myself.
+
+    However, since quite a lot of people gave their cotributions for a
+    localized LazyBench, many languages are supported at NO EXTRA COST.
+    See @{" Translation " link "TRANSLATION"} for details.
+@endnode

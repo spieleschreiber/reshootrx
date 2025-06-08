@@ -1,0 +1,8 @@
+SYS:
+IF EXISTS SYS:WBStartup
+Path >NIL: RAM: C: SYS:Utilities SYS:Rexxc SYS:System S: SYS:Prefs SYS:WBStartup SYS:Tools SYS:Tools/Commodities
+NewShell KCON:/50//130/AmigaShell/CLOSE S:Shell-Startup
+ELSE
+Path >NIL: RAM: C: SYS:Utilities SYS:Rexxc SYS:System S: SYS:Prefs SYS:Tools SYS:Tools/Commodities
+NewShell CON:/50//130/AmigaShell/CLOSE S:Shell-Startup
+EndIF

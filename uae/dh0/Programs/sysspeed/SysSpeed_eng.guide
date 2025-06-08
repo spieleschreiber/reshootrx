@@ -1,0 +1,1196 @@
+@database SysSpeed_eng.guide
+@width 80
+@wordwrap
+@Node Main "SysSpeed: Table of contents"
+
+
+
+		SysSpeed Version 2.6
+
+	    (C)opyright 1995-98 by ALiENDESiGN
+
+		Last Change: 5 April 98
+
+
+		@{" Introduction         " link Introduction}
+		@{" Liability            " link Liability}
+		@{" Requirements         " link Requirements}
+		@{" Distribution         " link Distribution}
+		@{" Installation         " link Installation}
+
+	Explanation of the Window of the Program:
+	========================================
+
+	Main - Page
+	------------
+		@{" Top Textline        " link topline}
+
+	    HighLevel - Tests
+		@{" ADPro                " link ADPro}
+		@{" ImageStudio          " link ImageStudio}
+		@{" Cygnus-Ed            " link Cygnus-Ed}
+		@{" GoldEd               " link GoldEd}
+		@{" Cruncher             " link Cruncher}
+
+	    LowLevel - Tests
+		@{" Memory               " link Memory}
+		@{" Drive                " link Drive}
+		@{" Intuition            " link Intuition}
+		@{" Graphic              " link Graphic}
+		@{" CPU/FPU              " link CPU}
+		@{" PowerPC              " link PowerPC}
+		@{" External             " link External}
+
+		@{" Listview             " link Listview}
+		@{" QuickChange          " link QuickChange}
+		@{" Make Module          " link Make Module}
+		@{" Save Module          " link Save Module}
+		@{" Print                " link Print}
+		@{" StatisticsInfo       " link StatisticsInfo}
+		@{" About                " link About}
+		@{" ModuleInfo           " link ModuleInfo}
+
+		@{" SystemInfo           " link SystemInfo}
+		@{" Bottom Textline      " link bottomline}
+
+
+	Preferences - Page
+	-------------------
+		@{" GlobalPrefs          " link GlobalPrefs}
+		@{" WindowPrefs          " link WindowPrefs}
+		@{" ModulePrefs          " link ModulePrefs}
+		@{" TestPrefs            " link TestPrefs}
+		@{" StatisticsPrefs      " link StatisticsPrefs}
+		@{" ExternalPrefs        " link ExternalPrefs}
+		@{" SAVE, USE, CANCEL    " link SavePrefs}
+	
+	======================================
+
+		@{" History              " link History}
+		@{" known Bugs, Future   " link Bugs}
+		@{" Greetings            " link Greetings}
+
+@EndNode
+@Node Introduction "SysSpeed: Introduction"
+
+ Introduction:
+ -------------
+
+ Some  guys  will declaim that there are more than enough speedtesters out, so
+ why just  another one?  First I  must  say, that  the  results  from the most
+ programs are  pure  bullshit (e.g. DiskSpeed. BusTest) or simply doesn't tell
+ something  about the true speed of your machine. That's the reason for
+ SysSpeed, it shows you the speed of any sections of the computer (CPU, FPU,
+ Memory, Harddisk, GFX-Chips) because the true speed depends not only on your
+ CPU, it's also a result from the speed of RAM, Harddisk and so on... 
+ All selected tests has been chosen so that SysSpeed examines all
+ circumstances.
+ By  creating SysSpeed we've paid attention to the very easy userinterface, so
+ that (hopefully) no wishes are left! But you should also continue reading the
+ manual.
+
+@EndNode
+@Node Liability "SysSpeed: Liability"
+
+ Liability:
+ ----------
+
+ With the usage of SysSpeed you agree that:
+
+ THERE  IS  NO LIABILITY TO THIS PROGRAM-PACKAGE, IN REFERENCE TO THE ASSERTED
+ LAWS.  THE COPYRIGHT OWNERS, AND/OR A THIRD PARTY, PLACE THIS PROGRAM PACKAGE
+ AT  YOUR  DISPOSAL  "AS  IS"  (EXCEPT  WHERE THIS IS FIXED ANYWHERE ELSE IN A
+ WRITTEN  WAY)  WITHOUT  ANY  GUARANTEE IN ANY FORM (INDIRECT OR DIRECT FORM).
+ THE  FULL  RISK  OF QUALITY AND FUNCTIONALITY OF THIS PROGRAM IS AT YOUR OWN.
+ IF  THE  PROGRAM  HAS  A  BUG,  YOU  HAVE  TO  PAY ALL COSTS OF THE NECESSARY
+ SERVICE-WORKS AND REPAIRS FOR YOURSELF.
+
+ UNDER  NO  CIRCUMSTANCES,  THE COPYRIGHT OWNERS OR A THIRD PARTY DISTRIBUTING
+ THIS  PROGRAM  PACKAGE,  AS ALLOWED, JUST BEFORE, CAN NOT BE HELD RESPONSIBLE
+ FOR  ANY  DAMAGE  CAUSED  IN  ANY USUAL, SPECIAL, OR ACCIDENTAL WAY OR BY THE
+ PROGRAM  PACKAGE  (SURROUNDING BUT NOT RESTRICTED ARE THE LOSS OF DATA OR NOT
+ CORRECTLY  DISPLAYED  DATA  OR  LOSSES CAUSED BY YOU OR A THIRD PARTY OR BY A
+ FAULTY  WORK  OF THIS PROGRAM PACKAGE WITH OTHER PROGRAMS), ALSO IF THE OWNER
+ OR A THIRD PARTY HAS BEEN POINTED AT SUCH POSSIBILITIES OF DAMAGE.
+
+@EndNode
+@Node Requirements "SysSpeed: Requirements"
+
+ Requirements:
+ -------------
+
+  - An Amiga
+  - Kickstart V2.04 or higher
+  - minimum is 2MB free Memory
+  - MUI Version 3.0 (V11) or higher
+  - Rexxmast must be running (used for 2 ADPro-Tests)
+
+ Optional (only if you want to make a test with each program):
+
+  - Cygnus-Ed V3.x
+  - ADPro V 2.x
+  - GoldEd V3.x
+  - ImageStudio V 2.x
+
+@EndNode
+@Node Distribution "SysSpeed: Distribution"
+
+ Distribution:
+ -------------
+
+ SysSpeed is  Freeware!  It can freely distributed, as long as all copyrights
+ are observed.
+ If you have questions or suggestions, you have to send a letter to the
+ following adress:
+
+                       Torsten Bach
+                       Fachinger Str. 45 b
+                       13591 Berlin
+                       Germany
+
+
+ You can reach me via E-Mail at:
+
+                            lsi@berlin.snafu.de
+
+
+@EndNode
+@Node Installation "SysSpeed: Installation"
+
+ Installation:
+ -------------
+
+ Use the Installationscript to install the software. If you start SysSpeed the
+ first time you have to change the paths and the ScreenMode and save it with
+ the "SAVE"-Button.
+
+ Note: Do  not  change  the  "SysSpeeddata" - directory and it contents,
+ otherwise SysSpeed wouldn't work correctly.
+
+
+@EndNode
+
+ .............................................................................
+
+                                 Main - Page
+ .............................................................................
+
+@Node topline "SysSpeed: Top Textline"
+
+ The first TextLine is the Statusline, it gives you informations,like the name
+ of the current test, occured errors and other important messages.
+
+@EndNode
+@Node ADPro "SysSpeed: ADPro"
+
+ With this button you start the ADPro-test. To execute this test make sure
+ that: 
+  * The "ADPro"-checkmark on the "Preferences-TestPrefs"-page is enabled.
+  * The ADPro path is correct
+  * The SysSpeedData path is correct (required for the TestPictures)
+
+ After executing the ADProTest the results are displayed (in seconds) at the
+ right side in the listview. This test uses several operators to change the
+ picture. ADPro is controlled with AREXX-Messages (Rexxmast must be running).
+ You can abort the test by holding both mousebuttons pressed, but it'll only
+ stop after each part-test.
+ The result of the test shows you overall CPU-, FPU- and Harddiskspeed.
+
+ Note: The test was only made for ADPro 2.5, so we are not sure that it works
+ with older versions. You have hopefully 4MB FastRam for using this test. If
+ you not own the ADPro Package, you have to disable the "ADProTest"-checkmark.
+ A alternativ for ADPro is ImageStudio, because it's package is PD (e.g.avail-
+ able from Aminet)
+
+@EndNode
+@Node ImageStudio "SysSpeed: ImageStudio"
+
+ Suprise, suprise this button starts the ImageStudio-test. To start this test
+ make sure that:
+  * The "ImageStudio"-checkmark on the "Preferences-TestPrefs"-Page is enabled.
+  * The ImageStudio path is correct
+  * The SysSpeedData path is correct (required for the TestPictures)
+
+ The test works with and without a registered version of Imagestudio, because
+ the desired picture is smaller than 250x250 points.
+ The results are also displayed (in seconds) at the right side in the listview.
+ You can abort the test by holding both mousebuttons pressed, but it'll only
+ stop after each part-test. Is controlled like ADPro.
+ The test shows the overall speed of from CPU, FPU, and Harddisk.
+
+ Note: If you are using the unregistered version, SysSpeed tries to remove the
+ sharewarerequester after a delay of 2.5 seconds. If you have a very slow
+ Harddisk and the sharewarerequester doesn't appear before the 2.5 seconds you
+ have to click on the "OK"-gadget by yourself.  The test was only made for
+ ImageStudio 2.2, so we are not sure that it works with older versions. You
+ have hopefully 4MB FastRam for using this test. The unregistered version of
+ ImageStudio is available from Aminet. The Sysspeed doesn't read the tooltypes
+ out of the icons, because the preferences are setted by itself. You can 
+ choose the ScreenMode of ImageStudio by pressing the "ScreenMode"-button on
+ the "Preferences"-Page. Default Screenmode is PAL:High Res Laced.
+
+@EndNode
+@Node Cygnus-Ed "SysSpeed: Cygnus-Ed"
+
+ Boring like every button, this test starts the CygnusED-test. To run this
+ test make sure that:
+  * The "CygnusED"-checkmark on the "Preferences-TestPrefs"-page is enabled.
+  * The CygnusED path is correct
+  * The SysSpeedData path is correct (required for the testtext)
+
+ CED is controlled with AREXX-messages. The test uses different methods to
+ change a text and more, like scrolling. You can abort the test (like every
+ test) with both mousebuttons. But make sure that the CED is in the
+ background. The results are displayed (in seconds) at the right side in the
+ listview.
+ This test shows especially the speed of CPU and graphic.
+
+ Note: You can choose the ScreenMode of CED by pressing the "ScreenMode"-
+ button on the "Preferences-GlobalPrefs"-Page. Default Screenmode is
+ "PAL:High Res Laced".
+ This test works only with CED V3.x. If you not own CED you can use the
+ GoldED-test that has similar results.
+
+@EndNode
+@Node GoldEd "SysSpeed: GoldEd"
+
+ By pressing this button you'll start the GoldED-test. To run this test make
+ sure that:
+  * The "GoldED"-checkmark on the "Preferences-TestPrefs"-page is enabled.
+  * The GoldED path is correct
+  * The SysSpeedData path is correct (required for the testtext)
+
+ GoldED is controlled with AREXX-messages. The test uses different methods to
+ change a text and more, like scrolling. You can abort the test (like every
+ test) with both mousebuttons. But make sure that the GoldED is in the
+ background. The results are displayed (in seconds) at the right side in the
+ listview.
+ This test shows especially the speed of CPU and graphic.
+
+ Note: The unregistered shareware version of GoldEd is available from aminet.
+ You can choose the ScreenMode of GoldED by pressing the "ScreenMode"-button
+ on the "Preferences-GlobalPrefs"-Page. Default Screenmode is
+ "PAL:High Res Laced".
+
+ GoldEd V 4.x is not support (yet) ...why :
+
+  - i can`t load a new configfile to change screen, undobuffer, fonts...
+
+  - limited textsize, if GoldEd not registered
+
+  - after intensive use of the undobuffer the system hangs for some seconds
+    after quitting GoldEd
+
+@EndNode
+@Node Cruncher "SysSpeed: Cruncher"
+
+ You will activate the cruncher-test by pressing this button (what a suprise).
+ To run this test make sure that:
+  * The "Cruncher"-checkmark on the "Preferences-TestPrefs"-page is enabled.
+  * The SysSpeedData path is correct (required for testcrunch-file)
+  * You own the following libraries:
+     - powerpacker.library
+     - xpkmaster.library
+     - xpkshri.library (in libs:compressors/)
+
+ Aborting this test is possible by holding both mousebuttons. The results are
+ displayed (in seconds) at the right side in the listview. The time for each
+ test is only the true (de-)crunch-speed.
+ This test shows especially the speed of CPU and RAM.
+
+@EndNode
+@Node Memory "SysSpeed: Memory"
+
+ By pressing this button you will start the memory-test, To run this test make
+ sure that:
+  * The "Memory"-checkmark on the "Preferences-TestPrefs"-page is enabled.
+
+ While the test, multitasking is switched off (if "Multitasking"-Checkmark on
+ Preferences-TestPrefs-Page not set). You can abort the test by holding both
+ mousebuttons. The memtest shows the speed of each RAM-type. The results are
+ displayed (in MegaByte per second) at the right side in the
+ listview.
+ This test moves 5MB trough a greatest possible buffer and counts the time
+ for it.
+
+ Note: This test checks the speed of your memory with an easy move loop
+ (that's the same method that most of the other programs use).
+
+@EndNode
+@Node Drive "SysSpeed: Drive"
+
+ By pressing this button you will start the drive-test, To run this test make
+ sure that:
+  * The "Drive"-checkmark on the "Preferences-TestPrefs"-page is enabled.
+  * The drive path is correct (set it to the drive you want to test)
+
+ This test checks the create-, write- and readspeed of your selected drive
+ and controller. It writes/reads at each test 5 times a 1MB file to/from your
+ harddisk and calculates the average speed. You can abort the test by holding
+ both mousebuttons. The results are displayed (in MegaByte per second) at the
+ right side in the listview.
+ It tests also the speed to create, open, dirscan, delete small files and 
+ the seek/read speed within a file.
+ 
+ Important: The "Drive" must be the device-name (e.g. DH0:) that "RawRead-
+ test works and some information about the drive can be read.
+
+ Note: You can only test writeable disks with a minimum of 1MB free Space. The
+ results of the test depends not only from you harddisk- and controllerspeed
+ it depends also of the fragmentation of your selected drive. Create File
+ takes longer than Read/Write but realise that not the time counts, that used
+ to delete the file after create ,the result is higher!
+
+@EndNode
+@Node Intuition "SysSpeed: Intuition"
+
+ By pressing this button you will start the intuition-test, To run this test
+ make sure that:
+  * The "Intuition"-checkmark on the "Preferences-TestPrefs"-page is enabled.
+
+ This test measures the speed of the OS-functions of the "intuition.library",
+ which is reponsible for windows, screens and so on. Multitasking is not
+ disabled during this test, so make sure that you have no background tasks
+ running that falsifies the result. (if you're still reading here you are a
+ son of a bitch !, the functions are so easy). You can abort the test by
+ holding both mousebuttons. The results are displayed (in Operations per
+ second) at the right side in the listview.
+
+ Note: You can choose the ScreenMode for this test by pressing the
+ "ScreenMode"-buttons on the "Preferences-GlobalPrefs"-Page.Default Screenmode
+ for "ScreenMode 8bit" is "PAL:High Res Laced". You can select any screenmode,
+ but make sure that you use a Screensize like the other Modules.
+
+@EndNode
+@Node Graphic "SysSpeed: Graphic"
+
+ By pressing this button you will start the graphic-test, To run this test
+ make sure that:
+  * The "Graphic"-checkmark on the "Preferences-TestPrefs"-page is enabled.
+
+ It's a pure graphicspeed-test that uses the OS-functions of the
+ "graphics.library". Each single part of the test takes 4 seconds. The
+ Multitasking is disabled during the test (if the "Multitasking"-Checkmark on
+ the Preferences-TestPrefs-Page not set). You can abort the test by holding
+ both mousebuttons. The results are displayed (in Operations per second) at
+ the right side in the listview.
+
+ Note: You can choose the ScreenMode for this test by pressing the
+ "ScreenModes"-button on the "Preferences-GlobalPrefs"-Page. Default Screenmode
+ for "ScreenMode 8bit" is "PAL:High Res Laced". You can select any screenmode,
+ but make sure that you use a Screensize like the other Modules.
+
+@EndNode
+@Node CPU "SysSpeed: CPU/FPU"
+
+ By pressing this button you will start the graphic-test, To run this test
+ make sure that:
+  * The "CPU/FPU"-checkmark on the "Preferences-TestPrefs"-page is enabled.
+
+ This test measures the speed of the CPU/FPU to execute 10 Mio instructions.
+ The Multitasking is disabled during the test (if the "Multitasking"-Checkmark
+ on the Preferences-TestPrefs-Page not set).
+ You can abort the test by holding both mousebuttons.
+
+ Note: There is no real Method to test MIPS/MFLOPS. That`s why i make my own.
+ You can`t compare the results with other programs (SysInfo), but it works
+ also correct on 060.
+
+@EndNode
+@Node PowerPC "SysSpeed: PowerPC"
+
+ By pressing this button you will start the PowerPC-test, To run this test
+ make sure that:
+  * The "PowerPC"-checkmark on the "Preferences-TestPrefs"-page is enabled.
+
+ The MIPS/MFLOPS/Memory - Test is a conversion of the 68k version.
+
+ Note: The test works (at the moment) only with WarpOS V 12+, because with
+ PowerUp it`s not possible to run PowerPC code directly, like RunPPC()
+ with WarpOS. 
+ 
+@EndNode
+@Node External " SysSpeed: External"
+
+ By pressing this button you will start the external-test. To run this test
+ make sure that:
+  * The "External"-checkmark on the "Preferences-TestPrefs"-page is enabled.
+
+ This test execute all external programs, that can be changed on the
+ "Preferences-ExternalPrefs"-page.
+ I have made this, that you can make your own speedtests.
+
+ Note: The external programs can also be scripts ( runed with "rx" or "exe-
+ cute" )
+
+@EndNode
+@Node Listview " SysSpeed: Listview"
+
+  Here you can read all results of the tests, the unit of each test depends on
+  the test itself so it's seconds or MB/s or Operations/s. On the left side of
+  the listview are the results from your current tests, following from left to
+  right are the results from module 1-4. On the right side is the comparison
+  between the selected "Comparebase"-Module and the selected "RelativTo"-
+  Module. Some example-modules are included and can be selected in the
+  "Preferences"-Page.
+
+ CompareBase - Cyclegadget
+
+  With this gadget you can definite the base for the compare calculation.
+  Default is "You". If you made a test you can compare your machine with other
+  machines so set the "RelativTo"-cyclegadget to you favourite module (see
+  ModuleX-Part on the "Preferences"-Page-Doc). So you can look onto the
+  listview at the right side and read if you are faster (value >1) or slower
+  (value <1).
+
+ RelativTo - Cyclegadget
+
+  Here you can select the comparemodule for the calculation. "Compare" in the
+  listview is the result. (look at CompareBase chapter for more infos)
+
+ QuickChange
+
+  Open the @{"QuickChange" link QuickChange 0} window to manipulate the Listview.
+
+@EndNode
+@Node QuickChange " SysSpeed: QuickChange"
+
+ Module 1-4
+ ----------
+  disable/enable Modules for the Listviewdisplay
+
+ Listview
+ --------
+  In this Listview you can move the Modules by Drag&Drop.
+
+@EndNode
+@Node Make Module " SysSpeed: Make Module"
+
+ By pressing this button you'll execute all test that you've marked on the
+ "Preferences-TestPrefs"-Page. You can abort the test(s) by holding both
+ mousebuttons. If all tests are made, without any error or aborting, you're
+ able to save the results of all test together in a so called "Module".
+
+ Note: On a DraCo the "Multitasking"-Checkmark on the Preferences-TestPrefs-
+ Page must me set.
+
+@EndNode
+@Node Save Module " SysSpeed: Save Module"
+
+ Here you can save the made module (use "Make Module"). The "Short Name" can
+ be set on the Preferences-ModulePrefs-Page. This name is displayed after
+ loading the module again in the top of the listview. A filerequester appears
+ and asks you if you want to send some money to me, just joking, you are
+ asked for filename and path of the module. So the module is saved and you
+ can reload it any time and compare it with some ather modules.
+
+@EndNode
+@Node Print " SysSpeed: Print"
+
+ Pressing this button opens a window, there you've quite a lot of checkmarks,
+ one for each test, so you can enable/disable each of them to select what you
+ want to print out. You can also redirect the output to anywere you want, into
+ a file or whatever. If you want so then edit the stringgadget in the top of
+ the window or press the getfilegadget right beside it. So now you can start
+ the printing by pressing the "Print"-button.
+
+ If you select "All On" -> set all PrintCheckmarks ON
+ If you select "All Off" -> set all PrintCheckmarks OFF
+ If "Header" not selected -> no Header was printing
+  (some Moduleinforamtions, CompareBase, Comparemodule)
+
+ Note: If the "Print"-Checkmark at the "Preferences-WindowPrefs"-page is
+ enabled, the "Print"-window is automaticly open at startup.
+ The default PrintPath can be changed on the "Preferences-GlobalPrefs"-page.
+
+@EndNode
+@Node StatisticsInfo " SysSpeed: StatisticsInfo"
+
+ With This Button you can display a graphical result of the compare from each
+ module. The selected module at "Relativ to" is the comparebase (100%). All
+ other modules are displayed in relation to it. You can select the display of
+ each test via the cyclegadget on the top of the window.
+ The statistic window is updated while doing any test in the background.
+ The textfield "Results from" shows you the name from currently displayed test.
+ The "Relativ to" textfield shows the name of the comparebase (100%).
+ The "Scala" cyclegadget allows you let's you shrink/enlarge the graphical
+ display of a the bars. So here's a small explanation: Scala 1/1 means 1 Pixel
+ is 1% , 1/2 means 1 Pixel are 2% and so on.
+ If you select "Best": Scala was automaticly calculated for the longest
+ bar. You can select the default for Scala on the "Preferences"-Page at
+ StatisticPrefs. A "»»" on the right side of a test means that one bar
+ doesn't fit on the scala. You have to raise the scala with the
+ "Scala"-cyclegadget, You can select the colors and the 3D-effect on the
+ "Preferences"-Page at StatisticPrefs.
+
+ Note: If you want to use the "StatisticsInfo" there must be a "XEN"-Font in
+ your FontDrawer. You have to use a 8 colorscreen if you want to display
+ all results in different colors. ATTENTION if you use a "Relativ to" module
+ without any testresult there are NO bars.
+ If the "StatisticsInfo"-Checkmark at the "Preferences-WindowPrefs"-page
+ is enabled, the "StatisticsInfo"-window is automaticly open at startup. 
+
+@EndNode
+@Node About " SysSpeed: About"
+
+ It'll display some information about the program and the authour.
+
+@EndNode
+@Node ModuleInfo " SysSpeed: ModuleInfo"
+
+ It shows some information about the systemconfiguration of loaded modules.
+
+ Note: That I can recognize the boards in the loaded modules, the "expname.lib-
+ rary" must be in "Libs:" ( if the library the boards not recognize, the
+ Manufacturer and Product are displayed as ASCII )
+ If the "ModuleInfo"-Checkmark at the "Preferences-WindowPrefs"-page is
+ enabled, the "ModuleInfo"-window is automaticly open at startup. 
+ The Textstyle of the ModuleInfo can also be changed on the "Preferences-
+ WindowPrefs"-page.
+
+@EndNode
+@Node bottomline " SysSpeed: Bottom Textline"
+
+  Here are some infos of your machine (e.g. CPU, FPU, Chipset)
+
+@EndNode
+@Node SystemInfo " SysSpeed: SystemInfo"
+
+ It shows all available informations about your system.
+
+ Note: That I can display your boards read under "ModuleInfo".
+ If the "SystemInfo"-Checkmark at the "Preferences-WindowPrefs"-page is
+ enabled, the "SystemInfo"-window is automaticly open at startup.
+ The Textstyle of the SystemInfo can also be changed on the "Preferences-
+ WindowPrefs"-page. 
+ 
+@EndNode
+
+ ..............................................................................
+
+                             Preferences - Seite
+ ..............................................................................
+
+
+@Node GlobalPrefs "SysSpeed: GlobalPrefs"
+
+  SysSpeeddata
+  ------------
+   Here you've to enter (or select via requester) the path to the Data-Files
+   that SysSpeed requires for the most tests. DON'T change anything inside of
+   this directory because SysSpeed wouldn't work anymore.
+
+  ADPro
+  -----
+   Here you've to enter (or select via requester) the Path and FileName of your
+   ADPro (e.g. ADPro:ADPro). If you not own ADPro you've to disable the
+   "ADPro"-checkmark at the "Preferences-TestPrefs"-Page.
+
+  ImageStudio
+  -----------
+   Here you've to enter (or select via requester) the Path and FileName of your
+   ImageStudio. If you not own ImageStudio you've to disable the "ImageStudio"
+   checkmark at the "Preferences-TestPrefs"-Page.
+
+  Cygnus-ED
+  ---------
+   Here you've to enter (or select via requester) the Path and FileName of your
+   CygnusED. If you not own CygnusED you've to disable the "Cygnus-Ed"-check-
+   mark at the "Preferences-TestPrefs"-Page.
+
+  Gold-ED
+  -------
+   Here you've to enter (or select via requester) the Path and FileName of your
+   GoldED. If you not own GoldED you've to disable the "GoldED"-checkmark at
+   the "Preferences-TestPrefs"-Page.
+
+  Drive
+  -----
+   Here you've to enter (or select via requester) the drive Path. There must be
+   at least 1MB free memory (and keep in mind that the Drive-Test only works
+   with writeable drives (except "RawRead").
+
+  Print
+  -----
+   Here you've to enter (or select via requester) the default PrintPath.
+  
+  ScreenMode 8bit
+  ---------------
+   You can select a screenmode for CygnusED-, GoldED-, Graphic-, and Intuition-
+   test. The default screenmode is "PAL:High Res Laced". 
+
+  ScreenMode Hi
+  -------------
+   You can select a screenmode for Graphic-, and Intuitiontest for HiColor.
+   You can select only 15-16bit Modes.
+
+  ScreenMode True
+  ---------------
+   You can select a screenmode for Graphic-, and Intuitiontest for TrueColor.
+   You can select only 24-32bit Modes.
+
+@EndNode
+@Node WindowPrefs "SysSpeed: WindowPrefs"
+
+Startup Windows
+===============
+
+  SystemInfo - CheckMark
+  ----------------------------
+   The "SystemInfo"-Window appears automaticly at the startup of syspeed if
+   you've activated the checkmark.
+
+  ModuleInfo - CheckMark
+  ----------------------------
+   The "ModuleInfo"-Window appears automaticly at the startup of syspeed if
+   you've activated the checkmark.
+
+  StatisticsInfo - CheckMark
+  ----------------------------
+   The "Statistics"-Window appears automaticly at the startup of syspeed if
+   you've activated the checkmark.
+
+  Print - CheckMark
+  -----------------------
+   The "Print"-Window appears automaticly at the startup of syspeed if you've
+   activated the checkmark.
+
+  About - CheckMark
+  -----------------------
+   The "About"-Window appears automaticly at the startup of syspeed if you've
+   activated the checkmark.
+
+  QuickChange - CheckMark
+  -----------------------
+   The "Print"-Window appears automaticly at the startup of syspeed if you've
+   activated the checkmark.
+
+
+Module-/SystemInfo Textstyle
+============================
+
+  Label Textstyle
+  ---------------
+   Here you can change the Style and Color for all Labels within the Module-
+   SystemInfo window.
+
+  Data Textstyle
+  ---------------
+   Here you can change the Style and Color for all Data within the Module-
+   SystemInfo window.
+
+@EndNode
+@Node ModulePrefs "SysSpeed: ModulePrefs"
+
+ - Short Name
+    This is the name of your Module, that was displayed on the title of the
+    listview, if load the saved module again.
+
+   Note: only 11 chars.
+
+ - Module 1 - 4
+
+   Here you can enter (or select via requester) compare modules that was saved 
+   with "Save Module". (some are included in the SysSpeed package)
+
+@EndNode
+@Node TestPrefs "SysSpeed: TestPrefs"
+
+  ADPro - CheckMark
+  ---------------------
+   With this checkmark you can enable/disable the ADPro-Test,users that doesn't
+   own ADPro have to disable the ADPro-Test.
+
+  ImageStudio - CheckMark
+  -----------------------
+   With this checkmark you can enable/disable the ImageStudio-Test, users that
+   doesn't own ImageStudio have to disable the ImageStudio-Test.
+
+  Cygnus-Ed - CheckMark
+  -------------------
+   With this checkmark you can enable/disable the CygnusED-Test, users that
+   doesn't own CygnusED have to disable the CED-Test.
+
+  GoldED - CheckMark
+  ----------------------
+   With this checkmark you can enable/disable the GoldED-Test, users that
+   doesn't own GoldED have to disable the GoldED-Test.
+
+  Cruncher - CheckMark
+  ------------------------
+   With this checkmark you can enable/disable the Cruncher-Test.
+
+  Memory - CheckMark
+  -------------------
+   With this checkmark you can enable/disable the Memory-Test.
+
+  Drive - CheckMark
+  -----------------
+   With this checkmark you can enable/disable the Drive-Test.
+
+  Intuition - CheckMark
+  ---------------------
+   With this checkmark you can enable/disable the Intuition-Test.
+
+  Graphic - CheckMark
+  -------------------
+   With this checkmark you can enable/disable the Graphic-Test.
+
+  CPU/FPU - CheckMark
+  -------------------
+   With this checkmark you can enable/disable the CPU/FPU-Test.
+
+  PowerPC - CheckMark
+  -------------------
+   With this checkmark you can enable/disable the PowerPC-Test.
+
+  External - CheckMark
+  --------------------
+   With this checkmark you can enable/disable the External-Test.
+
+
+other Options
+=============
+
+  Display
+  -------
+   if selected "all Tests" -> all Tests displayed in the listview
+   if selected "only selected Tests" -> only all selected Tests (Checkmarks)
+   was display in the listview
+
+  All On
+  ------
+   Set all TestCheckmarks ON.
+
+  All Off
+  -------
+   Set all TestCheckmarks OFF.
+
+  Multitasking
+  ------------
+   While executing some tests, the multitasking was disabled. If the Checkmark
+   set, multitasking not disabled.
+
+  Note: This Checkmark must only be set on a DraCo.
+
+@EndNode
+@Node StatisticsPrefs "SysSpeed: StatisticsPrefs"
+
+   Here you can change some defaults for the StatisticsWindow.
+   With "Scala" you can change the Resolution.
+   With "3D-Look" you can enable/disable 3D-Look for the bars.
+   Under "StatisticsColors" you can change the colors. In the left Listview are
+   the default Colors. In the right Listview are the ScreenColors (Pens).
+   The active Color in the left Listview is changed by doubleclick on your
+   favorite Color in the right Listview.
+
+   Note: On Kick 2.x you can`t change any color.
+
+@EndNode
+@Node ExternalPrefs "SysSpeed: ExternalPrefs"
+
+  Listview
+  --------
+   This Listview show all External Tests. You can change the Listview by
+   pressing "New" to add a new ListEntry or activate a ListEntry.
+   Then you can change the ListEntry:
+
+  Remove
+  ------
+   Remove the ListEntry
+
+  Up
+  --
+   Move up the ListEntry
+
+  Down
+  ----
+   Move down the ListEntry
+
+  Name
+  ----
+   Name of the External Test for the Listview
+
+  External
+  --------
+   Here you can enter the Path+Name of the Program.
+
+  SubExternal
+  -----------
+   Here you can enter the Path+Name of the Program to sub the time from the
+   External Test if you only test a single routine within a Program (optional)
+
+  Note: You can also move the ListEntries by Drag&Drop.
+
+@EndNode
+@Node SavePrefs "SysSpeed: SAVE, USE, CANCEL"
+
+ After selecting the screenmode and all paths correctly, save the preferences
+ by using the "SAVE"-gadget.
+
+ .------.
+ | SAVE | - Button
+ `------'
+
+ Saves and uses settings and swaps to the "Main"-Page
+
+ .-----.
+ | USE | - Button
+ `-----'
+
+ Uses the settings and swaps to the "Main"-Page
+
+ .--------.
+ | CANCEL | - Button
+ `--------'
+
+ Restores old settings and swaps to the "Main"-Page
+
+@EndNode
+@Node History "SysSpeed: History"
+
+ V 2.6 ( 5 April 98 )
+ --------------------
+
+    - PowerPC-Test added (WarpOS V12+ only)
+
+    - PowerPC recognized under WarpOS
+
+    - RawRead-Test changed from "Same Sector" to "Sequential"
+
+    - shows UW-ID`s under SystemInfo/SCSI
+
+    - Info about GraphicEmu added (SystemInfo, ModuleInfo)
+
+    - all Results now rounded
+
+
+ V 2.5 ( 24 January 98 )
+ -----------------------
+
+    - some Bugfixes
+
+    - MHz Display is more exact now (060)
+
+    - PowerPC recognized (SystemInfo, ModuleInfo)
+
+    - new boards.library added
+ 
+
+ V 2.4 ( 5 September 97 )
+ -----------------------
+
+    - some Bugfixes
+
+    - better Memory, HD-Size Display
+
+    - Graphictests ScrollX, ScrollY (ScrollRaster) added
+
+    - you can print SystemInfo, ModuleInfo
+
+    - some minor GUI Changes
+
+    - new boards.library added
+
+    - EMail-Address changed
+
+
+ V 2.31 ( 19 May 97 )
+ -------------------
+
+    - some minor Bugfixes
+
+
+ V 2.3 ( 10 May 97 )
+ ------------------
+
+    - fixed crash with CyberGraphX 3
+
+    - now you can use every Screensize for all GfxTests
+
+    - add Hi-/True-Color tests for Graphic + Intuition
+
+    - StatisticsInfo changed
+
+    - Tooltype "SHOWALLMODES" added
+      (show all ScreenModes within the Requesters [without filtering] ) 
+
+    - new boards.library added
+
+
+ V 2.2 ( 4 February 97 )
+ -----------------------
+
+    - Bug in MHz-calculation (060) fixed
+
+    - Crash if MUI-Generation failed fixed
+
+    - more Error-Requester
+
+    - SystemInfo enhanced (SCSI, Commodities, Fonts)
+
+    - if you hold shift-key and press a Testbutton you can select
+      one or more Tests from the Maintest
+
+    - UserBreak now works on a Draco (only if Multitasking enabled)
+
+    - some internal changes
+
+
+ V 2.1 ( 3 January 97 )
+ -----------------------
+
+    - GUI changed (no Minifont on low Resolution)
+
+    - 64bit calculation for Partitionsize added
+
+    - Bug in Listviewdisplay (only selected Tests) fixed
+
+    - new boards.library added
+
+    - new german catalog added
+
+
+ V 2.0 ( 7 December 96 )
+ -----------------------
+
+    - 90 % code rewritten (shorter and faster)
+
+    - now required MUI V 11 (3.0)
+
+    - now full Locale support
+
+    - unlimited External tests
+
+    - SubExternal to External-Test added
+
+    - Textstyle of Module/SystemInfo Window can changed
+
+    - "About MUI ..", SysSpeed-Logo to About Window added
+
+    - "Listviewdisplay", "All On", "All Off" added to TestPrefs
+
+    - "Header", "All On", "All Off" added to PrintWindow
+
+    - Menu added
+
+    - Drag&Drop added (ExternalPrefs,QuickChange)
+
+    - QuickChange added
+
+    - About-,QuickChange window to Startup Windows added
+
+    - default Print-Path can be changed (GlobalPrefs)
+
+    - on Kick 2.0 reqtools.library used for ScreenMode Requester
+
+    - many little changes 
+
+    - new boards.library added
+
+
+ V 1.51 ( 12 October 96 )
+ ----------------------
+
+    - Graphic-Test can crash
+
+    - External-Test can`t save to Module
+
+    - new boards.library added
+
+
+ V 1.5 ( 15 September 96 )
+ ----------------------
+
+   - better errorhandling
+
+   - SysSpeed-Crash removed, if iconify on startup
+
+   - MHz-Display for CPU/FPU added
+
+   - External-Test added
+
+   - new boards.library added
+
+   - Documetation now AmigaGuide - Format
+
+   - some minor changes
+
+
+ V 1.4 ( 21 July 96 )
+ --------------------
+
+   - Code optimized (MUI-Generation,...)
+
+   - new GUI-Design
+
+   - all reqtools-requester replaced with MUI or ASL-Requester
+     (reqtools.library no longer needed)
+
+   - StatisticsInfo now use AllocBitmap() [Kick 3.0+]
+     ( on CyberGraphX no Chipmem needed )
+
+   - now works 100 % on a DraCo (i hope)
+     ( no CustomChips acecces, Multitasking can be enabled )
+
+   - Intuition (OpenScreens) littlebit changed
+
+   - all Cruncher tests executed on the ramdisk (lha)
+
+   - in the listview , the actual test was activated
+
+   - SystemInfo enhanced (Residents, Mounted Devs, Interrupts)
+
+   - now use boards.library ( to found the expansions )
+
+   - Drive test enhanced
+
+   - CPU/FPU test added
+
+
+
+ V 1.3 ( 4 February 96 )
+ ----------------------
+
+   - fixed bug : "Statistics"-window automaticly open , if the "Relative to"
+     cyclegadget was changed
+
+   - complete new timerroutine, that more exactly and shorter
+     ( sorry but the old modules can`t be load anymore :-( )
+
+   - new Module-format
+
+   - ModuleInfo enhanced
+
+   - Drive test enhanced (RawRead)
+
+   - SystemInfo added
+
+   - helpbubbles under MUI 3.x added
+
+   - MUI-CycleChain added
+
+   - all external Preferences windows are removed and replaced with register-
+     groups on the "Preferences"-page
+
+   - sysspeed now works correctly on 640x256 screens (no microfont :-) )
+
+   - memory test now use the greatest possible buffer for tests
+     (no unnecessary "Cache filling" especially 060)
+
+
+
+ V 1.2 ( 3 December 95 )
+ -----------------------
+
+   - added graphical display of the testresults (ShowStatistics)
+
+   - sorted Listview (Test's are now in the same order like the buttons)
+
+   - removed small bug in the "Print"-window (if you had disabled printing
+     the GoldED results the ImageStudio results are also disabled)
+
+   - added spaces in the "Print"-window so that the Checkmarks are better
+     placed.
+
+   - at the Preferences Page you can select the Windows that appears
+     automaticly at the startup (Print,ModuleInfo,Statistics)
+
+   - the precision of the calculation for the Listview (only) is enhanced
+     (short times -> littlebit to high results [FastmemRead with 060])
+     in the modulefile full precision is saved (also old versions)
+
+   - workaround CyberGraphX-Bug that crash the "IntuitionTest" on 060 with
+     CyberVision
+
+   - added warning requester before "Make Module"
+
+   - some minor changes
+
+
+
+ V1.11 ( 4 October 95 )
+ ----------------------
+
+   - now use ROM-Topaz-Font for Gfx-,Intuitiontest
+     ( Version 1.1 crash if System-Default-Font >8 aaaauuuuhhhh )
+
+   - SysSpeed now also run on NTSC-Machines 
+     ( DefaultDisplayID $29004 replaced with $8004 )
+
+   - now you can used ScreenModes without Names (with "GetDisplayInfoData")
+
+   - ModuleInfo added
+
+
+
+ V1.1 ( 25 September 95)
+ -----------------------
+
+   - added graphictest
+   - added intuitiontest
+   - added GoldED-test
+   - added Imagestudio-test
+   - changed look of the userinterface
+   - removed Enforcer-Hits
+   - added more securitypasses
+   - added CompareBase-cyclegadet
+     (now you're able to compare anyone with anyone without a test)
+   - added Overwrite?-requester if a module already exists
+   - added ScreenMode-gadget
+   - small changes
+   - Modulformat has been changed but the old Modules are still working
+   - open a new Cygnus-Ed or GoldEd if one already open
+
+
+
+ V1.0 ( 28 June 95 )
+ -------------------
+
+   * first public release
+
+@EndNode
+@Node Bugs "SysSpeed: known Bugs, Future"
+
+ known Bugs
+ ----------
+  no known Bugs
+
+ BugReports:
+ -----------
+
+ If you've found any error, then send me a report to the address in the
+ @{"Distribution" link Distribution 0} capter.
+
+
+ Future Enhancements:
+ --------------------
+   - your proposals
+   - more tests
+
+ If you have improvement proposals, or new ideas (especially for new tests),
+ then don't hestitate and write to me!
+
+@EndNode
+@Node Greetings "SysSpeed: Greetings"
+
+
+ "Thanks" to the following guys
+ ------------------------------
+   - Special thanks to Stefan Sommerfeld for his support
+     for the WB-Replacement Scalos and for the PowerPC-Assembler
+     Code for the PowerPC - Test
+   - all guys from ALiENDESiGN for Bugreports and new ideas
+     and above all for the great "MCP", wich i can't work without.
+   - FOX for the nice SysSpeed-Logo
+   - Stefan Stuntz for his MUI (speedup improvement required)
+   - Nico François for his reqtools.library
+   - T.F.A for the ASM-One (doesn't work of GFXCards!)
+   - Commodore for the Amiga, one of the best computers!
+
+                            ... enjoy SysSpeed !!
+
+
+                                    LSI / ALiENDESiGN
+
+@EndNode

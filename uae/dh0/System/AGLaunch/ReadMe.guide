@@ -1,0 +1,134 @@
+@database WHDLoad HyperText Game Launcher ReadMe Installer
+@WORDWRAP
+@node Main "WHDLoad AG-Launch Guide - Zetr0 2011"
+
+                    AmigaGuide WHDLoad Game Launcher Guide
+                         Version v0.7c Alpha edition
+
+    Hello, welcome to the AGLaunch application written by me (Zetr0) =)
+   A lot of people helped within this project so please read the Credits
+
+   
+                            @{"     Disclaimer     " link disclaimer}
+
+                            @{"  About: AG-Launch  " link aboutagl}
+
+                            @{"    Installation    " link install}
+
+                            @{" Credits and Greets " link credits_greets}
+
+
+      Please take some time to review the above options, thank you.
+             (This product is made with 100% recyclable bits)
+@endnode		 
+@node credits_greets "WHDLoad AG-Launch Guide - Zetr0 2011"
+              AGLaunch v0.7c Alpha edition Credits & Greets
+
+                              -Bloodwych- 
+For all his help and involvement in the community and AGLaunch
+
+                            -KillerGorilla-
+For his general awesomeness and time in creating working installs 
+
+                 -Wepl and the WHDLoad developement Team-
+For their continuing hard work for te Amiga community
+
+                             -Jonathan Potter-
+For the very handy JoyMouse program
+
+                              -EAB & AmiBay-
+Simply the best communities on the Net
+
+Finally I would also like to thank all the brave alpha testers and users
+for enjoying, shareing and improving AG-Launch 
+
+                My sincere thanks, my fellow Amigans - Zetr0
+@endnode
+
+@node aboutagl "About AG-Launch"
+               AmigaGuide Game Launcher V0.7c (Zetr0 2011)
+
+About:
+Amiga Game Launcher, or AGL for short, is an intuitive WHDLoad game 
+launching application that is designed to run within a limited 2MB Amiga
+System and WHDLoad 17.0 or higher. This software is developed under 
+ClassicWorkbench and field tested on an 2MB A600 and WinUAE.
+
+AGL is based on Amiga Guide Script - and in places requires an update of 
+some of your existing components. Some game-guides may need to be updated
+to run correctly - this mainly effects games with different directory/game
+names and multi-slave games.
+
+AGL is designed for used with "KGWHDLoad Game Packs and a ClassicWorkbench
+Game directory structure. AG-Launch has a centralized structure which only
+requires that you have an alphabetized games directoy - 
+
+The root of your categorized games directory should be assigned i.e.
+
+                      assign A-Games: sys:games/
+@endnode
+
+@node install "Installing AG-Launch"
+                AmigaGuide Game Launcher: Installation
+
+
+Installation is simple just copy the AG-Launch Directory to a directory 
+called System on your WORK: or SYS: Partition  
+
+AGLaunch requires WHDLoad 17.0 or higher, as there is a bug under 
+WHDLoad 16.9 that will stops the program from Loading large games.  
+You can find WHDLoad 17.0 beta in the "Progs" Directory that is included
+with this distribution or you can source the latest WHDLoad file from 
+http://www.whdload.de/
+
+If you are not using ClassicWorkbench you can maximize memory available
+to the system by booting from CLI. to find our more click the button 
+below.
+
+                             @{" CLI launch Scripts " link cli_launch}
+
+
+                  And thats it, all installed ready to go =)
+@endnode
+
+
+@node cli_launch "AG-Launcher CLI Launch "
+                     AG-Launch: CLI script Launch
+
+AG-Launch is designed to run in the minimalist of environments and to make
+as much use of the limmited RAM available. For this reason you can run 
+AGLaunch from CLI - (Command Line Interface).  
+
+To do this you will need a CLI launch script, since I am so nice, I have 
+included two such scripts for you - 
+
+"AGL:s/AGLaunch-Startup"
+This startup sequence is the default startup for AGLaunch application you 
+can use the following in your early startup - 
+"execute AGL:s/AGLaunch-Startup"
+
+Your early start should have an assign "A-Games" to the root of your games
+Directory. Another startup script is also provided
+
+"AGL:s/AGLaunch-StartupNM"
+This startup script initializes JoyMouse - before running the AGLaunch 
+application - this allows the use to use a joystick / joypad to move 
+the mouse cursor.
+@endnode
+@node disclaimer "AmigaGuide Game Launcher: Disclaimer / Terms of use"
+
+                   AmigaGuide Game Launcher: Disclaimer
+
+
+Care has been taking so that your system neither melts down or phases into 
+another realm of existence. However I do not gaurantee this software will 
+working on all Amiga configurations.
+
+If in doubt - please do not run this software - running this application 
+means that you agree to run this at your own risk.
+
+This application software is an alpha build and should not be released 
+or used by any sane person, so please enjoy =)
+
+Zetr0 2011
+@endnode

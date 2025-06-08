@@ -1,0 +1,510 @@
+@database ButtonMenu
+@master Work:Programming/ButtonMenu/ButtonMenu.guide
+@$VER: V1.23
+@author "Oliver Roberts (O.J.C.Roberts@essex.ac.uk)"
+@(c) "(c) Oliver Roberts 1994-1995"
+@remark Created with Heddley v1.1 (c) Edd Dumbill 1994
+
+@node "MAIN" "ButtonMenu V1.23 Documentation"
+
+                         @{b}ButtonMenu V1.23 Contents@{ub}
+
+     @{" Introduction          " link "INTRO" 0} about ButtonMenu
+     @{" Disclaimer            " link "DISCLAIMER" 0} legal jargon
+     @{" Copyright             " link "COPYRIGHT" 0} copyright information
+     @{" Distribution          " link "DISTRIBUTION" 0} distribution guidelines
+     @{" Acknowledgements      " link "ACKNOWLEDGEMENTS" 0} thankyous
+     @{" Compatibility         " link "COMPATIBILITY" 0} will ButtonMenu run on your system?
+     @{" Requirements          " link "REQUIREMENTS" 0} what you need to get ButtonMenu working
+     @{" Getting Started       " link "GETTING_STARTED" 0} how to start ButtonMenu
+     @{" Reference             " link "Reference" 0} general reference and descriptions
+     @{" Contacting the author " link "AUTHOR" 0} how to get in touch with me
+     @{" History               " link "HISTORY" 0} program history
+@endnode
+
+@node "INTRO" "Introduction"
+   ButtonMenu allows Kickstart 2.0 (or higher) owners to create menus in
+   the form of a window full of GadTools buttons.  Two programs are
+   provided: one to allow you to create the menu and one which runs the
+   menu.  It is then possible to run your menu from a startup-sequence,
+   for example.  The GUI for the creator was designed to use Topaz 8,
+   but it will adapt to the current screen font if it is not too big.
+
+   An added bonus is the ability to load ButtonMenu from within ButtonMenu
+   from within ButtonMenu and so on... This means you can nest menus to
+   create complicated menu systems.
+@endnode
+
+@node "DISCLAIMER" "Disclaimer"
+   I cannot be held liable if this program causes you to lose valuable
+   data, nor can I be blamed if this program causes any other problems
+   with your system.  Any problems are entirely the user's responsibility.
+@endnode
+
+@node "COPYRIGHT" "Copyright Information"
+   @{b}ButtonMenu V1.23@{ub} - written with DICE C (2.07.56R) on a A600 + 170 Mb HD
+   @{i}(c) Oliver Roberts 1994-1995@{ui}
+
+   ButtonMenu is public domain and the copyright remains with the author.
+@endnode
+
+@node "COMPATIBILITY" "Compatibility"
+   ButtonMenu has been tested on an A600 with KS2.05 and KS3.0 using
+   NTSC/PAL, chip/fake fast, chip configurations.
+
+   ButtonMenu is fully OS-Legal, it should work on ANY Amiga with
+   Kickstart 2.0 or higher.
+@endnode
+
+@node "DISTRIBUTION" "Distribution Conditions"
+   ButtonMenu is freely distributable providing none of the distributed
+   files are changed in any way,  ButtonMenu is not sold for profit and
+   it is not included on any disks that are sold solely for profit.  If
+   ButtonMenu is to be sold for profit, permission must be obtained from
+   me, the author (Oliver Roberts).  This includes magazine coverdisks -
+   let me know if you wish to use ButtonMenu menus on the disks or
+   include the ButtonMenu Creator (Amiga Computing take note, especially).
+
+   For following files @{b}MUST@{ub} be distributed together if the Creator is to
+   be included:
+
+   ButtonMenu               @{i}(ButtonMenu Creator)@{ui}
+   ButtonMenu.info
+   ButtonMenu.guide         @{i}(Document in AmigaGuide® format@{ui}
+   ButtonMenu.guide.info
+   BMX                      @{i}(ButtonMenu Executor)@{ui}
+   BMX.info
+   Install_ButtonMenu       @{i}(Commodore Installer script)@{ui}
+   Install_ButtonMenu.info
+   reqtools.library         @{i}(KS2.0 V38 - Needed for Creator only)@{ui}
+
+   If you just want to distribute your created menu then you can
+   distribute the BMX program without the files above, if desired.
+@endnode
+
+@node "ACKNOWLEDGEMENTS" "Acknowledgements and Thankyous"
+   @{b}Reqtools.library@{ub}        (c) 1991-1994 Nico Francois
+
+   @{b}AmigaGuide®@{ub}             (c) Copyright 1992 Commodore-Amiga, Inc.
+                               All Rights Reserved.
+
+   @{b}Installer project icon@{ub}  (c) Copyright 1991-1993 Commodore-Amiga, Inc.
+                               All Rights Reserved.
+
+   The GUI for the Creator was mainly created with:
+   @{b}GadToolsBox V2.0b@{ub}       (c) 1991-1993 Jaba Development
+
+   Thanks to Rick Hughes for giving some ideas for new features, and for
+   the donation he made.
+
+   Thanks also go to Andreas Boerner for the mouse-relative ButtonMenus
+   idea.
+@endnode
+
+@node "REQUIREMENTS" "System Requirements"
+   Any Amiga with Kickstart 2.0 (V36) or higher.  NTSC / PAL
+
+   To run the Creator you will need these disk based libraries in the
+   LIBS: drawer on you boot disk or HD.
+
+      diskfont.library (V36 or higher)
+      reqtools.library (V38 or higher)
+
+   To run the Executor you do NOT need "reqtools.library" in the LIBS:
+   drawer, but if you are not using a ROM font (ie Topaz 8 or Topaz 9)
+   for the menu you will probably need "diskfont.library" (if the font
+   has not already been loaded into RAM by another program).
+@endnode
+
+@node "GETTING_STARTED" "Getting Started"
+   First make sure you have the libraries mentioned in the @{"Requirements" link "REQUIREMENTS" 0}
+   section installed in your LIBS: drawer on you HD or boot disk.
+
+   @{b}@{u}From Workbench@{ub}@{uu}
+
+      Double-click on the ButtonMenu icon.
+
+   @{b}@{u}From the Shell@{ub}@{uu}
+
+      Type `ButtonMenu' at the prompt.  There are no command line options
+      at present.
+@endnode
+
+@node "Reference" "Reference Contents"
+
+    @{" How To Create a Button Menu " link "HOW_TO_CREATE" 0}
+    @{" How To Use a Button Menu    " link "HOW_TO_USE" 0}
+    @{" Keyboard Shortcuts          " link "KEYBOARD_SHORTCUTS" 0}
+    @{" Height Confusion            " link "HEIGHT_CONUFUSION" 0}
+    @{" How to make items fit       " link "WONT_FIT" 0}
+    @{" Limitations                 " link "LIMITATIONS" 0}
+
+     ButtonMenu Creator Menus - @{" Project  " link "MENUS-PROJECT" 0}
+                                @{" Help     " link "MENUS-HELP" 0}
+                                @{" Settings " link "MENUS-SETTINGS" 0}
+
+     ButtonMenu Creator Gadgets - @{" Item (A)           " link "ITEMGADS-MAIN" 0}
+                                  @{" Item (B)           " link "ITEMGADS-SEC" 0}
+                                  @{" Window Preferences " link "GADS-GENERAL" 0}
+@endnode
+
+@node "HOW_TO_CREATE" "How To Create a Button Menu"
+@toc "Reference"
+   Making a menu is simple with ButtonMenu.  Just enter the items you wish
+   to be displayed to the user and the AmigaDOS command lines.  Keyboard
+   shortcuts can be assigned to each item as well (read the Keyboard
+   @{"Shortcuts section" link "KEYBOARD_SHORTCUTS" 0} for full details).
+
+   Entering the commands is made simplier by providing a file requester:
+   just click on the gadget next to the @{"command" link "ITEMGADS-MAIN" 16} text gadget and select the
+   file you want to be run when the user clicks on the button.
+
+   You can also ask for the command to be @{"run" link "ITEMGADS-MAIN" 25} in the background (uses the
+   AmigaDOS `run' command).
+
+   Then select the @{"font" link "GADS-GENERAL" 0} you wish to use for the buttons, the size of the
+   window and the @{"title" link "GADS-GENERAL" 4} for the window.  Then select '@{"Save" link "MENUS-PROJECT" 6}' from the menu.
+@endnode
+
+@node "HOW_TO_USE" "How to Use a Button Menu"
+@toc "Reference"
+   Type `BMX <filename>' at a DOS prompt and the menu will appear.  Where
+   <filename> is the name of a ButtonMenu datafile which you have
+   previously saved (defaults to `BM.dat').  The menu should now appear.
+
+   Alternatively, you may double click on a ButtonMenu datafile icon
+   and the menu will be displayed.
+
+   Now just click on the button (or use a keyboard shortcut) to run the
+   corresponding commands, and click the close gadget when you have
+   finished.  Pressing the `Shift' key (or right mouse button), while
+   pressing the button, will activate the second function if there is one.
+@endnode
+
+@node "KEYBOARD_SHORTCUTS" "Amiga Keyboard Shortcut Theory"
+@toc "Reference"
+   You can specify keyboard shortcuts for each item, if you want.  You
+   are not allowed to use the same key for more than one item (ButtonMenu
+   will tell you if you do).  Pressing any of the keys a..z in your
+   generated menu will have exactly the same effect as keys A..Z, thus
+   case is not important (unless you have the @{"doc function" link "ITEMGADS-SEC" 0} enabled!)
+
+   There are a few ways of denoting the keyboard shortcut in the item
+   text.  For example, with shortcut `B' you could have:
+
+     [B]uttonMenu    or    (B)uttonMenu    or    {B}uttonMenu    etc...
+
+   But the preferred way is to use an underscore character underneath
+   the letter to be emphasized - like most new Amiga applications.  You
+   do this in ButtonMenu by putting an `_' character directly before the
+   character to be underscored.  For example:
+
+                 "_ButtonMenu"   produces     ButtonMenu
+                                              -
+
+   Therefore, only use the underscore character for this purpose - using
+   more than one won't make any difference as the leftmost ones will be
+   ignored and not displayed.
+@endnode
+
+@node "HEIGHT_CONUFUSION" "Height Confusion"
+@toc "Reference"
+   Some people may find the way the Height of the menu window is calculated
+   confusing - or uninteresting!  So for users who want to know why the
+   height is what it is, here is a little (well... long) explanation:
+
+   The Amiga OS will always use the screen's default font (set in Workbench
+   preferences) for the text in the title bars for each window opened.
+
+   This means that the size of the title bar is variable when running the
+   menu with `BMX' and it is inconvenient to keep the height of the window
+   constant - the calculations in the ButtonMenu Creator would also have
+   to be used in the `BMX' program which would make the program nearly as
+   large as the creator, and would create incompatibilities with different
+   systems. I wanted the menu to be displayed as quickly as possible with
+   the smallest possible program.
+
+   So, you are asked to enter the @{"maximum inner height" link "GADS-GENERAL" 9} for the window,
+   which is the height of window excluding the title bar and bottom border.
+   The `@{"Calculated Total Height" link "GADS-GENERAL" 20}' gadget will display an estimate for the
+   total height of the window, using the current screen font.
+
+   Included is a `@{"Height Adjust" link "GADS-GENERAL" 12}' feature.  This will alter the height
+   further, by removing any blank lines that will not be used giving a
+   slightly tidier menu.  To do this though, the `Calculated Total Height'
+   is calculated as before, but with the smallest possible height.
+@endnode
+
+@node "WONT_FIT" "Window too small"
+@toc "Reference"
+   If you have the Adjust Height feature enabled, or are trying to save
+   your menu, and get any error message saying that the item(s) won't
+   fit in the window, then here are the possible causes/solutions:
+
+   @{b}@{u}Causes@{ub}@{uu}
+
+      * The text length of one of the items is too long
+        (and/or longer than the width of the window)
+      * The font is too large
+      * The window is too small
+      * Too many items
+
+   @{b}@{u}Solutions@{ub}@{uu} (a bit obvious!)
+
+      * Shorten the length of the item texts
+      * Select a smaller font
+      * Enlarge the window
+      * Delete some of the longer items
+@endnode
+
+@node "LIMITATIONS" "Limitations"
+@toc "Reference"
+   The only limitation to the menus you create is that there must be at
+   least 1 item and no more than 100 items.  If you need more items then
+   let me know.
+@endnode
+
+@node "MENUS-PROJECT" "The Project Menu"
+@toc "Reference"
+
+   @{b}New@{ub}    : Resets the creator by deleting all items.  Warning: Make
+            sure you have saved any wanted edits before selecting!
+
+   @{b}Open@{ub}   : Load a ButtonMenu datafile which you have previously saved.
+
+   @{b}Save@{ub}   : Save current edits back to the same file which you have
+            just loaded.  If this a new file, a file requester will be
+            available for you to enter a new name.
+
+   @{b}Save As@{ub}: Save current edits backs to another file.
+
+   @{b}Test@{ub}   : Display the menu which you have designed.  This uses the
+            external BMX program to load the menu - BMX must therefore
+            be in the search path somewhere.
+
+   @{b}About@{ub}  : Some copyright notes and version information.
+
+   @{b}Quit@{ub}   : Quit ButtonMenu unconditionally.
+@endnode
+
+@node "MENUS-HELP" "The Help Menu"
+@toc "Reference"
+   This menu provides some brief hints on how to use ButtonMenu, without
+   having to look at the document you are reading now.
+
+   This menu maybe deleted in the future and be replaced by AmigaGuide
+   on-line help, with the aid of this document.
+@endnode
+
+@node "MENUS-SETTINGS" "The Settings Menu"
+@toc "Reference"
+
+   @{b}Save Icons?@{ub}  : If you select this item, icons will be saved with your
+                  datafiles so that the menus can be started from
+                  Workbench with a click of a button.
+
+   @{b}Save Settings@{ub}: Save the current state of the Save Icons switch in the
+                  "s:ButtonMenu.config" file.
+@endnode
+
+@node "ITEMGADS-MAIN" "Main Item Gadgets"
+@toc "Reference"
+
+   @{b}New Item@{ub}   : Add a new item to the menu, after the currently selected
+                one (or the start if there are no items).
+
+   @{b}Delete Item@{ub}: Erase the currently selected menu item.
+
+   @{b}Up@{ub}         : Move the currently selected item up the list.
+
+   @{b}Down@{ub}       : Move the currently selected item down the list.
+
+   @{b}Item Text@{ub}  : The text to be displayed on one of the menu buttons.  If
+                you put a `_' character in front of another character,
+                ButtonMenu will denote that letter as the keyboard
+                shortcut (you must also but this letter in the keyboard
+                shortcut requester).
+
+   @{b}DOS@{ub}        : The command to be executed when the corresponding menu
+    @{b}Command@{ub}     button is clicked.  This is to be in the same format as
+                you would run it from the CLI manually.  You can also
+                select commands via a file requester, so you don't need
+                to remember the exact filenames.
+
+   @{b}Keyboard@{ub}   : Specifies an optional key that performs the same function
+    @{b}Shortcut@{ub}    as clicking on the button on the finished menu.
+
+   @{b}Run command@{ub}: Tells the Amiga to run that command as a background task.
+    @{b}in@{ub}          This does the same thing as `run >NIL: <command>' would
+    @{b}background@{ub}  do, where <command> is the contents of the DOS Command
+                gadget.  This command is activated by the left mouse
+                button or the keyboard shortcut on the final menu.
+@endnode
+
+@node "ITEMGADS-SEC" "Secondary Item Gadgets"
+@toc "Reference"
+
+   @{b}Enable Doc@{ub} : Tell ButtonMenu that you want this item to have a second
+    @{b}Function@{ub}    function which will be activated by holding the right
+                mouse button or shift key and then pressing the left mouse
+                button or keyboard shortcut.
+
+   @{b}Doc@{ub}        : In conjuntion with the Doc Reader gadget you may enter the
+    @{b}Filename@{ub}    filename of the corresponding document.  The filename will
+                be loaded by the Doc Reader.  However, you may specify no
+                doc reader and enter an AmigaDOS commandline in this
+                gadget - this provides maximum flexibility.
+@endnode
+
+@node "GADS-GENERAL" "Window Preferences Gadgets"
+@toc "Reference"
+
+    @{b}Font Used@{ub} : The font to be used for the item text on the menu buttons.
+    @{b}For Items@{ub}   Click the Choose Font button to change the font.
+
+    @{b}Title@{ub}     : Text to be displayed in the title bar of your menu - uses
+                a separate font.
+
+    @{b}Width@{ub}     : Width of the menu window (in pixels).
+
+    @{b}Max Inner@{ub} : The height of your window excluding the title bar and
+    @{b}Height@{ub}      bottom border.
+
+    @{b}Adjust@{ub}    : With this feature turned on, any blank lines at the bottom
+    @{b}Height@{ub}      of your menu window will be removed by decreasing the
+                height.  Checks will also be made to see if your items
+                will actually fit in the menu window with the dimension
+                you have specified whenever you alter these, the font or
+                the Item Text.  With the feature off, these checks are
+                only made when saving.
+
+    @{b}Calculated@{ub}: This is the estimated total height of your window including
+    @{b}Total@{ub}       the borders.  Assumes the screen font you will use for the
+    @{b}Height@{ub}      menu will be the same as the current one - that is why it
+                is an estimate.
+
+    @{b}Position@{ub}  : Makes the menu appear either at the Top Left of your
+                screen (below title bar), the Centre of your screen or
+                relative to the position of the Mouse pointer.
+
+    @{b}Single@{ub}    : Allows only ONE choice to be made on the menu.  After the
+     @{b}Choice@{ub}     corresponding command has returned, the menu will close.
+
+    @{b}Doc@{ub}       : This is an optional field which may be filled with the
+     @{b}Reader@{ub}     intended command line of your preferred document reader
+                (e.g "run c:ppmore").  This field will be used by the
+                secondary functions of all items, if it is not empty.
+@endnode
+
+@node "AUTHOR" "Drop me a line sometime"
+   If you have any suggestions, bug reports or then don't hesitate to
+   let me know.  Providing me with a SAE will ensure you get a reply.
+
+   My permanent home address is:
+
+      30 Tillett Road
+      Norwich
+      Norfolk
+      NR3 4BJ
+      ENGLAND
+
+   You can contact me via e-mail at this address:
+
+      O.J.C.Roberts@essex.ac.uk
+
+   You might also want to look at my WWW pages on the Internet, which
+   include a ButtonMenu page and an F1GP-Ed page (my main Amiga project).
+   From here you can download the latest versions before anywhere else
+   gets hold of them - the URL for my homepage is:
+
+      http://sol45.essex.ac.uk/Web/robeoy/index.html
+@endnode
+
+@node "HISTORY" "Program History"
+@{b}V1.23 - 13 January 1995@{ub}
+
+@{i}Bug Fixes:@{ui} The "Position" keyboard shortcut in the Creator now works
+           correctly - a couple of other shortcuts also fixed.
+
+           Possible bug in the Executor fixed.
+===========================================================================
+@{b}V1.22 - 10 January 1995@{ub}
+
+Replaced "Centre Window" switch with a choice of Top Left, Centre or
+Mouse relative.
+
+The "Test" item on the Project menu has been improved - there is now no
+need to save before you test, as a temporary file will automatically be
+written to RAM:, and is deleted after use.
+
+The BMX executable can now be made resident.
+
+More minor source code optimization.
+===========================================================================
+@{b}V1.21 - 17 November 1994@{ub}
+
+Optimized the source code further.
+
+Added better memory (lack of) checking.
+
+Documenation is now in AmigaGuide format, only.
+
+Added an AmigaDOS "Version" string.
+
+Provided an "Installer" script.
+
+@{i}Bug Fix:@{ui} Some of the keyboard shortcuts in the Creator didn't work.
+
+         Some other minors bugs fixed.
+===========================================================================
+@{b}V1.20 - 31 August 1994@{ub}
+
+ButtonMenu nows uses functions available in KS 2.0 (or higher) instead of the
+equivalent ANSI C functions.  The has resulted in a drastic decrease in
+executable size for the BMX executor (about a 50% reduction).
+
+Added a "Test" option to the project menu in the creator which uses BMX to run
+the menu.
+
+Added Workbench support to BMX which allows ButtonMenus to be loaded via an
+icon.  It then made sense to add a settings menu with a Save Icons option and
+a configuration file saved in s: .
+
+Changed the Adjust Height error handling slightly resulting in less annoying
+requesters (also corrected a spelling mistake in the error message).
+
+Added a zoom gadget to the menu windows that are created.
+
+Added an option to centre the ButtonMenu when it is opened.
+
+New option to allow ButtonMenus to act more like requesters (ie only one
+choice is allowed - then the window is closed automatically).
+
+Amigaguide documentation provided in addition to the standard text doc.
+
+@{i}Bug Fix:@{ui} Removed a bug which caused gadgets in the window to be
+         refreshed more than once - resulting in flickering.
+===========================================================================
+@{b}V1.10 - 15 August 1994@{ub} (BETA version - not publically released)
+
+Added a keyboard shortcut facility - datafiles changed accordingly, but old
+ones are still supported.
+
+Added an option to display docs as a secondary action.
+
+New-look menus when ButtonMenu is run on KS 3.0 or higher.
+
+@{i}Bug fixes:@{ui} I discovered a bug concerning the 4 buttons underneath the
+           item listview gadget.  Now, the buttons are checked in addition
+           to being disabled when appropriate.
+
+           A possible bug in the Executor message handler - fixed.
+
+           Not all the text strings were freed properly which sometimes
+           gave memory failures (ie Memory Insane) - fixed this.
+===========================================================================
+@{b}V1.00 - 28 July 1994@{ub}
+
+First release.
+@endnode
+

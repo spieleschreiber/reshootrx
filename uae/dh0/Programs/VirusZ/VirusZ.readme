@@ -1,0 +1,100 @@
+Short:    VirusZ III 1.02 - Antivirus Software
+Author:   ghoermann@gmx.de (Georg Hörmann)
+Uploader: ghoermann@gmx.de (Georg Hörmann)
+Type:     util/virus
+Requires: AmigaOS 2.04 or better
+          util/libs/ReqToolsUsr.lha
+          util/virus/xvslibrary.lha
+          util/pack/xfdmaster.lha
+          util/arc/xadmaster.lha (recommended)
+          util/libs/DisLib.lha (optional)
+
+============================================================================
+                                 VirusZ III
+              Copyright © 1991-1999/2002-2004 by Georg Hörmann
+                   Copyright © 1999-2001 by Dirk Stöcker
+============================================================================
+
+VirusZ is the last one of the classic antivirus programs for Amiga computers
+that still gets updated (from time to time;-).
+
+This archive no longer contains any of the required libraries, so please get
+them from Aminet (locations are mentioned in the header of this textfile).
+
+To  ensure  that you have downloaded an original version of VirusZ and not a
+fake, you can use my PGP key (attached to the VirusZ.doc file) together with
+the  signatures  included  in  the  archive  for verification.  You can also
+download a 100% safe copy of my PGP key from the following homepages:
+
+Virus Help Team Denmark homepage:   www.vht-dk.dk
+Dirk Stöcker's homepage:            www.dstoecker.de
+
+Additionally,  you should compare the file size of your VirusZ copy with the
+one  displayed  in the programs 'About' information.  They MUST match if you
+didn't modify VirusZ yourself (eg.  with a file compressor).
+
+For  any  comments, bug reports, snapshots and/or if you have found some new
+virus, contact the author at the following addresses:
+
+snail-mail: Georg Hörmann
+            Martinswinkelstraße 16c
+            82467 Garmisch-Partenkirchen
+            Germany
+
+e-mail:     ghoermann@gmx.de
+
+============================================================================
+
+ 1.02  Changes/Additions since 1.01:
+	- Changed back to FREEWARE, that MAILWARE thing just ended up in too
+	  many emails :-) Thanks to all who gave me feedback and sorry if
+	  I didn't reply to everybody!
+	- Added dozens of snapshots sent by Fabian Siesmayer, Jonny Högsten,
+	  Stellan, Micheal Evans, Maurizio Callegarin, Michael Malychev,
+	  DMX and Michael Domoney. Thanks for all the testing, guys.
+	- Added really nice MorphOS icon created by Christian Rosentreter to
+	  the package.
+	- Added SegTracker 45.1 to the package. You should add it with the
+	  FULLPATH option to your startup-sequence right after SetPatch for
+	  best results in the vector check.
+	- Enhanced SegTracker support in the vector check. If a filename is
+	  too long to fit in one line because of path information, it will
+	  be split and displayed in two lines instead.
+	- Enhanced Snapshot function in the vector check. I noticed that
+	  sometimes patches of different vectors point to the same address
+	  (esp. Audio_0 - Audio_3 IntVecs). Whenever you tried to save such
+	  snapshots, the first ones would have been overwritten because of
+	  identical filenames. VirusZ now creates up to 10 different names
+	  for such cases.
+	- Improved support of suspicious process fields in the vector check.
+	  The tc_Switch, tc_Launch and pr_PktWait entries will be reported
+	  separately now if necessary and therefore can be monitored too.
+	  To clear all entries of one type, select the respective headline
+	  and then press the 'Clear' button.
+	- Spent some nights reviewing the sourcecode (over 25.000 lines!)
+	  and did lots of small optimizations, rearrangements and fixes
+	  mostly to the startup-code, vector check and memory monitor for
+	  a better and safer program execution.
+	- The 'Install' function in the bootblock lab can write a standard
+	  Kick 1.3 bootblock again.
+	- Enhanced the 'Line -' and 'Page -' functions in the memory monitor
+	  when displaying assembler instructions. Both functions will now
+	  additionally call FindStartPosition() from disassembler.library
+	  for the most sensible results.
+	- Fixed bug in the 'Address' function of the memory monitor that
+	  might have caused accesses to non-existent memory areas.
+	- Removed the 'Show...' and 'Technical Info' menu items and added
+	  that information to the new 'About' window.
+	- Did several changes/fixes to the internal GUI support code:
+	  a. All windows share one single IDCMP port now, VirusZ therefore
+	  will no longer run out of task signals if you try to open all its
+	  windows at one time.
+	  b. Window flags, IDCMP flags and several other essential stuff
+	  gets compiled during window creation automatically now and thus
+	  reduces the possibility of bugs caused by badly filled structures.
+	  c. Fixed bug in the window resizing code that lead to ugly results
+	  if you changed system fonts from smaller to bigger ones.
+	  d. No longer uses NOCAREREFRESH windows but, as stated in the RKM,
+	  calls GT_BeginRefresh()/GT_EndRefresh(). [It's actually funny that
+	  there obviously didn't appear any problems during years with the
+	  old method even though it is said not to work in the RKM.]

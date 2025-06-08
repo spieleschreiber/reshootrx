@@ -383,37 +383,37 @@ shotColFadeTableSize		=	shotColIterations*shotNoOfUpgrades*shotNoOfPals*3
 								move.l					colorFadeTable,a0																																																							; color1
 								lea						playerShotColors+4+16,a1
 								lea						playerShotColors+4,a2
-								jsr						precalcColorFade(pc)
+								jsr						precalcColorFade
 
 								move.l					colorFadeTable,a0
 								lea						64(a0),a0
 								lea						playerShotColors+4+32,a1
 								lea						playerShotColors+4+16,a2
-								jsr						precalcColorFade(pc)
+								jsr						precalcColorFade
 
 								move.l					colorFadeTable,a0																																																							;color2
 								lea						128(a0),a0
 								lea						playerShotColors+8+16,a1
 								lea						playerShotColors+8,a2
-								jsr						precalcColorFade(pc)
+								jsr						precalcColorFade
 
 								move.l					colorFadeTable,a0
 								lea						192(a0),a0
 								lea						playerShotColors+8+32,a1
 								lea						playerShotColors+8+16,a2
-								jsr						precalcColorFade(pc)
+								jsr						precalcColorFade
 
 								move.l					colorFadeTable,a0																																																							;color3
 								lea						256(a0),a0
 								lea						playerShotColors+12+16,a1
 								lea						playerShotColors+12,a2
-								jsr						precalcColorFade(pc)
+								jsr						precalcColorFade
 
 								move.l					colorFadeTable,a0
 								lea						320(a0),a0
 								lea						playerShotColors+12+32,a1
 								lea						playerShotColors+12+16,a2
-								jsr						precalcColorFade(pc)
+								jsr						precalcColorFade
 
 								lea						scoreHigh,a0																																																								; clr score and hiscore
 								clr.l					(a0)

@@ -1,0 +1,18 @@
+@database WHDLoad HyperText Game Launcher
+@node Main "WHDLoad Amiga Guide Game Launcher - Zetr0 2011"
+             WHDLoad Amiga Guide Launcher: Game Directory <X>
+
+Click game title to play
+
+      @{"Xenex" SYSTEM "agl:c/wbrun A-Games:X/Xenex/Xenex"}                                @{"Xenomorph" SYSTEM "agl:c/wbrun A-Games:X/Xenomorph/Xenomorph"}
+      @{"Xenon" SYSTEM "agl:c/wbrun A-Games:X/Xenon/Xenon"}                                @{"Xenon21Disk" SYSTEM "agl:c/wbrun A-Games:X/Xenon21Disk/Xenon21Disk"}
+      @{"Xenon22Disk" SYSTEM "agl:c/wbrun A-Games:X/Xenon22Disk/Xenon22Disk"}                          @{"Xenon2CDTV" SYSTEM "agl:c/wbrun A-Games:X/Xenon2CDTV/Xenon2CDTV"}
+      @{"Xenon2Demo" SYSTEM "agl:c/wbrun A-Games:X/Xenon2Demo/Xenon2Demo"}                           @{"Xenophobe" SYSTEM "agl:c/wbrun A-Games:X/Xenophobe/Xenophobe"}
+      @{"Xiphos" SYSTEM "agl:c/wbrun A-Games:X/Xiphos/Xiphos"}                               @{"XIt" SYSTEM "agl:c/wbrun A-Games:X/XIt/XIt"}
+      @{"XmasLemmingsDemo1991" SYSTEM "agl:c/wbrun A-Games:X/XmasLemmingsDemo1991/XmasLemmingsDemo1991"}                 @{"XmasLemmingsDemo1992" SYSTEM "agl:c/wbrun A-Games:X/XmasLemmingsDemo1992/XmasLemmingsDemo1992"}
+      @{"XOut1Disk" SYSTEM "agl:c/wbrun A-Games:X/XOut1Disk/XOut1Disk"}                            @{"XOut2Disk" SYSTEM "agl:c/wbrun A-Games:X/XOut2Disk/XOut2Disk"}
+      @{"XP8" SYSTEM "agl:c/wbrun A-Games:X/XP8/XP8"}                                  @{"XP8AGA" SYSTEM "agl:c/wbrun A-Games:X/XP8AGA/XP8AGA"}
+      @{"XR35" SYSTEM "agl:c/wbrun A-Games:X/XR35/XR35"}                                 @{"Xybots" SYSTEM "agl:c/wbrun A-Games:X/Xybots/Xybots"}
+
+@TOC agl:guides/ag-launch.guide/main
+@endnode
