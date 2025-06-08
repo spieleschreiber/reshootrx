@@ -9,6 +9,13 @@
 ;   Debbuging Macros
 ;   {
 
+FILENAMEPREFIX					MACRO
+								dc.b					"PROGDIR:data/"
+								ENDM
+
+SCR2MOD							Macro																																																																;3 Bitplanes
+								dc.l					mainPlaneWidth*mainPlaneDepth*tileHeight*\1
+								Endm
 
 
 DEBUGBREAK  MACRO   ; use this with FS-UAE debugger. Stop with F11+D->Terminal->type in fi $cf4f for EXGL.l a7,a7 or $cd4e for exg.l a6,a6. Code then continues and stops right here.
@@ -21,7 +28,7 @@ ERRORBREAK	MACRO
 	dc.w $cf4f
 	ENDM
 CALLEXEC	MACRO
-	move.l	Execbase,a6
+	move.l	Execbase.w,a6
 	jsr	_LVO\1(a6)
 	ENDM
 CALLDOS		MACRO
@@ -103,35 +110,17 @@ RASTERCOLOR      MACRO	; write color to border color
     ENDM
 
 WAITSECSSET	Macro
-	move.w #\1,_WAITSECS
+	move.w #\1,_waitsec
     clr.w frameCount+4
     ENDM
 WAITSECS 	Macro
-	jsr _waitSecs
+	jsr _WAITSECS
 	ENDM
-_waitSecs	; d0 = seconds	; called by macro WAITSECS
-	move.w _WAITSECS(pc),d0
-	muls #50,d0
-	lea frameCount+4.l(pc),a5
-.wait
-	cmp.w (a5),d0
-	bhi .wait
-	rts
-_WAITSECS
-	dc.w 0
+
 
 WAITVBLANK  MACRO
-	jsr _waitvblank
+	jsr _WAITVBLANK
 	ENDM
-_waitvblank
-    movem.l d0-d1,-(sp)
-	move.w frameCount+4.l(pc),d0
-.m1
-	move.w frameCount+4.l(pc),d1
-	cmp.w d0,d1
-	beq.b .m1
-    movem.l (sp)+,d0-d1
-    rts
 	
 ADDSCORE MACRO
     IF \1>7
@@ -185,13 +174,6 @@ FASTRANDOM	MACRO
 	move.l	(sp)+,d0
 	move.l	(sp)+,d1
 	ENDM
-FASTRANDOM_A1
-	lea	fastRandomSeed.l(pc),a1
-	movem.l	(a1),d4/d5				; AB
-	swap	d5						; DC
-	add.l	d5,(a1)					; AB + DC
-	add.l	d4,4(a1)				; CD + AB
-	rts
 
 
 SAFECOPPER MACRO
@@ -204,7 +186,7 @@ RESTORECOPPER MACRO
     WAITVBLANK
     ENDM
 
-COPPERSUBLIST    Macro
+COPPERSUBLIST    MACRO
     SAFECOPPER
     move.l #\1,d0
     bsr rasterListBuild
@@ -216,7 +198,7 @@ COPPERSUBLIST    Macro
     move d0,irqCopJmp
     st.b irqColorFlag
     WAITVBLANK
-    Endm
+    ENDM
 
 
 MSGACCL	MACRO
@@ -352,16 +334,6 @@ TIMERFETCH	Macro
 	sub.w d0,timer
 	move.w (sp)+,d0
 	Endm
-timer
-	dc.w 0
-
-	
-	clr.l d1
-	move.b $bfd500,d1
-	lsl #8,d1
-	move.b $bfd400,d1
-	sub.w d1,d0
-	ALERT01 m2,d0
 
 ;   Common Macros
 
@@ -487,50 +459,9 @@ WRITECOLOR		Macro
 	jsr writeCol
 	endm
 
-writeCol
-; write AGA-color d0/d1/d2 (RGB) to reg d3
-	;tst.w d3
-	;beq .skip
-    movem.l a0/d0-d6,-(a7)
 
-    move.w d0,d4
-    move.w d1,d5
-    move.w d2,d6
-    lsl.w #4,d4
-    lsr.w #4,d6
-    andi.w #$f00,d4
-    andi.w #$0f0,d5
-    andi.w #$00f,d6
-    or d6,d4
-    or d5,d4        ;Highbyte of color value
 
-    lsl.w #8,d0
-    lsl.b #4,d1
-    andi.w #$f00,d0
-    andi.w #$0f0,d1
-    andi.w #$00f,d2
-    or d1,d0
-    or d2,d0        ;Lowbyte of color value
-
-	move d3,d1
-	andi.w #$1f,d3
-	lsl #1,d3
-	add.w #$180,d3
-	lea CUSTOM,a0
-	lsl #8,d1
-    andi #%1110000000000000,d1
-	or #BRDRBLNKF,d1
-    move d1,BPLCON3(a0)
-    move d4,(a0,d3)
-    or #LOCTF,d1
-    move d1,BPLCON3(a0)
-    move d0,(a0,d3)
-
-    movem.l (a7)+,a0/d0-d6
-.skip
-	rts
-
-sort		Macro
+sort		MACRO
     move.l \1,a0	 ; address of array
  	move.w \2,d0 	; memsize of arrayitems in bytes
     subq #4,d0
@@ -556,7 +487,7 @@ sort		Macro
  	subi.w #1,d0
  	bgt .loop2
 .end
- 	Endm
+ 	ENDM
 
 
 SEARCHXML4VALUE   Macro
@@ -667,44 +598,3 @@ asciiToNumber   Macro       ; ax = Memorylocation of ASCII-number
             bra.b     .\@2        ;and continue
 .\@3
     Endm
-
-
-CLEARMEMORY
-
-    clr.l d0
-    clr.l d1
-    clr.l d2
-    clr.l d3
-    clr.l d4
-    clr.l d5
-    sub.l a0,a0
-    sub.l a1,a1
-    sub.l a2,a2
-    sub.l a3,a3
-    sub.l a4,a4
-    move.l a6,a5
-    adda.l d7,a6
-    moveq #$30,d6
-    sub.l d6,d7
-    divu d6,d7
-    clr.l d6
-    swap d7
-    clr.w d7
-    swap d7
-.1
-    movem.l d0-d6/a0-a4,-(a6)
-    dbra d7,.1
-    move.l a6,d7
-    sub.l a5,d7
-    lsr.l #1,d7
-    bra.b .3
-.2
-    clr.w -(a6)
-.3
-    dbra d7,.2
-    rts
-    ;}
-
-
-
-

@@ -26,8 +26,8 @@ DMASET		= %0000001111100000
 ;	h: Disk DMA
 ;	i..j: Audio Channel 0-3
 
-	ALIGNLONG
-start
+ALIGNLONG	
+startUpGame
 	IFEQ (RELEASECANDIDATE||DEMOBUILD)
 	moveq #-1,d0
 	move.l #MEMF_CHIP,d1
@@ -87,19 +87,21 @@ getFFF
 	move.l	d0,GFXbase	; store Graphics library base
 	beq	.END
 
-   	lea	.IntuName,a1
+   	lea	.IntuName(pc),a1
    	moveq 	#0,d0
    	CALLEXEC OpenLibrary
    	move.l 	d0,INTUbase	; store Intuition library base
    	beq .END
 
-	lea	.LOWLVName,a1
-   	moveq 	#0,d0
-   	CALLEXEC OpenLibrary
+	lea	.LOWLVName(pc),a1
+					moveq				#40,d0
+					move.l				 4.w,a6
+					jsr					_LVOOpenLibrary(a6)
+   	;CALLEXEC OpenLibrary
    	move.l 	d0,LOWLVbase	; store Intuition library base
    	beq .END
 
-   	lea	.NVName,a1
+   	lea	.NVName(pc),a1
    	moveq 	#0,d0
 	moveq	#1,d1			; killRequesters = true
    	CALLEXEC OpenLibrary

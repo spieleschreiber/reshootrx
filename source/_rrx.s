@@ -102,15 +102,15 @@ scr2mod		Macro ;3 Bitplanes
 		dc.l  mainPlaneWidth*mainPlaneDepth*tileHeight*\1
 		Endm
 scr2Offset
-    scr2mod 0
-    scr2mod 1
-    scr2mod 2
-    scr2mod 3
-    scr2mod 4
-    scr2mod 5
-    scr2mod 6
-    scr2mod 7
-    scr2mod 8
+    SCR2MOD 0
+    SCR2MOD 1
+    SCR2MOD 2
+    SCR2MOD 3
+    SCR2MOD 4
+    SCR2MOD 5
+    SCR2MOD 6
+    SCR2MOD 7
+    SCR2MOD 8
 
 
 scr2LastOffset
@@ -3336,7 +3336,7 @@ colorManager
 	dbra d7,.colRead4
 		rts
 .vfxColors4
-	INCBIN	stage4/vfx.pal
+	INCBIN	stage4/vfxColors.pal
 
 ;	#MARK: colors stage 05 outro
 

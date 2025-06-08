@@ -11,25 +11,25 @@
 					"-Fhunk",
 					"-linedebug",
 					"-opt-jbra",
-					"-nosym",
-					"-nodpc",
 					"-I $AMIDEV",
 					"-I $AMIDEV/source/system"
 
 				]
 			},
-			"vlink": {
+				"vlink": {
 				"enabled": true,
 				"command": "${config:amiga-assembly.binDir}/vlink",
-				"includes": "*.{s,S,asm,ASM}",
+				"includes": "rrx.s",
 				"excludes": "",
 				"exefilename": "../uae/dh0/rrx",
 				"entrypoint": "rrx.s",
 				"args": [
 					"-bamigahunk",
-					"-Bstatic"
+					"-Bstatic",
+					"-e _start"
 				]
 			},
+
 			"problemMatcher": [],
 			"label": "amigaassembly: build",
 			"group": {
