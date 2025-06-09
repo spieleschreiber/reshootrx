@@ -98,6 +98,11 @@ playerBodyHeight  =   28
 playerShotHeight  =   24
 playerShotMaxNo		=	18
 
+
+
+
+
+
 spritePlayerWidth  =   $24
 spriteScoreHeight  =   5
 spriteParallaxHeight = 256*2
@@ -132,6 +137,28 @@ collListEntrySize   =   12
 collListBobOffset   =   shotsMax*collListEntrySize
 collListSize =   (tarsMax+4)*collListEntrySize	; bit too big, since bullets would not need slot here. Accelerates object init proc though, so there you go   
 	
+
+attrIsNoRefresh			=	0
+attrIsKillBorderExit	=	1
+attrIsLink				=	2
+attrIsAvailB			=	3
+attrIsYadd				=	4
+attrIsNotHitable		=	5
+attrIsOpaq				=	6						; add "attribs 64" to object definition for object without no mask, to save memory and blitter dma cycles
+attrIsBonus				=	6						; bit 6 has two tasks. IsBonus is used with sprites only, therefore IsOpaq is meaningless in such cases
+attrIsSprite			=	7
+
+attrIsNoRefreshF		=	1<<attrIsNoRefresh
+attrIsKillBorderExitF	=	1<<attrIsKillBorderExit
+attrIsLinkF				=	1<<attrIsLink
+attrIsAvailBF			=	1<<attrIsAvailB
+attrIsYaddF				=	1<<attrIsYadd
+attrIsNotHitableF		=	1<<attrIsNotHitable
+attrIsOpaqF				=	1<<attrIsOpaq
+attrIsBonusF			=	1<<attrIsBonus
+attrIsSpriteF			=	1<<attrIsSprite
+
+
 	RSRESET
 collTableAnimActionAdr		rs.l	1
 collTableYCoords			rs.l	1
