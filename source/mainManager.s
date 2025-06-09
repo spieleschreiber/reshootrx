@@ -16,31 +16,29 @@ _Main
 	move.b		gameStatus(pc),d0
 	andi.w		#$f,d0
 	addq.b		#1,gameStatus
-	move.w		#1,d0
-	move.w		(.jmpTable,pc,d0.w*2),d0
+	move.w		#2,d0
+	move.w		.jmpTable(pc,d0.w*2),d0
 	;move.w		#testJmp-.off,d0
-.off
-								
-	jsr			.off(pc,d0.w)
+	jsr			.jmpTable(pc,d0.w)
 	tst.b		forceQuitFlag(pc)
 	beq.b		.mainLoop
 .quitMain
 	rts
 .jmpTable
 	IFEQ		DEMOBUILD
-	dc.w		mainIntro-.off,mainTitle-.off
-	dc.w		initGame-.off
-	dc.w		initGame-.off
-	dc.w		initGame-.off
-	dc.w		initGame-.off
-	dc.w		initGame-.off
-	dc.w		initGame-.off
-	dc.w		mainReset-.off
+	dc.w		mainIntro-.jmpTable,mainTitle-.jmpTable
+	dc.w		initGame-.jmpTable
+	dc.w		initGame-.jmpTable
+	dc.w		initGame-.jmpTable
+	dc.w		initGame-.jmpTable
+	dc.w		initGame-.jmpTable
+	dc.w		initGame-.jmpTable
+	dc.w		mainReset-.jmpTable
 	ELSE
-	dc.w		mainIntro-.off,mainTitle-.off
-	dc.w		initGame-.off
-	dc.w		mainReset-.off
-	dc.w		mainTitle-.off
+	dc.w		mainIntro-.jmpTable,mainTitle-.jmpTable
+	dc.w		initGame-.jmpTable
+	dc.w		mainReset-.jmpTable
+	dc.w		mainTitle-.jmpTable
 	ENDIF
 statusIntro		=	0
 statusTitle		=	1

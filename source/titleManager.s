@@ -464,7 +464,7 @@ titleMainLoop
 					move.b				titleViewIndx(pc),d7
 					move.w				titleJumpTable(pc,d7.w*2),d7
 ;	pea titleMainLoop(pc)	; return from sub to loop entry
-					jsr					titleJumpTable(pc,d7.w)
+.off					jsr					.off(pc,d7.w)
 					bra					titleMainLoop
 
 .switchView
@@ -1006,8 +1006,8 @@ titleInitOptions
 					clr.w				d7
 					move.b				titleViewIndx(pc),d7
 					move.w				titleJumpTable(pc,d7.w*2),d7
-	;pea .initOptionLoop(pc)
-					jsr					titleJumpTable(pc,d7.w)																											; keep displaying current view
+	
+.off				jmp					(.off,pc,d7.w)																													; keep displaying current view
 					bra					.initOptionLoop
 
 .waitReleaseOptions

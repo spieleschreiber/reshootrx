@@ -34,7 +34,7 @@ _start
 	INCLUDE		errorMessengers.s
 	INCLUDE		inputHandler.s
 	INCLUDE		saveState.s
-	INCLUDE		preparations.s
+	INCLUDE		initGameStructure.s
 	INCLUDE		colorManager.s
 	INCLUDE		opening.s
 	INCLUDE		titleManager.s

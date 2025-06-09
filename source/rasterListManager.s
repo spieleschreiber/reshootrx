@@ -310,14 +310,15 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				beq.w		.finish
 				cmpi.w		#NOOP,d6
 				bne			.iterate
-				move.w		.jT(pc,d7.w*2),d6																			; check for NOOP-cmd as initsignal for special copper fx
-.jmp			jmp			.jmp(pc,d6.w)
+				move.w		.jT(pc,d7.w*2),d6																	; check for NOOP-cmd as initsignal for special copper fx
+				
+				jmp			.jT(pc,d6.w)
 .jT
-				dc.w		.iterate-.jT+2,.escalateEntry-.jT+2,.escalateExit-.jT+2,.gameFinEntry-.jT+2					; 0-3
-				dc.w		.gameFinReturn-.jT+2,.iterate-.jT+2,.spr7pthEntry-.jT+2,.lowerScoreEntry-.jT+2				; 4-7
-				dc.w		.iterate-.jT+2,.dialogueEntry-.jT+2,.dialogueExit-.jT+2,.achievementsEntry-.jT+2			;8-11
-				dc.w		.achievementsQuit-.jT+2,.bpl2modReversal-.jT+2, .spr7posEntry-.jT+2, .colorBullet-.jT+2		;12-15
-				dc.w		.availSlot-.jT+2
+				dc.w		.iterate-.jT,.escalateEntry-.jT,.escalateExit-.jT,.gameFinEntry-.jT					; 0-3
+				dc.w		.gameFinReturn-.jT,.iterate-.jT,.spr7pthEntry-.jT,.lowerScoreEntry-.jT				; 4-7
+				dc.w		.iterate-.jT,.dialogueEntry-.jT,.dialogueExit-.jT,.achievementsEntry-.jT			;8-11
+				dc.w		.achievementsQuit-.jT,.bpl2modReversal-.jT, .spr7posEntry-.jT, .colorBullet-.jT		;12-15
+				dc.w		.availSlot-.jT
 .scrolReg
 				move		d0,d2
 				addq		#2,d2
@@ -474,7 +475,7 @@ buildRasListFrame
 				move.l		(a6)+,a0																					; get adress of anim buffer
 				move.w		#2,a5
 buildRasList
-				jmp			buildRasList(pc,d6.w)																		; precalc PF2Hx and modulus for one frame
+				jmp			buildRasList(pc,d6.w)																; precalc PF2Hx and modulus for one frame
 buildRasListMod
 				adda		#2,a0
 				dbra		d7,buildRasList
@@ -483,12 +484,12 @@ buildRasListMod
 				rts
 
 rasListPrepJmpTbl	; precalc list offsets
-				dc.w		.preStoreStage0-buildRasList-2
-				dc.w		.preStoreStage1-buildRasList-2
-				dc.w		.preStoreStage2-buildRasList-2
-				dc.w		.preStoreStage3-buildRasList-2
-				dc.w		.preStoreStage4-buildRasList-2
-				dc.w		.preStoreStage5-buildRasList-2
+				dc.w		.preStoreStage0-buildRasList
+				dc.w		.preStoreStage1-buildRasList
+				dc.w		.preStoreStage2-buildRasList
+				dc.w		.preStoreStage3-buildRasList
+				dc.w		.preStoreStage4-buildRasList
+				dc.w		.preStoreStage5-buildRasList
 
 .preStoreStage0
 ;	d1 = frames $3a - 0

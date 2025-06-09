@@ -29,14 +29,14 @@ bossCtrl
 .notHit
 	lea bossVars(pc),a1
 	move.w gameStatusLevel(pc),d0
-	move.w (.bossJmpTable,pc,d0.w*2),d0
-.jmpBoss	jmp .jmpBoss(pc,d0.w)
+	move.w .bossJmpTable(pc,d0.w*2),d0
+	jmp .bossJmpTable(pc,d0.w)
 .bossJmpTable
-	dc.w .main1-.bossJmpTable+2	; sun
-	dc.w .main0-.bossJmpTable+2	;
-	dc.w .main2-.bossJmpTable+2	;
-	dc.w .main3-.bossJmpTable+2
-	dc.w .main4-.bossJmpTable+2
+	dc.w .main1-.bossJmpTable	; sun
+	dc.w .main0-.bossJmpTable	;
+	dc.w .main2-.bossJmpTable	;
+	dc.w .main3-.bossJmpTable
+	dc.w .main4-.bossJmpTable
 
 	;	#MARK: - .1 launch stealth object
 
@@ -522,15 +522,14 @@ laserJumpIn	SET 	.drawLaser-.boss
 .main2	; main boss 2 object controller
 	clr.w d0
 	move.b objectListTriggers+3(a2),d0
-	move.w (.jmpTable,pc,d0.w*2),d0
-.jmp
-	jmp .jmp(pc,d0.w)
+	move.w .jmpTable(pc,d0.w*2),d0
+	jmp .jmpTable(pc,d0.w)
 .jmpTable
-	dc.w 	.main2Body-.jmp-2			; trig1792
-	dc.w 	.main2Body-.jmp-2			; trig1793
-	dc.w	.stealthController-.jmp-2	; trig1794
-	dc.w	.beamController-.jmp-2		; trig1795
-	dc.w	.availableController-.jmp-2
+	dc.w 	.main2Body-.jmpTable			; trig1792
+	dc.w 	.main2Body-.jmpTable			; trig1793
+	dc.w	.stealthController-.jmpTable	; trig1794
+	dc.w	.beamController-.jmpTable		; trig1795
+	dc.w	.availableController-.jmpTable
 
 .main2Body
 	;move.w objectListX(a2),d2
@@ -668,12 +667,12 @@ noOfFrames	SET	6
 
 	clr.w d0
 	move.b objectListTriggers+1(a2),d0
-	move.w (.jmpTableBeam,pc,d0.w*2),d0
+	move.w .jmpTableBeam(pc,d0.w*2),d0
 	lea polyVars(pc),a1
-.jmpBeam
-	jmp .jmpBeam(pc,d0.w)
+
+	jmp .jmpTableBeam(pc,d0.w)
 .jmpTableBeam
-	dc.w .0Beam-.jmpBeam-2,.1Beam-.jmpBeam-2,.2Beam-.jmpBeam-2
+	dc.w .0Beam-.jmpTableBeam,.1Beam-.jmpTableBeam,.2Beam-.jmpTableBeam
 
 .0Beam	; open eye
 	move.b #0,objectListAttr(a2)

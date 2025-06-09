@@ -10,14 +10,14 @@ bossInit
 	move.w objectListHit(a6),bossHitCmp(a0)	; set boss hit compare
 	move.w gameStatusLevel(pc),d6
 
-	move.w (.bossJmpTable,pc,d6.w*2),d0
-.jmp	jmp .jmp(pc,d0.w)
+	move.w .bossJmpTable(pc,d6.w*2),d0
+	jmp .bossJmpTable(pc,d0.w)
 .bossJmpTable
-	dc.w .main0-.bossJmpTable+2
-	dc.w .main1-.bossJmpTable+2
-	dc.w .main2-.bossJmpTable+2
-	dc.w .main3-.bossJmpTable+2
-	dc.w .main4-.bossJmpTable+2
+	dc.w .main0-.bossJmpTable
+	dc.w .main1-.bossJmpTable
+	dc.w .main2-.bossJmpTable
+	dc.w .main3-.bossJmpTable
+	dc.w .main4-.bossJmpTable
 
 .main2	; the eye boss
 .eyeBossLaunchpads	SET 30<<2

@@ -29,15 +29,15 @@ exitStage
 
 	move.b objectListTriggers+2(a2),d0
 	ext.w d0
-	move.w (.jmpTable,pc,d0.w*2),d7
-.jmp	jmp .jmp(pc,d7.w)
+	move.w .jmpTable(pc,d0.w*2),d7
+	jmp .jmpTable(pc,d7.w)
 .jmpTable
-	dc.w	.fadeVolume-.jmpTable+2	; move player, fade music, init explos	;[trig1536]
-	dc.w	.movePlayer-.jmpTable+2	; move player, init explos, init spritetable[trig1537]
-	dc.w	.doAchievementBoss-.jmpTable+2;[call this by trig1538]	
-	dc.w	.doAchievementShots-.jmpTable+2;[call this by trig1539]
-	dc.w	.doAchievementChain-.jmpTable+2;[trig1540]
-	dc.w	.initTransition-.jmpTable+2;[trig1541]
+	dc.w	.fadeVolume-.jmpTable	; move player, fade music, init explos	;[trig1536]
+	dc.w	.movePlayer-.jmpTable	; move player, init explos, init spritetable[trig1537]
+	dc.w	.doAchievementBoss-.jmpTable;[call this by trig1538]	
+	dc.w	.doAchievementShots-.jmpTable;[call this by trig1539]
+	dc.w	.doAchievementChain-.jmpTable;[trig1540]
+	dc.w	.initTransition-.jmpTable;[trig1541]
 .nilAction
 	bra objectListNextEntry
 .fadeVolume
@@ -2074,11 +2074,11 @@ brickMed
 	move.b objectListTriggers+1(a2),d0
 	sf.b objectListTriggers+1(a2)
 	add.w d0,d0
-	move.w (.childType,pc,d0),d0
-.jmpAdr
+	move.w .jmpAdr(,pc,d0),d0
+
 	jmp .jmpAdr(pc,d0.w)
-.childType
-	dc.w .tooManyObj-.jmpAdr-2,.oceanEye-.jmpAdr-2,.discEye-.jmpAdr-2,.tubeTurret-.jmpAdr-2
+.jmpAdr
+	dc.w .tooManyObj-.jmpAdr,.oceanEye-.jmpAdr,.discEye-.jmpAdr,.tubeTurret-.jmpAdr
 .oceanEye
 	move.l brickEyeAnimPointer(pc),a4
 	bra.b .contInit

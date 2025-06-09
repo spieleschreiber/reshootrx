@@ -81,11 +81,11 @@ brickMed
 	clr.l d0
 	move.b objectListTriggers+1(a2),d0
 ;	sf.b objectListTriggers+1(a2)
-	move.w (.childType,pc,d0*2),d0
-.jmpAdr
-	jmp .jmpAdr(pc,d0.w)
+	move.w .childType(pc,d0*2),d0
+
+	jmp .childType(pc,d0.w)
 .childType
-	dc.w .noAction-.jmpAdr-2,.tentacle-.jmpAdr-2,.discEye-.jmpAdr-2,.tubeTurret-.jmpAdr-2
+	dc.w .noAction-.childType,.tentacle-.childType,.discEye-.childType,.tubeTurret-.childType
 .headingTable
 	dc.w 0,-.brickAcceleration,0,.brickAcceleration
 	dc.w		.brickAcceleration,0,-.brickAcceleration,0
@@ -143,15 +143,15 @@ brickMed
 	clr.l d5
 	clr.w d7
 	move.b objectListTriggers+3(a2),d7
-	move.w (.directionTable,pc,d7.w*2),d7
+	move.w .directionTable(pc,d7.w*2),d7
 .jmp
-	jmp .jmp(pc,d7.w)
+	jmp .directionTable(pc,d7.w)
 .directionTable
-	dc.w	.goSouth-.jmp-2,.goWest-.jmp-2
-	dc.w 	.goNorth-.jmp-2,.goEast-.jmp-2
-	dc.w	.goIdle-.jmp-2,.rebound-.jmp-2
-	dc.w	.hitAndMove-.jmp-2,.isChild-.jmp-2
-	dc.w 	.goIdleB-.jmp-2
+	dc.w	.goSouth-.directionTable,.goWest-.directionTable
+	dc.w 	.goNorth-.directionTable,.goEast-.directionTable
+	dc.w	.goIdle-.directionTable,.rebound-.directionTable
+	dc.w	.hitAndMove-.directionTable,.isChild-.directionTable
+	dc.w 	.goIdleB-.directionTable
 	RSSET	0
 .headingSouth		rs.b	1
 .headingWest		rs.b	1

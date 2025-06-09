@@ -3354,14 +3354,14 @@ colorManager
 
 	lea gameStatusLevel(pc),a0
 	move.w (a0),d0
-	move.w (.jmpTable-*,pc,d0.w*2),d0
+	move.w .jmpTable(pc,d0.w*2),d0
 
     move.l diskBuffer+4(pc),a0	; color rgbs in 24 bit format
 	lea colorAlphaTable,a1
 	clr.l d3
 	clr.l d4
 	clr.l d5
-	jmp (pc,d0.w)
+	jmp .jmpTable(pc,d0.w)
 .jmpTable		; color jumper
 	dc.w	.lv0nebula-.jmpTable+4
 	dc.w	.lv1sun-.jmpTable+4

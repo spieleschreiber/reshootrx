@@ -90,12 +90,12 @@ spinners
 	jsr FASTRANDOM_A1	; preload random numbers to d4/d5
 	clr.w d0
 	move.b objectListTriggers+3(a2),d0
-	move.w (.jmpTable-2,pc,d0.w*2),d0
+	move.w .jmpTable(pc,d0.w*2),d0
 	sf.b objectListTriggers+3(a2)
-.jmp
-	jmp .jmp(pc,d0.w)
+
+	jmp .jmpTable(pc,d0.w)
 .jmpTable
-	dc.w .1-.jmp-2,.2-.jmp-2,.3-.jmp-2,.4-.jmp-2
+	dc.w .1-.jmpTable,.2-.jmpTable,.3-.jmpTable,.4-.jmpTable
 .2
 	lsr.b #1,d4
 	lsr.b #2,d5	; range 0 to 63

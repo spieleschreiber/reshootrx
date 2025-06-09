@@ -778,11 +778,11 @@ brickMed
 	move.b objectListTriggers+1(a2),d0
 	sf.b objectListTriggers+1(a2)
 	add.w d0,d0
-	move.w (.childType,pc,d0),d0
-.jmpAdr
-	jmp .jmpAdr(pc,d0.w)
+	move.w .childType(pc,d0),d0
+
+	jmp .childType(pc,d0.w)
 .childType
-	dc.w .tooManyObj-.jmpAdr-2,.oceanEye-.jmpAdr-2,.discEye-.jmpAdr-2,.tubeTurret-.jmpAdr-2
+	dc.w .tooManyObj-.childType,.oceanEye-.childType,.discEye-.childType,.tubeTurret-.childType
 .oceanEye
 	move.l brickEyeAnimPointer(pc),a4
 	bra.b .contInit

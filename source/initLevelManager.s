@@ -219,15 +219,15 @@ initGame
 		WAITVBLANK
 
 		move.w				gameStatusLevel(pc),d7
-		move.w				(.jmpTable,pc,d7.w*2),d7
-.jmp	jmp					.jmp(pc,d7.w)
+		move.w				.jmpTable(pc,d7.w*2),d7
+		jmp					.jmpTable(pc,d7.w)
 .jmpTable
-		dc.w				.lv0sky-.jmpTable+2
-		dc.w				.lv1sun-.jmpTable+2
-		dc.w				.lv2desert-.jmpTable+2
-		dc.w				.lv3ocean-.jmpTable+2
-		dc.w				.lv4-.jmpTable+2
-		dc.w				.lv5outro-.jmpTable+2
+		dc.w				.lv0sky-.jmpTable
+		dc.w				.lv1sun-.jmpTable
+		dc.w				.lv2desert-.jmpTable
+		dc.w				.lv3ocean-.jmpTable
+		dc.w				.lv4-.jmpTable
+		dc.w				.lv5outro-.jmpTable
 .sampleHero
 		dc.b				"sound/vo_hero.iff",0
 		even

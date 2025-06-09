@@ -1,4 +1,4 @@
 sys:rrx
 ; Quits the emulator at the end of the program
 anticlick
-; UAEquit
+UAEquit; comment this to keep emu active after abort

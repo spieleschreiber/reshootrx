@@ -9,21 +9,21 @@ exitStage
 
 	move.b objectListTriggers+2(a2),d0
 	ext.w d0
-	move.w (.jmpTable,pc,d0.w*2),d7
-.jmp	jmp .jmp(pc,d7.w)
+	move.w .jmpTable(pc,d0.w*2),d7
+	jmp .jmpTable(pc,d7.w)
 .jmpTable
-	dc.w	.fadeVolume-.jmpTable+2	; move player, fade music, init explos	;[trig1536]
-	dc.w	.movePlayer-.jmpTable+2	; move player, init explos, init spritetable[trig1537]
-	dc.w	.doAchievementBoss-.jmpTable+2;[call this by trig1538]	
-	dc.w	.doAchievementShots-.jmpTable+2;[call this by trig1539]
-	dc.w	.doAchievementWave-.jmpTable+2;[trig1540]
-	dc.w	.initTransition-.jmpTable+2;[trig1541]
-	dc.w	.credInit-.jmpTable+2;[trig1542]
-	dc.w	.credBlank-.jmpTable+2;[trig1543]
-	dc.w	.credGratsMsg-.jmpTable+2;[trig1544]
-	dc.w	.credSurvMsg-.jmpTable+2;[trig1545]
-	dc.w	.credFinalscoreMsg-.jmpTable+2;[trig1546]
-	dc.w	.credScroller-.jmpTable+2;[trig1547]
+	dc.w	.fadeVolume-.jmpTable	; move player, fade music, init explos	;[trig1536]
+	dc.w	.movePlayer-.jmpTable	; move player, init explos, init spritetable[trig1537]
+	dc.w	.doAchievementBoss-.jmpTable;[call this by trig1538]	
+	dc.w	.doAchievementShots-.jmpTable;[call this by trig1539]
+	dc.w	.doAchievementWave-.jmpTable;[trig1540]
+	dc.w	.initTransition-.jmpTable;[trig1541]
+	dc.w	.credInit-.jmpTable;[trig1542]
+	dc.w	.credBlank-.jmpTable;[trig1543]
+	dc.w	.credGratsMsg-.jmpTable;[trig1544]
+	dc.w	.credSurvMsg-.jmpTable;[trig1545]
+	dc.w	.credFinalscoreMsg-.jmpTable;[trig1546]
+	dc.w	.credScroller-.jmpTable;[trig1547]
 .nilAction
 	bra objectListNextEntry
 .fadeVolume

@@ -188,7 +188,7 @@ bobSourceMem
 			move.l					d0,launchTableBuffer-vars+4(a5)
 
 
-; #MARK: - Load and prepare Audio SFX Data -
+; #MARK: - Audio Data
 
 
 	; setup secondary pointers, used for XML decoding
