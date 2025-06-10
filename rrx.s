@@ -16,7 +16,7 @@
 	INCDIR		include/
 	INCDIR		include/system/
 
-	INCLUDE		targetControl.i				; define important target vars
+	INCLUDE		!targetControl.i				; define important target vars
 	INCLUDE		cia.i
 	INCLUDE		custom.i
 	INCLUDE		exec_lib.i

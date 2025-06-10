@@ -4,7 +4,7 @@ prepareInitGame
 				WAITVBLANK
 
 ;	move.w #$41fa,chkBckCol;	enable col detection
-
+				lea				 CUSTOM,a6
 				lea				titleSprites,a0								; hide sprites
 				moveq			#6,d0
 				move			#$3000,d1

@@ -110,7 +110,7 @@ statusLow	SET (rgbLow0old-rgbLow0)
 	IFNE statusHigh|statusLow
 		dc.w (parSpriteY<<8)&$fffe+$03
 		dc.w $ff<<8+%11111110
-			PRINTV rgbHigh0
+			
 ;		IFNE statusHigh
 		CMOVE BPLCON3,BRDRBLNKF
 ;			IFNE (rgbHigh0old-rgbHigh0)

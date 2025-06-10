@@ -261,7 +261,7 @@ hitObject                   ; hit moving object. A5 = pointer to bullet adress, 
 	move.l		([hitObjAnim.W,pc,d0.w*4]),a1				; get new anim adress
 	suba.w		#4,a6
 	move.l		(a5),a0										; collTableAnimActionAdr- handle player shot
-
+	
 	lea			scoreMultiplier+4(pc),a4
 	move.l		a0,(a4)										; make available to chain score sprite spawn
 
@@ -334,7 +334,7 @@ hitObject                   ; hit moving object. A5 = pointer to bullet adress, 
 	IFEQ		OBJECTSCORETEST
 	ADDSCORE	1
 	ENDIF
-
+;	bra			irqDidColManager
 	move.l		objectListMainParent(a0),a6						; fetch main parent
 	tst.l		a6
 	bne			.hitChild

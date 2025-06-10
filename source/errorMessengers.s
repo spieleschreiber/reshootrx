@@ -69,7 +69,7 @@ shellLaunch
 	nop
 .msg
 	dc.b 10,13
-	dc.b 'RESHOOT PROXIMA 3 launching',0
+	dc.b 'RESHOOT RX launching',0
 	even
 shellMemoryAvail
 	SAVEREGISTERS

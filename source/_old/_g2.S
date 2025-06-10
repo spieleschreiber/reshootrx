@@ -67,7 +67,7 @@ PACK_PHYSICAL	=	1	; 1 for CD-ROM intro pic,0 for digital edit
 USEASSIGN=0
 COMPATIBILITY	=	2
 ALERTHANDLING=0
-SHELLHANDLING	=	0		; must not be 1, otherwise crashes on real hardware
+SHELLHANDLING	=	1		; must not be 1, otherwise crashes on real hardware
     ENDIF
 
 

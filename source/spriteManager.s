@@ -470,13 +470,14 @@ spriteManager
 	rol			#7,d1								; jump to different animation routines
 	andi.w		#$3f<<1,d1
 	;move #35<<1,d1
+				;move.w		 #4,d1
 
 	;jmp .sprBullet8C
 				move.w		.spriteAnimCases.w(pc,d1),d1
 				jmp			.spriteAnimCases(pc,d1)
 .spriteAnimCases
 .sc
-				dc.w		0,.sprPlyShotA-.sc,.sprPlyShotB-.sc,.sprPlyShotC-.sc,.sprPlyShotD-.sc,.sprPlyShotE-.sc,.sprPlyShotF-.sc
+				dc.w		.sprPlyShotA-.sc,.sprPlyShotB-.sc,.sprPlyShotC-.sc,.sprPlyShotD-.sc,.sprPlyShotE-.sc,.sprPlyShotF-.sc
 		; sprite 0-6
 
 				dc.w		.sprPlyShotA1-.sc,.sprPlyShotB1-.sc,.sprPlyShotC1-.sc,.sprPlyShotD1-.sc,.sprPlyShotE1-.sc,.sprPlyShotF1-.sc

@@ -40,7 +40,7 @@ bobSourceSize	SET		$61000
 
 
 musicMemSize	SET		300000&$fffffff8	; should be 330000 as determined by outro music size. outro music partially overwrittes object memory when loaded. Dont bother as no objects are in use in stage 5. Still, re-check everytime you use bobSource to store data
-	PRINTT zzz
+	
 	PRINTV	 musicMemSize
 
 ;	280000 works
@@ -220,9 +220,6 @@ objectListMainParent=objectListX*9  ;.l
 objectListTriggers=objectListX*10  ;.l
 objectListTriggersB=objectListX*11  ;.l
 objectListSize=objectListTriggersB+objectListX
-	PRINTT text
-	PRINTV	objectListSize
-	PRINTV	objectListEntrySize
 	
 	RSRESET
 animDefXAcc			rs.w 	1

@@ -1,7 +1,7 @@
 
 
 ; RESHOOT.repeat  27. 7. 2016
-; Copyright (c) 2016 Richard Lšwenstein
+; Copyright (c) 2016 Richard Lï¿½wenstein
 ; Modified from Stingrays original file tubularworldspatch.s
 
 
@@ -18,7 +18,7 @@
 *       _____.__ _                                         .___.          *
 *      /    /_____________.  _________.__________.________ |   |________  *
 *  ___/____      /    ____|_/         |         /|        \|   ._      /  *
-*  \     \/      \    \     \    /    |    :___/¯|    \    \   |/     /   *
+*  \     \/      \    \     \    /    |    :___/ï¿½|    \    \   |/     /   *
 *   \_____________\___/_____/___/_____|____|     |____|\_____________/    *
 *     -========================/===========|______\================-      *
 *                                                                         *
@@ -58,7 +58,7 @@
 
 
 		move.l	4, a6
-		;PRINTV _LVOCreateMsgPort
+		
 		CALLDOS	CreateMsgPort
 		move.l	d0, a5            ; a5 = MsgPort
 

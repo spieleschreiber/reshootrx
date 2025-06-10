@@ -170,6 +170,25 @@ FASTRANDOM	MACRO
 	move.l	(sp)+,d1
 	ENDM
 
+MSGTOSHELL  MACRO
+    IFNE SHELLHANDLING
+    	cmpi.w #20,frameCount+2(pc)
+		blo					.\@2												; skip output if less than 20 frames have passed for stability
+
+        movem.l d0-d7/a0-a6,-(sp)
+        lea .\@1(pc),a6
+        move.l \2,d0
+        bsr shellNum
+        movem.l (sp)+,d0-d7/a0-a6
+        bra	.\@2				 
+.\@1    dc.b "$$$$$$$$$ "
+		dc.b				\1,0
+        even
+.\@2
+    ENDIF
+    ENDM
+    
+ENDM
 
 SAFECOPPER MACRO
     WAITVBLANK

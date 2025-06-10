@@ -38,6 +38,9 @@ startUpGame
 	CALLEXEC AvailMem
 	move.l d0,memFast
                  bra              getFFF
+	PRINTV RELEASECANDIDATE
+	PRINTV DEMOBUILD
+
 
 	IFEQ (RELEASECANDIDATE||DEMOBUILD)
 	
@@ -245,7 +248,7 @@ getFFF
 			moveq #-1,d0
 			move.l #MEMF_CHIP,d1
 			CALLEXEC AvailMem
-			move.l MemChip(pc),d1
+			move.l memChip(pc),d1
 			sub.l d0,d1
 			move.l d1,d0
 			add.l d0,.temp
@@ -256,7 +259,7 @@ getFFF
 			moveq #-1,d0
 			move.l #MEMF_FAST,d1
 			CALLEXEC AvailMem
-			move.l MemFast(pc),d1
+			move.l memFast(pc),d1
 			sub.l d0,d1
 			move.l d1,d0
 			add.l d0,.temp
@@ -332,7 +335,7 @@ getFFF
 				moveq #-1,d0			; detect memory leak
 				move.l #MEMF_ANY,d1
 				CALLEXEC AvailMem
-				move.l MemTotal(pc),d1
+				move.l memTotal(pc),d1
 				sub.l d1,d0
 				beq .noMemLeak
 				neg.l d0

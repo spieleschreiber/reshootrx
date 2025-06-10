@@ -22,6 +22,8 @@ plyManager
 				tst.b				plyExitReached(a6)
 				bne					plyFinal
 				move.w				plyJoyCode(a6),d7
+				
+			
 				clr.l				d6
 
 ;!!!: handle scrolling- and player-x-acceleration
@@ -44,7 +46,7 @@ handlePlayerMovement
 				IFNE				PLAYERSPRITEDITHERED																; for player collission tests, player is snail-paced
 				btst				#STICK_BUTTON_ONE,d7																; check firebutton 1
 				bne					.nofb
-
+			
 				move.w				#plyAcclYMin-5,plyAcclYCap(a6)														; already got highest speed?
 				move.w				#plyAcclYMin-5,plyAcclXCap(a6)														; already got highest speed?
 				bra					.cont
@@ -155,6 +157,7 @@ handlePlayerMovement
 		;#FIXME: temp. disabled plyPosXDynAlt. Still needed?
 				add.w				#viewDownClip-30,d6
 
+	
 ;#MARK: Player shot control
 .plyShotControl
 	;move.b #3,plyWeapUpgrade(a6)
@@ -198,9 +201,9 @@ handlePlayerMovement
 .smooth2
 				ENDIF
 
-
+			
 ; keypress code ends
-
+		
 				clr.l				d6
 				move.b				plyFire1Auto(a6),d6
 				bpl					.autoShoot
@@ -208,8 +211,11 @@ handlePlayerMovement
 				IFNE				PLAYERAUTOFIRE
 				bra					.fbPressed
 				ENDIF
+					
 				btst				#STICK_BUTTON_ONE,d7																; is primary firebutton tapped?
 				beq					.released
+				
+				
 .fbPressed
 				addq				#1,d0																				; yes!
 				add.b				d0,plyFire1Flag(a6)

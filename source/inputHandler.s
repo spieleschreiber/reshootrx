@@ -59,34 +59,40 @@ inputHandler
 	sf.b d4
 	eor.w #$300,d4
 	or.b d3,d4
-
+	LEA $DFF034,A0      ; POTGO
+	MOVE.W #$0F00,(A0)  ; Enable both POT lines (bits 8–11), discharge caps
+	MOVE.W #$0300,(A0)  ; Start charge cycle: set bits 8 and 9 (POTGO set high)
 	IF 0=1	; should read 3rd button, not tested
 	btst     #bit_joyb3,$dff016
 	seq      d0
 	add.w    d0,d0
 	ENDIF
 .skip
+	move.w			 $dff016,d0
+	;MSGTOSHELL			 "JoyCode",d0
 	btst	#bit_joyb2,$dff016
 	seq	d0
+	
 	add.w	d0,d0
 
-	btst	#bit_joyb1,$bfe001
+	btst		#bit_joyb1,$bfe001	;Button A on Switch-Pad
 	seq	d0
+	
 	add.w	d0,d0
+	
 	move.w	CUSTOM+JOY1DAT,d1
-
 	ror.b	#2,d1
 	lsr.w	#6,d1
 	andi.w	#%1111,d1
-	move.b	(.directionConvTable,pc,d1.w),d0	; 1=right, 2=left, 4=down, 8=up
+	
+	move.b	.directionConvTable(pc,d1.w),d0	; 1=right, 2=left, 4=down, 8=up
 
 	or.w d4,d0	; mix keyboard and stick controls
 
 	lea plyBase+plyJoyCode(pc),a0
 	move.w (a0),2(a0)	; story old value, needed for input query in title screen
-	move.w frameCount+2(pc),d1
 	move.w d0,(a0)	; store current input state
-
+	
 	btst #STICK_BUTTON_ONE,d0
 	beq .FBreleased
 	sub.w 4(a0),d1

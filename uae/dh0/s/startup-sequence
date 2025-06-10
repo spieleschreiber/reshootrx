@@ -1,4 +1,19 @@
+
+IF EXISTS L:env-handler
+  C:MakeDir RAM:T RAM:Clipboards
+  L:env-handler
+  C:Copy >NIL: ENVARC:Sys/def_kick.info ENV:Sys/def_kick.info
+ELSE
+  C:MakeDir RAM:T RAM:Clipboards RAM:ENV RAM:ENV/Sys
+  C:Copy >NIL: ENVARC: RAM:ENV ALL NOREQ
+  Assign >NIL: ENV: RAM:ENV
+EndIF
+
+mount AUX:
+
 sys:rrx
 ; Quits the emulator at the end of the program
+loadwb
 anticlick
-UAEquit; comment this to keep emu active after abort
+endcli
+;UAEquit; comment this to keep emu active after abort

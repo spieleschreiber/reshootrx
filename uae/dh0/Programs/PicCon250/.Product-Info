@@ -1,0 +1,68 @@
+.name
+PicCon
+.fullname
+Picture Converter
+.type
+Developer tool
+.short
+Image converter, mainly aimed at programmers.
+.description
+PicCon is a program to aid developers of Amiga software for including
+graphical images in their own programs.\n\n
+In a full featured GUI you are able to cut out any portion of a loaded
+picture and save it back to disk in a variety of formats. Supported formats
+include: ordinary bitplanes, interleaved bitplanes, chunkypixels,
+blittermasks, Amiga sprites, IFF ILBMs, workbench icons,
+Super Nintendo/Famicom and Sega Megadrive/Genesis charactersets and lots
+of variations on these main formats.\n
+You can also save the picture's palette in a variety of formats, including
+ordinary raw 4, 8, or 32 bits-per-gun, Amiga copperlists, IFF ILBM and more.\n
+All saves can be done in either binary, as linkmodules (objectfiles), or in
+sourcecode (assembler, C, E or Pascal).\n\n
+The pictures which contain your images can be stored in IFF ILBM or any
+format you've got datatypes' support for as the datatypes.library supplied
+with OS3.0 is used (if present) by PicCon. RAW images and workbench icons
+can also be loaded (for e.g. reediting), and PicCon also supports loading
+and handling of standard IFF ANIMs.\n\n
+Some simple (but, in this context, useful) imageprocessing tools have been
+included in PicCon, like pen remapping, palette compression, size and depth
+scaling and palette fitting. Other features that have proved very handy for
+time-saving purposes are the "gridsave", "autocrop" and "autoscan" functions.
+The "autoscan" function makes it possible to process a whole picture full
+of images in one operation. The "gridsave" feature lets you save hundreds
+of e.g. maptiles for backgroundgraphics in a game in a single command.\n\n
+.version
+2.50
+.date
+1994.08.23
+.author
+Morten Eriksen
+.restrictions
+Three (non-essential) functions disabled in demoversion.
+.requirements
+OS 2.04 (V37) or later.
+.distribution
+Shareware
+.price
+$15(US), GBP £10, FFR 75, DM 25, NKR 100, SKR 110, DKR 100 or an equal amount in any other currency.
+.address
+Lauritz Jenssens gt. 10
+7045 Trondheim
+NORWAY
+.email
+mortene@idt.unit.no
+.exectype
+68000
+.installsize
+70K - 200K
+.construction
+SAS/C 6.0
+.tested
+A500 - A4000, 0.5 - 2MB CHIP, 0 - 16MB FAST, 68000, 68010, 68EC020, 68020, 68EC030, 68030, 68040, OS V37 - V40, all screenmodes on all monitors distributed with OS3.0 except the A2024, MMU, FPU, no hits found with either Enforcer or Mungwall.
+.run
+PicCon=WB,PicCon
+PicCon=CLI,PicCon
+.docs
+PicCon.guide
+.described-by
+Morten Eriksen (mortene@idt.unit.no)

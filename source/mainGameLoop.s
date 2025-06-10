@@ -30,6 +30,7 @@ mainGameLoop        	;***Hauptprogramm/Schleife***
 		move.l				CUSTOM+VPOSR,d0
 		lsr.l				#7,d0
 		move.w				d0,rasterBarNow								; store rasterPosition after blitter draw process
+		;MSGTOSHELL			"SCANLINE END", d0
 
 .blitPause
 		lea					frameCount(pc),a0							; update frameCount
@@ -174,6 +175,7 @@ mainGameLoop        	;***Hauptprogramm/Schleife***
 
 
 .noEscape
+	
 		move.w				plyPos+plyJoyCode(pc),d0					; read only upper two bytes of controller
 		andi				#1<<(STICK_BUTTON_TWO),d0					; only start button bit
 		lea					.storeController(pc),a1

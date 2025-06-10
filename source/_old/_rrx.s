@@ -13954,7 +13954,7 @@ spritePlayerBasicEnd
 	ENDIF
 infoPanelMultiDisplay	; mirrored version of bitmap in infoPanelMultiply, fading out
 	blk.b infoPanelDidIt-infoPanelMultiply,0
-	PRINTV infoPanelDidIt-infoPanelMultiply
+	
 
     ;}
 
