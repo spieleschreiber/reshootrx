@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="9" height="480" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1640">
- <tileset firstgid="1" name="bone_valley" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+ <tileset firstgid="1" name="bone_valley" tilewidth="32" tileheight="32" tilecount="0" columns="16">
   <image source="../art/kevsPixels/#tiles/bv_foreground.png" width="512" height="512"/>
  </tileset>
  <layer id="1" name="tilemap" width="9" height="480">
@@ -4328,7 +4328,7 @@
   </data>
  </layer>
  <objectgroup id="2" name="Wavemap" offsetx="-256" offsety="0">
-  <object id="1065" name="start" x="397" y="15000"/>
+  <object id="1065" name="start" x="424" y="14614"/>
   <object id="1379" name="spedUpgr" x="396" y="14966">
    <properties>
     <property name="hit" value="-1"/>

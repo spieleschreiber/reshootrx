@@ -275,6 +275,7 @@ hitObject                   ; hit moving object. A5 = pointer to bullet adress, 
 	move.b		objectListAttr(a0),d6
 	btst		#2,d6
 	beq			singleObject
+	;bra					 irqDidColManager
 
 	tst.l		objectListMainParent(a0)					; is child object?
 	bne			.hitRelatedObject
@@ -334,13 +335,12 @@ hitObject                   ; hit moving object. A5 = pointer to bullet adress, 
 	IFEQ		OBJECTSCORETEST
 	ADDSCORE	1
 	ENDIF
-;	bra			irqDidColManager
+	;bra			irqDidColManager
 	move.l		objectListMainParent(a0),a6						; fetch main parent
 	tst.l		a6
 	bne			.hitChild
 	move.l		a0,a6											; use parent adress
 .hitChild
-
 	tst.w		objectListHit(a6)
 	beq			hitObjectIsInvulnerable
 
@@ -361,12 +361,14 @@ hitObject                   ; hit moving object. A5 = pointer to bullet adress, 
 	;beq colHit
 	move.w		objectListHit(a6),d0
 	or.b		#$3,d0
+
 .loopRelationship
 	move.w		d0,objectListHit(a6)							; mark every child as hitframe
 
 	move.l		objectListMyChild(a6),a6
 	tst.l		a6
 	bne			.loopRelationship
+	
 	bra			colHit
 
 
@@ -402,6 +404,7 @@ colHit
 	ADDSCORE	1
 	ENDIF
 	PLAYFX		fxImpactEnem
+	
 ; particles after hit moving object
 spawnHitParticles
 ;	bra irqDidColManager
@@ -440,6 +443,7 @@ hitObjectIsInvulnerable
 		; #MARK:  killed moving object
 
 colHitKill
+
 	tst.l		objectListMyChild(a0)
 	bne			.singleOrFamilyObject
 	tst.l		objectListMyParent(a0)
@@ -449,6 +453,7 @@ colHitKill
 	bne			.killGroupedObject								; hit object of grouped origin
 
 .singleOrFamilyObject
+	
 	move.l		objectListMainParent(a0),d0
 	beq			.singleObject
 	move.l		d0,a0											; get main parent
@@ -845,11 +850,11 @@ colHitKill
 	clr.w				d4
 	move.b				objectListDestroy(a0),d4
 	clr.b				objectListDestroy(a0)						; avoid re-init
-	move.w				(.destroyJmpTable-2,pc,d4*2),d4
+	move.w				.destroyJmpTable(pc,d4*2),d4
 	lea					debrisA3AnimPointer(pc),a2
 	moveq				#5,d2
-.dstrOffset
-	jmp					.dstrOffset(pc,d4)
+
+	jmp					.destroyJmpTable(pc,d4)
 .dstrEventB
 	lea					killShakeIsActive(pc),a1
 	move.b				#7,(a1)
@@ -1054,18 +1059,18 @@ colHitKill
 	bra					.dstrEventH
 
 .destroyJmpTable
-	dc.w				.dstrEventA-.dstrOffset-2
-	dc.w				.dstrEventB-.dstrOffset-2
-	dc.w				.dstrEventC-.dstrOffset-2
-	dc.w				.dstrEventD-.dstrOffset-2
-	dc.w				.dstrEventE-.dstrOffset-2
-	dc.w				.dstrEventF-.dstrOffset-2
-	dc.w				.dstrEventG-.dstrOffset-2
-	dc.w				.dstrEventH-.dstrOffset-2
-	dc.w				.dstrEventI-.dstrOffset-2
-	dc.w				.dstrEventJ-.dstrOffset-2
-	dc.w				.dstrEventK-.dstrOffset-2
-	dc.w				.dstrEventL-.dstrOffset-2
+	dc.w				.dstrEventA-.destroyJmpTable
+	dc.w				.dstrEventB-.destroyJmpTable
+	dc.w				.dstrEventC-.destroyJmpTable
+	dc.w				.dstrEventD-.destroyJmpTable
+	dc.w				.dstrEventE-.destroyJmpTable
+	dc.w				.dstrEventF-.destroyJmpTable
+	dc.w				.dstrEventG-.destroyJmpTable
+	dc.w				.dstrEventH-.destroyJmpTable
+	dc.w				.dstrEventI-.destroyJmpTable
+	dc.w				.dstrEventJ-.destroyJmpTable
+	dc.w				.dstrEventK-.destroyJmpTable
+	dc.w				.dstrEventL-.destroyJmpTable
 dstrEventHToggle
 	dc.b				0
 	even
