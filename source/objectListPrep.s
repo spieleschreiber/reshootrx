@@ -11,6 +11,7 @@ bobPrepareDraw
 	move.l		(a4),a0									;objectDefSourcePointer
 	adda.l		bobSource-vars(a5),a0					; Adress of sourcebitmap
 	andi		#$ff,d0
+	;MSGTOSHELL		 "bobPrepareDraw",d0
 	jmp			([(animCases).w,pc,d0.w*8])				; jump to specific anim code
 
 ;FIXME: Execute code only after draw-check

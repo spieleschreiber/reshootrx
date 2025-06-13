@@ -77,7 +77,7 @@ SHOWTRANSITION	=	1
 USEXMLFILE	=	1	;	1 = read mapdata from xml-file 0= read mapdata from File "map?"
 WRITElaunchTable	=	USEXMLFILE	; 1 = read xml-data and write resulting launchTable to disk	
 WRITEMAPFILE	=	USEXMLFILE 	; 1 = read xml-data and write resulting mapfile to disk
-WRITECOLORFILE	= 0	; 1=setup colortable and write full 256/12bit-table to file  "color" in levdefs	0=fetch "color"-file and setup full 256-colortable
+WRITECOLORFILE	= 1	; 1=setup colortable and write full 256/12bit-table to file  "color" in levdefs	0=fetch "color"-file and setup full 256-colortable
 
 	ELSE
 	IFNE RELEASETEST

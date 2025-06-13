@@ -850,7 +850,7 @@ colHitKill
 	clr.w				d4
 	move.b				objectListDestroy(a0),d4
 	clr.b				objectListDestroy(a0)						; avoid re-init
-	move.w				.destroyJmpTable(pc,d4*2),d4
+	move.w				.destroyJmpTable-2(pc,d4*2),d4
 	lea					debrisA3AnimPointer(pc),a2
 	moveq				#5,d2
 

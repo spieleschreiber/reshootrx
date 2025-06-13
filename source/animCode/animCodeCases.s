@@ -219,7 +219,7 @@ animCases
 
     dc.b    "weapupgr"
     dc.l    weapupgr,0
-    dc.b    "spedUpgr"
+    dc.b    "spedupgr"
     dc.l    spedUpgr,0
     dc.b    "weapdstr"
     dc.l    weapdstr,0

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="9" height="480" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1640">
- <tileset firstgid="1" name="bone_valley" tilewidth="32" tileheight="32" tilecount="0" columns="16">
-  <image source="../art/kevsPixels/#tiles/bv_foreground.png" width="512" height="512"/>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="9" height="480" tilewidth="32" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="1641">
+ <tileset firstgid="1" name="bone_valley" tilewidth="32" tileheight="32" tilecount="128" columns="16">
+  <image source="../sandbox/KevsPixels/#tiles/#ocean/ocean_tiles_tiled.png" width="512" height="256"/>
  </tileset>
  <layer id="1" name="tilemap" width="9" height="480">
   <data>
@@ -4328,7 +4328,7 @@
   </data>
  </layer>
  <objectgroup id="2" name="Wavemap" offsetx="-256" offsety="0">
-  <object id="1065" name="start" x="424" y="14614"/>
+  <object id="1065" name="start" x="412" y="15181"/>
   <object id="1379" name="spedUpgr" x="396" y="14966">
    <properties>
     <property name="hit" value="-1"/>
@@ -5415,6 +5415,13 @@
   <object id="1639" name="shellSEj" x="446" y="7302">
    <properties>
     <property name="hit" value="4"/>
+    <property name="xadd" value="0"/>
+    <property name="yadd" value="1"/>
+   </properties>
+  </object>
+  <object id="1640" name="spedUpgr" x="437" y="16162">
+   <properties>
+    <property name="hit" value="-1"/>
     <property name="xadd" value="0"/>
     <property name="yadd" value="1"/>
    </properties>

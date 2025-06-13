@@ -25,6 +25,7 @@ spedUpgr
 	lea (a0,d0.w),a0 ; add anim offset
 
 	bsr checkProximity
+	
 	cmpi.w #21,d0
 	bhs upgrNoHit
 	tst.w plyBase+plyCollided(pc)
