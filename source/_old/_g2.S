@@ -214,8 +214,8 @@ copperGameMaxSize	=	12700
 mainPlaneDepth   =   4
 bckplaneDepth  =   3
 
-displayWindowStart   =   $32
-displayWindowStop   =   $24
+displayWindowStart   =   $2
+displayWindowStop   =   $44
 
 mainplaneView    =   40
 mainplaneCache   =   8
@@ -243,8 +243,8 @@ tileSourceMaxTile = tilesWidth/4*(tilesHeight/32)
 
 bobSourceWidth   =  128 ; size in rows
 
-viewLeftClip=40
-viewRightClip=360
+viewNorthClip=40
+viewSouthClip=360
 viewUpClip=40
 viewDownClip=256+40
 
@@ -8724,7 +8724,7 @@ sm2
 	move.w #bckplaneWidth*bckplaneHeight,d5
     moveq #mainPlaneWidth,d1
     lea copBPLPT,a4
-.tempVal SET 6              ; write bplpt pointer mainplane to copsublist (small interleaved bitmap cant be scrolled by modyfing modulus)
+.tempVal SET 6              ; write bplpt pointer mainplane to copsublist 
     REPT 3
 	move d6,.tempVal(a4)
     swap d6
@@ -10790,7 +10790,7 @@ animReturn
     movem.w d0/d5,collTableXCoords(a1)
     move objectDefModulus(a4),d1
 
-    moveq #viewLeftClip,d7
+    moveq #viewNorthClip,d7
     cmp d7,d0                 ;   bob leaves screen to the left?
     bgt.b .bobBlitCheckRight       ; completely in visible area? yes
 
@@ -10819,7 +10819,7 @@ animReturn
 
     bra.b .bobBlitCheckedLeftRight
 .bobBlitCheckRight
-    move #viewRightClip,d7
+    move #viewSouthClip,d7
 	cmp d7,d5                        ;leaves screen to the right?
 	ble.w .bobBlitCheckedLeftRight
     move d7,d4

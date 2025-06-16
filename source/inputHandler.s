@@ -69,7 +69,7 @@ inputHandler
 	ENDIF
 .skip
 	move.w			 $dff016,d0
-	;MSGTOSHELL			 "JoyCode",d0
+	;TOSHELL			 "JoyCode",d0
 	btst	#bit_joyb2,$dff016
 	seq	d0
 	

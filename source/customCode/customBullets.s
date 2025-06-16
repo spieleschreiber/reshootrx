@@ -104,7 +104,7 @@ homeShotGotCoords
 
 	GETOBJECTPOINTER a6,a0
 	
-	;add.w plyBase+plyPosXDyn(pc),d5
+	;add.w plyBase+plyPosYDyn(pc),d5
 	sub.w #$21,d5
 	;add.w #$08,d6
 	clr.w d2
@@ -146,7 +146,7 @@ homeHard	; bullet only on hard diffculty
 homeShotLead	; launch homing bullet with lead
 	bsr getCoordsSprite
 	GETOBJECTPOINTER a6,a0
-	;add.w plyBase+plyPosXDyn(pc),d5
+	;add.w plyBase+plyPosYDyn(pc),d5
 	sub.w #$21,d5	; set x launch position
 	add.w #12,d6	; set y launch position
 	clr.w d2
@@ -188,7 +188,7 @@ homeShotLead	; launch homing bullet with lead
 .done
 	move #-200,d4
 	add.w objectListX(a1),d4
-	add.w plyBase+plyPosXDyn(pc),d4
+	add.w plyBase+plyPosYDyn(pc),d4
 	sub.w plyBase+plyPosX(pc),d4
 	smi d6
 	ext.w d6
@@ -255,8 +255,8 @@ homeShotDirection
 	PLAYFX fxEnemBullet
 	;PLAYFX fxLighting
 	add #170,d0	; adjust players x-coord to world coords
-	add.w plyBase+plyPosXDyn(pc),d0
-	;move.w plyBase+plyPosXDyn(pc),d2
+	add.w plyBase+plyPosYDyn(pc),d0
+	;move.w plyBase+plyPosYDyn(pc),d2
 	;MSG01 m2,d2
 	move d0,d2
 	lsr #2,d0
@@ -421,7 +421,7 @@ stSpiral	; shoot spiral wave
 	move.w animTablePointer+2(a4),d4
 
 	GETOBJECTPOINTER a6,a0
-	;move.w plyBase+plyPosXDyn(pc),d0
+	;move.w plyBase+plyPosYDyn(pc),d0
 	clr.w d0
 	and.b .objectSpriteOrBob(pc,d3.w*1),d0
 	add.w d0,d5
@@ -470,7 +470,7 @@ stSpiral	; shoot spiral wave
 	bpl .multipleObjects
 		lea objectListTriggersB(a6),a0	; single launcher object - triggerB+0.b stores shooting angle
 	move.w plyBase+plyPosX(pc),d2
-	sub.w plyBase+plyPosXDyn(pc),d2
+	sub.w plyBase+plyPosYDyn(pc),d2
 	move.w plyBase+plyPosY(pc),d6
 	bra .fetchCounter
 .circOrHunt
@@ -499,7 +499,7 @@ stSpiral	; shoot spiral wave
 .multipleObjects
 	lea objSpiralBulletTable(pc,d3.w),a0
 	move.w plyBase+plyPosX(pc),d2
-	sub.w plyBase+plyPosXDyn(pc),d2
+	sub.w plyBase+plyPosYDyn(pc),d2
 	move.w plyBase+plyPosY(pc),d6
 .fetchCounter
 

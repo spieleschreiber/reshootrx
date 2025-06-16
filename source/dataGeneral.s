@@ -209,9 +209,9 @@ plyAVAIL						rs.b		1
 plyAVAILB						rs.b		1
 plyAcclXCap						rs.w		1
 plyAcclYCap						rs.w		1
-plyPosXDyn						rs.w		1
-plyviewLeftClip					rs.w		1
-plyviewRightClip				rs.w		1
+plyPosYDyn						rs.w		1
+plyViewNorthClip					rs.w		1
+plyviewSouthClip				rs.w		1
 plyJoyCode						rs.w		4
 plyDiffBulletDelta				rs.w		1
 plyPosYABS						rs.w		1

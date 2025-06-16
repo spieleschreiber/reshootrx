@@ -672,7 +672,7 @@ shotPtrn
 ;	bra retTilt
 	
 	
-	add.w plyBase+plyPosXDyn(pc),d5
+	add.w plyBase+plyPosYDyn(pc),d5
 	sub.w #$21,d5
 	clr.l d2
 	move.w d5,d2
@@ -799,7 +799,7 @@ homeShotInit
 	bsr getCoords
 	GETOBJECTPOINTER a6,a0
 homeShotLate
-    add.w plyBase+plyPosXDyn(pc),d5
+    add.w plyBase+plyPosYDyn(pc),d5
     sub.w #$21,d5
 	add.w #12,d6
 	move.b objectDefHeight(a0),d2

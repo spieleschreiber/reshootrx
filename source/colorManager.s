@@ -668,7 +668,8 @@ colorManager
 		move.b			.vfxColors4+2(pc,d5*4),d4
 		move.b			.vfxColors4+3(pc,d5*4),d5
 		cmpi			#(1<<mainPlaneDepth)-1,d6					; check if bitplan is 0
-		bne				.doColor4
+		bne				.doColor4		
+		
 .base	SET				4
 .range	SET				12*32
 
@@ -730,11 +731,12 @@ colorManager
 .writeColor4
 	; write colors
 		exg.l			a4,d3
-    ;moveq #-1,d0
-    ;moveq #-1,d1
-    ;moveq #-1,d2
+    ;moveq #0,d0
+    ;moveq #0,d1
+    ;moveq #0,d2
   ;clr.w d0
   ;clr.w d1	; set color to blue
+		;TOSHELL			 d3,"colors"
 		WRITECOLOR													; 8 shades of colors at 0000
 		exg.l			a4,d3
 		dbra			d6,.colWriteFade4

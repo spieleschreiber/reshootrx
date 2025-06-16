@@ -26,7 +26,7 @@ spriteManagerPlayer
 	lea			copGamePlyBody,a5
 
 	move.w		plyPosX(a1),d4				; player x-position
-	;sub.w plyPosXDyn(a1),d4
+	;sub.w plyPosYDyn(a1),d4
 	move.w		plyPosYABS(a1),d2		;	y-position
 	add			#50,d2
 	moveq		#playerBodyHeight,d5
@@ -756,19 +756,19 @@ spriteManager
 	bra			.instSpwnAnim
 .sprTutSpeedA		; speedup tutorial icon
 	lea			spriteTutorial8pixels(pc),a2
-	add.w		plyBase+plyPosXDyn(pc),d4			; add x-scroll-offset
+	add.w		plyBase+plyPosYDyn(pc),d4			; add x-scroll-offset
 	bra.b		.bullet8Draw
 .sprTutSpeedB
 	lea			spriteTutorial8pixels+64(pc),a2
-	add.w		plyBase+plyPosXDyn(pc),d4
+	add.w		plyBase+plyPosYDyn(pc),d4
 	bra.b		.bullet8Draw
 .sprTutPowerUpA		; powerup tutorial icon
 	lea			spriteTutorial8pixels(pc),a2
-	add.w		plyBase+plyPosXDyn(pc),d4
+	add.w		plyBase+plyPosYDyn(pc),d4
 	bra.b		.bullet8Draw
 .sprTutPowerUpB
 	lea			spriteTutorial8pixels+128(pc),a2
-	add.w		plyBase+plyPosXDyn(pc),d4
+	add.w		plyBase+plyPosYDyn(pc),d4
 	bra.b		.bullet8Draw
 .sprBullet8A
 	lea			spriteBullet8(pc),a2

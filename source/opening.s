@@ -228,8 +228,8 @@ titleHideSprites
 	dc.l			0,0
 prepareDisplay:
 	lea				CUSTOM,a6
-	move			#$38,DDFSTRT(a6)
-	move			#$a0,DDFSTOP(a6)
+	move			#$34x,DDFSTRT(a6)
+	move			#$cc,DDFSTOP(a6)
 	move			#displayWindowStart<<8+$08,DIWSTRT(a6)
 	move			#displayWindowStop<<8+$9c,DIWSTOP(a6)				;Displaywindow, Datafetch
 ;	move #(mainPlaneWidth*(mainPlaneDepth-1)),BPL1MOD(a6)  ; basic modulus

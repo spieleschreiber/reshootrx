@@ -17,7 +17,7 @@ _Precalc
 
 	; how much memory for three screen buffers
 
-			moveq			#8,d0																															; move tilemapHeight
+			moveq			#mainPlaneHeight/tileHeight,d0																															; move tilemapHeight
 			muls			#tileHeight,d0
 			add.w			#4,d0																															; safety net
 			muls			#mainPlaneWidth,d0
@@ -36,8 +36,6 @@ _Precalc
 			move.l			d0,diskBufferSize
 			move.l			#MEMF_CHIP|MEMF_CLEAR,d1																										; triplebuffer bitplane A
 			ALLOCMEMORY
-
-			lea				mainPlanes(pc),a0
 							
 			lea				mainPlanes(pc),a0
 			lea				mainPlanesPointer(pc),a1
@@ -52,13 +50,13 @@ _Precalc
 			and.l			d7,d2																															; align to 8 byte adress
 			move.l			d2,(a2)																															; use bitplane buffer as diskBuffer
 			move.l			d2,4(a2)																														; first one gets modified, second one stays original
-			move.l			d2,(a0)																															; content will be swapped (triple buffer)
+			move.l			d2,(a0)																	; content will be swapped (triple buffer)
 			move.l			d2,(a1)																															; content will be added
 			add.l			d1,d2
-			move.l			d2,4(a0)																														;   ""
+			move.l			d2,4(a0)
 			move.l			d2,4(a1)																														;   ""
 			add.l			d1,d2
-			move.l			d2,8(a0)																														;   ""
+			move.l			d2,8(a0)	
 			move.l			d2,8(a1)																														;   ""
 			add.l			d1,d2
 			move.l			d2,d0
@@ -529,7 +527,8 @@ xmlDecode
 	;move.l diskBuffer+4(pc),d0
 			move.l					bobSource(pc),d0
 			move.l					d0,d1
-			add.l					mainPlaneOneSize(pc),d1
+			add.l					#1000,d1																														; ATTN: This value seem to mark the start of the object bitmap memory. Used to be much higher at project init. Check new lower value in case of any bugs. 
+
 			movem.l					d0-d1,(a2)																														; temporary memory pointers
 
 
@@ -546,6 +545,8 @@ searchXMLObjects
 			clr.l					tempVar+28																														; reset pointer to obj mem adress
        
 			SEARCHXML4VALUE			(a0),"name"																														; filename of object data?
+		
+			
 			tst						d4
 			bmi						keepCurrentPixels																												; no? use current pixels in memory (is sprite, or obj with shared pixel content)
     ; found tag "name", therefore load new moving object pixels into buffer
@@ -562,6 +563,7 @@ searchXMLObjects
 			movem.l					a0/a1/a6,-(a5)																													; DOS-Code destroys these registers
 
 			lea						tempFilename(pc),a4
+
 			move.l					a4,d1
 			lea						tempFilenameVar(pc),a4
 createFilename
@@ -689,7 +691,8 @@ findAttribs
 			move.w					objectDefMask(a1),d0
 			neg						d0
 			lea						(a0,d0),a0																														; sub mask adress from source
-			move.l					tempVar+24(pc),a1																												; destination  addr
+			move.l					tempVar+24(pc),a1	
+																; destination  addr
 			move.l					(fib_Size.w,pc),d0
 			moveq					#8,d3
 			add.l					d3,d0
@@ -816,20 +819,15 @@ bobCutMaskPrepExit
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 getObjectBitmapMemory
-
 			move.l					a6,objectDefsSize
 
 			IFNE					SHELLHANDLING
 			lea						tempVar+20(pc),a2
 			move.l					4(a2),d0
+			move.l					 (a2),a1
 			sub.l					(a2),d0
-			lea						.msg(pc),a6
-			bsr						shellNum
-			bra						.skip
-.msg
-			dc.b					"$$$$$$$$$ KB used for objectbitmaps",0
-			ALIGNLONG
-.skip
+			TOSHELL					 d0,"ObjectDataSize"
+
 			lea						tempVar+20(pc),a2
 			move.l					4(a2),d0
 			sub.l					(a2),d0
@@ -1369,7 +1367,7 @@ xmlAttackWaves
 			SEARCHXML4VALUE			(a0),"star"																														; read startposition
 			tst						d4
 			bmi						errorXML
-			SEARCHXML4VALUE			(a0),""" y="
+			SEARCHXML4VALUE			(a0),""" x="
 			tst						d4
 			bmi						errorXML
 			asciiToNumber			(a0),d7

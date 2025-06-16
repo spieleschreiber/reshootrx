@@ -183,7 +183,7 @@ checkProximity
 	
 	move #-200,d0
 	add.w objectListX(a2),d0
-	add.w plyPosXDyn(a1),d0
+	add.w plyPosYDyn(a1),d0
 	sub.w plyPosX(a1),d0
 	smi d6
 	ext.w d6

@@ -16,6 +16,7 @@
 	INCDIR		include/
 	INCDIR		include/system/
 
+
 	INCLUDE		!targetControl.i				; define important target vars
 	INCLUDE		cia.i
 	INCLUDE		custom.i
@@ -54,18 +55,18 @@ _start
 	INCLUDE		playerManager.s
 	INCLUDE		objectMoveManager.s
 	INCLUDE		objectListManager.s	
-	INCLUDE		objectListPrep.s
+	
 	INCLUDE		collissionManager.s
 	INCLUDE		animCodeMain.s
 	INCLUDE		dataGeneral.s
 
-	INCLUDE		objectInitManager.s	 
-	INCLUDE		launchManager.s
+	INCLUDE		objectInit.s	 
+	INCLUDE		objectLaunchManager.s
 	INCLUDE		scoreManager.s
 	Include		customMain.s
 
 	INCLUDE		audioManager.s
-
+	
 
 	INCLUDE		alert.s
 	INCLUDE		exit.s

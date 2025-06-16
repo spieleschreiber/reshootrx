@@ -30,7 +30,7 @@ mainGameLoop        	;***Hauptprogramm/Schleife***
 		move.l				CUSTOM+VPOSR,d0
 		lsr.l				#7,d0
 		move.w				d0,rasterBarNow								; store rasterPosition after blitter draw process
-		;MSGTOSHELL			"SCANLINE END", d0
+		;TOSHELL			"SCANLINE END", d0
 
 .blitPause
 		lea					frameCount(pc),a0							; update frameCount
@@ -261,7 +261,7 @@ mainGameLoop        	;***Hauptprogramm/Schleife***
 		move.l				pauseMsgAnimPointer(pc),a4
 		move.w				animTablePointer+2(a4),d4					;add  object to control quick resume mode
 		move				#259+16,d5
-		sub.w				plyBase+plyPosXDyn(pc),d5
+		sub.w				plyBase+plyPosYDyn(pc),d5
 		moveq				#24,d6
 		add.w				viewPosition+viewPositionPointer(pc),d6
 		st.b				d3

@@ -17,8 +17,8 @@ DEVBUILD			SET		1
 RELEASETEST			SET		0
 RELEASECANDIDATE	SET		0
 
-SHOWframeCount	=	1
-SHOWFRAMERATE	=	1
+SHOWframeCount	=	0
+SHOWFRAMERATE	=	0
 SHOWGLOBALFLAGS	=	0
 
     IFNE DEVBUILD
@@ -73,7 +73,7 @@ DISABLEOPAQUEATTRIB=1	;	1=opaque attrib activates cookie blit enabled. Does not 
 BLITNORESTOREENABLED	=	0; feels unefficient to add extra code for static objects without proper background restore, as overhead steals CPU time from every moving object. May be worth it with more animations goign on in background
 
 PLAYERSPRITEDITHERED	=	0	; set to 1 to get collissions triggered but not pendalized. NOTICE: Sprite is dithered. Mainly for testing collission box. ATTN Reduces player accel!
-SHOWTRANSITION	=	1
+SHOWTRANSITION	=	0
 USEXMLFILE	=	1	;	1 = read mapdata from xml-file 0= read mapdata from File "map?"
 WRITElaunchTable	=	USEXMLFILE	; 1 = read xml-data and write resulting launchTable to disk	
 WRITEMAPFILE	=	USEXMLFILE 	; 1 = read xml-data and write resulting mapfile to disk

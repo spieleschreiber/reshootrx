@@ -1,0 +1,74 @@
+{
+	"files": [
+		{
+			"path": "source/opening.s",
+			"bookmarks": [
+				{
+					"line": 228,
+					"column": 0,
+					"label": "screen geometry"
+				}
+			]
+		},
+		{
+			"path": "source/interruptManager.s",
+			"bookmarks": [
+				{
+					"line": 322,
+					"column": 0,
+					"label": "openBorderAnimControl"
+				}
+			]
+		},
+		{
+			"path": "source/copperCode/coplist.bone.s",
+			"bookmarks": [
+				{
+					"line": 129,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "source/scripts/makefile",
+			"bookmarks": [
+				{
+					"line": 11,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "source/blitterManager.s",
+			"bookmarks": [
+				{
+					"line": 266,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "source/constants.i",
+			"bookmarks": [
+				{
+					"line": 65,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "source/initLevelManager.s",
+			"bookmarks": [
+				{
+					"line": 526,
+					"column": 0,
+					"label": ""
+				}
+			]
+		}
+	]
+}

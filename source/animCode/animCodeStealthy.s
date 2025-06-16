@@ -84,7 +84,7 @@ stealthy
 	bne .isRight
 	sub.w #$cc,d6
 .isRight
-	sub.w plyPos+plyPosXDyn(pc),d6
+	sub.w plyPos+plyPosYDyn(pc),d6
 	move.w d6,objectListX(a2)
 	moveq #1,d4
 	bra .drawSpawnAnimation

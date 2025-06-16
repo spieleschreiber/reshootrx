@@ -405,7 +405,7 @@ meteoMed
 	
 	move.w objectListX(a6),d4         ; load shot y-coords
     clr.w d5
-   ; add.w plyPos+plyPosXDyn(pc),d4
+   ; add.w plyPos+plyPosYDyn(pc),d4
     clr.w d6
     ;move.w collTableXCoords-2(a6),d3         ; load shot x-coords
 	;lsl #4,d3
@@ -413,7 +413,7 @@ meteoMed
 	move.w #-140,d3
 	add.w objectListX(a2),d3
     ;add #90,d3
-	sub.w plyBase+plyPosXDyn(pc),d3
+	sub.w plyBase+plyPosYDyn(pc),d3
 	lsl #4,d3;	move objectListX(a2),d3
 	move objectListY(a2),d4
 	sub.w viewPosition+viewPositionPointer(pc),d4

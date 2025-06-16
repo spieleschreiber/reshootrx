@@ -117,7 +117,7 @@ mechVinC
 	move.l cExplLrgAnimPointer(pc),a1
 	move.w animTablePointer+2(a1),d4	;add med explosion replacing shot
 	move #34,d5
-	sub.w plyBase+plyPosXDyn(pc),d5
+	sub.w plyBase+plyPosYDyn(pc),d5
 	add.w objectListX(a2),d5; get x-coord from mech object
 	moveq #40,d6
     add objectListY(a2),d6                    ; get y-coord

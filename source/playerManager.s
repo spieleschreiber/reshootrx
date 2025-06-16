@@ -151,10 +151,10 @@ handlePlayerMovement
 				moveq				#-7,d6
 				add.w				plyPosX(a6),d6
     ;lsr #4,d6
-    ;move.w d6,plyPosXDyn(a6); dynamic offset, used for horizontal scrolling    ;
+    ;move.w d6,plyPosYDyn(a6); dynamic offset, used for horizontal scrolling    ;
 	;subq #3,d6
-	;move.w d6,plyPosXDynAlt(a6)
-		;#FIXME: temp. disabled plyPosXDynAlt. Still needed?
+	;move.w d6,plyPosYDynAlt(a6)
+		;#FIXME: temp. disabled plyPosYDynAlt. Still needed?
 				add.w				#viewDownClip-30,d6
 
 	
@@ -330,7 +330,7 @@ handlePlayerMovement
 				move.w				#147,d5
 				add.b				(.xtraXMod,pc,d1),d5
 				add					(a6),d5																				;plyPosX
-				sub.w				plyPos+plyPosXDyn(pc),d5															;Convert absolute to relative
+				sub.w				plyPos+plyPosYDyn(pc),d5															;Convert absolute to relative
 				clr.l				d6
 
 				move				plyPosY(a6),d6
@@ -367,7 +367,7 @@ handlePlayerMovement
 
 				move.w				(.xMod,pc,d1*2),d5
 				add					(a6),d5																				;plyPosX
-				sub.w				plyPos+plyPosXDyn(pc),d5															;Convert absolute to relative
+				sub.w				plyPos+plyPosYDyn(pc),d5															;Convert absolute to relative
 				move				plyPosY(a6),d6
 				sub					#1,d6
 				sf.b				d3
@@ -499,7 +499,7 @@ plyBulletHit
 				clr.w				d1
 				clr.w				d3
 				move				(a6),a4																				;plyPosX
-				sub.w				plyPos+plyPosXDyn(pc),a4															;Convert
+				sub.w				plyPos+plyPosYDyn(pc),a4															;Convert
 .hitboxXWidth	SET					16
 .hitboxYWidth	SET					14
 				clr.w				d2
@@ -581,7 +581,7 @@ plyChkColBck	; basic coldetection for playership -> check hit with bitplane0
 				clr.l				d5
 .HitBoxXWidth	SET					12																					; set bit 0 to 0
 				move				#$168-((.HitBoxXWidth+1)/2),d5														;x-offset
-				sub.w				plyBase+plyPosXDyn(pc),d5
+				sub.w				plyBase+plyPosYDyn(pc),d5
 				move.w				#2*mainPlaneDepth*mainPlaneWidth,d3
 .hitBckChk
 				add.w				plyPosYABS(a6),d4																	; load player y-coords
@@ -666,7 +666,7 @@ playerHit
 	;st plyDistortionMode
     ;lea plyPos(pc),a0           ; init particle rain
 				move				#$66,d3
-				sub.w				plyPosXDyn(a6),d3
+				sub.w				plyPosYDyn(a6),d3
 				add.w				plyPosX(a6),d3																		;plyPosX
 	    	;#FIXME: Check use  plyPosXABS
 	;sub.w viewPosition+viewPositionPointer(pc),d3
@@ -711,7 +711,7 @@ playerHit
 				move.l				instSpwnAnimPointer(pc),a4
 				move.w				animTablePointer+2(a4),d4															;add  object to control quick resume mode
 				move				#258+16,d5
-				sub.w				plyBase+plyPosXDyn(pc),d5
+				sub.w				plyBase+plyPosYDyn(pc),d5
 				moveq				#24,d6
 				add.w				viewPosition+viewPositionPointer(pc),d6
 				st.b				d3
@@ -810,7 +810,7 @@ plyHitAnim                  ; animation fatal player was hit
 .bigExplosion
 				lea					storePlayerPos(pc),a5
 				moveq				#$24,d5
-				sub.w				plyPosXDyn(a6),d5
+				sub.w				plyPosYDyn(a6),d5
 				add.w				plyPosX(a6),d5
 				move.w				d5,(a5)
 				move.w				plyPosY(a6),2(a5)																	; save players position
@@ -848,7 +848,7 @@ plyHitAnim                  ; animation fatal player was hit
 				PLAYFX				fxLoseVessel
 
 				moveq				#$2c,d3
-				sub.w				plyBase+plyPosXDyn(pc),d3
+				sub.w				plyBase+plyPosYDyn(pc),d3
 				add.w				plyBase+plyPosX(pc),d3
 
 				move.w				plyBase+plyPosY(pc),d4

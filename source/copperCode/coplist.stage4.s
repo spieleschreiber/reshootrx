@@ -6,13 +6,14 @@
 ;//
 
 	INCDIR $AMIDEV
-	INCDIR source
-	INCDIR source/system; search these folders for includes
-	INCLUDE targetcontrol.s
-	INCLUDE custom.i
-	INCLUDE constants.i
+	INCDIR source/
+	INCDIR source/system/; search these folders for includes
+	INCLUDE source/!targetcontrol.i
+	INCDIR			include/
+	INCLUDE include/custom.i
+	INCLUDE source/constants.i
 	PRINTT
-	PRINTT "*** Compiling Stage 0 Copperlist"
+	PRINTT "*** Compiling Stage ? Copperlist"
 CMOVE		Macro
 		  dc.w		\1&$1fe,\2
 		Endm

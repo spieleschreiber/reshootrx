@@ -63,8 +63,8 @@ fxPlaneDepth  =   4
 displayWindowStart   =   $2c
 displayWindowStop   =   $28
 DisplayWindowHeight	= displayWindowStop+$100-displayWindowStart
-mainPlaneWidth    =  	40	; .b
-mainPlaneHeight    =  	80
+mainPlaneWidth    =  	48	; .b
+mainPlaneHeight    =  	tileHeight*9	; 9 tiles high, 32 pixels each
 
 fxPlaneWidth 		=	40
 fxplaneHeight    	=   512
@@ -84,8 +84,8 @@ tileSourceMemSize      =   tilesWidth*tilesHeight*mainPlaneDepth
 tileSourceMaxTile = tilesWidth/4*(tilesHeight/32)
 
 viewXOffset=128
-viewLeftClip=viewXOffset+48
-viewRightClip=viewXOffset+332
+viewNorthClip=viewXOffset+48
+viewSouthClip=viewXOffset+332
 viewUpClip=1
 viewDownClip=256+displayWindowStop-44
 

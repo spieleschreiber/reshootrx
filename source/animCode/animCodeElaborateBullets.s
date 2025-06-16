@@ -162,7 +162,7 @@ huntMisl
 	move.l objectListTriggersB(a2),d6
 	move.w plyRemXPos+12(a1),d4
 	sub.w objectListX(a2),d0
-	sub.w plyPosXDyn(a1),d0
+	sub.w plyPosYDyn(a1),d0
 	sub.w d6,d0
 	swap d6
 	add.w objectListY(a2),d1

@@ -58,12 +58,14 @@ rasterListMove:
 				bls			.sk
 				move.w		#$39,d5
 .sk
+			
 				move.l		(a6,d5*4),a5																				; get adress of anim table list. Full list contains an order of 12 (?) x-offsets -> x-scrolling
 
 
 				move.w		frameCount+2(pc),d5
 				asr			#2,d5
 				andi		#$ff,d5
+				clr.w		d5																					; 13.06.2025 temp code to keep scrolling speed constant
 				lea			(a5,d5*2),a5																				; apply animation wave
 
 

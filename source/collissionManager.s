@@ -28,7 +28,7 @@ collisionManager
 	lea			collTableYCoords(a2),a0
 
 	move		#$81,a2						; x-offset (increase value -> move hitbox left
-	;move plyBase+plyPosXDyn(pc),d4
+	;move plyBase+plyPosYDyn(pc),d4
 	;sub d4,a2
 
 .loadShot
@@ -84,7 +84,7 @@ collisionManager
 	moveq		#4,d7
 	moveq		#-48,d0										;y-offset
 	move		#$1a3,d5									;x-offset (159 if bitexact collission check)
-	;sub.w plyPos+plyPosXDyn(pc),d5
+	;sub.w plyPos+plyPosYDyn(pc),d5
 	move.l		a3,a6
 	lea			28,a5
 	lea			$10,a4										; upper border check
@@ -100,7 +100,7 @@ collisionManager
     ;moveq #0,d4
 	clr.l		d5
 	move		#$120,d5									;x-offset
-	;sub.w plyBase+plyPosXDyn(pc),d5
+	;sub.w plyBase+plyPosYDyn(pc),d5
 	move.w		#-4*mainPlaneDepth*mainPlaneWidth,d3
 	add.w		collTableYCoords(a5),d4						; load player y-coords
 
@@ -235,7 +235,7 @@ collisionManager
 spawn
 	add.w		collTableYCoords(a6),d4						; load shot y-coords
 	clr.w		d5
-    ;move.w plyBase+plyPosXDyn(pc),d6
+    ;move.w plyBase+plyPosYDyn(pc),d6
     ;sub d6,d3
 	clr.w		d6
 	add.w		collTableXCoords-2(a6),d3					; load shot x-coords
@@ -415,7 +415,7 @@ spawnHitParticles
 		;move.l #$
 		;	bra spawn
 ;	clr.l d3
-    ;sub.w plyBase+plyPosXDyn(pc),d3
+    ;sub.w plyBase+plyPosYDyn(pc),d3
 ;	sub #18,d3
 	moveq		#-18,d3
 	add.w		collTableXCoords-2(a5),d3
@@ -532,7 +532,7 @@ colHitKill
 	move.l		cExplSmlAnimPointer(pc),a4
 	move.w		animTablePointer+2(a4),d4						;add small explosion just for the looks...
 	move		#144,d5
-	;add.w plyBase+plyPosXDyn(pc),d5
+	;add.w plyBase+plyPosYDyn(pc),d5
 	add.w		collTableYCoords+2(a5),d5						; get x-coord from shot
 	move.w		#-10,d6
 	add			objectListY(a0),d6								; get y-coord
@@ -647,7 +647,7 @@ colHitKill
 	move.l		cExplSmlAnimPointer(pc),a1
 	move.w		animTablePointer+2(a1),d4						;add med explosion replacing shot
 	move		#134,d5
-	;sub.w plyBase+plyPosXDyn(pc),d5
+	;sub.w plyBase+plyPosYDyn(pc),d5
 	add.w		collTableYCoords+2(a5),d5						; get x-coord from shot
 	moveq		#40,d6
 	add			objectListY(a0),d6								; get y-coord
@@ -936,7 +936,7 @@ colHitKill
 	move				objectListX(a0),d7
 	moveq				#-64,d4
 	add.w				d7,d4
-;	sub.w plyPos+plyPosXDyn(pc),d5;Convert absolute to relative
+;	sub.w plyPos+plyPosYDyn(pc),d5;Convert absolute to relative
 	lsr					#4,d4										; set x-pos
 	bclr				#0,d4
 	add.w				d4,d5

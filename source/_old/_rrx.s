@@ -6293,7 +6293,7 @@ mainGameLoop        	;***Hauptprogramm/Schleife***
 	move.l pauseMsgAnimPointer(pc),a4
 	move.w animTablePointer+2(a4),d4 ;add  object to control quick resume mode
 	move #259+16,d5
-	sub.w plyBase+plyPosXDyn(pc),d5
+	sub.w plyBase+plyPosYDyn(pc),d5
 	moveq #24,d6
 	add.w viewPosition+viewPositionPointer(pc),d6
 	st.b d3
@@ -8077,7 +8077,7 @@ spriteManagerPlayer
 	lea copGamePlyBody,a5
 
 	move.w plyPosX(a1),d4	; player x-position
-	;sub.w plyPosXDyn(a1),d4
+	;sub.w plyPosYDyn(a1),d4
 	move.w plyPosYABS(a1),d2;	y-position
 	add #50,d2
     moveq #playerBodyHeight,d5
@@ -8806,19 +8806,19 @@ spriteManager
 	bra .instSpwnAnim
 .sprTutSpeedA		; speedup tutorial icon
 	lea spriteTutorial8pixels(pc),a2
-	add.w plyBase+plyPosXDyn(pc),d4	; add x-scroll-offset
+	add.w plyBase+plyPosYDyn(pc),d4	; add x-scroll-offset
  	bra.b .bullet8Draw
 .sprTutSpeedB
 	lea spriteTutorial8pixels+64(pc),a2
-	add.w plyBase+plyPosXDyn(pc),d4
+	add.w plyBase+plyPosYDyn(pc),d4
  	bra.b .bullet8Draw
 .sprTutPowerUpA		; powerup tutorial icon
 	lea spriteTutorial8pixels(pc),a2
-	add.w plyBase+plyPosXDyn(pc),d4
+	add.w plyBase+plyPosYDyn(pc),d4
  	bra.b .bullet8Draw
 .sprTutPowerUpB
 	lea spriteTutorial8pixels+128(pc),a2
-	add.w plyBase+plyPosXDyn(pc),d4
+	add.w plyBase+plyPosYDyn(pc),d4
  	bra.b .bullet8Draw
 .sprBullet8A
 	lea spriteBullet8(pc),a2
@@ -9220,9 +9220,9 @@ plyAVAIL		rs.b	1
 plyAVAILB		rs.b	1
 plyAcclXCap		rs.w	1
 plyAcclYCap		rs.w	1
-plyPosXDyn		rs.w	1
-plyviewLeftClip	rs.w	1
-plyviewRightClip	rs.w	1
+plyPosYDyn		rs.w	1
+plyViewNorthClip	rs.w	1
+plyviewSouthClip	rs.w	1
 plyJoyCode		rs.w	4
 plyDiffBulletDelta	rs.w	1
 plyPosYABS		rs.w	1
@@ -9695,12 +9695,12 @@ smoothScrollRet
 	move d1,copBPLCON1+2
 
 	asr #2,d7
-	move d7,plyPosXDyn(a5)
+	move d7,plyPosYDyn(a5)
 	not d7
 	move d7,d1
-	add #viewRightClip,d7
-	add #viewLeftClip,d1
-	movem.w d1/d7,plyviewLeftClip(a5)	; dynamically modify left / right clipping
+	add #viewSouthClip,d7
+	add #viewNorthClip,d1
+	movem.w d1/d7,plyViewNorthClip(a5)	; dynamically modify left / right clipping
 .noHorzScrolling
 
 	;tst.l viewPositionAdd(a3)
@@ -10305,10 +10305,10 @@ handlePlayerMovement
     moveq #-7,d6
     add.w plyPosX(a6),d6
     ;lsr #4,d6
-    ;move.w d6,plyPosXDyn(a6); dynamic offset, used for horizontal scrolling    ;
+    ;move.w d6,plyPosYDyn(a6); dynamic offset, used for horizontal scrolling    ;
 	;subq #3,d6
-	;move.w d6,plyPosXDynAlt(a6)
-		;#FIXME: temp. disabled plyPosXDynAlt. Still needed?
+	;move.w d6,plyPosYDynAlt(a6)
+		;#FIXME: temp. disabled plyPosYDynAlt. Still needed?
     add.w #viewDownClip-30,d6
 
 ;#MARK: Player shot control
@@ -10480,7 +10480,7 @@ handlePlayerMovement
 	move.w #147,d5
 	add.b (.xtraXMod,pc,d1),d5
 	add (a6),d5;plyPosX
-	sub.w plyPos+plyPosXDyn(pc),d5;Convert absolute to relative
+	sub.w plyPos+plyPosYDyn(pc),d5;Convert absolute to relative
 	clr.l d6
 
     move plyPosY(a6),d6
@@ -10517,7 +10517,7 @@ handlePlayerMovement
 
 	move.w (.xMod,pc,d1*2),d5
 	add (a6),d5;plyPosX
-	sub.w plyPos+plyPosXDyn(pc),d5;Convert absolute to relative
+	sub.w plyPos+plyPosYDyn(pc),d5;Convert absolute to relative
     move plyPosY(a6),d6
     sub #1,d6
     sf.b d3
@@ -10649,7 +10649,7 @@ plyBulletHit
     clr.w d1
     clr.w d3
     move (a6),a4;plyPosX
-	sub.w plyPos+plyPosXDyn(pc),a4;Convert
+	sub.w plyPos+plyPosYDyn(pc),a4;Convert
 .hitboxXWidth	SET	16
 .hitboxYWidth	SET	14
 	clr.w d2
@@ -10731,7 +10731,7 @@ plyChkColBck	; basic coldetection for playership -> check hit with bitplane0
     clr.l d5
 .HitBoxXWidth	SET	12	; set bit 0 to 0
 	move #$168-((.HitBoxXWidth+1)/2),d5;x-offset
-	sub.w plyBase+plyPosXDyn(pc),d5
+	sub.w plyBase+plyPosYDyn(pc),d5
     move.w #2*mainPlaneDepth*mainPlaneWidth,d3
 .hitBckChk
     add.w plyPosYABS(a6),d4         ; load player y-coords
@@ -10816,7 +10816,7 @@ playerHit
 	;st plyDistortionMode
     ;lea plyPos(pc),a0           ; init particle rain
     move #$66,d3
-    sub.w plyPosXDyn(a6),d3
+    sub.w plyPosYDyn(a6),d3
     add.w plyPosX(a6),d3;plyPosX
 	    	;#FIXME: Check use  plyPosXABS
 	;sub.w viewPosition+viewPositionPointer(pc),d3
@@ -10861,7 +10861,7 @@ playerHit
 	move.l instSpwnAnimPointer(pc),a4
 	move.w animTablePointer+2(a4),d4 ;add  object to control quick resume mode
 	move #258+16,d5
-	sub.w plyBase+plyPosXDyn(pc),d5
+	sub.w plyBase+plyPosYDyn(pc),d5
 	moveq #24,d6
 	add.w viewPosition+viewPositionPointer(pc),d6
 	st.b d3
@@ -10960,7 +10960,7 @@ plyHitAnim                  ; animation fatal player was hit
 .bigExplosion
 	lea storePlayerPos(pc),a5
 	moveq #$24,d5
-	sub.w plyPosXDyn(a6),d5
+	sub.w plyPosYDyn(a6),d5
 	add.w plyPosX(a6),d5
 	move.w d5,(a5)
 	move.w plyPosY(a6),2(a5)	; save players position
@@ -10998,7 +10998,7 @@ plyHitAnim                  ; animation fatal player was hit
 	PLAYFX fxLoseVessel
 
 	moveq #$2c,d3
-	sub.w plyBase+plyPosXDyn(pc),d3
+	sub.w plyBase+plyPosYDyn(pc),d3
 	add.w plyBase+plyPosX(pc),d3
 
 	move.w plyBase+plyPosY(pc),d4
@@ -11477,7 +11477,7 @@ hybridSpriteJumpin
 .22
 	ENDIF
 
-   ;add.w plyPos+plyPosXDyn(pc),d6;;Convert absolute to relative Screenposition
+   ;add.w plyPos+plyPosYDyn(pc),d6;;Convert absolute to relative Screenposition
 	move.l .xbounds(pc),d1	; sprite within view?
 	cmp d1,d6
 	bhi .deleteSprite
@@ -11512,7 +11512,7 @@ hybridSpriteJumpin
 	beq .addedShotToColList
 	move.w d6,d4
 	sub.w #$1c,d4
-	;sub.w plyPos+plyPosXDyn(pc),d4;Convert absolute to relative
+	;sub.w plyPos+plyPosYDyn(pc),d4;Convert absolute to relative
 	lsr #3,d4	; get x-pos-byte
 
 	add.w AddressOfYPosTable-($2a*2)(pc,d5.w*2),d4	; add bitmap y-adress
@@ -11526,7 +11526,7 @@ hybridSpriteJumpin
 	bne .bckColKillBullet
 
 .addedShotToColList
-	add.w plyPos+plyPosXDyn(pc),d6;Convert absolute to relative
+	add.w plyPos+plyPosYDyn(pc),d6;Convert absolute to relative
 
     andi #$3f,d0          ; sprite type
     ror #6,d0
@@ -11596,7 +11596,7 @@ hybridSpriteJumpin
 	; add particle system
 	moveq #-27,d3
 	add.w d6,d3
-	;sub.w plyPos+plyPosXDyn(pc),d3;Convert absolute to relative
+	;sub.w plyPos+plyPosYDyn(pc),d3;Convert absolute to relative
 	lsl #4,d3	; set x-pos
 
 	moveq #-40,d4
@@ -11697,12 +11697,12 @@ bobBlitChildReturn
     movem.w d6/d7,collTableXCoords(a1)	; left / right border
 
 	; check left clipping
-    move plyBase+plyviewLeftClip(pc),d0
+    move plyBase+plyViewNorthClip(pc),d0
     cmp.w d0,d6                 ;   bob outside left handside of view?
 	ble bobBlitCutLeft			; yes - cut!
 
     ; check right clipping
-   	move plyBase+plyviewRightClip(pc),d5
+   	move plyBase+plyviewSouthClip(pc),d5
 	cmp d5,d7                        ;leaves screen to the right?
 	bgt bobBlitCutRight
 
@@ -11838,7 +11838,7 @@ bobBlitCutLeft
 	move d0,d7
 	sub d6,d7	; left hangover
 
-	add.w plyBase+plyPosXDyn(pc),d6
+	add.w plyBase+plyPosYDyn(pc),d6
 	andi #$f,d6
 	add d0,d6
 	add #1,d6	; new x-coord
@@ -11962,7 +11962,7 @@ collisionManager
 	lea collTableYCoords(a2),a0
 
 	move #$81,a2	; x-offset (increase value -> move hitbox left
-	;move plyBase+plyPosXDyn(pc),d4
+	;move plyBase+plyPosYDyn(pc),d4
 	;sub d4,a2
 
 .loadShot
@@ -12018,7 +12018,7 @@ collisionManager
 	moveq #4,d7
 	moveq #-48,d0	;y-offset
 	move #$1a3,d5	;x-offset (159 if bitexact collission check)
-	;sub.w plyPos+plyPosXDyn(pc),d5
+	;sub.w plyPos+plyPosYDyn(pc),d5
 	move.l a3,a6
 	lea 28,a5
 	lea $10,a4	; upper border check
@@ -12034,7 +12034,7 @@ collisionManager
     ;moveq #0,d4
     clr.l d5
     move #$120,d5;x-offset
-	;sub.w plyBase+plyPosXDyn(pc),d5
+	;sub.w plyBase+plyPosYDyn(pc),d5
 	move.w #-4*mainPlaneDepth*mainPlaneWidth,d3
     add.w collTableYCoords(a5),d4         ; load player y-coords
 
@@ -12169,7 +12169,7 @@ collisionManager
 spawn
     add.w collTableYCoords(a6),d4         ; load shot y-coords
     clr.w d5
-    ;move.w plyBase+plyPosXDyn(pc),d6
+    ;move.w plyBase+plyPosYDyn(pc),d6
     ;sub d6,d3
     clr.w d6
     add.w collTableXCoords-2(a6),d3         ; load shot x-coords
@@ -12346,7 +12346,7 @@ spawnHitParticles
 		;move.l #$
 		;	bra spawn
 ;	clr.l d3
-    ;sub.w plyBase+plyPosXDyn(pc),d3
+    ;sub.w plyBase+plyPosYDyn(pc),d3
 ;	sub #18,d3
 	moveq #-18,d3
     add.w collTableXCoords-2(a5),d3
@@ -12461,7 +12461,7 @@ colHitKill
 	move.l cExplSmlAnimPointer(pc),a4
 	move.w animTablePointer+2(a4),d4	;add small explosion just for the looks...
 	move #144,d5
-	;add.w plyBase+plyPosXDyn(pc),d5
+	;add.w plyBase+plyPosYDyn(pc),d5
 	add.w collTableYCoords+2(a5),d5; get x-coord from shot
 	move.w #-10,d6
     add objectListY(a0),d6                    ; get y-coord
@@ -12576,7 +12576,7 @@ colHitKill
 	move.l cExplSmlAnimPointer(pc),a1
 	move.w animTablePointer+2(a1),d4	;add med explosion replacing shot
 	move #134,d5
-	;sub.w plyBase+plyPosXDyn(pc),d5
+	;sub.w plyBase+plyPosYDyn(pc),d5
 	add.w collTableYCoords+2(a5),d5; get x-coord from shot
 	moveq #40,d6
     add objectListY(a0),d6                    ; get y-coord
@@ -12865,7 +12865,7 @@ colHitKill
 	move objectListX(a0),d7
 	moveq #-64,d4
 	add.w d7,d4
-;	sub.w plyPos+plyPosXDyn(pc),d5;Convert absolute to relative
+;	sub.w plyPos+plyPosYDyn(pc),d5;Convert absolute to relative
 	lsr #4,d4	; set x-pos
 	bclr #0,d4
 	add.w d4,d5

@@ -6,13 +6,14 @@
 ;//
 
 	INCDIR $AMIDEV
-	INCDIR source
-	INCDIR source/system; search these folders for includes
-	INCLUDE targetcontrol.s
-	INCLUDE custom.i
-	INCLUDE constants.i
+	INCDIR source/
+	INCDIR source/system/; search these folders for includes
+	INCLUDE source/!targetcontrol.i
+	INCDIR			include/
+	INCLUDE include/custom.i
+	INCLUDE source/constants.i
 	PRINTT
-	PRINTT "*** Compiling Bone Valley Copperlist"
+	PRINTT "*** Compiling Stage 4 Copperlist"
 CMOVE		Macro
 		  dc.w		\1&$1fe,\2
 		Endm
@@ -126,9 +127,10 @@ statusLow	SET (rgbLow0old-rgbLow0)
 			CMOVE SPR7PTL,0
 			CMOVE SPR7PTH,0	; pointer to left score panel
 
-    CMOVE FMODE,%1111  ;64 pixel sprites
+    CMOVE FMODE,%1101  ;64 pixel sprites
 	CWAIT (displayWindowStart<<8)!$df
-	CMOVE BPL1MOD,mainPlaneWidth*(mainPlaneDepth-1)
+	CMOVE BPL1MOD,4+(mainPlaneWidth*(mainPlaneDepth-1))
+	CMOVE BPL2MOD,-4		; basic modulus
 	CMOVE COLOR14,$111	; left score panel shadow
 	CMOVE COLOR30,$111	; right score panel shadow
     COLORFADE
@@ -304,7 +306,7 @@ parSpriteY     SET parSpriteY+$1
 		dc.w $ff<<8+%11111110
 		CMOVE BPLCON3,BRDRBLNKF	; prep colors for next frame update
 		CMOVE COLOR00,firstColFade
-		CMOVE COLOR01,$19f	; ugly color fix for CD32 color bug
+		;CMOVE COLOR01,$19f	; ugly color fix for CD32 color bug
 
 		CMOVE BPLCON3,$e000!BRDRBLNKF
 		CMOVE COLOR31,$a07

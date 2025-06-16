@@ -10,6 +10,7 @@
             "remoteProgram": "SYS:rrx",
             "emulatorType": "fs-uae",
             "emulatorArgs": [
+                "/Users/richardlowenstein/FS-UAE/Configurations/Default.fs-uae",
                 "kickstart = Kickstart3.1.rom",
                 //"${workspaceFolder}/visualCodeFSUAE.fs-uae",
                 "-s",

@@ -7,13 +7,14 @@
 
 
 	INCDIR $AMIDEV
-	INCDIR source
-	INCDIR source/system; search these folders for includes
-	INCLUDE targetcontrol.s
-	INCLUDE custom.i
-	INCLUDE constants.i
+	INCDIR source/
+	INCDIR source/system/; search these folders for includes
+	INCLUDE !targetcontrol.i
+	INCDIR			include/
+	INCLUDE include/custom.i
+	INCLUDE source/constants.i
 	PRINTT
-	PRINTT "*** Compiling Stage 3 Copperlist"
+	PRINTT "*** Compiling Stage 5 Copperlist"
 CMOVE		Macro
 		  dc.w		\1&$1fe,\2
 		Endm
@@ -152,7 +153,7 @@ COPCOLSPLIT	MACRO
 ; write to sprite
 			CMOVE SPR7PTL,0
 			CMOVE SPR7PTH,0	; pointer to left score panel
-    CMOVE FMODE,%1111  ;64 pixel sprites
+    CMOVE FMODE,%1110  ;64 pixel sprites
 	CWAIT (displayWindowStart<<8)!$df
 	CMOVE BPL1MOD,mainPlaneWidth*(mainPlaneDepth-1)
 	CMOVE COLOR14,$111	; left score panel shadow
@@ -265,6 +266,7 @@ upgrColor	SET 	$6af
 		CMOVE SPR3POS,$4400+.x+$0	; reposition scroll sprite
 		CMOVE SPR4POS,$4400+.x+$20	; reposition scroll sprite
 		CMOVE SPR5POS,$4400+.x+$40	; reposition scroll sprite
+		CMOVE			 $100,0
 		ENDIF
 		IF (parSpriteY=spriteScoreYPosition+21)
 		CMOVE SPR0CTL,$2102

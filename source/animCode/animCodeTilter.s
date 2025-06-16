@@ -29,7 +29,7 @@ tilterXX
 tilterFV
 	move.w #114,d0
 	add.w plyBase+plyPosX(pc),d0
-	sub.w plyBase+plyPosXDyn(pc),d0
+	sub.w plyBase+plyPosYDyn(pc),d0
 	move.w objectListX(a2),d6
 	sub.w d0,d6
 	tst.b objectListTriggers+3(a2)

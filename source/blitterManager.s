@@ -248,7 +248,7 @@ blitterManager
 .retDistort
 .noDistort
 
-
+			;TOSHELL		 d0, "=ADR"							
 ; #MARK: Write Bitplane Pointers
 
 			lea			copBPLPT,a5
@@ -267,7 +267,11 @@ blitterManager
 			WAITBLIT
 			move.w		#DMAF_BLITHOG,CUSTOM+DMACON
 			moveq		#mainPlaneWidth,d1
-.tempVal	SET			6																							; write bplpt pointer mainplane to copsublist (small interleaved bitmap cant be scrolled by modyfing modulus)
+			;move.l		 #$2a6f8,d0
+			;move.l		 #$40c78-$1000,d0
+			;move.l		 d0,a6
+			;addq	#8,d1
+.tempVal	SET			6																; write bplpt pointer mainplane to copsublist (small interleaved bitmap cant be scrolled by modyfing modulus)
 			REPT		3
 			move		d0,.tempVal(a5)
 			swap		d0
@@ -309,7 +313,7 @@ blitterManager
 			add.l		#(dialogueStart-displayWindowStart+dialogueHeight+1)*mainPlaneDepth*mainPlaneWidth,d7
 			moveq		#40,d0
 			bsr			updateBPLPT
-
+	
 updateBPLPT
 			move		d7,6(a1)
 			swap		d7

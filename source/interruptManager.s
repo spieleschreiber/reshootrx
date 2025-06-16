@@ -65,11 +65,14 @@ irqSlowMotion
 irqDidObjMoveManager
 				lea					viewPosition(pc),a3
 				move.l				viewPositionAdd(a3),d7
+				
 				move.l				viewPositionPointer(a3),d6
 				swap				d6
 				sub					#$60,d6
 				move.w				d6,viewPositionPointerLaunchBuf(a3)
-				add.l				d7,viewPositionPointer(a3)						; update viewPosition pointers here -> flickerfree sync of objects and background
+				
+				add.l				d7,viewPositionPointer(a3)						
+				; update viewPosition pointers here -> flickerfree sync of objects and background
 				bsr					objectListManager
 .blitListUpdate
 				bra					collisionManager
@@ -323,7 +326,7 @@ vertBlancInt
 				or.w				#(displayWindowStart+1)<<8,d0
 				lsr.l				#3,d1
 				andi				#$20,d1
-				or					#$3100,d1
+				or					#$1100,d1
 				move.w				d0,COPDIWSTRT+2
 				move.w				d1,COPDIWHIGH+2
 .quit

@@ -125,12 +125,12 @@ initGame
 		move.b				.scrollSpeed(pc,d7),d0
 		ror.l				#4,d0
 		swap				d0
-		neg.l				d0
+		;neg.l				d0
 		lea					viewPosition(pc),a0
 		move.l				d0,viewPositionScrollspeed(a0)												; basic scroll speed
 		move.l				d0,viewPositionAdd(a0)
 
-		bsr					prepareInitGame
+		bsr					initGameManager															; init game manager, load and decode level data, init player ship, init sprite manager
 
 		bsr					initLevelWelcome
 
@@ -164,15 +164,15 @@ initGame
 		; #MARK: init levels 0-4 scrollspeed
 
 .scrollSpeed
-		dc.b				$08,$10,$12,$10,$10,$00														; $20 = max!
+		dc.b				$08,$10,$12,$0,$30,$00														; $20 = max!
 		even
 .screenManagerRun
-		dc.w				screenManagerLv0-jmpSrcMngOffset-2											;lv0
-		dc.w				screenManagerLv1-jmpSrcMngOffset-2											;lv1
-		dc.w				screenManagerLv2-jmpSrcMngOffset-2
-		dc.w				screenManagerLv3-jmpSrcMngOffset-2											;lv3
-		dc.w				screenManagerLv4-jmpSrcMngOffset-2
-		dc.w				screenManagerLv5-jmpSrcMngOffset-2
+		dc.w				screenManagerLv0-jmpSrcMngOffset											;lv0
+		dc.w				screenManagerLv1-jmpSrcMngOffset											;lv1
+		dc.w				screenManagerLv2-jmpSrcMngOffset
+		dc.w				screenManagerLv3-jmpSrcMngOffset											;lv3
+		dc.w				screenManagerLv4-jmpSrcMngOffset
+		dc.w				screenManagerLv5-jmpSrcMngOffset
 
 	    ; #MARK: init coplists
 
@@ -409,10 +409,9 @@ initGame
 		bsr					loadSample
 
 creditsJumpin
-		bsr					initGameGlobal																; reset general vars
 
 
-
+		
 ; #MARK: set/reset playfield and sprite colors
 
 		lea					CUSTOM,a6																	; set irq and dma
@@ -519,9 +518,12 @@ creditsJumpin
 		ENDIF
 
 
+		bsr					initGameGlobal																; reset general vars
+
 		IFNE				INITWITH
 		WAITSECS			1																			; wait a bit, to enhance drama
 		ENDIF
+
 
 		move.l				copperGame(pc),d0															; init game coplist
 		lea					copMainInit,a1
@@ -613,6 +615,21 @@ initPrepDataLoad
 .avoidMusicRestart
 		lea					CUSTOM,a6
 		move.w				#DMAF_BPLEN!DMAF_SPRITE,DMACON(a6)											; switch of bpl dma
+		IF					 0=1
+		; temp code to 
+	; fill main planes with a pattern. Delete after 30.06.2025!	
+		move.l				mainPlanes(pc),a4
+		move.l				mainPlanes+4(pc),a5
+		move.l				mainPlanes+8(pc),a6
+		move.l	mainPlaneOneSize(pc),d7
+
+		lsr.l					 #2,d7
+.l		
+		move.l				 #$ffffffff,(a4)+
+		move.l				 #$cccccccc,(a5)+
+		move.l				 #$55555555,(a6)+
+		dbeq				 d7,.l
+		ENDIF
 		rts
 
 

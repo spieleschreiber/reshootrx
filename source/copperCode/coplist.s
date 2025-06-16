@@ -11,6 +11,15 @@
 
 ; #MARK: Main Copper List
 coplist:
+copBPLPT
+    CMOVELC BPL1PT    ;2 Register schreiben und mit 0 füllen
+    CMOVELC BPL2PT
+    CMOVELC BPL3PT
+    CMOVELC BPL4PT
+    CMOVELC BPL5PT
+    CMOVELC BPL6PT
+    CMOVELC BPL7PT
+    CMOVELC BPL8PT
 
 copSprite01             ; display player
 	CMOVELC SPR0PTH,0
@@ -73,16 +82,6 @@ copSpriteDMAOffset = *-copSpriteDMA
 ; #MARK: - Maingame copperlist
 
 copGameReturn:           ; Default coplist finish code copied to end of each coppper game sublist
-	CWAIT (10<<8)!1         ; wait for end of frame, then restart coplist
-copBPLPT
-    CMOVELC BPL1PT    ;2 Register schreiben und mit 0 füllen
-    CMOVELC BPL2PT
-    CMOVELC BPL3PT
-    CMOVELC BPL4PT
-    CMOVELC BPL5PT
-    CMOVELC BPL6PT
-    CMOVELC BPL7PT
-    CMOVELC BPL8PT
 	CMOVE INTREQ,$8010    ; trigger copper interrupt
 copGameDone
     CMOVELC COP1LC
