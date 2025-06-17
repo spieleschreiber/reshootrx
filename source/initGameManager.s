@@ -264,18 +264,15 @@ initGameGlobal
 	;add.l			 #4*100,viewPositionPointer(a3)	; set initial view position to 200 pixels above the screen
 		; initial fill of the screen 
 	move		#tileHeight*mainPlaneWidth,d0
-	;move		#160,d0
 .drawLoop
 	lea			viewPosition(pc),a3
-	movem.l		d0/d6/d7/a3,-(sp)
-	add.l			 #$10000,viewPositionPointer(a3)	 
-	;move		viewPositionAdd(a3),d7
-	;add			d7,viewPositionPointer(a3)
-	clr.l			 d4
-	move.w			 #mainPlaneWidth*mainPlaneDepth-mainPlaneWidth-16,d4
-	clr.w			 d2
+	PUSHREGS	d0/d6/d7/a3
+	add.w		#$1,viewPositionPointer(a3)	 
+	clr.w		d2
+	clr.l		d4
+	move.w		#mainPlaneWidth*mainPlaneDepth-mainPlaneWidth-16,d4
 	bsr			tileRenderer
-	movem.l		(sp)+,d0/d6/d7/a3
+	PULLREGS	d0/d6/d7/a3
 	dbra		d0,.drawLoop
 
 	;swap			 d7

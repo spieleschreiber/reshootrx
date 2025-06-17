@@ -125,6 +125,14 @@ ADDSCORE MACRO
     ENDIF
     ENDM
 
+PUSHREGS   MACRO
+    movem.l \1,-(a7)
+    ENDM
+
+PULLREGS   MACRO
+    movem.l (a7)+,\1
+    ENDM
+
 SAVEREGISTERS   MACRO
     movem.l d0-d7/a0-a6,-(a7)
     ENDM
