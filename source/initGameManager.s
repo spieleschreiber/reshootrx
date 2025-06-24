@@ -239,7 +239,9 @@ initGameGlobal
 	bsr			spriteManager
 
 	lea			copSprite67,a0					; write dma pointer sprite 0+1 -> coplist
-		
+
+	
+
 	IFNE			 1
 		move.l				mainPlanes(pc),a4
 		move.l				mainPlanes+4(pc),a5
@@ -405,7 +407,7 @@ initGameGlobal
 .resetBossVars	
 	clr.w		(a1)+
 	dbra		d0,.resetBossVars
-
+	
 	sf.b		forceExit-vars(a5)
 	clr.l		frameCount-vars(a5)
 	clr.l		frameCompare-vars(a5)			; set target framerate
@@ -498,7 +500,7 @@ initGameSoundtrack
 	lea			fxInit(pc),a0
 	sf.b		(a0)								; fxInit
 	st.b		d0
-
+	
 	bsr			installAudioDriver
 	bra			initAudioTrack
 

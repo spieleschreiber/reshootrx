@@ -4,6 +4,7 @@
 
 
 _Precalc
+		
 			clr				errorFlag																														; main wont run if flag is set
 
 			lea				gameInActionF(pc),a0
@@ -17,8 +18,9 @@ _Precalc
 
 	; how much memory for three screen buffers
 
-			moveq			#mainPlaneHeight/tileHeight,d0																															; move tilemapHeight
-			muls			#tileHeight,d0
+			moveq			#tilesPerCol,d0													
+			muls					#tileHeight,d0						; total rows per bitmap
+			
 			add.w			#4,d0																															; safety net
 			muls			#mainPlaneWidth,d0
 			muls			#mainPlaneDepth,d0
@@ -44,7 +46,7 @@ _Precalc
 			move.l			d0,12(a0)
 			move.l			d0,d2
 
-			moveq			#8,d7
+			move.l					#mainPlaneWidth*mainPlaneDepth*2+8,d7																							; align to 8 byte adress, add safety net
 			add.l			d7,d2
 			moveq			#-8,d7
 			and.l			d7,d2																															; align to 8 byte adress
@@ -54,10 +56,12 @@ _Precalc
 			move.l			d2,(a1)																															; content will be added
 			add.l			d1,d2
 			move.l			d2,4(a0)
-			move.l			d2,4(a1)																														;   ""
+			move.l			d2,4(a1)							
+																								;   ""
 			add.l			d1,d2
 			move.l			d2,8(a0)	
-			move.l			d2,8(a1)																														;   ""
+			move.l			d2,8(a1)
+															;   ""
 			add.l			d1,d2
 			move.l			d2,d0
 			move.l			#fxPlaneWidth*fxPlaneHeightBig*fxPlaneDepth+16,d1
@@ -1360,7 +1364,7 @@ xmlMainMap
     ; #MARK:  begin object mapping/get start position
 
 xmlAttackWaves
-
+		
 			IFNE					USEXMLFILE
 
 		; fetch launchTable from xml-file & decode

@@ -6,7 +6,7 @@ testJmp
 
 
 _Main
-	;QUITNOW
+	
 	tst			errorFlag
 	bne			.quitMain
 .mainLoop

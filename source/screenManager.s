@@ -352,6 +352,8 @@ smSkipVfxWrite
 	moveq		#-20,d4																	
 	move.w		 #11,d2
 tileRenderer
+	
+	
 	; incase of escalation -> update bplpt7 @escal coplist
 	tst.b		escalateIsActive(pc)
 	bne			_smEscalUpdateBPLPT
@@ -428,7 +430,7 @@ tilePointerModified
 	lsr			 #1,d3
 	;add.w		d0,d3
 	andi.w		#$1e<<1,d3
-	;move.w		#$1e<<1,d3
+	;move.w		#$0<<1,d3
 
 					;cmpi.w		#55,frameCount+4(pc)
 				;bcs			 .kkk
@@ -497,7 +499,8 @@ smoothScrollRet
 	move		viewPosition+viewPositionPointer(pc),d6
 	lsr			 #2,d6
 	andi		#$1e,d6
-	;clr.w		 d6
+	
+	
 	lsl			#4,d6										; line offset within tile
 .tileMemSize	=			(tileHeight-1)*tileWidth/2
 		
@@ -517,12 +520,12 @@ smoothScrollRet
 	
 
 				moveq		#tilesPerCol-1,d7											; no of tile rows to draw
-
+	
 				;moveq		 #0,d7
 .getTile
 	
 	move.b		(a0),d0
-	;move.b		 #1,d0
+	
 	;bra			 .mirrorVertical
 	bmi			.mirrorVertical																; mirror on y-axis
 	move		tileMapWidth(pc),d2

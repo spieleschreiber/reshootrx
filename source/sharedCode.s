@@ -307,9 +307,6 @@ installAudioDriver	; init CIA interrupt, running music driver
 								tst.b					AudioIsInitiated
 								bne.b					.ciaIntRunning
 
-								lea						CUSTOM,a6
-								bsr						_mt_remove_cia
-
 								move.l					VBRptr(pc),a0
 								lea						CUSTOM,a6
 	;st.b d0	; st.b != 0 for PAL

@@ -12,8 +12,14 @@ EndIF
 mount AUX:
 
 sys:rrx
-; Quits the emulator at the end of the program
+
+
 loadwb
+
+;newcli
 anticlick
+wait 1 SEC
+
+NEWSHELL CON:0/50/640/200/RRXtestshell/CLOSE
 endcli
-;UAEquit; comment this to keep emu active after abort
+; Quits the emulator at the end of the program;UAEquit; comment this to keep emu active after abort

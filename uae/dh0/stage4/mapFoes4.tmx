@@ -5256,7 +5256,7 @@
     <property name="yadd" value="1"/>
    </properties>
   </object>
-  <object id="1983" name="doblClaw" x="178" y="-57" rotation="90">
+  <object id="1983" name="doblClaw" x="584" y="166" rotation="90">
    <properties>
     <property name="hit" value="10"/>
     <property name="xadd" value="50"/>
@@ -5324,7 +5324,7 @@
     <property name="yadd" value="0"/>
    </properties>
   </object>
-  <object id="1991" name="tentBase" x="72" y="12" rotation="90">
+  <object id="1991" name="tentBase" x="412" y="177" rotation="90">
    <properties>
     <property name="hit" value="20"/>
     <property name="xadd" value="0"/>
@@ -5667,7 +5667,7 @@
     <property name="hit" value="-1"/>
    </properties>
   </object>
-  <object id="2037" name="doblClaw" x="90" y="-105" rotation="90">
+  <object id="2037" name="doblClaw" x="279" y="104" rotation="90">
    <properties>
     <property name="hit" value="10"/>
     <property name="xadd" value="50"/>
