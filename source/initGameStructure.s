@@ -22,7 +22,7 @@ _Precalc
 			add.w			#4,d0																															; safety net
 			muls			#mainPlaneWidth,d0
 			muls			#mainPlaneDepth,d0
-			lsl.l			#1,d0
+			;lsl.l			#1,d0
 	;#FIXME: lsl is temp til scrolling works to avoid mem corruption
 			move.l			d0,mainPlaneOneSize																												;   1 x framebuffer
 			move.l			d0,d1

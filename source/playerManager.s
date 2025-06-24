@@ -68,11 +68,23 @@ handlePlayerMovement
 
 				move.w				#plyAcclYMin,plyAcclYCap(a6)
 .initRuns
-				move.w				plyInitiated(a6),d6																	; initial inertia
-				move.b				(sineTable+49,pc,d6),d6
+.add =					 105
+				move.w				#.add,d5
+				
+				add.w				plyInitiated(a6),d5
+						; initial inertia
+				;moveq				 #0,d6
+				;lsr					 #1,d5
+				andi.w				 #$7f,d5
+				move.w				 #$3f,d6
+				sub.b				(sineTable,pc,d5),d6
+				;lsl					 #1,d6
+				ext.w				 d6
+				ext.l				 d6
 				ror.l				#4,d6
+				;ext.l				 d6
 				swap				d6
-				add.l				d6,plyPosY(a6)
+				sub.l				d6,plyPosX(a6)
 				bra					.plyQueryLeftRight
 .plyInitPosY
 				move.w				d4,plyPosAcclY(a6)
@@ -160,6 +172,10 @@ handlePlayerMovement
 	
 ;#MARK: Player shot control
 .plyShotControl
+
+				move.w				plyPosY(a6),d6
+				;TOSHELL				 d6,"plyPosY"
+
 	;move.b #3,plyWeapUpgrade(a6)
 	;move #plyAcclXMin+2*3,plyAcclXCap(a6)
 	;move #plyAcclXMin+2*3,plyAcclYCap(a6)
@@ -575,7 +591,7 @@ dynamicPlayerColors
 				rts
 plyChkColBck	; basic coldetection for playership -> check hit with bitplane0
 
-				lea					AddressOfYPosTable(pc),a2
+				lea					yBecomesAddress(pc),a2
 				move.l				mainPlanesPointer+8(pc),a1
 				moveq				#11,d4																				;y-offset
 				clr.l				d5

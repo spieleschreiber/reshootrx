@@ -639,7 +639,7 @@ noOfFrames	SET	6
 
 	move objectListY(a2),d6
 	sub.w viewPosition+viewPositionPointer(pc),d6
-	move.w AddressOfYPosTable(pc,d6*2),d6
+	move.w yBecomesAddress(pc,d6*2),d6
 	SAVEREGISTERS
 	move.l mainPlanesPointer+0(pc),a1
 	sub #2,d5

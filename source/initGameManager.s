@@ -238,18 +238,42 @@ initGameGlobal
 	bsr			spriteManager
 	bsr			spriteManager
 
+	lea			copSprite67,a0					; write dma pointer sprite 0+1 -> coplist
+		
+	IFNE			 1
 		move.l				mainPlanes(pc),a4
 		move.l				mainPlanes+4(pc),a5
 		move.l				mainPlanes+8(pc),a6
 		move.l	mainPlaneOneSize(pc),d7
 
 		lsr.l					 #2,d7
+		subq			 #1,d7
 .l		
+		clr.l			(a4)+
+		clr.l	(a5)+
+		clr.l			(a6)+
+		dbra				 d7,.l
+		nop
+
+		move.l				mainPlanes(pc),a4
+		move.l				mainPlanes+4(pc),a5
+		move.l				mainPlanes+8(pc),a6
+		move.l	mainPlaneOneSize(pc),d7
+
+		lsr.l					 #3,d7
+		subq			 #1,d7
+
+.l2		
 		move.l				 #$ffffffff,(a4)+
 		move.l				 #$cccccccc,(a5)+
 		move.l				 #$55555555,(a6)+
-		dbeq				 d7,.l
+	;move.l			 d7,(a4)+
+	;move.l			 d7,(a5)+
+	;move.l			 d7,(a6)+
+		dbeq				 d7,.l2
+		nop
 
+	ENDIF
 	move.w		scr2StartPos,d7					;write startposition all relevant pointers, reset player-flag
 	;add.w		#DisplayWindowHeight,d0
 	;muls			 #2,d7
@@ -271,7 +295,7 @@ initGameGlobal
 	clr.w		d2
 	clr.l		d4
 	move.w		#mainPlaneWidth*mainPlaneDepth-mainPlaneWidth-16,d4
-	bsr			tileRenderer
+	;bsr			tileRenderer
 	PULLREGS	d0/d6/d7/a3
 	dbra		d0,.drawLoop
 
@@ -283,17 +307,17 @@ initGameGlobal
 
 
 	lea			plyBase(pc),a6								; setup player position, reset flags
-	move		#254,d1
+	move		#-1744,d1
 	swap		d1
 	add.l		d1,d0
 	move.l		d0,plyPosY(a6)
     ;clr.l plyPosAcclX(a6)
-	move.w		#-640,d0
-	move.w		d0,plyPosAcclY(a6)
-	move.w		#122,d0										; centre x-position
+	
+	move.w		#-32,d0										; centre x-position
 	swap		d0
 	move.l		d0,plyPosX(a6)
-	clr.w		plyPosAcclX(a6)								; initial y-accl defined in playerController
+			clr.l			plyPosAcclX(a6)											; also clears AcclY
+	
 
 	
 

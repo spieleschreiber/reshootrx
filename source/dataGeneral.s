@@ -503,7 +503,7 @@ frameCompare    ; 0.w = target framerate, 1.w = actual framerate
 
 
 
-AddressOfYPosTable 		; Convert y-coord to bitplane y-addr-offset
+yBecomesAddress 		; Convert y-coord to bitplane y-addr-offset
 .temp	SET		0
 		REPT	257
 		dc.w	.temp

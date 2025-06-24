@@ -1,16 +1,6 @@
 {
 	"files": [
 		{
-			"path": "source/opening.s",
-			"bookmarks": [
-				{
-					"line": 228,
-					"column": 0,
-					"label": "screen geometry"
-				}
-			]
-		},
-		{
 			"path": "source/interruptManager.s",
 			"bookmarks": [
 				{
@@ -44,7 +34,7 @@
 			"path": "source/blitterManager.s",
 			"bookmarks": [
 				{
-					"line": 266,
+					"line": 267,
 					"column": 0,
 					"label": ""
 				}

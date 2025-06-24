@@ -247,7 +247,7 @@ brickMed
 	IFNE 1
 
 	move.l a3,a1
-	move.w AddressOfYPosTable(pc,d4.w*2),d4 ; y bitmap offset
+	move.w yBecomesAddress(pc,d4.w*2),d4 ; y bitmap offset
 	lea -2(a1,d4.l),a1
 	move.l d6,d7
 	ror.l #3,d7
@@ -272,7 +272,7 @@ brickMed
 	;clr.l d5
 	ELSE
 
-	move.w AddressOfYPosTable(pc,d4.l*2),d5     ; y bitmap offset
+	move.w yBecomesAddress(pc,d4.l*2),d5     ; y bitmap offset
 	lea (a1,d5.l),a1
 	move.w (a1),d5
 	ENDIF
@@ -313,7 +313,7 @@ brickMed
 	bhi .q
 
 	move.l a3,a1
-	move.w AddressOfYPosTable(pc,d4.w*2),d4 ; y bitmap offset
+	move.w yBecomesAddress(pc,d4.w*2),d4 ; y bitmap offset
 	lea 2(a1,d4.l),a1
 	move.l d6,d7
 	ror.l #3,d7
@@ -383,7 +383,7 @@ brickMed
 	ble .q	; quit to left handside
 
 	move.l a3,a1
-	move.w AddressOfYPosTable(pc,d4.w*2),d4 ; y bitmap offset
+	move.w yBecomesAddress(pc,d4.w*2),d4 ; y bitmap offset
 	lea -2(a1,d4.l),a1
 	move.l d6,d7
 	ror.l #3,d7
@@ -451,7 +451,7 @@ brickMed
 
 	IFNE 1
 	move.l a3,a1
-	move.w AddressOfYPosTable(pc,d4.w*2),d4 ; y bitmap offset
+	move.w yBecomesAddress(pc,d4.w*2),d4 ; y bitmap offset
 	lea -2(a1,d4.l),a1
 	move.l d6,d7
 	ror.l #3,d7
@@ -478,7 +478,7 @@ brickMed
 
 
 
-	move.w AddressOfYPosTable(pc,d4.l*2),d5     ; y bitmap offset
+	move.w yBecomesAddress(pc,d4.l*2),d5     ; y bitmap offset
 	lea (a1,d5.l),a1
 	move.w (a1),d5
 	or.w 40*4(a1),d5

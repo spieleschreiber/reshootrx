@@ -68,7 +68,7 @@ collisionManager
 	; #MARK:  check hit static
 .chkBckCol
 
-	lea			AddressOfYPosTable(pc),a0
+	lea			yBecomesAddress(pc),a0
 	move.l		mainPlanesPointerAsync(pc),a1
 	lea			24(a1),a1									; add x offset
 	lea			80(a1),a1
@@ -94,7 +94,7 @@ collisionManager
 
 	; #MARK:  check hit object
 .hitObjectBox
-	lea			AddressOfYPosTable(pc),a2
+	lea			yBecomesAddress(pc),a2
 	move.l		mainPlanesPointer+4(pc),a1
 	moveq		#-36,d4										;y-offset
     ;moveq #0,d4
@@ -180,8 +180,8 @@ collisionManager
 	add.l		d7,(a2)										; AB + DC
 	add.l		d0,4(a2)									; CD + AB
 	andi.w		#$7,d0
-	add.w		AddressOfYPosTable(pc,d0*2),d2				; add randomness to y-position
-	;move.w AddressOfYPosTable(pc,d0*2),d0; add randomness to y-position
+	add.w		yBecomesAddress(pc,d0*2),d2				; add randomness to y-position
+	;move.w yBecomesAddress(pc,d0*2),d0; add randomness to y-position
 	andi		#$7,d7
 	add.b		d7,d1										; add some randomness to x-position
 	move.l		d1,d0
@@ -931,7 +931,7 @@ colHitKill
 	clr.l				d5
 	move.w				objectListY(a0),d5
 	sub.w				viewPosition+viewPositionPointer(pc),d5
-	move.w				AddressOfYPosTable(pc,d5*2),d5				; get y-adress
+	move.w				yBecomesAddress(pc,d5*2),d5				; get y-adress
 
 	move				objectListX(a0),d7
 	moveq				#-64,d4

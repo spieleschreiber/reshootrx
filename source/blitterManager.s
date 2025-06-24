@@ -2,6 +2,7 @@
 ; #MARK: - BLITTERMANAGER
 
 blitterManager
+	
 			clr.l		d0
 			clr.l		d1
 			clr.l		d2
@@ -157,9 +158,9 @@ blitterManager
 .offset		SET			mainPlaneWidth
 			move.w		d7,d5
 			lsr.w		#8,d5																						; >>6 to get heigt, >> 2 for divide by number of bitplanes
-			move.w		AddressOfYPosTable(pc,d5.w*2),d4															; get adress offset lowest target bitmap
+			move.w		yBecomesAddress(pc,d5.w*2),d4															; get adress offset lowest target bitmap
 			lsr			d5
-			move.w		AddressOfYPosTable(pc,d5.w*2),d5															; get adress offset median target bitmap
+			move.w		yBecomesAddress(pc,d5.w*2),d5															; get adress offset median target bitmap
 
 			tst.w		-40(a3)																						; test median left
 			bne			.ret
@@ -267,6 +268,14 @@ blitterManager
 			WAITBLIT
 			move.w		#DMAF_BLITHOG,CUSTOM+DMACON
 			moveq		#mainPlaneWidth,d1
+
+			move.w		 plyBase+plyPosYABS(pc),d2
+			lsr			 #2,d2
+			move.w		yBecomesAddress(pc,d2*2),d3
+			ext.l		d3
+			add.l		 d3,d0	
+;			add.l		 #mainPlaneWidth*4*140,d0										; d3=plyPosYABS*mainPlaneWidth*4
+									; d2=plyPosYABS*mainPlaneWidth
 			;move.l		 #$2a6f8,d0
 			;move.l		 #$40c78-$1000,d0
 			;move.l		 d0,a6

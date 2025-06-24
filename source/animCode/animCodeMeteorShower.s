@@ -235,7 +235,7 @@ meteoMed
     ;cmp2.w (.xBounds,pc),d7
     ;bcs.b .quit	; out of view left or right? dont coltest
 
-    lea AddressOfYPosTable(pc),a3	; check col with rocks
+    lea yBecomesAddress(pc),a3	; check col with rocks
 	clr.l d6
 	move d0,d6
 	move.w (a3,d0.w*2),d0     ; y bitmap offset

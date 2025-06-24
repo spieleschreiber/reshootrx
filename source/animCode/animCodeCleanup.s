@@ -73,7 +73,7 @@ boulders
 	
 	moveq #$2<<4,d4		; load y-acc
 	;clr.l d0
-    lea AddressOfYPosTable(pc),a3
+    lea yBecomesAddress(pc),a3
     move.w (a3,d0.w*2),d0     ; y bitmap offset
     tst.w objectListAccY(a2)
     beq .touchedDown
@@ -820,7 +820,7 @@ brickMed
     add.w objectListX(a2),d6         ; load obj x-coords
     sub.w viewPosition+viewPositionPointer(pc),d6
 	
-    lea AddressOfYPosTable(pc),a3
+    lea yBecomesAddress(pc),a3
 
 						; brick moves up dwn, tst collission
 	move.l d6,d5

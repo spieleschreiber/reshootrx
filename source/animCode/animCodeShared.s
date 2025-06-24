@@ -316,7 +316,7 @@ wipeBitmap
 .skip
 	clr.l d7
 	move.w d0,d7
-	move.w AddressOfYPosTable-2(pc,d7.w*2),d7
+	move.w yBecomesAddress-2(pc,d7.w*2),d7
 
 	lea (a1,d7.l),a1
 

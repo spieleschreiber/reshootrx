@@ -137,7 +137,7 @@ hybridSpriteJumpin
 	;sub.w plyPos+plyPosYDyn(pc),d4;Convert absolute to relative
 	lsr					#3,d4										; get x-pos-byte
 
-	add.w				AddressOfYPosTable-($2a*2)(pc,d5.w*2),d4	; add bitmap y-adress
+	add.w				yBecomesAddress-($2a*2)(pc,d5.w*2),d4	; add bitmap y-adress
 
 	move.l				mainPlanesPointerAsync(pc),a3
 	;move.l	mainPlanesPointer+8(pc),a3
@@ -362,7 +362,7 @@ addToColTable
 	addq		#1,bobCountHitable-vars(a5)
 .notHitable
 
-	move.w		AddressOfYPosTable(pc,d1*2),d1			; get y-positions memory offset
+	move.w		yBecomesAddress(pc,d1*2),d1			; get y-positions memory offset
 
 	sub			#viewXOffset,d6
 	move		d6,d0

@@ -136,7 +136,7 @@ returnJmpAtak
 .retLowerBorder
 
 	clr.l d6
-	move.w AddressOfYPosTable(pc,d4.w*2),d6; get adress offset lowest target bitmap
+	move.w yBecomesAddress(pc,d4.w*2),d6; get adress offset lowest target bitmap
 	btst.b #0,objectListTriggers(a2)
 	sne d7
 	ext.w d7

@@ -6508,9 +6508,9 @@ blitterManager
 .offset	SET 	mainPlaneWidth
 	move.w d7,d5
 	lsr.w #8,d5	; >>6 to get heigt, >> 2 for divide by number of bitplanes
-	move.w AddressOfYPosTable(pc,d5.w*2),d4; get adress offset lowest target bitmap
+	move.w yBecomesAddress(pc,d5.w*2),d4; get adress offset lowest target bitmap
 	lsr d5
-	move.w AddressOfYPosTable(pc,d5.w*2),d5; get adress offset median target bitmap
+	move.w yBecomesAddress(pc,d5.w*2),d5; get adress offset median target bitmap
 
 	tst.w -40(a3)		; test median left
 	bne .ret
@@ -7727,7 +7727,7 @@ particleManager
 ;	clr.w (a3)
 .draw
 
-	lea AddressOfYPosTable(pc),a0
+	lea yBecomesAddress(pc),a0
 	lea particleBits(pc),a1
 	lea particleBitmapOffset(pc),a2
     lea particleDrawBase(pc),a3
@@ -9652,7 +9652,7 @@ tilePointerModified
 	movem.l d5-d7,(a1)
 .swapGfxBuffers
 	move.b viewPositionPointer+1(a3),d3
-    move.w AddressOfYPosTable(pc,d3*2),d1
+    move.w yBecomesAddress(pc,d3*2),d1
     move.l d5,a1
     move.l d6,a2
     move.l d7,a4
@@ -9665,7 +9665,7 @@ tilePointerModified
 	add.w d0,d3
 	;sub #4,d3
 	andi.w #$fe,d3
-    move.w AddressOfYPosTable(pc,d3*2),d1
+    move.w yBecomesAddress(pc,d3*2),d1
     lea (a1,d1.l),a1
     lea (a2,d1.l),a2
     lea (a4,d1.l),a4
@@ -10725,7 +10725,7 @@ dynamicPlayerColors
 	rts
 plyChkColBck	; basic coldetection for playership -> check hit with bitplane0
 
-    lea AddressOfYPosTable(pc),a2
+    lea yBecomesAddress(pc),a2
 	move.l mainPlanesPointer+8(pc),a1
     moveq #11,d4;y-offset
     clr.l d5
@@ -11515,7 +11515,7 @@ hybridSpriteJumpin
 	;sub.w plyPos+plyPosYDyn(pc),d4;Convert absolute to relative
 	lsr #3,d4	; get x-pos-byte
 
-	add.w AddressOfYPosTable-($2a*2)(pc,d5.w*2),d4	; add bitmap y-adress
+	add.w yBecomesAddress-($2a*2)(pc,d5.w*2),d4	; add bitmap y-adress
 
 	move.l	mainPlanesPointerAsync(pc),a3
 	;move.l	mainPlanesPointer+8(pc),a3
@@ -11745,7 +11745,7 @@ addToColTable
 	addq #1,bobCountHitable-vars(a5)
 .notHitable
 
-	move.w AddressOfYPosTable(pc,d1*2),_d1target          ; get y-positions memory offset
+	move.w yBecomesAddress(pc,d1*2),_d1target          ; get y-positions memory offset
 
 	sub #viewXOffset,d6
 	move d6,d0
@@ -11920,7 +11920,7 @@ issueWarningBobs
 
 
 
-AddressOfYPosTable 		; Convert y-coord to bitplane y-addr-offset
+yBecomesAddress 		; Convert y-coord to bitplane y-addr-offset
 .temp SET	0
 	REPT 257
 	dc.w .temp
@@ -12002,7 +12002,7 @@ collisionManager
 	; #MARK:  check hit static
 .chkBckCol
 
-	lea AddressOfYPosTable(pc),a0
+	lea yBecomesAddress(pc),a0
 	move.l 	mainPlanesPointerAsync(pc),a1
 	lea 24(a1),a1	; add x offset
 	lea 80(a1),a1
@@ -12028,7 +12028,7 @@ collisionManager
 
 	; #MARK:  check hit object
 .hitObjectBox
-	lea AddressOfYPosTable(pc),a2
+	lea yBecomesAddress(pc),a2
 	move.l mainPlanesPointer+4(pc),a1
     moveq #-36,d4;y-offset
     ;moveq #0,d4
@@ -12114,8 +12114,8 @@ collisionManager
 	add.l   d7,(a2)					; AB + DC
 	add.l   d0,4(a2)				; CD + AB
 	andi.w #$7,d0
-	add.w AddressOfYPosTable(pc,d0*2),d2; add randomness to y-position
-	;move.w AddressOfYPosTable(pc,d0*2),d0; add randomness to y-position
+	add.w yBecomesAddress(pc,d0*2),d2; add randomness to y-position
+	;move.w yBecomesAddress(pc,d0*2),d0; add randomness to y-position
 	andi #$7,d7
 	add.b d7,d1	; add some randomness to x-position
 	move.l d1,d0
@@ -12860,7 +12860,7 @@ colHitKill
 	clr.l d5
 	move.w objectListY(a0),d5
 	sub.w viewPosition+viewPositionPointer(pc),d5
-	move.w AddressOfYPosTable(pc,d5*2),d5	; get y-adress
+	move.w yBecomesAddress(pc,d5*2),d5	; get y-adress
 
 	move objectListX(a0),d7
 	moveq #-64,d4

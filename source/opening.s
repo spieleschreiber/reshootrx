@@ -226,15 +226,3 @@ titleHideSprites
 	dc.l			0,0
 	dc.l			$3200,0
 	dc.l			0,0
-prepareDisplay:
-	lea				CUSTOM,a6
-	move			#$34x,DDFSTRT(a6)
-	move			#$cc,DDFSTOP(a6)
-	move			#displayWindowStart<<8+$08,DIWSTRT(a6)
-	move			#displayWindowStop<<8+$9c,DIWSTOP(a6)				;Displaywindow, Datafetch
-;	move #(mainPlaneWidth*(mainPlaneDepth-1)),BPL1MOD(a6)  ; basic modulus
-;	move #0,BPL2MOD(a6)
-
-	clr.w			CLXCON2(a6)											;Bitplanes 7 & 8-> no sprites collision
-quitPrepareDisplay
-	rts

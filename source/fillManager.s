@@ -71,7 +71,7 @@ fillManager
 	sub.b #4,d0	; define y-space above filled area
 	scc d7
 	and.w d7,d0
-	move.w AddressOfYPosTable(pc,d0.w*2),d0	; muls 40*4
+	move.w yBecomesAddress(pc,d0.w*2),d0	; muls 40*4
 	move.w d0,yMin(a6)	; y-height
 
 	tst.w polyBlitAddr(a6)
@@ -195,7 +195,7 @@ fillManager
 		move.w yMax(a1),d3
 		;add #1,d3
 		lsr #4,d3
-		move.w AddressOfYPosTable(pc,d3.w*2),d3	; muls 40*4
+		move.w yBecomesAddress(pc,d3.w*2),d3	; muls 40*4
 		add.w d3,d1
 
 		add.l d1,d0

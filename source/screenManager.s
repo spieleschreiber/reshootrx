@@ -428,6 +428,7 @@ tilePointerModified
 	lsr			 #1,d3
 	;add.w		d0,d3
 	andi.w		#$1e<<1,d3
+	;move.w		#$1e<<1,d3
 
 					;cmpi.w		#55,frameCount+4(pc)
 				;bcs			 .kkk
@@ -435,7 +436,7 @@ tilePointerModified
 ;.kkk
 	clr.l		 d1
 		
-	add.w		AddressOfYPosTable(pc,d3),d1
+	add.w		yBecomesAddress(pc,d3),d1
 ;	add.l		#44*4+8,d1																	; works for scrolling
 	
 	add.l		d4,d1																	; works for scrolling
@@ -487,7 +488,7 @@ smoothScrollRet
 ; #MARK: screenmanager tiledrawing
 
 	clr.l		d7
-	moveq		#9,d1
+	moveq		#tilesPerCol,d1
 	moveq		#(tileHeight/2)-1,d6
 	clr.l		d5											; read tile
 
@@ -515,12 +516,13 @@ smoothScrollRet
 	lea			.drawTileOffset,a3
 	
 
-				moveq		#mainPlaneHeight/tileHeight,d7																		; no of tile rows to draw
-				
-.getTile
+				moveq		#tilesPerCol-1,d7											; no of tile rows to draw
 
+				;moveq		 #0,d7
+.getTile
+	
 	move.b		(a0),d0
-	;move.b		 #129,d0
+	;move.b		 #1,d0
 	;bra			 .mirrorVertical
 	bmi			.mirrorVertical																; mirror on y-axis
 	move		tileMapWidth(pc),d2
@@ -544,51 +546,41 @@ smoothScrollRet
 	lea			(a6,d0.w),a5			; tile source base
 	lea			(a5,d2.w),a5			; add yoffset to source base
 
-	REPT		2
+	moveq		 #1,d5
+.drawTilesRegular
 	movem.l		(a5),d0-d3				; load one line of one tile
 	add.l		(sp),a5				; add offset to tile source base
 
 	move.l		d0,(a1)					; draw first bitmap to three framebuffers, main view
-	move.l		d0,(a1,d5.l)			; secondary view
 	add.l		a3,a1
 	move.l		d0,(a2)
-	move.l		d0,(a2,d5.l)
 	add.l		a3,a2
 	move.l		d0,(a4)
-	move.l		d0,(a4,d5.l)
 	add.l		a3,a4
 
 	move.l		d1,(a1)					; draw scnd bitmap to three framebuffers
-	move.l		d1,(a1,d5.l)
 
 	add.l		a3,a1
 	move.l		d1,(a2)
-	move.l		d1,(a2,d5.l)
 	add.l		a3,a2
 	move.l		d1,(a4)
-	move.l		d1,(a4,d5.l)
 	add.l		a3,a4
 	
 	move.l		d2,(a1)					; ....
-	move.l		d2,(a1,d5.l)
 	add.l		a3,a1
 	move.l		d2,(a2)
-	move.l		d2,(a2,d5.l)
 	add.l		a3,a2
 	move.l		d2,(a4)
-	move.l		d2,(a4,d5.l)
 	add.l		a3,a4
 
 	move.l		d3,(a1)
-	move.l		d3,(a1,d5.l)
 	add.l		a3,a1
 	move.l		d3,(a2)
-	move.l		d3,(a2,d5.l)
 	add.l		a3,a2
 	move.l		d3,(a4)
-	move.l		d3,(a4,d5.l)
 	add.l		a3,a4
-	ENDR
+	dbra		 d5,.drawTilesRegular
+	
 
 .offset			SET			((mainPlaneWidth-tileWidth/8)*tileHeight*mainPlaneDepth)-16-mainPlaneWidth		; offset to next tile bitmap  on screen
 	lea			.offset(a1),a1
@@ -625,7 +617,8 @@ smoothScrollRet
 	swap		d7
 	move		#1,d7
 .drawTwoLinesMirrored
-	REPT		4
+	moveq		 #3,d5
+.drawTilesMirrored
 	move.l		(a5)+,d0
 	move.l		d3,d1
 	and.l		d0,d1
@@ -653,15 +646,13 @@ smoothScrollRet
 	rol.w		#8,d0
 
 	move.l		d0,(a1)
-	move.l		d0,(a1,d5.l)
 	add.l		a3,a1
 	move.l		d0,(a2)
-	move.l		d0,(a2,d5.l)
 	add.l		a3,a2
 	move.l		d0,(a4)
-	move.l		d0,(a4,d5.l)
 	add.l		a3,a4
-	ENDR
+	dbra		 d5,.drawTilesMirrored
+	
 	sub.l		(sp),a5
 	dbra		d7,.drawTwoLinesMirrored
 	swap		d7
@@ -691,6 +682,18 @@ modifyTilePointer
 	bra			tilePointerModified
 screenManagerNil
 	rts
+prepareDisplay:
+	lea				CUSTOM,a6
+	move			#$34,DDFSTRT(a6)
+	move			#$cc,DDFSTOP(a6)
+	move			#displayWindowStart<<8+$08,DIWSTRT(a6)
+	move			#displayWindowStop<<8+$9c,DIWSTOP(a6)				;Displaywindow, Datafetch
+;	move #(mainPlaneWidth*(mainPlaneDepth-1)),BPL1MOD(a6)  ; basic modulus
+;	move #0,BPL2MOD(a6)
+
+	clr.w			CLXCON2(a6)											;Bitplanes 7 & 8-> no sprites collision
+	rts
+
 	; scrolling bits predefined
 scrollXbitsTable
 .scrollCode		SET			0

@@ -16,7 +16,7 @@ particleManager
 ;	clr.w (a3)
 .draw
 
-				lea			AddressOfYPosTable(pc),a0
+				lea			yBecomesAddress(pc),a0
 				lea			particleBits(pc),a1
 				lea			particleBitmapOffset(pc),a2
 				lea			particleDrawBase(pc),a3

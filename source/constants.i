@@ -64,7 +64,8 @@ displayWindowStart   =   $2c
 displayWindowStop   =   $28
 DisplayWindowHeight	= displayWindowStop+$100-displayWindowStart
 mainPlaneWidth    =  	48	; .b
-mainPlaneHeight    =  	tileHeight*9	; 9 tiles high, 32 pixels each
+tilesPerCol    =  	10	; number of Tiles per Column 
+mainPlaneHeight    =  	tileHeight*tilesPerCol	; 10 tiles high, 32 pixels each
 
 fxPlaneWidth 		=	40
 fxplaneHeight    	=   512
