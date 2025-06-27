@@ -127,7 +127,7 @@ statusLow	SET (rgbLow0old-rgbLow0)
 			CMOVE SPR7PTL,0
 			CMOVE SPR7PTH,0	; pointer to left score panel
 
-    CMOVE FMODE,%1101  ;64 pixel sprites
+    ;CMOVE FMODE,%1101  ;64 pixel sprites
 	CWAIT (displayWindowStart<<8)!$df
 	CMOVE BPL1MOD,4+(mainPlaneWidth*(mainPlaneDepth-1))
 	CMOVE BPL2MOD,-4		; basic modulus
@@ -185,9 +185,9 @@ upgrColor	SET 	$6af
 		CMOVE COLOR13,$457;$457	; reset ship color
 		CMOVE color14,$200		; reset ship color + sprite parallax color
 		CMOVE COLOR15,$eef	; reset ship color
-			CMOVE SPR6POS,$3080	; reposition scroll sprites
+			CMOVE SPR6POS,$4880	; reposition scroll sprites
 		CMOVE SPR6CTL,$ff02
-		CMOVE SPR7POS,$30a0
+		CMOVE SPR7POS,$48a0
 		CMOVE SPR7CTL,$ff02
 		ENDIF
 
@@ -258,8 +258,10 @@ yDistort	SET 	parSpriteY>>4
 ;	CMOVE NOOP,0
 	ELSE
 	CMOVE BPLCON1,0
+	CMOVE BPL2MOD,parSpriteY/16-4
 	IF (parSpriteY>=spriteScoreYPosition+10)&(parSpriteY<=spriteScoreYPosition+255)
 	COLORFADE
+	CMOVE BPL2MOD,-4
 	ENDIF
  	ENDIF
 
@@ -285,7 +287,7 @@ yDistort	SET 	parSpriteY>>4
         CMOVE NOOP,10     ; mark dialogue end
         ENDIF
 	; mark achievements view
-        IF (parSpriteY=$38)
+        IF (parSpriteY=displayWindowStart+$10)
         CMOVE NOOP,11     ; achievements start marker
         CMOVE COP1LCH,0
         CMOVE COP1LCL,0

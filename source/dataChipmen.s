@@ -31,8 +31,12 @@ escalationBitmap
 	INCBIN		incbin/escalation.raw
 
 	cnop		0,8
-spritePlayerContainer; pixel data 64 px wide, 52 px high, save as 32 pixel wide sprites, no attach, no ctrlword
+spritePlayerContainerNorth; pixel data 64 px wide, 52 px high, save as 32 pixel wide sprites, no attach, no ctrlword
 	Incbin		incbin/player/weaponContainer.raw
+
+spritePlayerContainerSouth; pixel data 64 px wide, 52 px high, save as 32 pixel wide sprites, no attach, no ctrlword
+	Incbin		incbin/player/weaponContainer.raw
+
 	IFNE		PLAYERSPRITEDITHERED
 spritePlayerBasic	; save as 32 px high, 64 px wide attached sprite, no ctrl words
 	Incbin		incbin/player/shipDith_0a.raw
@@ -43,6 +47,7 @@ spritePlayerBasicEnd
 	Incbin		incbin/player/shipDith_0c.raw			; move right
 	Incbin		incbin/player/shipIll_0c.raw
 	ELSE
+
 spritePlayerBasic	; save as 32 px high, 64 px wide attached sprite, no ctrl words
 	Incbin		incbin/player/ship_0a.raw
 	Incbin		incbin/player/shipIll_0a.raw

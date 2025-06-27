@@ -351,6 +351,8 @@ smSkipVfxWrite
 	
 	moveq		#-20,d4																	
 	move.w		 #11,d2
+
+	; #MARK: TILERENDERER
 tileRenderer
 	
 	
@@ -687,8 +689,8 @@ screenManagerNil
 	rts
 prepareDisplay:
 	lea				CUSTOM,a6
-	move			#$34,DDFSTRT(a6)
-	move			#$cc,DDFSTOP(a6)
+	move			#$2c,DDFSTRT(a6)
+	move			#$c8,DDFSTOP(a6)
 	move			#displayWindowStart<<8+$08,DIWSTRT(a6)
 	move			#displayWindowStop<<8+$9c,DIWSTOP(a6)				;Displaywindow, Datafetch
 ;	move #(mainPlaneWidth*(mainPlaneDepth-1)),BPL1MOD(a6)  ; basic modulus
@@ -700,7 +702,7 @@ prepareDisplay:
 	; scrolling bits predefined
 scrollXbitsTable
 .scrollCode		SET			0
-.temp			SET			255-32
+.temp			SET			255+64
 				REPT		256
 ;.scrollCode	SET	((.temp&$3c)>>2)|((.temp&$00)<<8)|((.temp&$c0)<<4)	; temp solution not using 1/4 pixel scrolling
 

@@ -565,5 +565,5 @@ playerShotColors
 
 
 coplineAnimPointers
-	blk.l		noOfCoplineAnims,0
+	blk.l		coplineAnimFrames,0
 	even

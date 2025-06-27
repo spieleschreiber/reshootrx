@@ -13,13 +13,16 @@ initLevelWelcome
 		move.w				#$b0,d0
 		move.l				d0,d1
 		andi				#$ff,d0
-		or.w				#(displayWindowStart+50)<<8,d0
+		or.w				#(displayWindowStart+30)<<8,d0
 		lsr.l				#3,d1
 		andi				#$20,d1
-		or					#$3800,d1
+		or					#$800,d1
+		move.w				 #$2c81,d0
 		move.w				d0,COPDIWSTRT+2
+		move.w				 #0,d1
 		move.w				d1,COPDIWHIGH+2
-		add					#$2400,d0
+		add					#$410,d0
+		move.w				 #$2c81,d0
 		move.w				d0,DIWSTOP(a6)
 
 		move				#BPU0F!ECSENAF!CONCOLF,copGameWelcome+6
@@ -164,7 +167,7 @@ initGame
 		; #MARK: init levels 0-4 scrollspeed
 
 .scrollSpeed
-		dc.b				$08,$10,$12,$0,$30,$00														; $20 = max!
+		dc.b				$08,$10,$12,$0,$00,$00														; $20 = max!
 		even
 .screenManagerRun
 		dc.w				screenManagerLv0-jmpSrcMngOffset											;lv0
@@ -207,7 +210,7 @@ initGame
 		lea					-12(a1),a0
 		lea					-$50(a0),a1
 
-		move.l				#copGamePlyBody,d0															; prepare copjmps within colors coplists
+		move.l				#copPlyBody,d0															; prepare copjmps within colors coplists
 		move.w				d0,6(a0)
 		move.w				d0,6(a1)
 		swap				d0

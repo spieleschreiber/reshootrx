@@ -40,6 +40,7 @@ nilManager	; label needed in case of skipping subcode from irq code. Could use a
 
 
 rasterListMove:
+	
 				lea			copSplitList(pc),a2
 
 				move.l		(a2)+,a1																					; pointer to offset table
@@ -58,14 +59,14 @@ rasterListMove:
 				bls			.sk
 				move.w		#$39,d5
 .sk
-			
-				move.l		(a6,d5*4),a5																				; get adress of anim table list. Full list contains an order of 12 (?) x-offsets -> x-scrolling
+				move.w		 $32,d5
+				move.l		(a6),a5																				; get adress of anim table list. Full list contains an order of 12 (?) x-offsets -> x-scrolling
 
 
 				move.w		frameCount+2(pc),d5
-				asr			#2,d5
+				;asr			#2,d5
 				andi		#$ff,d5
-				clr.w		d5																					; 13.06.2025 temp code to keep scrolling speed constant
+				;clr.w		d5																					; 13.06.2025 temp code to keep scrolling speed constant
 				lea			(a5,d5*2),a5																				; apply animation wave
 
 
@@ -84,7 +85,7 @@ rasterListMove:
 				bne.b		.distortionMode
 ;;	move.w copSplitList+4(pc),d7 ; how many lines in current copsublist?
 				lsr			#2,d7
-				sub			#1,d7
+				sub			#3,d7
 .writeCopLine
 				movem.l		(a1)+,d0-d1
 				movem.l		(a5)+,d3-d4
@@ -467,12 +468,10 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				lea			coplineAnimPointers,a6
 
 				moveq		#8,d2																						; start value for 2nd scanline mod modifier
-D7RASYCOUNT		EQUR		d7
-D1frameCount	EQUR		d1
 				move.l		(a6),a0																						; get adress of anim buffer
-				moveq		#noOfCoplineAnims-1,D1frameCount															; build data for x anim / x-scroll frames
+				moveq		#coplineAnimFrames-1,d1															; build data for x anim / x-scroll frames
 buildRasListFrame
-				move		#(noOfCoplines*2)-1,D7RASYCOUNT																; build data for x coplines
+				move		#(coplines*1)-1,d7															; build data for x coplines
 	;move.w #$7f,d7
 				move.l		(a6)+,a0																					; get adress of anim buffer
 				move.w		#2,a5
@@ -481,7 +480,7 @@ buildRasList
 buildRasListMod
 				adda		#2,a0
 				dbra		d7,buildRasList
-				adda		#noOfCoplines,a0
+				adda		#coplines,a0
 				dbra		d1,buildRasListFrame
 				rts
 
@@ -529,7 +528,7 @@ rasListPrepJmpTbl	; precalc list offsets
 .pSS1
 				lsl			#4,d5
 				move		d5,(a0)																						; prestore BPL1CON
-				move		d5,noOfCoplines*2(a0)																		; prestore BPL1CON
+				move		d5,coplines*2(a0)																		; prestore BPL1CON
 				bra			buildRasListMod
 
 .preStoreStage2
@@ -580,14 +579,15 @@ rasListPrepJmpTbl	; precalc list offsets
 				add.w		d4,d5																						; add water ripple
 
 				bra			.pSS1
-.preStoreStage4
 .preStoreStage5
+
 ;	d1 = frames 0-127
 ;	d7 = coplines 0 - 127
 				move		d7,d4
 				andi.w		#$7f,d4
 				clr.w		d2
 				move.b		sineTable(pc,d4.w),d2																		; add sinus form
+				
 				move.b		d2,d3
 				lsr.b		#1,d2
 				lsr.b		#4,d3
@@ -615,6 +615,17 @@ rasListPrepJmpTbl	; precalc list offsets
 				andi		#$0f0,d5
 				move		d5,(a0)																						; prestore BPL1CON
 				bra			buildRasListMod
+;	d1 = frames 0-127
+;	d7 = coplines 0 - 127
+.preStoreStage4
+				move.w		 d7,d3
+				move.w		scrollXbitsTable(pc,d3*2),d5
+				not.b		d5
+				lsl			#4,d5
+				andi		#$0f0,d5
+				move		d5,(a0)																						; prestore BPL1CON
+				bra			buildRasListMod
+
 .preStoreNil
 				bra			buildRasListMod
 

@@ -315,8 +315,8 @@ bobSourceMem
 			move.l					d0,(a0)
 			move.l					d0,a1
 			lea						coplineAnimPointers,a0
-			move					#noOfCoplines,d6
-			move					#noOfCoplineAnims,d7
+			move					#coplines,d6
+			move					#coplineAnimFrames,d7
 			lsl						#2,d6
 			bra						.quitLoop
 .loop
@@ -472,12 +472,33 @@ shotColFadeTableSize	=	shotColIterations*shotNoOfUpgrades*shotNoOfPals*3
 			dbra					d7,.wrtHiWord
 
 			move.l					#copGameReturn,d0																												; prepare default copper sublist
-			lea						copGamePlyBodyReturn+2,a0
+			lea						copPlyBodyReturn+2,a0
+			lea						copContainerNorthReturn+2,a1
+			lea						copContainerSouthReturn+2,a2			
 			move					d0,copGameReturnL
-			move					d0,(a0)																															; gets modified in runtime, this is just a safety net
+			move					d0,(a0); gets modified in runtime, this is just a safety net
+			move.w					 d0,(a1)
+			move.w					 d0,(a2)
+
 			swap					d0
 			move					d0,copGameReturnH
-			move					d0,4(a0)																														; ""
+			move					d0,4(a0)
+			move.w					 d0,4(a1)
+			move.w					 d0,4(a2)
+
+			lea						 copContainerNorthToPlyBody,a0
+			lea						 copPlyBody,a1
+			move.l					 a1,d0
+			move.w					 d0,2(a0)
+			swap					 d0
+			move.w					 d0,6(a0)
+			lea						 copContainerBodyToSouth,a0
+			lea						 copContainerSouth,a1
+			move.l					 a1,d0
+			move.w					 d0,2(a0)
+			swap					 d0
+			move.w					 d0,6(a0)
+
 
 			lea						copGameDefault,a0																												; copy return code to each sub copper list
 			movem.l					(a0),d0-d3

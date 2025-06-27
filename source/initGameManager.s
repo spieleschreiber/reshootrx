@@ -297,7 +297,7 @@ initGameGlobal
 	clr.w		d2
 	clr.l		d4
 	move.w		#mainPlaneWidth*mainPlaneDepth-mainPlaneWidth-16,d4
-	;bsr			tileRenderer
+	bsr			tileRenderer
 	PULLREGS	d0/d6/d7/a3
 	dbra		d0,.drawLoop
 
@@ -340,10 +340,9 @@ initGameGlobal
 	clr.w		plyWaveBonus(a6)
 
 	lea			plySprSaveCop(pc),a0
-	clr.l		(a0)+
-	clr.l		(a0)+
-	clr.l		(a0)+
-	clr.l		(a0)+
+	moveq			 #(plySprSaveCopQ-plySprSaveCop)/4-1,d7
+.clr	clr.l		(a0)+
+	dbra		d7,.clr
 
 
 	moveq		#plyAcclXMin,d0

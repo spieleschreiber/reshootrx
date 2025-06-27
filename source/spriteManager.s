@@ -23,12 +23,10 @@ spriteManagerPlayer
 
 
 	lea			plyBase(pc),a1
-	lea			copGamePlyBody,a5
-
 	move.w		plyPosX(a1),d4				; player x-position
 	;sub.w plyPosYDyn(a1),d4
 	move.w		plyPosYABS(a1),d2		;	y-position
-	add			#50,d2
+	add			#displayWindowStart+4,d2
 	moveq		#playerBodyHeight,d5
 	add.w		d2,d5
 	clr.b		d3
@@ -48,10 +46,277 @@ spriteManagerPlayer
 	bset		#7,d6					; attach bit
 	or			d6,d5
 
+	lea			copPlyBody,a5
 	move.w		d2,0+2(a5)											; SPRxPOS
 	move.w		d5,4+2(a5)											; SPRxCTL
 	move.w		d2,8+2(a5)											; SPRxPOS
 	move.w		d5,12+2(a5)											; SPRxCTL
+
+	lea			spritePlayerBasic(d6),a0
+	; #TODO:		 add code (a0) for anim frames
+	move.l		a0,d6
+	move.w		d6,16+2(a5)
+	swap		d6
+	move.w		d6,16+6(a5)
+
+	
+	; #MARK: SPLIT BODY
+	lea			(playerBodyHeight*16,a0),a0
+	move.l		a0,d0
+	move.w		d0,16+10(a5)
+	swap		d0
+	move.w		d0,16+14(a5)
+	lea			copSplitList(pc),a0
+	move.l		(a0)+,a1						; get pointer to offset table
+
+	move.w		(a0),d6							; no of lines
+	sub			#1,d6
+	beq			sprManPlyReturn
+
+	move.l		(a1)+,a2						; get adress of current subcoplist -> pointer to BPLCON1
+	lea			-16(a2),a2
+	lea			plySprSaveCop(pc),a5
+	lea			copPlyBodyRestore,a4
+	lea			copPlyBodyReturn+2,a6
+	movem.l		(a5),a0/d0-d2
+	tst.l		a0
+	beq			.firstRun
+	movem.l		d0-d2,(a0)
+.firstRun
+	moveq		#3,d7							; y-offset playerpos / rastersplit
+	add.w		plyBase+plyPosYABS(pc),d7		; get scanline
+	lsr			#1,d7
+	cmp			d6,d7
+	blo			.yPosOK
+	move		d6,d7
+.yPosOK
+	move.w		(a1,d7.w*2),d7					; pointer to entry in coplist
+	lea			2(a2,d7.w),a2
+	movem.l		(a2),d0-d2						; get original entrys
+	move.l		a2,12(a5)						; save coplist adress
+	movem.l		d0-d2,(a5)						; save entrys
+	movem.l		d0-d2,(a4)						; write copied commands to temp coplist
+
+	lea			12(a2),a4
+	move.l		a4,d0
+	move.w		d0,(a6)
+	swap		d0
+	move.w		d0,4(a6)						; copjmp bck to original coplist
+	move.w		#COPJMP2,(a2)			; write copjmp code -> 
+
+	;bra			sprManPlyReturn
+
+
+	; #MARK: SPLTNORTH
+
+	lea			plyBase(pc),a1
+	
+	move.w		plyPosX(a1),d4				; player x-position
+	;sub.w plyPosYDyn(a1),d4
+	move.w		plyPosYABS(a1),d2		;	y-position
+	sub			 #15,d2
+	add			#displayWindowStart+4,d2
+	moveq		#playerContainerHeight,d5
+	add.w		d2,d5
+	clr.b		d3
+	lsl.w		#8,d2					; move vertical start bit 8 in place
+	addx.b		d3,d3
+
+	lsl.w		#8,d5					; vertical stop bit 8
+	addx.b		d3,d3
+
+	lsr.w		#1,d4					; horizontal start bit 0
+	addx.b		d3,d3
+	add.b		#$44,d4
+	move.b		d4,d2					; make first control word
+	move.b		d3,d5					; second control word
+	rol			#5,d6					; add 35 & 70 ns pixelcoord
+	andi		#%11000,d6
+	bset		#7,d6					; attach bit
+	or			d6,d5
+
+	lea			copContainerNorth,a5
+	move.w		d2,0+2(a5)											; SPRxPOS
+	move.w		d5,4+2(a5)											; SPRxCTL
+	move.w		d2,8+2(a5)											; SPRxPOS
+	move.w		d5,12+2(a5)											; SPRxCTL
+
+	lea			spritePlayerContainerNorth,a0
+	; #TODO:		 add code (a0) for anim frames
+	move.l		a0,d6
+	move.w		d6,16+2(a5)
+	swap		d6
+	move.w		d6,16+6(a5)
+
+					;TODO:		Add anim frames to a0
+
+	lea			(playerContainerHeight*16,a0),a0
+	move.l		a0,d0
+	move.w		d0,16+10(a5)
+	swap		d0
+	move.w		d0,16+14(a5)
+	lea			copSplitList(pc),a0
+	move.l		(a0)+,a1						; get pointer to offset table
+
+	move.w		(a0),d6							; no of lines
+	sub			#1,d6
+	beq			sprManPlyReturn
+
+	move.l		(a1)+,a2						; get adress of current subcoplist -> pointer to BPLCON1
+	lea			-16(a2),a2
+	lea			plySprSaveCop+16(pc),a5
+	lea			copContainerNorthRestore,a4
+	lea			copContainerNorthReturn+2,a6
+	movem.l		(a5),a0/d0-d2
+	tst.l		a0
+	beq			.firstRunNorth
+	movem.l		d0-d2,(a0)
+.firstRunNorth
+	moveq		#-3,d7							; y-offset playerpos / rastersplit
+	add.w		plyBase+plyPosYABS(pc),d7		; get scanline
+	sub.w		 #15,d7
+	lsr			#1,d7
+	cmp			d6,d7
+	blo			.yPosOKNorth
+	move		d6,d7
+.yPosOKNorth
+	move.w		(a1,d7*2),d7					; pointer to entry in coplist
+	lea			2(a2,d7),a2
+	movem.l		(a2),d0-d2						; get original entrys
+	move.l		a2,12(a5)						; save coplist adress
+	movem.l		d0-d2,(a5)						; save entrys
+	movem.l		d0-d2,(a4)						; write copied commands to temp coplist
+
+	lea			12(a2),a4
+	move.l		a4,d0
+	move.w		d0,(a6)
+	swap		d0
+	move.w		d0,4(a6)						; copjmp bck to original coplist
+	move.w		#COPJMP2,(a2)			; write copjmp code -> 
+
+	; #MARK: SPLITSOUTH
+
+	lea			plyBase(pc),a1
+	
+	move.w		plyPosX(a1),d4				; player x-position
+	;sub.w plyPosYDyn(a1),d4
+	move.w		plyPosYABS(a1),d2		;	y-position
+	add			 #20,d2
+	add			#displayWindowStart+4,d2
+	moveq		#playerContainerHeight,d5
+	add.w		d2,d5
+	clr.b		d3
+	lsl.w		#8,d2					; move vertical start bit 8 in place
+	addx.b		d3,d3
+
+	lsl.w		#8,d5					; vertical stop bit 8
+	addx.b		d3,d3
+
+	lsr.w		#1,d4					; horizontal start bit 0
+	addx.b		d3,d3
+	add.b		#$44,d4
+	move.b		d4,d2					; make first control word
+	move.b		d3,d5					; second control word
+	rol			#5,d6					; add 35 & 70 ns pixelcoord
+	andi		#%11000,d6
+	bset		#7,d6					; attach bit
+	or			d6,d5
+
+	lea			copContainerSouth,a5
+	move.w		d2,0+2(a5)											; SPRxPOS
+	move.w		d5,4+2(a5)											; SPRxCTL
+	move.w		d2,8+2(a5)											; SPRxPOS
+	move.w		d5,12+2(a5)											; SPRxCTL
+
+	lea			spritePlayerContainerSouth,a0
+	; #TODO:		 add code (a0) for anim frames
+	move.l		a0,d6
+	move.w		d6,16+2(a5)
+	swap		d6
+	move.w		d6,16+6(a5)
+
+					;TODO:		Add anim frames to a0
+
+	lea			(playerContainerHeight*16,a0),a0
+	move.l		a0,d0
+	move.w		d0,16+10(a5)
+	swap		d0
+	move.w		d0,16+14(a5)
+	lea			copSplitList(pc),a0
+	move.l		(a0)+,a1						; get pointer to offset table
+
+	move.w		(a0),d6							; no of lines
+	sub			#1,d6
+	beq			sprManPlyReturn
+
+	move.l		(a1)+,a2						; get adress of current subcoplist -> pointer to BPLCON1
+	lea			-16(a2),a2
+	lea			plySprSaveCop+32(pc),a5
+	lea			copContainerSouthRestore,a4
+	lea			copContainerSouthReturn+2,a6
+	movem.l		(a5),a0/d0-d2
+	tst.l		a0
+	beq			.firstRunSouth
+	movem.l		d0-d2,(a0)
+.firstRunSouth
+	moveq		#23,d7							; y-offset playerpos / rastersplit
+	add.w		plyBase+plyPosYABS(pc),d7		; get scanline
+	;add.w		 #20,d7
+	lsr			#1,d7
+	cmp			d6,d7
+	blo			.yPosOKSouth
+	move		d6,d7
+.yPosOKSouth
+	move.w		(a1,d7*2),d7					; pointer to entry in coplist
+	lea			2(a2,d7),a2
+	movem.l		(a2),d0-d2						; get original entrys
+	move.l		a2,12(a5)						; save coplist adress
+	movem.l		d0-d2,(a5)						; save entrys
+	movem.l		d0-d2,(a4)						; write copied commands to temp coplist
+
+	lea			12(a2),a4
+	move.l		a4,d0
+	move.w		d0,(a6)
+	swap		d0
+	move.w		d0,4(a6)						; copjmp bck to original coplist
+	move.w		#COPJMP2,(a2)			; write copjmp code -> 
+
+
+	bra			sprManPlyReturn
+
+	IFNE		 0
+	lea			plyBase(pc),a1
+	
+	move.w		plyPosX(a1),d4				; player x-position
+	;sub.w plyPosYDyn(a1),d4
+	move.w		plyPosYABS(a1),d2		;	y-position
+	add			#displayWindowStart+4,d2
+	moveq		#playerBodyHeight,d5
+	add.w		d2,d5
+	clr.b		d3
+	lsl.w		#8,d2					; move vertical start bit 8 in place
+	addx.b		d3,d3
+
+	lsl.w		#8,d5					; vertical stop bit 8
+	addx.b		d3,d3
+
+	lsr.w		#1,d4					; horizontal start bit 0
+	addx.b		d3,d3
+	add.b		#$44,d4
+	move.b		d4,d2					; make first control word
+	move.b		d3,d5					; second control word
+	rol			#5,d6					; add 35 & 70 ns pixelcoord
+	andi		#%11000,d6
+	bset		#7,d6					; attach bit
+	or			d6,d5
+
+	lea			copPlyBody,a5
+	move.w		d2,0+2(a5)											; SPRxPOS
+	move.w		d5,4+2(a5)											; SPRxCTL
+	move.w		d2,8+2(a5)											; SPRxPOS
+	move.w		d5,12+2(a5)											; SPRxCTL
+
+
 	moveq		#1,d6
 	sub.b		plyBase+plyFire1AutoB(pc),d6
 	seq.b		d6
@@ -59,14 +324,15 @@ spriteManagerPlayer
 	move.w		d6,d4
 	andi		#(spritePlayerBasicEnd-spritePlayerBasic)/2,d6		; add shoot illumination
 
-	lea			spritePlayerBasic(d6),a0							; set pointer to anim frame
+	lea			spritePlayerBasic(d6),a0
+	lea			spritePlayerContainerNorth(d6),a3	
+	lea			spritePlayerContainerSouth(d6),a4							; set pointer to anim frame
 
 	move.w		plyBase+plyPosAcclX(pc),d6
 	tst.w		plyBase+plyPosAcclX(pc)
 	beq.b		.idle												; moves left or right? No!
 	spl.b		d6													; yes - tilt anim
 	ext.w		d6
-.sprSize	SET			(spritePlayerBasicEnd-spritePlayerBasic)
 	andi		#.sprSize,d6
 	lea			.sprSize(a0,d6),a0
 .idle
@@ -76,6 +342,9 @@ spriteManagerPlayer
 	move.w		.frameOffsetTable(pc,d7),d1
 	
 	lea			(a0,d1.w),a0
+	lea			 (a3,d1.w),a3
+	lea			 (a4,d1.w),a4
+
 	move.l		a0,d6
 
 	btst		#1,d7
@@ -140,7 +409,7 @@ spriteManagerPlayer
 .xOffsetLeft		SET			1
 .xOffsetRight		SET			5
 .bitplaneOffset		SET			8
-.lineOffset			SET			16
+.lineOffset			SET			8
 .testCase			SET			2*.lineOffset+.xOffsetLeft
 .yOffset			SET			7
 	;btst #0,frameCount+3(pc)
@@ -173,19 +442,8 @@ spriteManagerPlayer
 	and.w		d1,d2
 	eor.w		d2,d0														; avoid values <0 and >8
 
-	lea			((.lineOffset*(3+.yOffset))+playerBodyHeight*16,a0),a3
+	;lea			((.lineOffset*(3+.yOffset))+playerBodyHeight*16,a0),a3
 .idleXClr
-	lea			spritePlayerContainer,a2
-
-	lea			.restore+.yOffset*4(pc),a4
-	clr.w		d7
-	tst.w		plyBase+plyPosAcclX(pc)
-	beq			.idleXY
-	spl			d7
-	and.w		#32+16,d7
-	add.w		#32+16,d7
-.idleXY
-	lea			(a4,d7),a4
 
 	move.b		plyBase+plyWeapUpgrade(pc),d7
 	spl			d6
@@ -193,51 +451,8 @@ spriteManagerPlayer
 	move.b		.offsetTable(pc,d7),d7
 	lea			(a2,d7*2),a2							; add upgrade offset
 	lea			(a2,d4.w*2),a2							; add animframe offset
-	moveq		#11-.yOffset,d7
-.clrContrns
-	move.w		(a4)+,d6								; fetch ship outlines
-	movem.l		(a2)+,d2/d5
-	lsl.l		d0,d2
-	lsl.l		d0,d5
-	or.b		d6,d2
-	move.w		d2,.xOffsetLeft+.bitplaneOffset(a3)		; bitplane 0 right, 1.row
-	swap		d2
-	lsr.w		#8,d6
-	or.w		d6,d5
-	;move #-1,d5
-	move.w		d5,.xOffsetLeft(a3)						; bitplane 1 right, 1.row
+	; #TODO	Add code for animation frames
 
-	move.w		(a4)+,d6
-	move.b		d6,d3
-	sf.b		d6
-	or.w		d6,d2
-	move.w		d2,.xOffsetRight+.bitplaneOffset(a3)	; bitplane 0 right, 1.row
-	swap		d5
-	lsl			#8,d3
-	;lsl #3,d5
-	or.w		d3,d5
-	;move #-1,d5
-	move.w		d5,.xOffsetRight(a3)								; bitplane 1 right, 1.row
-	lea			16(a3),a3
-	dbra		d7,.clrContrns
-
-	moveq		#.yOffset,d7
-.clrContrns1
-	movem.l		(a2)+,d4/d5
-	lsl.l		d0,d4
-	lsl.l		d0,d5
-	;move.w d4,.xOffsetLeft+.bitplaneOffset-(2*8*0)(a3)	; bitplane 0 right, 1.row
-	move.w		d5,.xOffsetLeft+.bitplaneOffset-(2*8*28)(a3)		; bitplane 0 right, 1.row
-	move.w		d5,.xOffsetLeft-(2*8*28)(a3)						; bitplane 1 right, 1.row
-	move.w		d4,.xOffsetLeft-(2*8*28)(a3)						; bitplane 1 right, 1.row
-	swap		d4
-	swap		d5
-
-	move.w		d4,.xOffsetRight+.bitplaneOffset-(2*8*28)(a3)		; bitplane 0 right, 1.row
-	move.w		d5,.xOffsetRight-(2*8*28)(a3)						; bitplane 1 right, 1.row
-	move.w		d5,.xOffsetRight-(2*8*28)(a3)						; bitplane 1 right, 1.row
-	lea			16(a3),a3
-	dbra		d7,.clrContrns1
 .keepPos
 	bra			.fuk
 .fireFrame
@@ -245,49 +460,10 @@ spriteManagerPlayer
 .offsetTable
 					dc.b		0,13*4,26*4,39*4
 	;SAVEREGISTERS
-.restore	; bitmap data taken from ship_0a.raw, row/byte 496 to 672
-					dc.b		1,1,$80,$80
-					dc.b		0,1,0,$80
-					dc.b		1,1,$80,$80
-					dc.b		0,1,0,$80
-					dc.b		1,1,$80,$80
-					dc.b		3,2,$c0,$40
-					dc.b		3,2,$c0,$40
-					dc.b		3,2,$c0,$40
-					dc.b		3,3,$c0,$c0
-					dc.b		3,3,$c0,$c0
-					dc.b		3,3,$c0,$c0
-					dc.b		1,1,$80,$80
-	; bitmap data taken from ship_0b.raw, row/byte 496 to 672
-					dc.b		0,0,$80,$40
-					dc.b		0,0,$e0,$e0
-					dc.b		0,0,$e0,$e0
-					dc.b		0,0,$e0,$e0
-					dc.b		0,0,$b0,$70
-					dc.b		0,0,$d0,$30
-					dc.b		0,0,$f8,$18
-					dc.b		0,0,$f8,$78
-					dc.b		0,0,$d8,$f8
-					dc.b		0,0,$e0,$e0
-					dc.b		0,0,$c0,$c0
-					dc.b		0,0,$c0,$40
-	; bitmap data taken from ship_0c.raw, row/byte 496 to 672
-					dc.b		1,2,0,0
-					dc.b		7,7,0,0
-					dc.b		7,7,0,0
-					dc.b		7,7,0,0
-					dc.b		$d,$e,0,0
-					dc.b		$b,$c,0,0
-					dc.b		$1f,$18,0,0
-					dc.b		$1f,$1e,0,0
-					dc.b		$1b,$1f,0,0
-					dc.b		7,7,0,0
-					dc.b		3,3,0,0
-					dc.b		3,2,0,0
 
 .fuk
 
-
+	; insert split into copperlist to manage player body
 	lea			(playerBodyHeight*16,a0),a0
 	move.l		a0,d0
 	move.w		d0,16+10(a5)
@@ -303,8 +479,8 @@ spriteManagerPlayer
 	move.l		(a1)+,a2						; get adress of current subcoplist -> pointer to BPLCON1
 	lea			-16(a2),a2
 	lea			plySprSaveCop(pc),a5
-	lea			copGamePlyBodyRestore,a4
-	lea			copGamePlyBodyReturn+2,a6
+	lea			copPlyBodyRestore,a4
+	lea			copPlyBodyReturn+2,a6
 	movem.l		(a5),a0/d0-d2
 	tst.l		a0
 	beq			.firstRun
@@ -319,10 +495,10 @@ spriteManagerPlayer
 .yPosOK
 	move.w		(a1,d7*2),d7					; pointer to entry in coplist
 	lea			2(a2,d7),a2
-	tst.b		dialogueIsActive(pc)
-	bne			.dialogueMod
-	tst.b		escalateIsActive(pc)
-	bne			.escalateMod
+	;tst.b		dialogueIsActive(pc)
+	;bne			.dialogueMod
+	;tst.b		escalateIsActive(pc)
+	;bne			.escalateMod
 .cont
 	movem.l		(a2),d0-d2						; get original entrys
 	move.l		a2,12(a5)						; save coplist adress
@@ -334,10 +510,62 @@ spriteManagerPlayer
 	move.w		d0,(a6)
 	swap		d0
 	move.w		d0,4(a6)						; copjmp bck to original coplist
+	move.w		#COPJMP2,(a2)			; write copjmp code -> 
 
-	move.w		#COPJMP2,(a2)												; write copjmp code -> coplist. Inits copjmp to copGamePlyBody
+
+	; insert split into copperlist to manage player container South
+	lea			(playerBodyHeight*16,a0),a0
+	move.l		a0,d0
+	move.w		d0,16+10(a5)
+	swap		d0
+	move.w		d0,16+14(a5)
+	lea			copSplitList(pc),a0
+	move.l		(a0)+,a1						; get pointer to offset table
+
+	move.w		(a0),d6							; no of lines
+	sub			#1,d6
+	beq			sprManPlyReturn
+
+	move.l		(a1)+,a2						; get adress of current subcoplist -> pointer to BPLCON1
+	lea			-16(a2),a2
+	lea			plySprSaveCop(pc),a5
+	lea			copPlyBodyRestore,a4
+	lea			copPlyBodyReturn+2,a6
+	movem.l		(a5),a0/d0-d2
+	tst.l		a0
+	beq			.firstRunContainer
+	movem.l		d0-d2,(a0)
+.firstRunContainer
+	moveq		#3,d7							; y-offset playerpos / rastersplit
+	add.w		plyBase+plyPosYABS(pc),d7		; get scanline
+	lsr			#1,d7
+	cmp			d6,d7
+	blo			.yPosOKContainer
+	move		d6,d7
+.yPosOKContainer
+	move.w		(a1,d7*2),d7					; pointer to entry in coplist
+	lea			2(a2,d7),a2
+	;tst.b		dialogueIsActive(pc)
+	;bne			.dialogueMod
+	;tst.b		escalateIsActive(pc)
+	;bne			.escalateMod
+.contContainer
+	movem.l		(a2),d0-d2						; get original entrys
+	move.l		a2,12(a5)						; save coplist adress
+	movem.l		d0-d2,(a5)						; save entrys
+	movem.l		d0-d2,(a4)						; write copied commands to temp coplist
+
+	lea			12(a2),a4
+	move.l		a4,d0
+	move.w		d0,(a6)
+	swap		d0
+	move.w		d0,4(a6)						; copjmp bck to original coplist
+	move.w		#COPJMP2,(a2)			; write copjmp code -> coplist. Inits copjmp to copPlyBody
+
+
 	bra			sprManPlyReturn
-.escalateMod
+	
+
 	cmpi.w		#escalateStart+escalateHeight-50,plyBase+plyPosYABS(pc)		; get player y-pos
 	bhi			.cont
 	cmpi.w		#escalateStart-48,plyBase+plyPosYABS(pc)					; get player y-pos
@@ -357,6 +585,10 @@ spriteManagerPlayer
 	add.b		plyBase+plyPosYABS+1(pc),d7
 	move.b		d7,-4(a2)													; modify copper wait within dialogue view
 	bra			.cont
+
+	ENDIF
+.sprSize	SET			(spritePlayerBasicEnd-spritePlayerBasic)
+
 .add	SET			.sprSize/16
 .muls	SET			0
 .frameOffsetTable
@@ -365,8 +597,8 @@ spriteManagerPlayer
 .muls	SET			.muls+.add													;player vessel height * 8
 		ENDR
 plySprSaveCop
-		blk.l		4,0
-
+		blk.l		12,0
+plySprSaveCopQ
 spritePlayerExhaust
 		INCBIN		incbin/player/exhaust0
 		INCBIN		incbin/player/exhaust1

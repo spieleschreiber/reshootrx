@@ -34,6 +34,13 @@ COPDIWSTRT
 	CMOVE DIWSTRT,0
 COPDIWHIGH
 	CMOVE DIWHIGH,0
+    CMOVE		 DIWHIGH,0
+    CMOVE		 DIWSTRT,$3890
+    CMOVE		 DIWSTOP,$10c4
+    CMOVE		 DDFSTRT,$30
+    CMOVE		 DDFSTOP,$c2
+    CMOVE		 FMODE,%1101
+    
   	dc.w $80            ;   -> copSpriteDma; write Spritepointers
 copInitSprPtHW
     dc.w    0,$82
@@ -41,13 +48,14 @@ copInitSprPtLW
     dc.w    0,$88,0
 copInitSprPtReturn
     CWAIT (displayWindowStart-1)<<8!$cd
-    
 copBPLCON0  CMOVE BPLCON0,ECSENAF!CONCOLF
 copBPLCON1  CMOVE BPLCON1,0
 
 copBPLCON2  CMOVE BPLCON2,0    ; Sprite / Playfield Priority
 copBPLCON3	CMOVE BPLCON3,0
 copBPLCON4  CMOVE BPLCON4,0
+
+
 copMainInit
     CMOVELC  COP1LC
     CMOVE COPJMP1,0
@@ -89,7 +97,7 @@ copGameDone
 
 ; #MARK: Re-Init Player Sprite
 
-copGamePlyBody	; subcoplist, called from coplist in runtime, inits ply sprite
+copContainerNorth	; subcoplist, called from coplist in runtime, inits ply sprite
 	CMOVE SPR0POS,0
 	CMOVE SPR0CTL,0
 	CMOVE SPR1POS,0
@@ -98,13 +106,65 @@ copGamePlyBody	; subcoplist, called from coplist in runtime, inits ply sprite
 	CMOVE SPR0PTH,0
 	CMOVE SPR1PTL,0
 	CMOVE SPR1PTH,0
-
-copGamePlyBodyRestore
+	CMOVE		 BPLCON3,0
+	CMOVE		 COLOR00,$888
+copContainerNorthRestore
 	CMOVE NOOP,0	; filled in runtime with copcmds copied from original coplist
 	CMOVE NOOP,0
 	CMOVE NOOP,0
 	CMOVE CLXDAT,0	; clear spr col poll, to detect hits only with player body not player shots 
-copGamePlyBodyReturn
+copContainerNorthToPlyBody
+	CMOVE COP2LCL,0
+	CMOVE COP2LCH,0
+copContainerNorthReturn
+	CMOVE COP1LCL,0
+	CMOVE COP1LCH,0
+	CMOVE COPJMP1,0
+    
+copPlyBody	; subcoplist, called from coplist in runtime, inits ply sprite
+	CMOVE SPR0POS,0
+	CMOVE SPR0CTL,0
+	CMOVE SPR1POS,0
+	CMOVE SPR1CTL,0
+	CMOVE SPR0PTL,0
+	CMOVE SPR0PTH,0
+	CMOVE SPR1PTL,0
+	CMOVE SPR1PTH,0
+	CMOVE		 BPLCON3,0
+	CMOVE		 COLOR00,-1
+copContainerBodyToSouth
+	CMOVE COP2LCL,0
+	CMOVE COP2LCH,0
+copPlyBodyRestore
+	CMOVE NOOP,0	; filled in runtime with copcmds copied from original coplist
+	CMOVE NOOP,0
+	CMOVE NOOP,0
+	CMOVE CLXDAT,0	; clear spr col poll, to detect hits only with player body not player shots 
+copPlyBodyReturn
+	CMOVE COP1LCL,0
+	CMOVE COP1LCH,0
+	CMOVE COPJMP1,0
+    
+
+copContainerSouth	; subcoplist, called from coplist in runtime, inits ply sprite
+	CMOVE SPR0POS,0
+	CMOVE SPR0CTL,0
+	CMOVE SPR1POS,0
+	CMOVE SPR1CTL,0
+	CMOVE SPR0PTL,0
+	CMOVE SPR0PTH,0
+	CMOVE SPR1PTL,0
+	CMOVE SPR1PTH,0
+		CMOVE		 BPLCON3,0
+	CMOVE		 COLOR00,$444
+
+    ;CMOVE		 BPLCON0,0
+copContainerSouthRestore
+	CMOVE NOOP,0	; filled in runtime with copcmds copied from original coplist
+	CMOVE NOOP,0
+	CMOVE NOOP,0
+	CMOVE CLXDAT,0	; clear spr col poll, to detect hits only with player body not player shots 
+copContainerSouthReturn
 	CMOVE COP1LCL,0
 	CMOVE COP1LCH,0
 	CMOVE COPJMP1,0

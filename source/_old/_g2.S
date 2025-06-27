@@ -283,9 +283,9 @@ spriteParallaxBufferSize  =   ((spriteDMAWidth/8)*(spriteParallaxHeight+1)*2)*32
 spriteParMultiSize  =   32*4
 
 copLineListSize   =   256*2
-noOfCoplines SET (displayWindowStop+$100-displayWindowStart)/2
-noOfCoplineAnims SET $80
-copLinePrecalcSize  =   noOfCoplines*4*noOfCoplineAnims ; no.lines*size of 1 entry*max width
+coplines SET (displayWindowStop+$100-displayWindowStart)/2
+coplineAnimFrames SET $80
+copLinePrecalcSize  =   coplines*4*coplineAnimFrames ; no.lines*size of 1 entry*max width
 ;spritePosMemFaktorizer=4
 spritePosMemSize=(294*24) ;space for 294 lines, first 48 not really needed (but kept to speed code up a little) 4 bytes per entry, calculated for max. 6 sprites per line.
 collListEntrySize   =   12
@@ -972,8 +972,8 @@ s:
 
     move.l d0,a1
     lea coplineAnimPointers,a0
-    move #noOfCoplines,d6
-    move #noOfCoplineAnims,d7
+    move #coplines,d6
+    move #coplineAnimFrames,d7
     lsl #2,d6
     bra .quitLoop
 .loop
@@ -6800,9 +6800,9 @@ D7RASYCOUNT		EQUR	d7
 D1frameCount	EQUR	d1
 
     move.l (a6),a0 ; get adress of anim buffer
-    moveq #noOfCoplineAnims-1,D1frameCount     ; build data for x anim frames
+    moveq #coplineAnimFrames-1,D1frameCount     ; build data for x anim frames
 buildRasListFrame
-	moveq #noOfCoplines-1,D7RASYCOUNT       ; build data for x coplines
+	moveq #coplines-1,D7RASYCOUNT       ; build data for x coplines
     move.l (a6)+,a0 ; get adress of anim buffer
 	move.w #2,a5
     moveq #$18,d0        ; preload basic modulus
@@ -6824,12 +6824,12 @@ rasListPrepJmpTbl	; precalc list offsets
 	dc.w	preStoreSpace-buildRasList
 
 preStoreSky
-	move.w #noOfCoplines*2-1,d3
+	move.w #coplines*2-1,d3
 	sub.w D7RASYCOUNT,d3
 	move D1frameCount,d4
 	lsl #1,d4
 	muls d4,d3
-	divu #noOfCoplines*2+4,d3
+	divu #coplines*2+4,d3
 	andi #$7f,d3
 
 	move d3,d4
@@ -12693,7 +12693,7 @@ titleCopyRight
 
 ;!!!: Move to Fast-RAM!
 coplineAnimPointers
-    blk.l noOfCoplineAnims,0
+    blk.l coplineAnimFrames,0
 
     cnop 0,8	; align to 8 byte border for correct display
 spritePlayerShot	; export as 64px sprites, not attached, no control

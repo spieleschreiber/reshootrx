@@ -13,10 +13,9 @@
 					"-opt-jbra",
 					"-I $AMIDEV",
 					"-I $AMIDEV/source/system"
-
 				]
 			},
-				"vlink": {
+			"vlink": {
 				"enabled": true,
 				"command": "${config:amiga-assembly.binDir}/vlink",
 				"includes": "rrx.s",
@@ -29,7 +28,6 @@
 					"-e _start"
 				]
 			},
-
 			"problemMatcher": [],
 			"label": "amigaassembly: build",
 			"group": {

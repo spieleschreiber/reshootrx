@@ -60,8 +60,8 @@ musicMemSize	SET		300000&$fffffff8	; should be 330000 as determined by outro mus
 mainPlaneDepth   =   4
 fxPlaneDepth  =   4
 
-displayWindowStart   =   $2c
-displayWindowStop   =   $28
+displayWindowStart   =   $30
+displayWindowStop   =   $10
 DisplayWindowHeight	= displayWindowStop+$100-displayWindowStart
 mainPlaneWidth    =  	48	; .b
 tilesPerCol    =  	10	; number of Tiles per Column 
@@ -94,8 +94,8 @@ viewDownClip=256+displayWindowStop-44
 
 ; #MARK: - PLAYER DEFINITIONS
 
-playerExtraHeight  =   9
-playerBodyHeight  =   28
+playerBodyHeight  =   14
+playerContainerHeight = 6
 playerShotHeight  =   24
 playerShotMaxNo		=	18
 
@@ -128,10 +128,10 @@ spriteScoreBufferSize  =   spriteLineOffset*(spriteScoreHeight+1)*2
 spriteParallaxBufferSize  =   ((spriteParallaxHeight*spriteLineSize)+32)*2
 spriteParMultiSize  =   32*4
 
-copSplitListSize   =   256*2
-noOfCoplines SET (displayWindowStop+$100-displayWindowStart)/2
-noOfCoplineAnims SET $3b
-copLinePrecalcSize  =  	noOfCoplines*4*noOfCoplineAnims ; no.lines*size of 1 entry*max width
+coplines					SET			256																																; //(displayWindowStop+$100-displayWindowStart)/2
+copSplitListSize   =   coplines*2
+coplineAnimFrames SET $40
+copLinePrecalcSize  =  	coplines*4*coplineAnimFrames ; no.lines*size of 1 entry*max width
 
 spritePosMemSize=(294*10) ;space for 294 lines, first 48 not really needed (but kept to speed code up a little). 4 bytes per entry
 collListEntrySize   =   12
@@ -257,6 +257,6 @@ lv0parSprSlowExit=209
 escalateStart=$60       ; copper sub list, one line scrolling
 escalateHeight=64
 	
-dialogueStart=$40
+dialogueStart=$60
 dialogueHeight=50
 	

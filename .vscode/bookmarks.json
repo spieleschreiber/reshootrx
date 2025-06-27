@@ -4,7 +4,7 @@
 			"path": "source/interruptManager.s",
 			"bookmarks": [
 				{
-					"line": 322,
+					"line": 323,
 					"column": 0,
 					"label": "openBorderAnimControl"
 				}
@@ -54,9 +54,29 @@
 			"path": "source/initLevelManager.s",
 			"bookmarks": [
 				{
-					"line": 526,
+					"line": 529,
 					"column": 0,
 					"label": ""
+				}
+			]
+		},
+		{
+			"path": "source/copperCode/coplist.s",
+			"bookmarks": [
+				{
+					"line": 227,
+					"column": 0,
+					"label": "PlayerSpriteCopSplit"
+				}
+			]
+		},
+		{
+			"path": "source/rasterListManager.s",
+			"bookmarks": [
+				{
+					"line": 41,
+					"column": 0,
+					"label": "RasterListMove"
 				}
 			]
 		}

@@ -250,7 +250,8 @@ vertBlancInt
 
 				tst.l				copInitColorswitch(pc)							; poke .l into this with pointer to colorlist or other alternative coplist in copperformat to safely switch colors; take care of init´ copjmp1@end of colorlist
 				bne					.initModifiedCoplist
-				move.l				#copGamePlyBody,CUSTOM+COP2LC					; user-init needed every vbi to overwrite OS-init
+				move.l				#copPlyBody,CUSTOM+COP2LC					; user-init needed every vbi to overwrite OS-init
+				move.l				#copContainerNorth,CUSTOM+COP2LC					; user-init needed every vbi to overwrite OS-init
 .cop2started
 				lea					frameCount(pc),a0
 				addq				#1,(a0)
@@ -314,21 +315,25 @@ vertBlancInt
 				bra.b				.cntDwnFade
 .fadeIn
 				move.w				(a0),d0
-				sub					#30,d0											; set left frame border
+				sub					#12,d0											; set left frame border
 .cntDwnFade		sub.w				#4,(a0)
 				bvc.b				.gamePaused
 				clr.w				(a0)											; fade finished
 .gamePaused
 	;lea $dff000,a6
-				add.w				#$c0,d0
+				add.w				#$84,d0
 				move.l				d0,d1
 				andi				#$ff,d0
-				or.w				#(displayWindowStart+1)<<8,d0
+				or.w				#(displayWindowStart)<<8,d0
 				lsr.l				#3,d1
-				andi				#$20,d1
-				or					#$1100,d1
+				andi				#$f0,d1
+				or					#$e210,d1
+				move.w				 #$2c81,d0
+				move.w				 #$0,d1
 				move.w				d0,COPDIWSTRT+2
 				move.w				d1,COPDIWHIGH+2
+				lea					 CUSTOM,a6
+				move.w				 #$2c1,DIWSTOP(a6)
 .quit
 				bra					.vbiQuit
 

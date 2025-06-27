@@ -453,8 +453,8 @@ bobSourceMem
 	move.l	d0,(a0)
     move.l d0,a1
     lea coplineAnimPointers,a0
-    move #noOfCoplines,d6
-    move #noOfCoplineAnims,d7
+    move #coplines,d6
+    move #coplineAnimFrames,d7
     lsl #2,d6
     bra .quitLoop
 .loop
@@ -610,7 +610,7 @@ shotColFadeTableSize=shotColIterations*shotNoOfUpgrades*shotNoOfPals*3
 	dbra d7,.wrtHiWord
 
     move.l #copGameReturn,d0     ; prepare default copper sublist
-	lea copGamePlyBodyReturn+2,a0
+	lea copPlyBodyReturn+2,a0
     move d0,copGameReturnL
     move d0,(a0) 	; gets modified in runtime, this is just a safety net
     swap d0
@@ -5155,7 +5155,7 @@ initGame
 	lea -12(a1),a0
 	lea -$50(a0),a1
 
-	move.l #copGamePlyBody,d0	; prepare copjmps within colors coplists
+	move.l #copPlyBody,d0	; prepare copjmps within colors coplists
 	move.w d0,6(a0)
 	move.w d0,6(a1)
 	swap d0
@@ -6953,7 +6953,7 @@ vertBlancInt
 
 	tst.l copInitColorswitch(pc)	; poke .l into this with pointer to colorlist or other alternative coplist in copperformat to safely switch colors; take care of init´ copjmp1@end of colorlist
 	bne .initModifiedCoplist
-	move.l #copGamePlyBody,CUSTOM+COP2LC	; user-init needed every vbi to overwrite OS-init
+	move.l #copPlyBody,CUSTOM+COP2LC	; user-init needed every vbi to overwrite OS-init
 .cop2started
 	lea frameCount(pc),a0
 	addq #1,(a0)
@@ -7514,9 +7514,9 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 D7RASYCOUNT		EQUR	d7
 D1frameCount	EQUR	d1
     move.l (a6),a0 ; get adress of anim buffer
-    moveq #noOfCoplineAnims-1,D1frameCount     ; build data for x anim / x-scroll frames
+    moveq #coplineAnimFrames-1,D1frameCount     ; build data for x anim / x-scroll frames
 buildRasListFrame
-	move #(noOfCoplines*2)-1,D7RASYCOUNT       ; build data for x coplines
+	move #(coplines*2)-1,D7RASYCOUNT       ; build data for x coplines
 	;move.w #$7f,d7
     move.l (a6)+,a0 ; get adress of anim buffer
 	move.w #2,a5
@@ -7525,7 +7525,7 @@ buildRasList
 buildRasListMod
 	adda #2,a0
 	dbra d7,buildRasList
-	adda #noOfCoplines,a0
+	adda #coplines,a0
 	dbra d1,buildRasListFrame
 	rts
 
@@ -7573,7 +7573,7 @@ rasListPrepJmpTbl	; precalc list offsets
 .pSS1
 	lsl #4,d5
 	move d5,(a0)		; prestore BPL1CON
-	move d5,noOfCoplines*2(a0)		; prestore BPL1CON
+	move d5,coplines*2(a0)		; prestore BPL1CON
 	bra buildRasListMod
 
 .preStoreStage2
@@ -8074,7 +8074,7 @@ spriteManagerPlayer
 
 
 	lea plyBase(pc),a1
-	lea copGamePlyBody,a5
+	lea copPlyBody,a5
 
 	move.w plyPosX(a1),d4	; player x-position
 	;sub.w plyPosYDyn(a1),d4
@@ -8354,8 +8354,8 @@ spriteManagerPlayer
 	move.l (a1)+,a2 ; get adress of current subcoplist -> pointer to BPLCON1
 	lea -16(a2),a2
 	lea plySprSaveCop(pc),a5
-	lea copGamePlyBodyRestore,a4
-	lea copGamePlyBodyReturn+2,a6
+	lea copPlyBodyRestore,a4
+	lea copPlyBodyReturn+2,a6
 	movem.l (a5),a0/d0-d2
 	tst.l a0
 	beq .firstRun
@@ -8386,7 +8386,7 @@ spriteManagerPlayer
 	swap d0
 	move.w d0,4(a6)	; copjmp bck to original coplist
 
-	move.w #COPJMP2,(a2)	; write copjmp code -> coplist. Inits copjmp to copGamePlyBody
+	move.w #COPJMP2,(a2)	; write copjmp code -> coplist. Inits copjmp to copPlyBody
 	bra sprManPlyReturn
 .escalateMod
 	cmpi.w #escalateStart+escalateHeight-50,plyBase+plyPosYABS(pc)	; get player y-pos
@@ -13884,7 +13884,7 @@ playerShotColors
 
 
 coplineAnimPointers
-    blk.l noOfCoplineAnims,0
+    blk.l coplineAnimFrames,0
     even
 
     Include alert.s
