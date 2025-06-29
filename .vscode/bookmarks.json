@@ -17,6 +17,11 @@
 					"line": 129,
 					"column": 0,
 					"label": ""
+				},
+				{
+					"line": 135,
+					"column": 0,
+					"label": "Coplist Bone BPLCON1"
 				}
 			]
 		},
@@ -74,9 +79,19 @@
 			"path": "source/rasterListManager.s",
 			"bookmarks": [
 				{
-					"line": 41,
+					"line": 40,
 					"column": 0,
 					"label": "RasterListMove"
+				}
+			]
+		},
+		{
+			"path": "source/colorManager.s",
+			"bookmarks": [
+				{
+					"line": 635,
+					"column": 0,
+					"label": "Stage4 Colors"
 				}
 			]
 		}

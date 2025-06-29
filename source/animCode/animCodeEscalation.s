@@ -166,7 +166,7 @@ escalateModifyGameviewBplpt
 .mod
 	dc.w 	fxPlaneWidth*fxplaneHeight*1
 	dc.w 	(fxPlaneWidth*fxplaneHeight)-0
-	dc.w 	fxPlaneWidth*1024
+	dc.w 	-fxPlaneWidth
 	dc.w	fxPlaneWidth*fxplaneHeight*2
 	dc.w 	fxPlaneWidth*fxplaneHeight
 	even

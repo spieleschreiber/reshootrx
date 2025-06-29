@@ -111,6 +111,7 @@ colorManager
 
 		lea				gameStatusLevel(pc),a0
 		move.w			(a0),d0
+		
 		move.w			.jmpTable(pc,d0.w*2),d0
 
 		move.l			diskBuffer+4(pc),a0							; color rgbs in 24 bit format
@@ -745,7 +746,8 @@ colorManager
 		dbra			d7,.colRead4
 		rts
 .vfxColors4
-		INCBIN			incbin/palettes/vfx4.pal
+		;INCBIN			incbin/palettes/vfx4.pal
+		INCBIN			incbin/palettes/vfxTest.pal
 
 ;	#MARK: colors stage 05 outro
 

@@ -130,16 +130,16 @@ statusLow	SET (rgbLow0old-rgbLow0)
     ;CMOVE FMODE,%1101  ;64 pixel sprites
 	CWAIT (displayWindowStart<<8)!$df
 	CMOVE BPL1MOD,4+(mainPlaneWidth*(mainPlaneDepth-1))
-	CMOVE BPL2MOD,-4		; basic modulus
 	CMOVE COLOR14,$111	; left score panel shadow
 	CMOVE COLOR30,$111	; right score panel shadow
     COLORFADE
+	CMOVE BPL2MOD,$18		; basic modulus
 	CMOVE BPLCON1,0		; init scroll register
 
 		; begin drawing view
 
     REPT noOfScanlines+1
-parSpriteX SET $58
+parSpriteX SET $30
 		; score view area / coloring
 
 		IF (parSpriteY=spriteScoreYPosition); color score sprite
@@ -229,39 +229,58 @@ upgrColor	SET 	$6af
 	ENDIF
 
 		IF (parSpriteY>spriteScoreYPosition+4)
-
+		;CMOVE			 BPLCON2,%111111	; sprites 6/7 infront of playfield
 				; main view area / multiplex sprite
-		dc.w (parSpriteY<<8)&$ff00+parSpriteX-$10!1
-		dc.w $ff<<8+%11111110
+		;dc.w (parSpriteY<<8)&$ff00+parSpriteX-$10!1
+		;dc.w $ff<<8+%11111110
 		CMOVE SPR6POS,(parSpriteY<<8)&$ff00+parSpriteX+$10
-		CMOVE SPR7POS,(parSpriteY<<8)&$ff00+parSpriteX+$30
-parSpriteX     SET parSpriteX+$28
+parSpriteX     SET parSpriteX+$20
 		dc.w (parSpriteY<<8)&$ff00+parSpriteX-$8!1
 		dc.w $ff<<8+%11111110
-		;CMOVE SPR7POS,(parSpriteY<<8)&$ff00+parSpriteX+$30
-		CMOVE SPR6POS,(parSpriteY<<8)&$ff00+parSpriteX+$20
+		CMOVE SPR6POS,(parSpriteY<<8)&$ff00+parSpriteX+$15
+parSpriteX     SET parSpriteX+$20
+		dc.w (parSpriteY<<8)&$ff00+parSpriteX-$8!1
+		dc.w $ff<<8+%11111110
+		CMOVE SPR6POS,(parSpriteY<<8)&$ff00+parSpriteX+$15
+parSpriteX     SET parSpriteX+$20
+		dc.w (parSpriteY<<8)&$ff00+parSpriteX-$8!1
+		dc.w $ff<<8+%11111110
+		CMOVE SPR6POS,(parSpriteY<<8)&$ff00+parSpriteX+$15
+parSpriteX     SET parSpriteX+$20
+		dc.w (parSpriteY<<8)&$ff00+parSpriteX-$8!1
+		dc.w $ff<<8+%11111110
+		CMOVE SPR6POS,(parSpriteY<<8)&$ff00+parSpriteX+$15
+parSpriteX     SET parSpriteX+$20
+		dc.w (parSpriteY<<8)&$ff00+parSpriteX-$8!1
+		dc.w $ff<<8+%11111110
+		;CMOVE SPR6POS,(parSpriteY<<8)&$ff00+parSpriteX+$10
 		ENDIF
 
 	;ENDIF
 		;IF parSpriteY=$ff
 	;ENDIF
 
-		dc.w (parSpriteY<<8)&$ff00+$df
-		dc.w $ff<<8+%11111110
 
-    IF (parSpriteY&1)
+    IF ((parSpriteY&1))
 ;		CMOVE BPLCON3,$e020
 yDistort	SET 	parSpriteY>>4
 	;CMOVE SPR6CTL,0
 	;CMOVE SPR7CTL,0
 ;	CMOVE NOOP,0
+	
+		;dc.w (parSpriteY<<8)&$ff00+$af
+		;dc.w $ff<<8+%11111110
+	CMOVE BPL2MOD,$14
 ;	CMOVE NOOP,0
 	ELSE
+		;dc.w (parSpriteY<<8)&$ff00+$1f
+		;dc.w $ff<<8+%11111110
+	
+	CMOVE BPL2MOD,$14
 	CMOVE BPLCON1,0
-	CMOVE BPL2MOD,parSpriteY/16-4
 	IF (parSpriteY>=spriteScoreYPosition+10)&(parSpriteY<=spriteScoreYPosition+255)
 	COLORFADE
-	CMOVE BPL2MOD,-4
+	;CMOVE BPL2MOD,-4
 	ENDIF
  	ENDIF
 

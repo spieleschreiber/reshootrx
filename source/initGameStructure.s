@@ -300,31 +300,29 @@ bobSourceMem
 			ENDIF
     ; continue with preparations
 
-;.allocMem						SET						copSplitListSize+copLinePrecalcSize+collListSize+bobDrawListSize+bobRestoreListSize+objectListSize+shotColFadeTableSize
-.allocMem	SET						copSplitListSize+copLinePrecalcSize+collListSize+bobDrawListSize+bobRestoreListSize+objectListSize+shotColFadeTableSize
+;.allocMem						SET						copFramesPointersSize+copFramesMemTotal+collListSize+bobDrawListSize+bobRestoreListSize+objectListSize+shotColFadeTableSize
+.allocMem	SET						copFramesPointersSize+copFramesMemTotal+collListSize+bobDrawListSize+bobRestoreListSize+objectListSize+shotColFadeTableSize
 			move.l					#.allocMem,d0
 			moveq					#MEMF_CLEAR>>16,d1																												; MEMF_ANY
 			swap					d1
 			ALLOCMEMORY
 
-			lea						copSplitList(pc),a0
+			lea						copFramesPointers(pc),a0
 			move.l					d0,(a0)
 
-			add.l					#copSplitListSize,d0
-			lea						copLinePrecalc(pc),a0
-			move.l					d0,(a0)
+			add.l					#copFramesPointersSize,d0
 			move.l					d0,a1
 			lea						coplineAnimPointers,a0
 			move					#coplines,d6
-			move					#coplineAnimFrames,d7
 			lsl						#2,d6
+			move					#copFramesNoTotal-1,d7
 			bra						.quitLoop
 .loop
 			move.l					a1,(a0)+
 			add.l					d6,a1
 .quitLoop
 			dbra					d7,.loop
-			add.l					#copLinePrecalcSize,d0
+			add.l					#copFramesMemTotal,d0
 
 			lea						collidingList(pc),a0
 			move.l					d0,8(a0)

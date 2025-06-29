@@ -23,7 +23,7 @@ _Exit:
 	beq.b		.skipThis35
 	jsr			_LVOFreeVec(a6)
 .skipThis35
-	move.l		copSplitList(pc),a1
+	move.l		copFramesPointers(pc),a1
 	tst.l		a1
 	beq.b		.skipThis36
 	jsr			_LVOFreeVec(a6)

@@ -226,7 +226,7 @@ screenManagerVerticalSplit
 screenManagerMirrorView
 	move.l		bpl2modReversal(pc),a5
 	clr.l		d7
-	move.w		#fxPlaneWidth*1024,d7
+	move.w		#-fxPlaneWidth,d7
 	move		#fxPlaneDepth-3,d6
 .setVFXPointers
 	move		d0,4(a5)
@@ -260,7 +260,7 @@ screenManagerMirrorView
 	add.l		d7,d0
 
 	clr.l		d7
-	move.w		#fxPlaneWidth*1024,d7
+	move.w		#-fxPlaneWidth,d7
 	lea			copBPLPT+10,a5
 	move		#fxPlaneDepth-3,d6
 .setVFXPointersB

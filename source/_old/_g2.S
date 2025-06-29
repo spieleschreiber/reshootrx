@@ -284,8 +284,8 @@ spriteParMultiSize  =   32*4
 
 copLineListSize   =   256*2
 coplines SET (displayWindowStop+$100-displayWindowStart)/2
-coplineAnimFrames SET $80
-copLinePrecalcSize  =   coplines*4*coplineAnimFrames ; no.lines*size of 1 entry*max width
+copFramesNoTotal SET $80
+copFramesMemTotal  =   coplines*4*copFramesNoTotal ; no.lines*size of 1 entry*max width
 ;spritePosMemFaktorizer=4
 spritePosMemSize=(294*24) ;space for 294 lines, first 48 not really needed (but kept to speed code up a little) 4 bytes per entry, calculated for max. 6 sprites per line.
 collListEntrySize   =   12
@@ -961,7 +961,7 @@ s:
 	lea copLineList(pc),a0
 	move.l	d0,(a0)
 
-	move.l	#copLinePrecalcSize,d0
+	move.l	#copFramesMemTotal,d0
 	move.l	#chip!Mem_Clear,d1
 	ALLOCMEMORY
 	IFEQ AROS
@@ -973,7 +973,7 @@ s:
     move.l d0,a1
     lea coplineAnimPointers,a0
     move #coplines,d6
-    move #coplineAnimFrames,d7
+    move #copFramesNoTotal,d7
     lsl #2,d6
     bra .quitLoop
 .loop
@@ -6796,13 +6796,13 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
     lea coplineAnimPointers,a6
 
 	moveq #8,d2		; start value for 2nd scanline mod modifier
-D7RASYCOUNT		EQUR	d7
-D1frameCount	EQUR	d1
+d7		EQUR	d7
+d1	EQUR	d1
 
     move.l (a6),a0 ; get adress of anim buffer
-    moveq #coplineAnimFrames-1,D1frameCount     ; build data for x anim frames
+    moveq #copFramesNoTotal-1,d1     ; build data for x anim frames
 buildRasListFrame
-	moveq #coplines-1,D7RASYCOUNT       ; build data for x coplines
+	moveq #coplines-1,d7       ; build data for x coplines
     move.l (a6)+,a0 ; get adress of anim buffer
 	move.w #2,a5
     moveq #$18,d0        ; preload basic modulus
@@ -6825,8 +6825,8 @@ rasListPrepJmpTbl	; precalc list offsets
 
 preStoreSky
 	move.w #coplines*2-1,d3
-	sub.w D7RASYCOUNT,d3
-	move D1frameCount,d4
+	sub.w d7,d3
+	move d1,d4
 	lsl #1,d4
 	muls d4,d3
 	divu #coplines*2+4,d3
@@ -6872,18 +6872,18 @@ preStoreSky
 	bra buildRasListMod
 
 preStoreCity
-	move D1frameCount,d4
+	move d1,d4
 	;lsl #1,d4
 	andi #$7f,d4
 	lea .sinCity(pc),a3
-	move.w D7RASYCOUNT,d3
+	move.w d7,d3
 	andi #$7f,d3
 	move.b (a3,d3),d3
 	muls d4,d3
 	lsr #7,d3
 	andi #$7f,d3
 	sub #4,d3
-	bra prestorePerp
+	bra preStorePerp
 
 ; table created within ASMone from command line, IS<Return> 45 136 128 127 b1 yy
 .sinCity
@@ -6900,9 +6900,9 @@ preStoreCity
 
 	even
 preStoreOcean
-	move D1frameCount,d4
+	move d1,d4
 	move.w #81,d3
-	sub.w D7RASYCOUNT,d3
+	sub.w d7,d3
 	bpl.b .sk1
 	clr.w d3
 .sk1
@@ -6935,9 +6935,9 @@ preStoreOcean
 	bra.b preStorePerpB
 
 preStoreSun
-	move D1frameCount,d4
+	move d1,d4
 	move.w #143,d3
-	sub.w D7RASYCOUNT,d3
+	sub.w d7,d3
 	bpl.b .sk1
 	clr.w d3
 .sk1
@@ -6950,8 +6950,8 @@ preStoreSun
 	andi #$7f,d3
 	bra.b preStorePerp
 preStoreSpace
-	move D7RASYCOUNT,d3
-	move D1frameCount,d4
+	move d7,d3
+	move d1,d4
 	;lsl #1,d4
 	muls d4,d3
 	lsr #7,d3
@@ -12693,7 +12693,7 @@ titleCopyRight
 
 ;!!!: Move to Fast-RAM!
 coplineAnimPointers
-    blk.l coplineAnimFrames,0
+    blk.l copFramesNoTotal,0
 
     cnop 0,8	; align to 8 byte border for correct display
 spritePlayerShot	; export as 64px sprites, not attached, no control

@@ -59,6 +59,12 @@ spriteManagerPlayer
 	swap		d6
 	move.w		d6,16+6(a5)
 
+
+
+
+
+
+	bra			sprManPlyReturn
 	
 	; #MARK: SPLIT BODY
 	lea			(playerBodyHeight*16,a0),a0
@@ -66,7 +72,7 @@ spriteManagerPlayer
 	move.w		d0,16+10(a5)
 	swap		d0
 	move.w		d0,16+14(a5)
-	lea			copSplitList(pc),a0
+	lea			copFramesPointers(pc),a0
 	move.l		(a0)+,a1						; get pointer to offset table
 
 	move.w		(a0),d6							; no of lines
@@ -103,8 +109,6 @@ spriteManagerPlayer
 	swap		d0
 	move.w		d0,4(a6)						; copjmp bck to original coplist
 	move.w		#COPJMP2,(a2)			; write copjmp code -> 
-
-	;bra			sprManPlyReturn
 
 
 	; #MARK: SPLTNORTH
@@ -155,7 +159,7 @@ spriteManagerPlayer
 	move.w		d0,16+10(a5)
 	swap		d0
 	move.w		d0,16+14(a5)
-	lea			copSplitList(pc),a0
+	lea			copFramesPointers(pc),a0
 	move.l		(a0)+,a1						; get pointer to offset table
 
 	move.w		(a0),d6							; no of lines
@@ -193,6 +197,8 @@ spriteManagerPlayer
 	swap		d0
 	move.w		d0,4(a6)						; copjmp bck to original coplist
 	move.w		#COPJMP2,(a2)			; write copjmp code -> 
+
+	bra			sprManPlyReturn
 
 	; #MARK: SPLITSOUTH
 
@@ -242,7 +248,7 @@ spriteManagerPlayer
 	move.w		d0,16+10(a5)
 	swap		d0
 	move.w		d0,16+14(a5)
-	lea			copSplitList(pc),a0
+	lea			copFramesPointers(pc),a0
 	move.l		(a0)+,a1						; get pointer to offset table
 
 	move.w		(a0),d6							; no of lines
@@ -469,7 +475,7 @@ spriteManagerPlayer
 	move.w		d0,16+10(a5)
 	swap		d0
 	move.w		d0,16+14(a5)
-	lea			copSplitList(pc),a0
+	lea			copFramesPointers(pc),a0
 	move.l		(a0)+,a1						; get pointer to offset table
 
 	move.w		(a0),d6							; no of lines
@@ -519,7 +525,7 @@ spriteManagerPlayer
 	move.w		d0,16+10(a5)
 	swap		d0
 	move.w		d0,16+14(a5)
-	lea			copSplitList(pc),a0
+	lea			copFramesPointers(pc),a0
 	move.l		(a0)+,a1						; get pointer to offset table
 
 	move.w		(a0),d6							; no of lines

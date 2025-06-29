@@ -439,22 +439,22 @@ bobSourceMem
 	ENDIF
     ; continue with preparations
 
-.allocMem	SET	copSplitListSize+copLinePrecalcSize+collListSize+bobDrawListSize+bobRestoreListSize+objectListSize+shotColFadeTableSize
+.allocMem	SET	copFramesPointersSize+copFramesMemTotal+collListSize+bobDrawListSize+bobRestoreListSize+objectListSize+shotColFadeTableSize
 	move.l #.allocMem,d0
 	moveq #MEMF_CLEAR>>16,d1			; MEMF_ANY
 	swap d1
 	ALLOCMEMORY
 
-	lea copSplitList(pc),a0
+	lea copFramesPointers(pc),a0
 	move.l	d0,(a0)
 
-	add.l #copSplitListSize,d0
+	add.l #copFramesPointersSize,d0
 	lea copLinePrecalc(pc),a0
 	move.l	d0,(a0)
     move.l d0,a1
     lea coplineAnimPointers,a0
     move #coplines,d6
-    move #coplineAnimFrames,d7
+    move #copFramesNoTotal,d7
     lsl #2,d6
     bra .quitLoop
 .loop
@@ -462,7 +462,7 @@ bobSourceMem
     add.l d6,a1
 .quitLoop
     dbra d7,.loop
-	add.l #copLinePrecalcSize,d0
+	add.l #copFramesMemTotal,d0
 
 	lea collidingList(pc),a0
 	move.l	d0,8(a0)
@@ -1902,7 +1902,7 @@ _Exit:
     beq.b .skipThis35
 	jsr	_LVOFreeVec(a6)
 .skipThis35
-   	move.l	copSplitList(pc),a1
+   	move.l	copFramesPointers(pc),a1
 	tst.l a1
     beq.b .skipThis36
 	jsr	_LVOFreeVec(a6)
@@ -7050,7 +7050,7 @@ irqColorFlag
 ; #MARK: - RASTERLIST MANAGER BEGINS
 rasterListTitle:
 
-	move.l copSplitList(pc),a1
+	move.l copFramesPointers(pc),a1
 	move.l (a1)+,a2 ; get adress of current subcoplist -> pointer to BPLCON1
 	lea -8(a2),a4    ; pointer to BPLMOD
 	lea coplineAnimPointers,a6
@@ -7087,7 +7087,7 @@ nilManager	; label needed in case of skipping subcode from irq code. Could use a
 
 
 rasterListMove:
-	lea copSplitList(pc),a2
+	lea copFramesPointers(pc),a2
 
 	move.l (a2)+,a1		; pointer to offset table
 	;lea $6814BE04,a1
@@ -7127,7 +7127,7 @@ rasterListMove:
 
 	tst.b plyBase+plyDistortionMode(pc)
 	bne.b .distortionMode
-;;	move.w copSplitList+4(pc),d7 ; how many lines in current copsublist?
+;;	move.w copFramesPointers+4(pc),d7 ; how many lines in current copsublist?
 	lsr #2,d7
 	sub #1,d7
 .writeCopLine
@@ -7162,7 +7162,7 @@ rasterListMove:
 	rts
 .distortionMode         ; shake screen a bit
 
-    move.w copSplitList+4(pc),d7
+    move.w copFramesPointers+4(pc),d7
     subq #1,d7
     clr.w d3
 	move.b plyPos+plyDistortionMode(pc),d3
@@ -7339,7 +7339,7 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 	move.l #tempVar+20,copColSprite	; preload with harmless dummy value, in case no working entry is found
 
     move.l copperGame(pc),a0
-    move.l copSplitList(pc),a1
+    move.l copFramesPointers(pc),a1
     move.l a0,(a1)+     ; store address of current coplist, pointers to all BPLCON1-regs behind
     clr.l d0
     clr.l d1
@@ -7495,7 +7495,7 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
     clr.l (a1)+
 
 	move.w #$18,d5
-    move d1,copSplitList+4       ; number of BPLCON1-regs in subcoplist
+    move d1,copFramesPointers+4       ; number of BPLCON1-regs in subcoplist
 	lea gameStatusLevel(pc),a0	; preps - which kind of parallax anim?
 	move.w (a0),d0
 	bpl.b .titleCheck
@@ -7511,12 +7511,12 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
     lea coplineAnimPointers,a6
 
 	moveq #8,d2		; start value for 2nd scanline mod modifier
-D7RASYCOUNT		EQUR	d7
-D1frameCount	EQUR	d1
+d7		EQUR	d7
+d1	EQUR	d1
     move.l (a6),a0 ; get adress of anim buffer
-    moveq #coplineAnimFrames-1,D1frameCount     ; build data for x anim / x-scroll frames
+    moveq #copFramesNoTotal-1,d1     ; build data for x anim / x-scroll frames
 buildRasListFrame
-	move #(coplines*2)-1,D7RASYCOUNT       ; build data for x coplines
+	move #(coplines*2)-1,d7       ; build data for x coplines
 	;move.w #$7f,d7
     move.l (a6)+,a0 ; get adress of anim buffer
 	move.w #2,a5
@@ -8344,7 +8344,7 @@ spriteManagerPlayer
 	move.w d0,16+10(a5)
 	swap d0
 	move.w d0,16+14(a5)
-	lea copSplitList(pc),a0
+	lea copFramesPointers(pc),a0
 	move.l (a0)+,a1 ; get pointer to offset table
 
 	move.w (a0),d6		; no of lines
@@ -10083,7 +10083,7 @@ bobRestoreList      blk.l    3,0
 collidingList       dc.l    0,0,0
 copSpriteLists      blk.l 10,0
 copBplLists         dc.l 0,0
-copSplitList         dc.l 0,0
+copFramesPointers         dc.l 0,0
 copLinePrecalc    dc.l 0
 colorFadeTable      dc.l 0
 spriteDMAMem        dc.l    0,0,0
@@ -13884,7 +13884,7 @@ playerShotColors
 
 
 coplineAnimPointers
-    blk.l coplineAnimFrames,0
+    blk.l copFramesNoTotal,0
     even
 
     Include alert.s

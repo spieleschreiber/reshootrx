@@ -67,8 +67,8 @@ mainPlaneWidth    =  	48	; .b
 tilesPerCol    =  	10	; number of Tiles per Column 
 mainPlaneHeight    =  	tileHeight*tilesPerCol	; 10 tiles high, 32 pixels each
 
-fxPlaneWidth 		=	40
-fxplaneHeight    	=   512
+fxPlaneWidth 		=	64
+fxplaneHeight    	=   256
 fxPlaneHeightBig	= 	768
 
 artworkPictureSize =   64*256*8
@@ -128,10 +128,10 @@ spriteScoreBufferSize  =   spriteLineOffset*(spriteScoreHeight+1)*2
 spriteParallaxBufferSize  =   ((spriteParallaxHeight*spriteLineSize)+32)*2
 spriteParMultiSize  =   32*4
 
-coplines					SET			256																																; //(displayWindowStop+$100-displayWindowStart)/2
-copSplitListSize   =   coplines*2
-coplineAnimFrames SET $40
-copLinePrecalcSize  =  	coplines*4*coplineAnimFrames ; no.lines*size of 1 entry*max width
+coplines					SET			128	; //(displayWindowStop+$100-displayWindowStart)/2
+copFramesPointersSize   =   coplines*4	; determines size of pointer list to copper frame vfx. .l per line
+copFramesNoTotal			SET			$40																																; determines how many frames of animation are precalculated for each line, also the max. width of repeating patterns
+copFramesMemTotal  =  	coplines*4*copFramesNoTotal ; no.lines*(1.w for modulus+1.w for BPLxCON) * no.frames
 
 spritePosMemSize=(294*10) ;space for 294 lines, first 48 not really needed (but kept to speed code up a little). 4 bytes per entry
 collListEntrySize   =   12

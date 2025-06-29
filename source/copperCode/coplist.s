@@ -55,6 +55,8 @@ copBPLCON2  CMOVE BPLCON2,0    ; Sprite / Playfield Priority
 copBPLCON3	CMOVE BPLCON3,0
 copBPLCON4  CMOVE BPLCON4,0
 
+    CMOVELC SPR0PTH,0
+    CMOVELC SPR1PTH,0
 
 copMainInit
     CMOVELC  COP1LC
@@ -64,8 +66,6 @@ copMainInit
 ; #MARK: Init General Sprites
 ; ATTENTION! 8 sprite lists used for shot animation / list swapping. Addressing copSpriteDMA directly no good
 copSpriteDMA
-    ;CMOVELC SPR0PTH,0
-    ;CMOVELC SPR1PTH,0
     CMOVELC SPR2PTH,0
     CMOVELC SPR3PTH,0
     CMOVELC SPR4PTH,0
@@ -102,12 +102,12 @@ copContainerNorth	; subcoplist, called from coplist in runtime, inits ply sprite
 	CMOVE SPR0CTL,0
 	CMOVE SPR1POS,0
 	CMOVE SPR1CTL,0
-	CMOVE SPR0PTL,0
-	CMOVE SPR0PTH,0
-	CMOVE SPR1PTL,0
-	CMOVE SPR1PTH,0
-	CMOVE		 BPLCON3,0
-	CMOVE		 COLOR00,$888
+	;CMOVE SPR0PTL,0
+	;CMOVE SPR0PTH,0
+	;CMOVE SPR1PTL,0
+	;CMOVE SPR1PTH,0
+;	CMOVE		 BPLCON3,0
+;	CMOVE		 COLOR00,$888
 copContainerNorthRestore
 	CMOVE NOOP,0	; filled in runtime with copcmds copied from original coplist
 	CMOVE NOOP,0
@@ -126,12 +126,12 @@ copPlyBody	; subcoplist, called from coplist in runtime, inits ply sprite
 	CMOVE SPR0CTL,0
 	CMOVE SPR1POS,0
 	CMOVE SPR1CTL,0
-	CMOVE SPR0PTL,0
-	CMOVE SPR0PTH,0
-	CMOVE SPR1PTL,0
-	CMOVE SPR1PTH,0
-	CMOVE		 BPLCON3,0
-	CMOVE		 COLOR00,-1
+	;CMOVE SPR0PTL,0
+	;CMOVE SPR0PTH,0
+	;CMOVE SPR1PTL,0
+	;CMOVE SPR1PTH,0
+;	CMOVE		 BPLCON3,0
+;	CMOVE		 COLOR00,-1
 copContainerBodyToSouth
 	CMOVE COP2LCL,0
 	CMOVE COP2LCH,0
@@ -151,12 +151,12 @@ copContainerSouth	; subcoplist, called from coplist in runtime, inits ply sprite
 	CMOVE SPR0CTL,0
 	CMOVE SPR1POS,0
 	CMOVE SPR1CTL,0
-	CMOVE SPR0PTL,0
-	CMOVE SPR0PTH,0
-	CMOVE SPR1PTL,0
-	CMOVE SPR1PTH,0
-		CMOVE		 BPLCON3,0
-	CMOVE		 COLOR00,$444
+	;CMOVE SPR0PTL,0
+	;CMOVE SPR0PTH,0
+	;CMOVE SPR1PTL,0
+	;CMOVE SPR1PTH,0
+;		CMOVE		 BPLCON3,0
+;	CMOVE		 COLOR00,$444
 
     ;CMOVE		 BPLCON0,0
 copContainerSouthRestore

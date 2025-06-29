@@ -411,7 +411,7 @@ copSpriteLists
 	blk.l		10,0
 copBplLists						    
 	dc.l		0,0
-copSplitList					
+copFramesPointers					
 	dc.l		0,0
 copLinePrecalc					
 	dc.l		0
@@ -565,5 +565,5 @@ playerShotColors
 
 
 coplineAnimPointers
-	blk.l		coplineAnimFrames,0
+	blk.l		copFramesNoTotal,0
 	even

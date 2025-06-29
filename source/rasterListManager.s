@@ -3,55 +3,57 @@
 ; #MARK: - RASTERLIST MANAGER BEGINS
 rasterListTitle:
 
-				move.l		copSplitList(pc),a1
-				move.l		(a1)+,a2																					; get adress of current subcoplist -> pointer to BPLCON1
-				lea			-8(a2),a4																					; pointer to BPLMOD
+				move.l		copFramesPointers(pc),a1
+				move.l		(a1)+,a2																			; get adress of current subcoplist -> pointer to BPLCON1
+				lea			-8(a2),a4																			; pointer to BPLMOD
 				lea			coplineAnimPointers,a6
 				andi		#$7f,d6
-				move.l		(a6,d6*4),a5																				; get adress of anim table list
+				move.l		(a6,d6*4),a5																		; get adress of anim table list
 
-				move.l		4(a5),d5																					;; get first modulus
+				move.l		4(a5),d5																			;; get first modulus
 				move.w		(a1)+,d0
 				move		d5,(a4,d0)
 				lea			8(a5),a5
-				move		copBPLCON1+2,d2																				; get value calc´d by basic scroll code
+				move		copBPLCON1+2,d2																		; get value calc´d by basic scroll code
 				andi		#$0f0f,d2
 				swap		d5
 				or			d2,d5
 
 				move		d5,(a2,d0)
-				move.w		#$7a,d7																						; no of scanlines/2
+				move.w		#$7a,d7																				; no of scanlines/2
 				lsr			#1,d7
 				addq		#2,d7
 .writeCopLine
 				movem.l		(a5)+,d3-d4
 				movem.w		(a1)+,d0-d1
-				move		d3,(a4,d0)																					; write to BPLxMOD
+				move		d3,(a4,d0)																			; write to BPLxMOD
 				swap		d3
 				or			d2,d3
-				move		d3,(a2,d0)																					; write to BPL1CON
+				move		d3,(a2,d0)																			; write to BPL1CON
 				move		d4,(a4,d1)
 				swap		d4
 				or			d2,d4
 				move		d4,(a2,d1)
 				dbra		d7,.writeCopLine
 nilManager	; label needed in case of skipping subcode from irq code. Could use any rts
-				rts
 
 
 rasterListMove:
 	
-				lea			copSplitList(pc),a2
+				lea			copFramesPointers(pc),a2
 
-				move.l		(a2)+,a1																					; pointer to offset table
+				move.l		(a2)+,a1
+																									; pointer to offset table
 	;lea $6814BE04,a1
-				move.w		(a2),d7																						; no of lines
+				move.w		(a2),d7																				; no of lines
 				beq.b		nilManager
 
-				move.l		(a1)+,a2																					; get adress of current subcoplist -> pointer to BPLCON1
+				move.l		(a1)+,a2										
+				lea			-4(a2),a4																			; pointer to BPLMOD
+															; get adress of current subcoplist -> pointer to BPLCON1
 				lea			coplineAnimPointers,a6
 
-				lsr.w		d5,d6																						;modify anim speed
+				lsr.w		d5,d6																				;modify anim speed
 
 				move.w		plyBase+plyPosX(pc),d5
 				lsr			#2,d5
@@ -59,18 +61,21 @@ rasterListMove:
 				bls			.sk
 				move.w		#$39,d5
 .sk
-				move.w		 $32,d5
-				move.l		(a6),a5																				; get adress of anim table list. Full list contains an order of 12 (?) x-offsets -> x-scrolling
+				;move.w		 frameCount+2($32,d5
+				;move.l		(a6,d5*4),a5																				; get adress of anim table list. Full list contains an order of 12 (?) x-offsets -> x-scrolling
 
 
 				move.w		frameCount+2(pc),d5
-				;asr			#2,d5
-				andi		#$ff,d5
+				move.w		plyBase+plyPosX(pc),d5
+				asr			#3,d5
+				andi		#$f,d5
+				
+			;	TOSHELL d5,": Y"
 				;clr.w		d5																					; 13.06.2025 temp code to keep scrolling speed constant
-				lea			(a5,d5*2),a5																				; apply animation wave
-
-
-				move		copBPLCON1+2,d2																				; get value calc´d by basic scroll code
+				move.l		(a6,d5.w*4),a5
+				;TOSHELL a5,": Y"	
+	;TOSHELL		a5,": X"												; apply animation wave
+				move		copBPLCON1+2,d2																		; get value calc´d by basic scroll code
 				andi		#$0f0f,d2
 
 				tst.b		escalateIsActive(pc)
@@ -80,45 +85,37 @@ rasterListMove:
 				bne			.dialogueMode
 
 	;move.b plyBase+plyDistortionMode(pc),d0
-
+	
 				tst.b		plyBase+plyDistortionMode(pc)
 				bne.b		.distortionMode
-;;	move.w copSplitList+4(pc),d7 ; how many lines in current copsublist?
-				lsr			#2,d7
-				sub			#3,d7
+;;	move.w copFramesPointers+4(pc),d7 ; how many lines in current copsublist?
+				lsr			#1,d7
+				subq		#2,d7
+				
 .writeCopLine
-				movem.l		(a1)+,d0-d1
 				movem.l		(a5)+,d3-d4
-				eor			d2,d3
-				move		d3,(a2,d0)																					; write to BPL1CON
-
-				swap		d0
+				movem.w		(a1)+,d0-d1
+						; apply animation wave
+				move		d3,(a4,d0)																			; write to BPL2MOD
 				swap		d3
 				or			d2,d3
-				move		d3,(a2,d0)
-
-				or			d2,d4
-				move		d4,(a2,d1)
-				swap		d1
+	;move.w		 frameCount+2(pc),d4
+				move		d3,(a2,d0)																			; write to BPL1CON
+				cmpi.w		#-4,d4
+				beq			.rrr
+				nop
+.rrr
+				move		d4,(a4,d1)		, BPL2MOD
 				swap		d4
 				or			d2,d4
-				move		d4,(a2,d1)
-
+				move		d4,(a2,d1)																			; BPL1CON
 				dbra		d7,.writeCopLine
-;	bra .quit
-				movem.l		(a1)+,d0
-				movem.l		(a5)+,d3
-
-				or			d2,d3
-				move		d3,(a2,d0)
-				swap		d0
-				swap		d3
-				or			d2,d3
-				move		d3,(a2,d0)
 				rts
+
+
 .distortionMode         ; shake screen a bit
 
-				move.w		copSplitList+4(pc),d7
+				move.w		copFramesPointers+4(pc),d7
 				subq		#1,d7
 				clr.w		d3
 				move.b		plyPos+plyDistortionMode(pc),d3
@@ -133,10 +130,10 @@ rasterListMove:
 				move.w		(a1)+,d0
 				swap		d4
 				or			d2,d4
-				move.l		(a3),d1																						; AB
-				move.l		4(a3),d5																					; CD
-				swap		d5																							; DC
-				add.l		d5,(a3)																						; AB + DC
+				move.l		(a3),d1																				; AB
+				move.l		4(a3),d5																			; CD
+				swap		d5																					; DC
+				add.l		d5,(a3)																				; AB + DC
 				add.l		d1,4(a3)
 				eor.b		d6,d1
 				lsl			#1,d1
@@ -149,9 +146,9 @@ rasterListMove:
 				or			d5,d1
 				and			d3,d1
 				eor.b		d1,d2
-				tst.b		-2(a2,d0)																					; is $80?
+				tst.b		-2(a2,d0)																			; is $80?
 	;beq.b .skip	; yes->skip shot/player split
-				move.w		d4,(a2,d0)																					; write to BPL1CON
+				move.w		d4,(a2,d0)																			; write to BPL1CON
 .skip
 				dbra		d7,.writeCopDistortion
 .quit
@@ -163,7 +160,7 @@ rasterListMove:
 				move.l		(a1)+,d0
 				move.l		(a5)+,d3
 				or			d2,d3
-				move		d3,(a2,d0)																					; write to BPL1CON
+				move		d3,(a2,d0)																			; write to BPL1CON
 				swap		d0
 				swap		d3
 				or			d2,d3
@@ -176,8 +173,8 @@ rasterListMove:
 				lea			$bfe601,a3
 				move.b		escalateIsActive(pc),d1
 				cmpi.b		#1,d1
-				beq			.escalMore																					; first phase? Yes!
-				move		d1,d4																						; text zoomed -> distort
+				beq			.escalMore																			; first phase? Yes!
+				move		d1,d4																				; text zoomed -> distort
 				lsr.b		#5,d4
 				cmpi.b		#4,d4
 				bcs			.cap
@@ -194,10 +191,10 @@ rasterListMove:
 	;move.l (a5)+,d3
 				add.b		(a3),d1
 				move.b		d1,d5
-				lsr.b		d4,d5																						; modify strength of split line effect
+				lsr.b		d4,d5																				; modify strength of split line effect
 				andi		#$f0,d5
 				eor.b		d5,d3
-				move		d3,6(a4)																					; write to BPL1CON
+				move		d3,6(a4)																			; write to BPL1CON
 				lea			8(a4),a4
 				dbra		d6,.writeEscCopCentre
 
@@ -206,7 +203,7 @@ rasterListMove:
 				lea			26*2(a5),a5
 	; modify two scanlines out of loop and write result to dialogue coplist too
 				bsr			.modifySubViewBPL1CON
-				move		d3,copGameEscExitBPLCON2+6																	; take care of last rastline escal view
+				move		d3,copGameEscExitBPLCON2+6															; take care of last rastline escal view
 
 				moveq		#($100+displayWindowStop-escalateStart+escalateHeight-195)/2,d7
 	;lea -(escalateHeight-10)*2(a5),a5
@@ -216,7 +213,7 @@ rasterListMove:
 				move.l		(a5)+,d3
 	;moveq #-1,d3
 				or			d2,d3
-				move		d3,(a2,d0)																					; write to BPL1CON
+				move		d3,(a2,d0)																			; write to BPL1CON
 				swap		d0
 				swap		d3
 				or			d2,d3
@@ -227,7 +224,7 @@ rasterListMove:
 				move.l		(a1)+,d0
 				move.l		(a5)+,d3
 				or			d2,d3
-				move		d3,(a2,d0)																					; write to BPL1CON
+				move		d3,(a2,d0)																			; write to BPL1CON
 				swap		d0
 				swap		d3
 				or			d2,d3
@@ -242,7 +239,7 @@ rasterListMove:
 				move.l		(a1)+,d0
 				move.l		(a5)+,d3
 				or			d2,d3
-				move		d3,(a2,d0)																					; write to BPL1CON
+				move		d3,(a2,d0)																			; write to BPL1CON
 				swap		d0
 				swap		d3
 				or			d2,d3
@@ -258,7 +255,7 @@ rasterListMove:
 				or.w		#%1000<<12!%101<<4,d3
 .writeDialgCopCentre
 				move.l		(a1)+,d0
-				move		d3,(a2,d0)																					; write to BPL1CON
+				move		d3,(a2,d0)																			; write to BPL1CON
 				swap		d0
 				move		d3,(a2,d0)
 				dbra		d6,.writeDialgCopCentre
@@ -267,13 +264,13 @@ rasterListMove:
 	; modify two scanlines out of loop and write result to dialogue coplist too
 				lea			40(a5),a5
 				bsr			.modifySubViewBPL1CON
-				move		d3,copGameDialgExitBPLCON0+6																; take care of last rastline dialogue view
+				move		d3,copGameDialgExitBPLCON0+6														; take care of last rastline dialogue view
 
 .writeDialgCopHigh
 				move.l		(a1)+,d0
 				move.l		(a5)+,d3
 				or			d2,d3
-				move		d3,(a2,d0)																					; write to BPL1CON
+				move		d3,(a2,d0)																			; write to BPL1CON
 				swap		d0
 				swap		d3
 				or			d2,d3
@@ -292,24 +289,24 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				clr.l		(a0)+
 				dbra		d7,.resetPointers
 
-				move.l		#tempVar+20,copColSprite																	; preload with harmless dummy value, in case no working entry is found
+				move.l		#tempVar+20,copColSprite															; preload with harmless dummy value, in case no working entry is found
 
 				move.l		copperGame(pc),a0
-				move.l		copSplitList(pc),a1
-				move.l		a0,(a1)+																					; store address of current coplist, pointers to all BPLCON1-regs behind
+				move.l		copFramesPointers(pc),a1
+				move.l		a0,(a1)+																			; store address of current coplist, pointers to all BPLCON1-regs behind
 				clr.l		d0
 				clr.l		d1
-				clr.w		d3																							; used as counter for bulletColor. Do not modify!
-				clr.w		d5																							; used as counter for spr7posEntry. Do not modify!
+				clr.w		d3																					; used as counter for bulletColor. Do not modify!
+				clr.w		d5																					; used as counter for spr7posEntry. Do not modify!
 				lea			vars(pc),a5
 .iterate
 				addq.w		#4,d0
 				move.l		(a0,d0),d6
 				move.l		d6,d7
 				swap		d6
-				cmpi.w		#BPLCON1,d6																					; find entrys with scrolling regs
+				cmpi.w		#BPLCON1,d6																			; find entrys with scrolling regs
 				beq			.scrolReg
-				cmpi.w		#COPJMP1,d6																					; reached end of subcoplist
+				cmpi.w		#COPJMP1,d6																			; reached end of subcoplist
 				beq.w		.finish
 				cmpi.w		#NOOP,d6
 				bne			.iterate
@@ -323,18 +320,21 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				dc.w		.achievementsQuit-.jT,.bpl2modReversal-.jT, .spr7posEntry-.jT, .colorBullet-.jT		;12-15
 				dc.w		.availSlot-.jT
 .scrolReg
+
+				move.w		#$18,-6(a0,d0)																		; reset playfield B modulus
 				move		d0,d2
 				addq		#2,d2
-				move.w		d2,(a1)+																					; write pointer
+				move.w		d2,(a1)+																			; write pointer
 				addq		#1,d1
-				bra			.iterate
+				bra.b		.iterate
+
 .spr7pthEntry
 				lea			4(a0,d0.w),a2
 				move.l		a2,copSPR6PTH-vars(a5)
 				bra			.iterate
 .spr7posEntry
 				lea			4(a0,d0.w),a2
-				IFEQ		(RELEASECANDIDATE||DEMOBUILD)																; overflow-errorcheck in pre-releasecode only
+				IFEQ		(RELEASECANDIDATE||DEMOBUILD)														; overflow-errorcheck in pre-releasecode only
 				cmpi		#(copSpr6posChk-copSpr6pos)/4-1,d5
 				bls			.noError
 .noError
@@ -361,7 +361,7 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				move		d2,10(a0,d0)
 				swap		d2
 				move		d2,6(a0,d0)
-				move		#NOOP,12(a0,d0)																				; overwrite copJmp trigger
+				move		#NOOP,12(a0,d0)																		; overwrite copJmp trigger
 				bra			.iterate
 .gameFinReturn
 				lea			(a0,d0.w),a2
@@ -369,7 +369,7 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				lea			copGameFinQuit,a2
 				move.w		d2,6(a2)
 				swap		d2
-				move.w		d2,2(a2)																					; set return adress to main coplist in gamefin subcoplist
+				move.w		d2,2(a2)																			; set return adress to main coplist in gamefin subcoplist
 				bra			.iterate
 .bpl2modReversal
 				lea			6(a0,d0.w),a2
@@ -382,7 +382,7 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				move		d2,10(a0,d0)
 				swap		d2
 				move		d2,6(a0,d0)
-				move		#NOOP,12(a0,d0)																				; overwrite copJmp trigger
+				move		#NOOP,12(a0,d0)																		; overwrite copJmp trigger
 				lea			escalateIsActive(pc),a2
 				sf.b		(a2)
 				add.w		#16,d0
@@ -409,7 +409,7 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				move		d2,10(a0,d0)
 				swap		d2
 				move		d2,6(a0,d0)
-				move		#NOOP,12(a0,d0)																				; overwrite copJmp trigger
+				move		#NOOP,12(a0,d0)																		; overwrite copJmp trigger
 				lea			copGameAchievementsEnd,a2
 				bra			.modifyCopEnd
 .achievementsQuit
@@ -419,7 +419,7 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				move		d2,10(a0,d0)
 				swap		d2
 				move		d2,6(a0,d0)
-				move		#NOOP,12(a0,d0)																				; overwrite copJmp trigger
+				move		#NOOP,12(a0,d0)																		; overwrite copJmp trigger
 				lea			copGameAchievementsQuitEnd,a2
 				bra			.modifyCopEnd
 
@@ -430,7 +430,7 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				move		d2,10(a0,d0)
 				swap		d2
 				move		d2,6(a0,d0)
-				move		#NOOP,12(a0,d0)																				; overwrite copJmp trigger
+				move		#NOOP,12(a0,d0)																		; overwrite copJmp trigger
 				lea			dialogueIsActive(pc),a2
 				sf.b		(a2)
 				add.w		#16,d0
@@ -452,180 +452,340 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				clr.l		(a1)+
 
 				move.w		#$18,d5
-				move		d1,copSplitList+4																			; number of BPLCON1-regs in subcoplist
-				lea			gameStatusLevel(pc),a0																		; preps - which kind of parallax anim?
+				move		d1,copFramesPointers+4																; number of BPLCON1-regs in subcoplist
+				lea			gameStatusLevel(pc),a0																; preps - which kind of parallax anim?
 				move.w		(a0),d0
 				bpl.b		.titleCheck
 				clr.w		d0
 .titleCheck
 				lea			rasListPrepJmpTbl(pc),a0
-				move.w		(a0,d0*2),d6																				; fetch anim precalc jump offset
+				move.w		(a0,d0*2),d6																		; fetch anim precalc jump offset
 
 				move.l		copperGame(pc),a1
-				move.l		(a1)+,a2																					; get adress of current subcoplist -> pointer to BPLCON1
+				move.l		(a1)+,a2																			; get adress of current subcoplist -> pointer to BPLCON1
     ;lea 4(a2),a4    ; pointer to BPLMOD
 				suba.l		a4,a4
 				lea			coplineAnimPointers,a6
 
-				moveq		#8,d2																						; start value for 2nd scanline mod modifier
-				move.l		(a6),a0																						; get adress of anim buffer
-				moveq		#coplineAnimFrames-1,d1															; build data for x anim / x-scroll frames
+				moveq		#8,d2																				; start value for 2nd scanline mod modifier
+				move.l		(a6),a0																				; get adress of anim buffer
+				moveq		#copFramesNoTotal-2,d1																; build data for x anim / x-scroll frames
+	;moveq		 #62,d1
 buildRasListFrame
-				move		#(coplines*1)-1,d7															; build data for x coplines
-	;move.w #$7f,d7
-				move.l		(a6)+,a0																					; get adress of anim buffer
+				moveq		#coplines-1,d7																		; build data for x coplines
+	;moveq		 #2,d7
+				move.l		(a6)+,a0																			; get adress of anim buffer
 				move.w		#2,a5
+				moveq		#basicModulus,d0																	; preload basic modulus
 buildRasList
 				jmp			buildRasList(pc,d6.w)																; precalc PF2Hx and modulus for one frame
 buildRasListMod
-				adda		#2,a0
+				move		d5,2(a0)																			; prestore BPLxMOD
+				adda		#4,a0
 				dbra		d7,buildRasList
-				adda		#coplines,a0
 				dbra		d1,buildRasListFrame
 				rts
 
-rasListPrepJmpTbl	; precalc list offsets
-				dc.w		.preStoreStage0-buildRasList
-				dc.w		.preStoreStage1-buildRasList
-				dc.w		.preStoreStage2-buildRasList
-				dc.w		.preStoreStage3-buildRasList
-				dc.w		.preStoreStage4-buildRasList
-				dc.w		.preStoreStage5-buildRasList
 
-.preStoreStage0
-;	d1 = frames $3a - 0
-;	d7 = coplines 0 - 127
-				move		d7,d4
-				asr			#1,d4
-				clr.w		d2
-				move.b		0+sineTable(pc,d4.w),d2																		; add sinus form
-				asr			#1,d2
-				muls		#30*3,d2
-				divu		#27*3,d2
-				move.w		d1,d4
-				cmpi.b		#$10,d4
-				blo			.skip
-				move.b		#10,d4
-.skip
-				add.w		d1,d2
-				move.w		scrollXbitsTable(pc,d2*2),d5
-				bra			.pSS1
-.preStoreStage1
-;	d1 = frames 0-127
-;	d7 = coplines 0 - 127
-				move		d7,d4
-				lsl			#2,d4
-				andi.w		#$7f,d4
-				clr.w		d2
-				move.b		sineTable(pc,d4.w),d2																		; add sinus form
-				move		#410,d3
-				sub			d7,d3
-				muls		d3,d2
-				divu		#232<<4,d2
-				add			d1,d2
-				andi.w		#$7f,d2
-				move.w		scrollXbitsTable+110(pc,d2*2),d5
-.pSS1
-				lsl			#4,d5
-				move		d5,(a0)																						; prestore BPL1CON
-				move		d5,coplines*2(a0)																		; prestore BPL1CON
+rasListPrepJmpTbl	; precalc list offsets
+				dc.w		preStoreSinewave-buildRasList
+				dc.w		preStoreSun-buildRasList
+				dc.w		preStoreSky-buildRasList
+				dc.w		preStoreOcean-buildRasList
+				dc.w		preStoreCity-buildRasList
+				dc.w		preStoreSpace-buildRasList
+
+; d1 = frame 0-$3f, d7 =line 0-$7f, d5 = modulus
+; #MARK COPLIST CITY 
+preStoreCity
+	move.w		#$14,d5							; modulus
+	move.w		d7,d3
+	lsl			#2,d3							;contains shift value
+
+	;move.w		 sineTable(pc,d3*2),d3
+	;asr			 #2,d3
+
+	move.w		d3,d5
+	andi.w		#$3f,d3
+				eor.w		d3,d5																				; contains mod shift value
+	cmp.w		 d5,d0
+	beq			 .noModShift
+				move.w		d5,d0																				; store new modulus shift value
+
+						bge.b		.isHigher
+.isLower
+				move.w		#basicModulus+4,d5																			; reset to default modulus
+				bra.b		.softScroll
+.isHigher
+	move.w		 #basicModulus-4,d5
+	bra			 .softScroll
+
+.noModShift
+	move.w		 #basicModulus,d5
+.softScroll
+	move.w		scrollXbitsTable(pc,d3*4),d3
+	lsl			#4,d3
+	cmpi.w		#2,d1
+	bne			.dontprint
+	nop
+	;TOSHELL		 d3,"SCROLL"
+.dontprint
+				move.w		d3,(a0)
 				bra			buildRasListMod
 
-.preStoreStage2
-;	d1 = frames 0-127
-;	d7 = coplines 0 - 127
-				move.w		d1,d2
-				muls		#9,d2
-				lsr			#3,d2
 
-				clr.w		d3
-				move.w		d7,d3
-				asr			#1,d3
-				move.b		sineTable(pc,d3.w),d3																		; add sinus form
-				asr			#1,d3
-				add.b		d3,d2
 
-				andi.w		#$7f,d2
-				move.w		scrollXbitsTable+20(pc,d2*2),d5
-				bra			.pSS1
-.preStoreStage3
 
-				move		d7,d4
-				asr			#2,d4
-				clr.w		d2
-				move.b		0+sineTable(pc,d4.w),d2																		; add sinus form
-				asr			#1,d2
-				muls		#30*3,d2
-				divu		#27*3,d2
-				move.w		d1,d4
-				cmpi.b		#$10,d4
-				blo			.reachedBorder
-				move.b		#10,d4
-.reachedBorder
-				add.w		d1,d2																						; background x-scrolling
-				move		d7,d4
-				add			d1,d4
-				lsr			#2,d4
-	;move d7,d4
-	;lsr #2,d4
-
-				andi		#$7,d4																						; d4 contains water ripple
-				move.w		100+sineTable(pc,d4*2),d4																	; contains sidescrolling
-				andi.w		#$f,d4
-
-				move.w		scrollXbitsTable(pc,d2*2),d5																; contains sidescrolling
-				lsl			#4,d4
-				andi.w		#(%11<<8)|(%11<<4),d4
-				add.w		d4,d5																						; add water ripple
-
-				bra			.pSS1
-.preStoreStage5
-
-;	d1 = frames 0-127
-;	d7 = coplines 0 - 127
-				move		d7,d4
-				andi.w		#$7f,d4
-				clr.w		d2
-				move.b		sineTable(pc,d4.w),d2																		; add sinus form
-				
-				move.b		d2,d3
-				lsr.b		#1,d2
-				lsr.b		#4,d3
-				add.b		d3,d2
-				add			d1,d2
-				andi.w		#$7f,d2
-				move.w		scrollXbitsTable+50(pc,d2*2),d5
-				bra			.pSS1
-;.preStoreStage5
 				move		d1,d4
-				not			d4
-				move		d7,d5
-				lsr			#2,d5
-				add			d5,d4
+	;lsl #1,d4
 				andi		#$7f,d4
-				move.b		80+sineTable(pc,d4.w),d3																	; add sinus form
-				muls		#25,d3
-				divu		#10,d3
-				not.b		d3
+				lea			.sinCity(pc),a3
+				move.w		d7,d3
+				andi		#$7f,d3
+				move.b		(a3,d3),d3
+				muls		d4,d3
+				lsr			#7,d3
+				andi		#$7f,d3
+				sub			#4,d3
+				bra			preStorePerp
+
+; table created within ASMone from command line, IS<Return> 45 136 128 127 b1 yy
+.sinCity
+	;DC.B	$5A,$5B,$5D,$5E,$5F,
+	;blk.b 5,$5f
+				DC.B		$5f,$5f,$5f,$5f,$5f,$60,$61,$62,$63,$64,$65,$66,$67,$68,$68,$69
+				DC.B		$6A,$6B,$6C,$6D,$6E,$6E,$6F,$70,$71,$71,$72,$73,$73,$74,$75,$75
+				DC.B		$76,$76,$77,$78,$78,$79,$79,$7A,$7A,$7A,$7B,$7B,$7C,$7C,$7C,$7D
+				DC.B		$7D,$7D,$7D,$7E,$7E,$7E,$7E,$7E,$7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F
+				DC.B		$7F,$7F,$7F,$7F,$7F,$7F,$7E,$7E,$7E,$7E,$7E,$7E,$7D,$7D,$7D,$7C
+				DC.B		$7C,$7C,$7B,$7B,$7B,$7A,$7A,$79,$79,$78,$78,$77,$77,$76,$76,$75
+				DC.B		$74,$74,$73,$72,$72,$71,$70,$70,$6F,$6E,$6D,$6C,$6C,$6B,$6A,$69
+				DC.B		$68,$67,$66,$65,$64,$63,$62,$61,$60,$5F,$5E,$5D,$5C,$5B,$5A,$59
+
+				even
+preStoreSky
+
+				move.w		#coplines*2-1,d3
+				sub.w		d7,d3
+				move		d1,d4
+				lsl			#1,d4
+				muls		d4,d3
+				divu		#coplines*2+4,d3
 				andi		#$7f,d3
 
-				move.w		scrollXbitsTable(pc,d3*2),d5
-				not.b		d5
-				lsl			#4,d5
-				andi		#$0f0,d5
-				move		d5,(a0)																						; prestore BPL1CON
-				bra			buildRasListMod
-;	d1 = frames 0-127
-;	d7 = coplines 0 - 127
-.preStoreStage4
-				move.w		 d7,d3
-				move.w		scrollXbitsTable(pc,d3*2),d5
-				not.b		d5
-				lsl			#4,d5
-				andi		#$0f0,d5
-				move		d5,(a0)																						; prestore BPL1CON
+				move		d3,d4
+				move		d4,d5
+				andi		#$0010,d5
+				ror.w		#6,d5
+				andi		#$f,d4
+	;clr.w d4
+				lsl			#4,d4
+				or			d4,d5
+	;clr.w d5
+				move		d5,(a0)																				; prestore BPL1CON
+
+				move		d3,d4
+				add.w		#8,d4
+				lsr			#3,d4																				; kill lower 32 pixels
+				andi		#%111100,d4
+				moveq		#$18,d5
+				add.w		d4,d5
+				cmp.w		d5,d0
+				beq.b		.same
+				bhi.b		.isHigher
+				move		d5,d0
+				moveq		#$14,d5
+				bra.b		.write
+.isHigher
+				move		d5,d0
+				bra.b		.write
+.same
+				moveq		#$18,d5
+.write
+				tst.w		a5
+				beq			buildRasListMod																		; modify first scanline modulus for correct appearance
+			; first scanline, modify modulus
+				move.w		(a0),4(a0)																			; copy softscroll value
+	;lea 4(a0),a0
+				moveq		#$8,d5
+				sub.l		a5,a5																				; first scanline done
+				sub			d4,d5
 				bra			buildRasListMod
 
-.preStoreNil
+
+preStoreOcean
+				move		d1,d4
+				move.w		#81,d3
+				sub.w		d7,d3
+				bpl.b		.sk1
+				clr.w		d3
+.sk1
+				muls		d4,d3
+				divu		#86,d3
+				andi		#$7f,d3
+
+				move		d3,d4
+				move		d4,d5
+				andi		#$0008,d5
+				ror.w		#5,d5
+				andi		#$7,d4
+	;clr.w d4
+				lsl			#5,d4
+				or			d4,d5
+
+	; add watery effect
+				move		d5,(a0)																				; prestore BPL1CON
+				move		d1,d5
+				move		d7,d4
+				not			d4
+				andi		#$1f,d4
+				andi		#$1f,d5
+				cmp			d5,d4
+				bne.b		preStorePerpB
+				move		d7,d4
+				lsr			#6,d4
+				addq		#1,d4
+				or			d4,(a0)
+				bra.b		preStorePerpB
+
+preStoreSun
+				move		d1,d4
+				move.w		#143,d3
+				sub.w		d7,d3
+				bpl.b		.sk1
+				clr.w		d3
+.sk1
+				muls		d4,d3
+				lea			sineTable(pc),a3
+				move.b		(a3,d3),d5
+				lsr			#1,d5
+				add.w		d5,d3																				; add blur
+				divu		#155,d3
+				andi		#$7f,d3
+				bra.b		preStorePerp
+preStoreSpace
+				move		d7,d3
+				move		d1,d4
+	;lsl #1,d4
+				muls		d4,d3
+				lsr			#7,d3
+				andi		#$7f,d3
+preStorePerp
+				move		d3,d4																				;
+				move		d4,d5
+				andi		#$0008,d5
+				ror.w		#5,d5
+				andi		#$7,d4
+	;clr.w d4
+				lsl			#5,d4
+				or			d4,d5
+				move		d5,(a0)																				; prestore BPL1CON
+preStorePerpB
+				move		d3,d4
+				add.w		#4,d4
+				asr			#4,d4																				; kill lower 32 pixels
+				andi		#%111,d4
+				lsl			#2,d4
+				move		d4,d5
+				add			#basicModulus,d5
+				cmp			d5,d0
+				beq.b		.same
+				bge.b		.isHigher
+				move		d5,d0
+				move		#(basicModulus-4)/2,d5
+				bra.b		.write
+.isHigher
+basicModulus	SET			$14																					; for testing only, should be $18
+				move		d5,d0
+				move		#(basicModulus+4)/2,d5
+				bra.b		.write
+.same
+				move.w		#basicModulus,d5
+.write
+				tst.w		a5
+				beq			buildRasListMod																		; modify first scanline modulus for correct appearance
+				move.w		(a0),4(a0)																			; copy softscroll value
+	;lea 4(a0),a0
+				moveq		#$8,d5
+				sub.l		a5,a5																				; first scanline done
+				sub			d4,d5
+				bra			buildRasListMod
+
+preStoreSinewave
+				move		d7,d4
+				add			d1,d4
+				andi.w		#$7f,d4
+
+	;cc4
+	;QUITPROGRAM
+
+	;FIXME: Move LEA to init code to save cpu time?
+				lea			sineTable(pc),a3
+				clr.w		d3
+				move.b		(a3,d4.w),d3																		; add sinus form
+    ;lsl #1,d3            ; multiplicator for amplitude
+				move		d3,d4
+				move		d3,d5
+    ;move d3,d2
+				addq		#$8,d5
+				andi		#$0010,d3
+				ror.w		#6,d3
+				andi		#$f,d4
+
+				lsl			#4,d4
+				or			d4,d3
+				move		d3,(a0)																				; prestore BPL1CON
+				not			d5
+				andi		#%11100000,d5
+				lsr.w		#3,d5
+
+				move		d0,d3
+				cmp			d5,d3
+				beq			.keepMod
+				cmp			d5,d3
+				bge.b		.ss1
+				move		d5,d0
+				move		#$1c,d5
+				bra.b		.safeMod
+.ss1
+				move		d5,d0
+				move.w		#$14,d5
+				bra.b		.safeMod
+.keepMod
+				move.w		#$18,d5
+.safeMod
+				tst.w		a5
+				bne			.firstLines
+				bra			buildRasListMod
+
+.firstLines	; keep first scanline, modify modulus on second
+				sub			#1,a5
+				tst.w		a5
+				beq			.secondRas
+				bra			buildRasListMod
+.secondRas
+				cmpi		#$18,d5
+				beq.s		.l3
+				tst.b		(a4)
+				bne.b		.l5
+				cmpi.w		#$1c,d5
+				bne.s		.l4
+				move		d2,d5																				; add to modulus
+				addq		#4,d5
+				st.b		(a4)
+				bra.s		.l6
+.l4			; lower modulus
+				move		d2,d5
+				sub			#4,d5
+				st.b		(a4)
+	;move.w #$14,d5
+				bra.s		.l6
+.l3
+				sf.b		(a4)
+.l5
+				move		d2,d5
+.l6
+				move		d5,d2
+.safeMod2
 				bra			buildRasListMod
 
