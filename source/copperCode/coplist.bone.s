@@ -1,9 +1,11 @@
 ;//
-;//  coplist.stars.s
-;//  PX
+;//  coplist3.s
+;//  Reshoot2
 ;//
-;//  Created by Richard Löwenstein on 31.07.19.
+;//  Created by Richard Löwenstein on 30.01.19.
 ;//
+
+; #MARK: - City parallax list -
 
 	INCDIR $AMIDEV
 	INCDIR source/
@@ -36,304 +38,281 @@ CNOOP   MACRO
 CEND        Macro
 		  dc.w		$ffff,$fffe
 		Endm
-firstColFade	SET	0
-upGrColor	SET	$69e
-parSpriteY SET displayWindowStart+1
-colorYSprite SET parSpriteY+7
-scoreLines SET spriteScoreHeight-1
-noOfScanlines SET displayWindowHeight-2
 
-red		SET 	$47<<4		; start values
-green	SET 	$00<<4
-blue	SET 	$00<<4
-redA	SET	red
-greenA	SET	green
-blueA	SET	blue
-redFac		SET 	(red-$20<<4)	; target values
-greenFac	SET 	(green-$00<<4)
-blueFac		SET		(blue-$00<<4)
+s1
+red		SET 	$40		; start values
+green	SET 	$40
+blue	SET 	$40
+redFac		SET 	(red-$e0)/54	; target values
+greenFac	SET 	(green-$20)/54
+blueFac		SET		(blue-$10)/54
+
 rgbHigh	SET		0	; empty containers for hi and lo byte of color value
 rgbLow	SET		0
 
-COPCOLSPLIT	Macro
-	IF (parSpriteY=\1)
-rgbHigh	SET	(\2&$f0)<<4!(\3&$f0)!(\4&$f0)>>4
-rgbLow	SET	(\2&$f)<<8!(\3&$f)<<4!(\4&$f)
-rgbHighB	SET	((\2+\5/2)&$f0)<<4!(\3&$f0)!(\4&$f0)>>4
-rgbLowB	SET	((\2+\5/2)&$f)<<8!(\3&$f)<<4!(\4&$f)
-rgbHighC	SET	((\2+\5*1)&$f0)<<4!(\3&$f0)!(\4&$f0)>>4
-rgbLowC	SET	((\2+\5*1)&$f)<<8!(\3&$f)<<4!(\4&$f)
-	CMOVE BPLCON3,BANK2F|BANK1F|BANK0F|BRDRBLNKF
-	dc.w COLOR29
-	dc.w rgbHigh
-	dc.w COLOR30
-	dc.w rgbHighB
-	dc.w COLOR31
-	dc.w rgbHighC
-	CMOVE BPLCON3,BANK2F|BANK1F|BANK0F|BRDRBLNKF|LOCTF|PF2OF1F|PF2OF0F
-	dc.w COLOR29
-	dc.w rgbLow
-	dc.w COLOR30
-	dc.w rgbLowB
-	dc.w COLOR31
-	dc.w rgbLowC
+PAINTSKY	Macro
+	IF (parSpriteY&%10=0); color mod every 4 scanlines
+red	SET 	red-redFac*3
+green SET	green-greenFac*2
+blue	SET	blue-blueFac*2
+rgbHigh	SET	(red&$f0)<<4!(green&$f0)!(blue&$f0)>>4
+rgbLow	SET	(red&$f)<<8!(green&$f)<<4!(blue&$f)
+		CMOVE BPLCON3,PF2OF2F!BRDRBLNKF
+		dc.w COLOR00
+		dc.w rgbHigh
+		CMOVE BPLCON3,PF2OF2F!LOCTF!BRDRBLNKF
+		dc.w COLOR00
+		dc.w	rgbLow
 	ENDIF
 	ENDM
 
-COLORFADE MACRO
-redA	SET 	(red-((redFac/(displayWindowHeight-10))*parSpriteY))>>4
-greenA SET	 (green-((greenFac/(displayWindowHeight-10))*parSpriteY))>>4
-blueA	SET	(blue-((blueFac/(displayWindowHeight-10))*parSpriteY))>>4
-rgbHigh0old	SET	rgbHigh0
-rgbHigh0	SET	(redA&$f0)<<4!(greenA&$f0)!(blueA&$f0)>>4
-rgbLow0old	SET	rgbLow0
-rgbLow0	SET	(redA&$f)<<8!(greenA&$f)<<4!(blueA&$f)
+copGameParallaxCity:
+
+upGrColor	SET	$69e
+parSpriteY SET displayWindowStart+1
+colorYSprite SET parSpriteY
+scoreLines SET spriteScoreHeight-1
+noOfScanlines SET displayWindowStop+$100-displayWindowStart-scoreLines*2
+
+    CMOVE BPL2MOD,$4
+    
+    CMOVE BPLCON1,0
+		
+
+   ; CMOVE BPLCON3,$f000!BRDRBLNKF
+    CMOVE COLOR13,upgrColor			; color extra stats
+;		CMOVE BPLCON3,$1000!BRDRBLNKF!$40
+
+;    CMOVE BPLCON3,BANK0F!BANK1F!BANK2F!PF2OF2!BRDRBLNKF
+ ;   CMOVE COLOR13,$c4a			; color extra stats
+;		CMOVE BPLCON3,$1000!BRDRBLNKF!$40
+	CMOVE BPLCON3,PF2OF2F!BRDRBLNKF
+	CMOVE COLOR00,$444
+	CMOVE BPLCON3,BANK0F!BANK1F!BANK2F!PF2OF2F!BRDRBLNKF
+    ; handle upper area
+	;CMOVE BPLCON2,%000011!PF2PRIF
 
 
-	IFEQ firstColFade
-firstColFade	SET rgbHigh0
-firstColFadeLo	SET rgbLow0
+    ; handle upper area
+	;CMOVE BPLCON2,%000011!PF2PRIF
+
+    REPT scoreLines+1
+
+	dc.w (parSpriteY<<8)&$fffe+$b1
+	dc.w $ff<<8+%11111110
+	CMOVE BPLCON2,%111111!PF2PRIF
+
+	IF (parSpriteY=colorYSprite); color score sprite
+        CMOVE COLOR13,$69e	; upgrades color
+		CMOVE COLOR13,$b20
 	ENDIF
-statusHigh	SET (rgbHigh0old-rgbHigh0)
-statusLow	SET (rgbLow0old-rgbLow0)
-	IFEQ SHOWRASTERBARS
-
-
-	IFNE statusHigh|statusLow
-		dc.w (parSpriteY<<8)&$fffe+$03
+	IF (parSpriteY=colorYSprite+1); color score sprite
+        CMOVE COLOR13,$6af	; ""
+		CMOVE COLOR13,$c30
+	ENDIF
+	IF (parSpriteY=colorYSprite+2)
+		CMOVE COLOR13,$6af	; ""
+		CMOVE COLOR13,$d50
+	ENDIF
+	IF (parSpriteY=colorYSprite+3)
+		CMOVE COLOR13,$d88	; ""
+		CMOVE COLOR13,$e61
+	ENDIF
+	IF (parSpriteY=colorYSprite+4)
+		CMOVE COLOR13,$fa8	; ""
+		CMOVE COLOR13,$f82
+		dc.w (parSpriteY<<8)&$ff00+$df
 		dc.w $ff<<8+%11111110
-		IFNE statusHigh
-		CMOVE BPLCON3,BRDRBLNKF|PF2OF1F|PF2OF0F
-			IFNE (rgbHigh0old-rgbHigh0)
-			dc.w COLOR00
-			dc.w rgbHigh0
-			ENDIF
-		ENDIF
-;			dc.w COLOR00
-;			dc.w 0
 
-		IFNE statusLow
-		CMOVE BPLCON3,LOCTF!BRDRBLNKF|PF2OF1F|PF2OF0F
-			IFNE (rgbLow0old-rgbLow0)
-			dc.w COLOR00
-			dc.w	rgbLow0
-			ENDIF
-		ENDIF
-	ENDIF
-	ENDIF
-	ENDM
-
-; write to sprite
-			CMOVE SPR7PTL,0
-			CMOVE SPR7PTH,0	; pointer to left score panel
-
-    ;CMOVE FMODE,%1101  ;64 pixel sprites
-	CWAIT (displayWindowStart<<8)!$df
-	CMOVE BPL1MOD,4+(mainPlaneWidth*(mainPlaneDepth-1))
-	CMOVE COLOR14,$111	; left score panel shadow
-	CMOVE COLOR30,$111	; right score panel shadow
-    COLORFADE
-	CMOVE BPL2MOD,$18		; basic modulus
-	CMOVE BPLCON1,0		; init scroll register
-
-		; begin drawing view
-
-    REPT noOfScanlines+1
-parSpriteX SET $30
-		; score view area / coloring
-
-		IF (parSpriteY=spriteScoreYPosition); color score sprite
-		CMOVE BPLCON2,%111111	; sprites 6/7 infront of playfield
-		CMOVE BPLCON3,$fc00!BRDRBLNKF
-		CMOVE COLOR13,$fff
-		CMOVE COLOR15,$fff
-		CMOVE COLOR29,$fff
-		CMOVE COLOR31,$fff
-upgrColor	SET 	$6af
-		ENDIF
-		IF (parSpriteY=spriteScoreYPosition+1); color score sprite
-		CMOVE COLOR13,$ecf
-		CMOVE COLOR15,$ecf
-		CMOVE COLOR29,$ffc
-		CMOVE COLOR31,$ffc
-		ENDIF
-		IF (parSpriteY=spriteScoreYPosition+2)
-		CMOVE COLOR13,$d8f
-		CMOVE COLOR15,$d8f
-		CMOVE COLOR29,$fe8
-		CMOVE COLOR31,$fe8
-		ENDIF
-		IF (parSpriteY=spriteScoreYPosition+3)
-		CMOVE COLOR13,$b5f
-		CMOVE COLOR15,$b5f
-		CMOVE COLOR29,$fd6
-		CMOVE COLOR31,$fd5
-		ENDIF
-		IF (parSpriteY=spriteScoreYPosition+4)
-		CMOVE COLOR13,$a4f
-		CMOVE COLOR15,$a4f
-		CMOVE COLOR29,$fc4
-		CMOVE COLOR31,$fb3
-		dc.w (parSpriteY<<8)&$fffe+$cf
-		dc.w $ff<<8+%11111110
-			CMOVE NOOP,6
-			CMOVE SPR6PTL,0; init parallax scrolling sprite dma
-			CMOVE SPR6PTH,0
-			CMOVE SPR7PTL,0
-			CMOVE SPR7PTH,0
-		CMOVE BPLCON2,%011011	; sprites 6/7 behind of playfield
-		CMOVE COLOR13,$457;$457	; reset ship color
-		CMOVE color14,$200		; reset ship color + sprite parallax color
-		CMOVE COLOR15,$eef	; reset ship color
-			CMOVE SPR6POS,$4880	; reposition scroll sprites
-		CMOVE SPR6CTL,$ff02
-		CMOVE SPR7POS,$48a0
-		CMOVE SPR7CTL,$ff02
-		ENDIF
-
-		COPCOLSPLIT $32,$f0,$0,0,$1
-		COPCOLSPLIT $33,$40,$8,$8,$1
-		IF 1=1
-		COPCOLSPLIT $38,$48,0,0,$4
-		COPCOLSPLIT $40,$40,0,0,$10
-		COPCOLSPLIT $48,$3c,0,1,$18
-		COPCOLSPLIT $50,$34,1,1,$20
-		COPCOLSPLIT $58,$2c,$4,2,$28
-		COPCOLSPLIT $5c,$24,$8,2,$30
-		COPCOLSPLIT $70,$24,$8,2,$30	; fix for color bug with active dialogue view
-		ENDIF
-
-		;COPCOLSPLIT $35,$8,$1,$1,$18
-		;COPCOLSPLIT $37,$0,$8,$0,$38
-
-	IFEQ ((parSpriteY-displayWindowStart-1)&$3f)
-		CMOVE NOOP,15     ; color bullet marker
-		dc.w	$80ff	; wait
-		dc.w	$80c3
-
-		CMOVE BPLCON3,BANK2F|BANK1F|BANK0F|BRDRBLNKF	; prep colors for next frame update
-		CMOVE COLOR05,0	; set three colors for four sprites
-		CMOVE COLOR21,0
-		CMOVE COLOR09,0
-		CMOVE COLOR25,0
-
-		CMOVE COLOR06,0
-		CMOVE COLOR22,0
-		CMOVE COLOR10,0
-		CMOVE COLOR26,0
-
-		CMOVE COLOR07,0
-		CMOVE COLOR23,0
-		CMOVE COLOR11,0
-		CMOVE COLOR27,0
+		CMOVE BPL7DAT,0	; mark color switch and main playfield priority
+		CMOVE BPLCON3,$f000!BRDRBLNKF
+   		CMOVE COLOR13,$0  ;reset score color cos it colors player sprite too
+		CMOVE NOOP,0	; is BPLCON2 in some coplists
 	ENDIF
 
-		IF (parSpriteY>spriteScoreYPosition+4)
-		;CMOVE			 BPLCON2,%111111	; sprites 6/7 infront of playfield
-				; main view area / multiplex sprite
-		;dc.w (parSpriteY<<8)&$ff00+parSpriteX-$10!1
-		;dc.w $ff<<8+%11111110
-		CMOVE SPR6POS,(parSpriteY<<8)&$ff00+parSpriteX+$10
-parSpriteX     SET parSpriteX+$20
-		dc.w (parSpriteY<<8)&$ff00+parSpriteX-$8!1
+		dc.w (parSpriteY<<8)&$ff00+$df-(parSpriteY<(displayWindowStart+4))*2	; wait in relation to scanline / modulus timing avoid flicker
 		dc.w $ff<<8+%11111110
-		CMOVE SPR6POS,(parSpriteY<<8)&$ff00+parSpriteX+$15
-parSpriteX     SET parSpriteX+$20
-		dc.w (parSpriteY<<8)&$ff00+parSpriteX-$8!1
-		dc.w $ff<<8+%11111110
-		CMOVE SPR6POS,(parSpriteY<<8)&$ff00+parSpriteX+$15
-parSpriteX     SET parSpriteX+$20
-		dc.w (parSpriteY<<8)&$ff00+parSpriteX-$8!1
-		dc.w $ff<<8+%11111110
-		CMOVE SPR6POS,(parSpriteY<<8)&$ff00+parSpriteX+$15
-parSpriteX     SET parSpriteX+$20
-		dc.w (parSpriteY<<8)&$ff00+parSpriteX-$8!1
-		dc.w $ff<<8+%11111110
-		CMOVE SPR6POS,(parSpriteY<<8)&$ff00+parSpriteX+$15
-parSpriteX     SET parSpriteX+$20
-		dc.w (parSpriteY<<8)&$ff00+parSpriteX-$8!1
-		dc.w $ff<<8+%11111110
-		;CMOVE SPR6POS,(parSpriteY<<8)&$ff00+parSpriteX+$10
-		ENDIF
+	CMOVE NOOP,5
+	CMOVE BPLCON2,%11!PF2PRIF ; sprites 6&7 video prio down
 
-	;ENDIF
-		;IF parSpriteY=$ff
+
+  	 ;IF (parSpriteY&1)
+	 ;   CMOVE BPL2MOD,$4
+    ;	CNOOP
+    ;	CMOVE BPLCON1,0
+    ;	ELSE
+    ;	CMOVE BPL2MOD,-4
 	;ENDIF
 
 
-    IF ((parSpriteY&1))
-;		CMOVE BPLCON3,$e020
-yDistort	SET 	parSpriteY>>4
-	;CMOVE SPR6CTL,0
-	;CMOVE SPR7CTL,0
-;	CMOVE NOOP,0
-	
-		;dc.w (parSpriteY<<8)&$ff00+$af
-		;dc.w $ff<<8+%11111110
-	CMOVE BPL2MOD,$14
-;	CMOVE NOOP,0
-	ELSE
-		;dc.w (parSpriteY<<8)&$ff00+$1f
-		;dc.w $ff<<8+%11111110
-	
-	CMOVE BPL2MOD,$14
-	CMOVE BPLCON1,0
-	IF (parSpriteY>=spriteScoreYPosition+10)&(parSpriteY<=spriteScoreYPosition+255)
-	COLORFADE
-	;CMOVE BPL2MOD,-4
-	ENDIF
- 	ENDIF
+parSpriteY     SET parSpriteY+$1
+    ENDR
 
+; handle main screen area
+
+	;CMOVE BPLCON2,%000011!PF2PRIF
+
+
+
+	;CMOVE BPLCON2,%001001
+    REPT noOfScanlines-4
+parSpriteX SET $3a
+	
+    REPT 0
+    dc.w (parSpriteY<<8)&$ff00+parSpriteX-$4!1
+    dc.w $ff<<8+%11111110
+	CMOVE $170,(parSpriteY<<8)&$ff00+parSpriteX+3
+
+parSpriteX     SET parSpriteX+$20
+    ENDR
+    IF (parSpriteY&1)
+        CMOVE BPL2MOD,$14
+        dc.w (parSpriteY<<8)&$ff00+$df
+        dc.w $ff<<8+%11111110
+        CMOVE BPLCON1,0
+	IF parSpriteY<escalateStart
+	PAINTSKY
+	ENDIF
+	IF parSpriteY>escalateStart+escalateHeight-4
+	PAINTSKY
+	ENDIF
+
+    ELSE
+    	CMOVE BPL2MOD,$14
+        dc.w (parSpriteY<<8)&$ff00+$df
+        dc.w $ff<<8+%11111110
 
 	; mark start of escalate view
-        IF (parSpriteY=escalateStart+1)
+
+		IF (parSpriteY=escalateStart+2)
         CMOVE NOOP,1     ; escalate start marker
         CMOVE COP1LCH,0
         CMOVE COP1LCL,0
         CMOVE NOOP,0   ; jump to init escalate view
         ENDIF
+
+
+	; escalate exit marker
         IF (parSpriteY=escalateStart+escalateHeight-4)
         CMOVE NOOP,2     ; mark escalate end
-        ENDIF
-	; mark of dialogue view
-        IF (parSpriteY=dialogueStart+1)
-        CMOVE NOOP,9     ; dialogue start marker
         CMOVE COP1LCH,0
         CMOVE COP1LCL,0
-        CMOVE NOOP,0   ; jump to init escalate view
+        CMOVE NOOP,0   ; jump to restore game view
         ENDIF
-        IF (parSpriteY=dialogueStart+dialogueHeight-4)
-        CMOVE NOOP,10     ; mark dialogue end
-        ENDIF
-	; mark achievements view
-        IF (parSpriteY=displayWindowStart+$10)
-        CMOVE NOOP,11     ; achievements start marker
+
+		IF parSpriteY=154	; reset priority to avoid dialoge glitch
+		CMOVE BPLCON2,%11!PF2PRIF
+		ENDIF
+
+		IF parSpriteY=180	; reached hor. border, def new color jfade
+		; morph from old to new color
+redFac		SET 	-redFac	; target values
+greenFac	SET 	-greenFac
+blueFac		SET		-blueFac
+	;ENDIF
+		ENDIF
+    ENDIF
+
+
+
+		IF (parSpriteY=lv0parSprSlowEntry-60)
+		CMOVE SPR6CTL,0	; sprite scroll slow
+		CMOVE BPLCON3,$f020
+		CMOVE COLOR29,$a44
+		CMOVE COLOR30,$b44
+		CMOVE COLOR31,$b44
+		ENDIF
+
+		IF (parSpriteY=lv0parSprSlowExit)
+		CMOVE SPR6CTL,0 ; sprite scroll fast
+		CMOVE BPLCON3,$f020
+		CMOVE COLOR29,$b44
+		CMOVE COLOR30,$b54
+		CMOVE COLOR31,$b54
+
+		ENDIF
+
+		IF (parSpriteY=lv0parSprSlowExit+45)
+		;CMOVE SPR6CTL,0	; sprite scroll slow
+		CMOVE BPLCON3,$f020
+		CMOVE COLOR29,$b53
+		CMOVE COLOR30,$b54
+		CMOVE COLOR31,$b56
+		ENDIF
+
+        ;#FIXME: mark entry for gameFin copperlist
+;.gameFinStart	SET $103
+        IF (parSpriteY=$103)	; gameFinStart defined in coplist.credits.s
+
+        CMOVE NOOP,3     ; mark gameFin start
         CMOVE COP1LCH,0
         CMOVE COP1LCL,0
-        CMOVE NOOP,0   ; jump to init achievements view
-        ENDIF
-        IF (parSpriteY=$f8)
-        CMOVE NOOP,12     ; achievements clean up marker
-        CMOVE COP1LCH,0
-        CMOVE COP1LCL,0
-        CMOVE NOOP,0   ; jump to init achievements view
-        ENDIF
+        CMOVE NOOP,0   ; jump to gamefin view
+		ENDIF
+
+		IF parSpriteY=$103+5
+		CMOVE NOOP,4	; reentry incase of final credits
+		ENDIF
+
+
 parSpriteY     SET parSpriteY+$1
     ENDR
-;	CMOVE SPR6CTL,0
-;	CMOVE SPR7CTL,0
+	CMOVE $170,0	; hide parallax sprite
 
-		dc.w (parSpriteY<<8)&$ff00+$df
+; handle lower area
+    CMOVE BPLCON2,%000011!PF2PRIF
+colorYSprite SET parSpriteY+1
+    REPT scoreLines+2
+parSpriteX SET $3a
+	REPT 4
+    dc.w (parSpriteY<<8)&$ff00+parSpriteX-$4!1
+    dc.w $ff<<8+%11111110
+	CMOVE $170,(parSpriteY<<8)&$ff00+parSpriteX+3
+parSpriteX     SET parSpriteX+$20
+    ENDR
+
+	dc.w (parSpriteY<<8)&$fffe+$b9
+	dc.w $ff<<8+%11111110
+    CMOVE BPLCON2,%111111!PF2PRIF	; score sprite to front
+
+    	IF (parSpriteY=colorYSprite-1)     ; color score sprite
+	CMOVE BPLCON3,$f000!BRDRBLNKF
+	CMOVE COLOR13,$88f
+	ENDIF
+	IF (parSpriteY=colorYSprite+1)     ; color score sprite
+	CMOVE COLOR13,$66c
+	ENDIF
+	IF (parSpriteY=colorYSprite+2)
+	CMOVE COLOR13,$338
+	ENDIF
+	IF (parSpriteY=colorYSprite+3)
+	CMOVE COLOR13,$224
+	ENDIF
+		dc.w (parSpriteY<<8)&$ff00+$df+(parSpriteY<(displayWindowStart+3))*4	; wait in relation to scanline / modulus timing avoid flicker
 		dc.w $ff<<8+%11111110
-		CMOVE BPLCON3,BRDRBLNKF	; prep colors for next frame update
-		CMOVE COLOR00,firstColFade
-		;CMOVE COLOR01,$19f	; ugly color fix for CD32 color bug
+	CMOVE BPLCON2,%11!PF2PRIF
+    IF (parSpriteY&1)
+    ;CMOVE BPL2MOD,$18
+    cnoop
+    ;cnoop
+    ;CMOVE BPLCON1,0
+    ELSE
+    ;CMOVE BPL2MOD,$18
+	;IF parSpriteY<displayWindowStart+210
+    ;BLUESKY
+    ;ENDIF
 
-		CMOVE BPLCON3,$e000!BRDRBLNKF
-		CMOVE COLOR31,$a07
-		CMOVE COLOR30,$503
-		CMOVE COLOR29,$102
-		CMOVE BPL2MOD,0
-	blk.w 8,0
 
+    ENDIF
 
+parSpriteY     SET parSpriteY+$1
+	ENDR
+
+	;CMOVE BPLCON3,$1000!BRDRBLNKF
+	;CMOVE $180,$7cf
+	;CMOVE BPLCON3,$1000!BRDRBLNKF!LOCTF
+	;CMOVE $180,$7cf
+
+	CMOVE NOOP,8     ; end of list marker
+copGameParallaxCityEnd     blk.w 8,0
+s2

@@ -49,7 +49,7 @@ rasterListMove:
 				beq.b		nilManager
 
 				move.l		(a1)+,a2										
-				lea			-4(a2),a4																			; pointer to BPLMOD
+				lea			-8(a2),a4																			; pointer to BPLMOD
 															; get adress of current subcoplist -> pointer to BPLCON1
 				lea			coplineAnimPointers,a6
 
@@ -66,11 +66,12 @@ rasterListMove:
 
 
 				move.w		frameCount+2(pc),d5
-				move.w		plyBase+plyPosX(pc),d5
-				asr			#3,d5
-				andi		#$f,d5
+				move.w		 #120,d5
+				add.w		plyBase+plyPosX(pc),d5
+				asr			#2,d5
+				andi		#$7f,d5
 				
-			;	TOSHELL d5,": Y"
+				TOSHELL d5,": Y"
 				;clr.w		d5																					; 13.06.2025 temp code to keep scrolling speed constant
 				move.l		(a6,d5.w*4),a5
 				;TOSHELL a5,": Y"	
@@ -87,30 +88,26 @@ rasterListMove:
 	;move.b plyBase+plyDistortionMode(pc),d0
 	
 				tst.b		plyBase+plyDistortionMode(pc)
-				bne.b		.distortionMode
+	bne.b		.distortionMode
 ;;	move.w copFramesPointers+4(pc),d7 ; how many lines in current copsublist?
-				lsr			#1,d7
-				subq		#2,d7
+	lsr			#1,d7
+	subq		#2,d7
 				
 .writeCopLine
-				movem.l		(a5)+,d3-d4
-				movem.w		(a1)+,d0-d1
+	movem.l		(a5)+,d3-d4
+	movem.w		(a1)+,d0-d1
 						; apply animation wave
-				move		d3,(a4,d0)																			; write to BPL2MOD
-				swap		d3
-				or			d2,d3
-	;move.w		 frameCount+2(pc),d4
-				move		d3,(a2,d0)																			; write to BPL1CON
-				cmpi.w		#-4,d4
-				beq			.rrr
-				nop
-.rrr
-				move		d4,(a4,d1)		, BPL2MOD
-				swap		d4
-				or			d2,d4
-				move		d4,(a2,d1)																			; BPL1CON
-				dbra		d7,.writeCopLine
-				rts
+	move		d3,(a4,d0); BPL2MOD
+	swap		d3
+	or.w		 d2,d3
+	move		d3,(a2,d0); BPL1CON
+
+	move		d4,(a4,d1); BPL2MOD						
+	swap		d4
+	or			d2,d4
+	move		d4,(a2,d1); BPL1CON
+	dbra		d7,.writeCopLine
+	rts
 
 
 .distortionMode         ; shake screen a bit
@@ -321,7 +318,7 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				dc.w		.availSlot-.jT
 .scrolReg
 
-				move.w		#$18,-6(a0,d0)																		; reset playfield B modulus
+				;move.w		#$18,-6(a0,d0)																		; reset playfield B modulus
 				move		d0,d2
 				addq		#2,d2
 				move.w		d2,(a1)+																			; write pointer
@@ -471,16 +468,44 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				move.l		(a6),a0																				; get adress of anim buffer
 				moveq		#copFramesNoTotal-2,d1																; build data for x anim / x-scroll frames
 	;moveq		 #62,d1
+	clr.w		 $1000
 buildRasListFrame
+
+	add.w		 #1,$1000
+	cmpi.w		 #50,$1000
+	bne			 .noFrame
+	nop
+.noFrame
 				moveq		#coplines-1,d7																		; build data for x coplines
 	;moveq		 #2,d7
 				move.l		(a6)+,a0																			; get adress of anim buffer
 				move.w		#2,a5
-				moveq		#basicModulus,d0																	; preload basic modulus
+				moveq		#basicModulus,d0	
+				
+				
+																				; preload basic modulus
 buildRasList
 				jmp			buildRasList(pc,d6.w)																; precalc PF2Hx and modulus for one frame
 buildRasListMod
-				move		d5,2(a0)																			; prestore BPLxMOD
+	cmpi.w		 #50,$1000
+	bne			 .noFrame
+	cmpi.w		 #$5d,d7
+	bne			 .noFrameB
+	nop
+
+		
+.noFrameB
+
+	cmpi.w		 #$5c,d7
+	bne			 .noFrame
+	nop
+		;move.w		 #$10,d5
+.noFrame
+
+
+
+				move		d5,2(a0)	
+				;sub.w		 #4,2(a0)																		; prestore BPLxMOD
 				adda		#4,a0
 				dbra		d7,buildRasList
 				dbra		d1,buildRasListFrame
@@ -495,43 +520,136 @@ rasListPrepJmpTbl	; precalc list offsets
 				dc.w		preStoreCity-buildRasList
 				dc.w		preStoreSpace-buildRasList
 
-; d1 = frame 0-$3f, d7 =line 0-$7f, d5 = modulus
+; d1 = frame 0-$3f, d7 =line 0-$7f, d5 = modulus. DONT USE D6!
 ; #MARK COPLIST CITY 
 preStoreCity
-	move.w		#$14,d5							; modulus
-	move.w		d7,d3
-	lsl			#2,d3							;contains shift value
 
-	;move.w		 sineTable(pc,d3*2),d3
-	;asr			 #2,d3
+	cmpi.w	 #$68,d7
+	bgt	 .ddd
+	nop
+.ddd
+	clr.l	 d3
+	move d1,d4
+	;lsl #1,d4
+	andi #$7f,d4
+	lea .sinCity(pc),a3
+	move.w d7,d3
+	andi #$7f,d3
+	move.b (a3,d3),d3
+	muls d4,d3
+	lsr #7,d3
+	andi #$7f,d3
+	sub #4,d3
 
-	move.w		d3,d5
-	andi.w		#$3f,d3
-				eor.w		d3,d5																				; contains mod shift value
+.fetchScrollAndModVals; feed d3 with absolute line scroll value	
+	move.l	 d3,d4
+	;divu.w	 #32,d3
+	lsr.l  #5,d4;divide by 32 to get mod shift value 
+	andi.w	 #$1f,d3; remainder for 0-31 pixel shifts
+
+	move.w	 d3,d2
+	lsl	#2,d3; multiply by 4 to skip subpixel bits
+	move.w		scrollXbitsTable(pc,d3*2),d3
+	lsl #4,d3
+	move.w		d3,(a0)		; prestore BPL1CON
+	
+	cmp.w	 d4,d0
+	beq	 .keepModulus
+	nop
+	bgt .shiftRight
+.shiftLeft
+	move.w	 #basicModulus+4,d5
+	bra	 .gotIt
+.shiftRight
+	move.w	 #basicModulus-4,d5
+	bra	 .gotIt
+
+.keepModulus
+	move.w	 #basicModulus,d5
+.gotIt
+	move.w		 d4,d0; store abs x-value to next iter
+;	move.w	 #$14,d5
+
+		tst.w a5
+	beq buildRasListMod	; modify first scanline modulus for correct appearance
+	move.w (a0),4(a0)	; copy softscroll value
+	lea 4(a0),a0
+	moveq #$8,d5
+	sub.l a5,a5	; first scanline done
+	sub d4,d5
+;	move.w		 d1,d5
+	
+	bra buildRasListMod
+
+
+
+
+
+	move d1,d4
+	;lsl #1,d4
+	andi #$7f,d4
+	lea .sinCity(pc),a3
+	move.w d7,d3
+	andi #$7f,d3
+	move.b (a3,d3),d3
+	muls d4,d3
+	lsr #7,d3
+	andi #$7f,d3
+	sub #4,d3
+
+	move d3,d4	;
+	move d4,d5
+    andi #$0008,d5
+    ror.w #5,d5
+    andi #$7,d4
+	;clr.w d4
+	lsl #5,d4
+	or d4,d5
+    move d5,(a0)		; prestore BPL1CON
+
+	move d3,d4
+	add.w #4,d4
+	asr #4,d4		; kill lower 32 pixels
+	andi #%1111,d4
+	lsl #2,d4
+	move d4,d5
+	add #basicModulus,d5
 	cmp.w		 d5,d0
 	beq			 .noModShift
-				move.w		d5,d0																				; store new modulus shift value
+basicModulus	SET			$14
+																; store new modulus shift value
 
 						bge.b		.isHigher
 .isLower
+				move.w		d5,d0								
 				move.w		#basicModulus+4,d5																			; reset to default modulus
 				bra.b		.softScroll
 .isHigher
+	move.w		 d5,d0
 	move.w		 #basicModulus-4,d5
 	bra			 .softScroll
 
 .noModShift
 	move.w		 #basicModulus,d5
 .softScroll
-	move.w		scrollXbitsTable(pc,d3*4),d3
-	lsl			#4,d3
-	cmpi.w		#2,d1
-	bne			.dontprint
-	nop
-	;TOSHELL		 d3,"SCROLL"
-.dontprint
-				move.w		d3,(a0)
-				bra			buildRasListMod
+	tst.w a5
+	beq buildRasListMod	; modify first scanline modulus for correct appearance
+	move.w (a0),4(a0)	; copy softscroll value
+	lea 4(a0),a0
+	moveq #$8,d5
+	sub.l a5,a5	; first scanline done
+	sub d4,d5
+	move.w		 d1,d5
+	
+	andi.w		 #%1100,d5
+	cmpi.w		 #8,d5
+	bne			 buildRasListMod
+	;move #0,(a0)		; prestore BPL1CON
+
+	;move.w		 #-8,d5
+	bra buildRasListMod
+
+;				bra			buildRasListMod
 
 
 
@@ -547,6 +665,7 @@ preStoreCity
 				lsr			#7,d3
 				andi		#$7f,d3
 				sub			#4,d3
+
 				bra			preStorePerp
 
 ; table created within ASMone from command line, IS<Return> 45 136 128 127 b1 yy
@@ -695,7 +814,7 @@ preStorePerpB
 				move		#(basicModulus-4)/2,d5
 				bra.b		.write
 .isHigher
-basicModulus	SET			$14																					; for testing only, should be $18
+																				; for testing only, should be $18
 				move		d5,d0
 				move		#(basicModulus+4)/2,d5
 				bra.b		.write
