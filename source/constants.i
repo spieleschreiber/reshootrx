@@ -130,7 +130,7 @@ spriteParMultiSize  =   32*4
 
 coplines					SET			128	; //(displayWindowStop+$100-displayWindowStart)/2
 copFramesPointersSize   =   coplines*4	; determines size of pointer list to copper frame vfx. .l per line
-copFramesNoTotal			SET			$40																																; determines how many frames of animation are precalculated for each line, also the max. width of repeating patterns
+copFramesNoTotal			SET			$80																																; determines how many frames of animation are precalculated for each line, also the max. width of repeating patterns
 copFramesMemTotal  =  	coplines*4*copFramesNoTotal ; no.lines*(1.w for modulus+1.w for BPLxCON) * no.frames
 
 spritePosMemSize=(294*10) ;space for 294 lines, first 48 not really needed (but kept to speed code up a little). 4 bytes per entry

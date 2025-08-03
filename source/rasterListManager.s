@@ -56,6 +56,7 @@ rasterListMove:
 				lsr.w		d5,d6																				;modify anim speed
 
 				move.w		plyBase+plyPosX(pc),d5
+				
 				lsr			#2,d5
 				cmpi.w		#$39,d5
 				bls			.sk
@@ -63,20 +64,41 @@ rasterListMove:
 .sk
 				;move.w		 frameCount+2($32,d5
 				;move.l		(a6,d5*4),a5																				; get adress of anim table list. Full list contains an order of 12 (?) x-offsets -> x-scrolling
+		
+	lea	 viewPosition(pc),a3
+				move.w		vfxPosition(a3),d5
+				;move.w	 frameCount+2(pc),d5
+				lsr	 #2,d5
+				
 
 
-				move.w		frameCount+2(pc),d5
-				move.w		 #120,d5
-				add.w		plyBase+plyPosX(pc),d5
-				asr			#2,d5
+				;add.w	 vfxPositionAdd(a3),d6
+				;move.w	 d6,vfxPosition(a3)
+							
+								; update vfxPosition.w and vfxPositionAdd.w
+	
+
+				;clr.w	 d5
+				;move.w		plyBase+plyPosX(pc),d5
+				move.w	 d5,d4
+				lsr			#3,d5
+				
 				andi		#$7f,d5
 				
-				TOSHELL d5,": Y"
 				;clr.w		d5																					; 13.06.2025 temp code to keep scrolling speed constant
 				move.l		(a6,d5.w*4),a5
-				;TOSHELL a5,": Y"	
+		;sub	 #8,d4
+		lsr	 #3,d4
+		;add	 #$01,d4
+		andi.w	 #$7f,d4
+				move.l		(a6,d4.w*4),a0
+
+				move.w	 2(a5),d3;get first modulus
+				move.w	 d3,vfxOffset(a3)											; write first modulus
+				
+				;TOSHELL d3,": Y"	
 	;TOSHELL		a5,": X"												; apply animation wave
-				move		copBPLCON1+2,d2																		; get value calc´d by basic scroll code
+				;move		copBPLCON1+2,d2																		; get value calc´d by basic scroll code
 				andi		#$0f0f,d2
 
 				tst.b		escalateIsActive(pc)
@@ -88,21 +110,93 @@ rasterListMove:
 	;move.b plyBase+plyDistortionMode(pc),d0
 	
 				tst.b		plyBase+plyDistortionMode(pc)
-	bne.b		.distortionMode
+	bne		.distortionMode
 ;;	move.w copFramesPointers+4(pc),d7 ; how many lines in current copsublist?
-	lsr			#1,d7
-	subq		#2,d7
+		move.w frameCount+2(pc),d0
+				;move.w		#$197+16*11,plyBase+plyPosY
+				move.w		plyBase+plyPosY(pc),d5
+				;TOSHELL	 d5,": Y"
+				lsr			#4,d5
+				sub.w	 #$19,d5
 				
+				clr.w	 d4
+				
+				
+	;			lea	4(a0),a0
+	lea	 2(a1),a1
+
+	move.l		(a0)+,d3
+	move.w		(a1)+,d0
+						; apply animation wave
+				;	TOSHELL	 d3,": MOD"
+					clr.w	 d3
+	move		d3,(a4,d0); BPL2MOD
+	swap		d3
+	or.w		 d2,d3
+	;move		d3,(a2,d0); BPL1CON
+				
+				move.w	 d5,d1
+				beq	 .addupSkip
+				add	 #1,d1
+.addupMods
+				move.w	 6(a0),d3; fetch mod;
+				;sub.w	 2(a0),d3
+				sub	 #$14,d3
+				add.w	 d3,d4
+				lea	4(a0),a0
+				dbra	 d1,.addupMods
+			lea	 4(a0),a0
+
+				tst.w	 d4
+				beq	 .eeee
+.eeee
+				tst.w	 d4
+				bpl	 .uiop
+				cmpi.w	 #$fff8,d4
+				bne	 .tstW4
+				;add.w	 #4,d4
+			;clr.w	 d4
+				bra .uiop
+.tstW4			
+	;TOSHELL	 d4,": Y"
+			;clr.w	 d4
+.uiop
+	;TOSHELL	 d4,": Y"
+				;lea	 2(a1),a1
+				;move.w	 (a1)+,d0; fetch pointer
+				;move.w	 d4,(a4,d0)
+				;move.w	 (a0),d3
+				;move.w	 d3,(a2,d0)	; write to BPL1CON
+				;TOSHELL d4,": ADD"
+				add.w d4,vfxOffset(a3)
+				;lea	 (a5,d5*4),a5
+				nop
+.addupSkip
+			cmpi.w	 #36,d0
+			;ble	 .isSmaller
+			;clr.w	 d4
+			move.w vfxOffset(a3),d3; just for testing/fecth value
+	;TOSHELL	 d3,": VFX"
+			nop
+.isSmaller	
+	
+	lsr			#1,d7
+	sub		#2,d7
+	;lea	 4(a1),a1
+	;lea	 8(a0),a0
 .writeCopLine
-	movem.l		(a5)+,d3-d4
+	movem.l		(a0)+,d3-d4
+	;move.w	 #$14,d3
+	;move.w	 #$14,d4
+	
 	movem.w		(a1)+,d0-d1
 						; apply animation wave
+					
 	move		d3,(a4,d0); BPL2MOD
 	swap		d3
 	or.w		 d2,d3
 	move		d3,(a2,d0); BPL1CON
-
-	move		d4,(a4,d1); BPL2MOD						
+	move		d4,(a4,d1); BPL2MOD				
 	swap		d4
 	or			d2,d4
 	move		d4,(a2,d1); BPL1CON
@@ -465,221 +559,254 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				lea			coplineAnimPointers,a6
 
 				moveq		#8,d2																				; start value for 2nd scanline mod modifier
-				move.l		(a6),a0																				; get adress of anim buffer
-				moveq		#copFramesNoTotal-2,d1																; build data for x anim / x-scroll frames
-	;moveq		 #62,d1
-	clr.w		 $1000
+				move.l		(a6),a0																moveq		#basicModulus,d0	
+								; get adress of anim buffer
+				moveq		#copFramesNoTotal-1,d1
 buildRasListFrame
-
-	add.w		 #1,$1000
-	cmpi.w		 #50,$1000
-	bne			 .noFrame
-	nop
-.noFrame
 				moveq		#coplines-1,d7																		; build data for x coplines
 	;moveq		 #2,d7
 				move.l		(a6)+,a0																			; get adress of anim buffer
-				move.w		#2,a5
-				moveq		#basicModulus,d0	
-				
-				
+				lea	 2,a5	; prep a5 as flag
 																				; preload basic modulus
 buildRasList
 				jmp			buildRasList(pc,d6.w)																; precalc PF2Hx and modulus for one frame
 buildRasListMod
-	cmpi.w		 #50,$1000
-	bne			 .noFrame
-	cmpi.w		 #$5d,d7
-	bne			 .noFrameB
-	nop
+	IFNE	 DEVBUILD
 
-		
+.frameToTest SET	 $d;
+.lineToTest SET	 $d;
+	cmpi.w		 #$7f-.frameToTest,d1
+	bne			 .noFrameB
+	cmpi.w		 #$80-.lineToTest,d7
+	bgt			 .noFrameB
+	nop
+	;move.w		 #$10,d5
 .noFrameB
 
-	cmpi.w		 #$5c,d7
-	bne			 .noFrame
+	cmpi.w		 #$18,d1
+	beq			 .noFrame
 	nop
-		;move.w		 #$10,d5
+	
 .noFrame
-
-
-
+	ENDIF
 				move		d5,2(a0)	
-				;sub.w		 #4,2(a0)																		; prestore BPLxMOD
+				;sub.w		 #4,2(a0)				
+										; prestore BPLxMOD
 				adda		#4,a0
 				dbra		d7,buildRasList
 				dbra		d1,buildRasListFrame
-				rts
+				;rts
+				lea			coplineAnimPointers,a6
 
+				moveq		#copFramesNoTotal-1,d1
+				moveq		#copFramesNoTotal-1,d5
+
+		move.w				gameStatusLevel(pc),d0
+		move.b				.uglyTransforms(pc,d0),d6
+		ext.w	 d6
+
+.uglyFlickerFix
+	clr.w	 d7
+	move.w	 d1,d2
+	cmpi.w	 #$7f,d1
+	beq	 .frameZero
+	add.w	 #1,d2
+	cmpi.w	 #$6e,d1
+	beq	 .modifyModulus
+	cmpi.w	 #$4d,d1
+	bne	 .frameZero
+.modifyModulus	
+	move.w d6,d7
+.frameZero
+	andi.w	 #$7f,d2
+	move.l	 (a6,d1*4),a0
+	move.l	 (a6,d2*4),a1
+	move.w	2(a0),d3
+	add.w	 d7,d3
+	
+	move.w	 d3,2(a1)
+	sub.w	 #1,d5
+	dbra	 d1,.uglyFlickerFix
+	rts
+.uglyTransforms
+	dc.b	 -4,0,0,0,0
+	even
 
 rasListPrepJmpTbl	; precalc list offsets
-				dc.w		preStoreSinewave-buildRasList
+				dc.w		preStoreSpace-buildRasList
 				dc.w		preStoreSun-buildRasList
 				dc.w		preStoreSky-buildRasList
 				dc.w		preStoreOcean-buildRasList
 				dc.w		preStoreCity-buildRasList
-				dc.w		preStoreSpace-buildRasList
+				dc.w		preStoreOutro-buildRasList
 
-; d1 = frame 0-$3f, d7 =line 0-$7f, d5 = modulus. DONT USE D6!
-; #MARK COPLIST CITY 
-preStoreCity
 
-	cmpi.w	 #$68,d7
-	bgt	 .ddd
-	nop
-.ddd
-	clr.l	 d3
-	move d1,d4
-	;lsl #1,d4
-	andi #$7f,d4
-	lea .sinCity(pc),a3
-	move.w d7,d3
-	andi #$7f,d3
-	move.b (a3,d3),d3
-	muls d4,d3
-	lsr #7,d3
-	andi #$7f,d3
-	sub #4,d3
+basicModulus	SET			$14
 
-.fetchScrollAndModVals; feed d3 with absolute line scroll value	
+
+preStoreBitsAndMod
+; feed d3 with absolute line scroll value	
 	move.l	 d3,d4
-	;divu.w	 #32,d3
+	;add.l	 #$3,d3; add 65536 to get positive value
 	lsr.l  #5,d4;divide by 32 to get mod shift value 
 	andi.w	 #$1f,d3; remainder for 0-31 pixel shifts
 
-	move.w	 d3,d2
 	lsl	#2,d3; multiply by 4 to skip subpixel bits
-	move.w		scrollXbitsTable(pc,d3*2),d3
-	lsl #4,d3
-	move.w		d3,(a0)		; prestore BPL1CON
+	move.w		scrollXbitsTable(pc,d3*2),d2
+	lsl #4,d2
+	move.w		d2,(a0)		; prestore BPL1CON
 	
 	cmp.w	 d4,d0
 	beq	 .keepModulus
-	nop
 	bgt .shiftRight
 .shiftLeft
-	move.w	 #basicModulus+4,d5
+	move.w	 d4,d5
+	sub.w	 d0,d5
+	lsl	 #2,d5
+	add.w	 #basicModulus,d5
+	;moveq	 #basicModulus+4,d5
 	bra	 .gotIt
 .shiftRight
-	move.w	 #basicModulus-4,d5
+	move.w	 d0,d3
+	sub.w	 d4,d3
+	lsl	 #2,d3
+	move.w	 #basicModulus,d5
+	sub.w	 d3,d5
+	;moveq	 #basicModulus-4,d5
 	bra	 .gotIt
 
 .keepModulus
-	move.w	 #basicModulus,d5
+	moveq	 #basicModulus,d5
 .gotIt
+		move.w	 d0,d3
 	move.w		 d4,d0; store abs x-value to next iter
-;	move.w	 #$14,d5
-
-		tst.w a5
+	tst.w a5
 	beq buildRasListMod	; modify first scanline modulus for correct appearance
-	move.w (a0),4(a0)	; copy softscroll value
-	lea 4(a0),a0
-	moveq #$8,d5
 	sub.l a5,a5	; first scanline done
-	sub d4,d5
-;	move.w		 d1,d5
+	move.w	 d3,d5
+	;move.w	 #-24+24,d5
+	move.w	 d4,d5
+	lsl.w	 #2,d5
 	
 	bra buildRasListMod
 
-
-
-
-
+; d1 = frame 0-$3f, d7 =line 0-$7f, d5 = modulus. DONT USE D6!
+; #MARK COPLIST CITY 
+preStoreSpace
+	
+	clr.l	 d3
 	move d1,d4
-	;lsl #1,d4
+	
 	andi #$7f,d4
-	lea .sinCity(pc),a3
-	move.w d7,d3
+	lea .space(pc),a3
+	
+	move.w	 #128,d3
+	sub.w	 d7,d3
 	andi #$7f,d3
 	move.b (a3,d3),d3
 	muls d4,d3
-	lsr #7,d3
-	andi #$7f,d3
-	sub #4,d3
-
-	move d3,d4	;
-	move d4,d5
-    andi #$0008,d5
-    ror.w #5,d5
-    andi #$7,d4
-	;clr.w d4
-	lsl #5,d4
-	or d4,d5
-    move d5,(a0)		; prestore BPL1CON
-
-	move d3,d4
-	add.w #4,d4
-	asr #4,d4		; kill lower 32 pixels
-	andi #%1111,d4
-	lsl #2,d4
-	move d4,d5
-	add #basicModulus,d5
-	cmp.w		 d5,d0
-	beq			 .noModShift
-basicModulus	SET			$14
-																; store new modulus shift value
-
-						bge.b		.isHigher
-.isLower
-				move.w		d5,d0								
-				move.w		#basicModulus+4,d5																			; reset to default modulus
-				bra.b		.softScroll
-.isHigher
-	move.w		 d5,d0
-	move.w		 #basicModulus-4,d5
-	bra			 .softScroll
-
-.noModShift
-	move.w		 #basicModulus,d5
-.softScroll
-	tst.w a5
-	beq buildRasListMod	; modify first scanline modulus for correct appearance
-	move.w (a0),4(a0)	; copy softscroll value
-	lea 4(a0),a0
-	moveq #$8,d5
-	sub.l a5,a5	; first scanline done
-	sub d4,d5
-	move.w		 d1,d5
+	lsr #6,d3		; if you change this ...
 	
-	andi.w		 #%1100,d5
-	cmpi.w		 #8,d5
-	bne			 buildRasListMod
-	;move #0,(a0)		; prestore BPL1CON
+	bra preStoreBitsAndMod
+.space
+	blk.b	 256,$20
+	dc.b 	01,$7c,$7d
+;@generated-datagen-start----------------
+; This code was generated by Amiga Assembly extension
+;
+;----- parameters : modify ------
+;expression(x as variable): round(-sin(x/43)*43)+128
+;variable:
+;   name:x
+;   startValue:6
+;   endValue:256
+;   step:1
+;outputType(B,W,L): B
+;outputInHex: true
+;valuesPerLine: 16
+;--------------------------------
+;- DO NOT MODIFY following lines -
+ dc.b $7a, $79, $78, $77, $75, $74, $73, $72, $71, $70, $70, $6f, $6e, $6c
+ dc.b $6b, $6a, $69, $68, $68, $67, $66, $65, $64, $64, $63, $62, $61, $61, $60, $5f
+ dc.b $5f, $5e, $5e, $5d, $5c, $5c, $5b, $5b, $5a, $5a, $59, $59, $59, $58, $58, $57
+ dc.b $57, $57, $57, $57, $56, $56, $56, $56, $56, $56, $56, $56, $56, $56, $56, $56
+ 
+ dc.b $56, $56, $56, $56, $56, $56, $56, $56, $56, $56, $56, $57, $57, $57, $57, $58, $58, $58
+ dc.b $58, $58, $5a, $5a, $5b, $5b, $5c, $5c, $5c, $5d, $5d, $5e, $5e,$5e,$5f, $5f, $60, $61, $61
+ dc.b $62, $63, $64, $64, $65, $66, $67, $67, $68, $69, $6a, $6b, $6c, $6d, $6e, $6e
+ dc.b $6f, $70, $71, $72, $73, $74, $75, $76, $77, $78, $79, $7a, $7b, $7c, $7d, $7e
+ dc.b $7f, $80, $81, $82, $83, $84, $85, $86, $87, $88, $89, $8a, $8b, $8c, $8d, $8e
+ dc.b $8f, $90, $90, $91, $92, $93, $94, $95, $96, $97, $98, $98, $99, $9a, $9b, $9c
+ dc.b $9c, $9d, $9e, $9f, $9f, $a0, $a1, $a1, $a2, $a2, $a3, $a4, $a4, $a5, $a5, $a6
+ dc.b $a6, $a7, $a7, $a7, $a8, $a8, $a9, $a9, $a9, $a9, $aa, $aa, $aa, $aa, $aa, $ab
+ dc.b $ab, $ab, $ab, $ab, $ab, $ab, $ab, $ab, $ab, $ab, $ab, $ab, $aa, $aa, $aa, $aa
+ dc.b $aa, $a9, $a9, $a9, $a8, $a8, $a8, $a7, $a7, $a6, $a6, $a5, $a5, $a4, $a4, $a3
+ dc.b $a3, $a2, $a1, $a1, $a0, $9f, $9f, $9e, $9d, $9d, $9c, $9b, $9a, $99, $99, $98
+ dc.b $97, $96, $95, $94, $93, $93, $92, $91, $90, $8f, $8e
+;@generated-datagen-end----------------
 
-	;move.w		 #-8,d5
-	bra buildRasListMod
+	even
+; d1 = frame 0-$3f, d7 =line 0-$7f, d5 = modulus. DONT USE D6!
+; #MARK COPLIST CITY 
+preStoreCity
+	clr.l	 d3
+	move d1,d4
+	
+	andi #$7f,d4
+	lea sinCity(pc),a3
+	
+	move.w	 #128,d3
+	sub.w	 d7,d3
+	andi #$7f,d3
+	move.b (a3,d3),d3
+	muls d4,d3
+	lsr #6,d3		; if you change this ...
+	bra preStoreBitsAndMod
 
-;				bra			buildRasListMod
+
+
+sinCity
+	;dc.b	 $0,$30,$30,$30
+	;blk.b	 128,128
+	;blk.b	 6,$55
+	dc.b 	$55,$55,$56
+;@generated-datagen-start----------------
+; This code was generated by Amiga Assembly extension
+;
+;----- parameters : modify ------
+;expression(x as variable): round(sin(x/49.1)*49.1)+78
+;variable:
+;   name:x
+;   startValue:14
+;   endValue:256
+;   step:1
+;outputType(B,W,L): B
+;outputInHex: true
+;valuesPerLine: 16
+;--------------------------------
+;- DO NOT MODIFY following lines -
+ 
+ dc.b $58, $59, $5a, $5c, $5d, $5f, $60, $61, $63, $64, $65, $66, $67, $68, $69, $69
+ dc.b $6a, $6b, $6c, $6d, $6d, $6e, $6f, $70, $70, $71, $72, $72, $73, $74, $74, $75
+ dc.b $76, $76, $77, $77, $78, $78, $79, $79, $7a, $7a, $7b, $7b, $7b, $7c, $7c, $7d
+ dc.b $7d, $7d, $7d, $7e, $7e, $7e, $7e, $7e, $7f, $7f, $7f, $7f, $7f, $7f, $7f, $7f
+ dc.b $7f, $7f, $7f, $7f, $7e, $7e, $7e, $7e, $7e, $7e, $7e, $7e, $7d, $7d, $7d, $7d
+ dc.b $7c, $7c, $7c, $7b, $7b, $7a, $7a, $79, $79, $78, $78, $77, $77, $76, $76, $75
+ dc.b $74, $74, $73, $73, $72, $71, $70, $70, $6f, $6e, $6e, $6d, $6c, $6b, $6a, $6a
+ dc.b $69, $68, $67, $66, $65, $64, $63, $63, $62, $61, $60, $5f, $5e, $5d, $5c, $5b
+ dc.b $5a, $59, $58, $57, $56, $55, $54, $53, $52, $51, $50, $4f, $4e, $4d, $4c, $4b
+ dc.b $4a, $49, $48, $47, $46, $45, $44, $43, $42, $41, $40, $3f, $3f, $3e, $3d, $3c
+ dc.b $3b, $3a, $39, $38, $37, $36, $35, $35, $34, $33, $32, $31, $30, $30, $2f, $2e
+ dc.b $2d, $2d, $2c, $2b, $2a, $2a, $29, $28, $28, $27, $27, $26, $25, $25, $24, $24
+ dc.b $23, $23, $22, $22, $21, $21, $21, $20, $20, $20, $1f, $1f, $1f, $1e, $1e, $1e
+ dc.b $1e, $1e, $1d, $1d, $1d, $1d, $1d, $1d, $1d, $1d, $1d, $1d, $1d, $1d, $1d, $1d
+ dc.b $1d, $1d, $1e, $1e, $1e, $1e, $1f, $1f, $1f, $1f, $20, $20, $20, $21, $21, $22
+ dc.b $22, $22, $23
+;@generated-datagen-end----------------
 
 
 
 
-				move		d1,d4
-	;lsl #1,d4
-				andi		#$7f,d4
-				lea			.sinCity(pc),a3
-				move.w		d7,d3
-				andi		#$7f,d3
-				move.b		(a3,d3),d3
-				muls		d4,d3
-				lsr			#7,d3
-				andi		#$7f,d3
-				sub			#4,d3
-
-				bra			preStorePerp
-
-; table created within ASMone from command line, IS<Return> 45 136 128 127 b1 yy
-.sinCity
-	;DC.B	$5A,$5B,$5D,$5E,$5F,
-	;blk.b 5,$5f
-				DC.B		$5f,$5f,$5f,$5f,$5f,$60,$61,$62,$63,$64,$65,$66,$67,$68,$68,$69
-				DC.B		$6A,$6B,$6C,$6D,$6E,$6E,$6F,$70,$71,$71,$72,$73,$73,$74,$75,$75
-				DC.B		$76,$76,$77,$78,$78,$79,$79,$7A,$7A,$7A,$7B,$7B,$7C,$7C,$7C,$7D
-				DC.B		$7D,$7D,$7D,$7E,$7E,$7E,$7E,$7E,$7F,$7F,$7F,$7F,$7F,$7F,$7F,$7F
-				DC.B		$7F,$7F,$7F,$7F,$7F,$7F,$7E,$7E,$7E,$7E,$7E,$7E,$7D,$7D,$7D,$7C
-				DC.B		$7C,$7C,$7B,$7B,$7B,$7A,$7A,$79,$79,$78,$78,$77,$77,$76,$76,$75
-				DC.B		$74,$74,$73,$72,$72,$71,$70,$70,$6F,$6E,$6D,$6C,$6C,$6B,$6A,$69
-				DC.B		$68,$67,$66,$65,$64,$63,$62,$61,$60,$5F,$5E,$5D,$5C,$5B,$5A,$59
 
 				even
 preStoreSky
@@ -782,7 +909,7 @@ preStoreSun
 				divu		#155,d3
 				andi		#$7f,d3
 				bra.b		preStorePerp
-preStoreSpace
+preStoreOutro
 				move		d7,d3
 				move		d1,d4
 	;lsl #1,d4

@@ -158,7 +158,7 @@ parSpriteY     SET parSpriteY+$1
     REPT noOfScanlines-4
 parSpriteX SET $3a
 	
-    REPT 0
+    REPT 3
     dc.w (parSpriteY<<8)&$ff00+parSpriteX-$4!1
     dc.w $ff<<8+%11111110
 	CMOVE $170,(parSpriteY<<8)&$ff00+parSpriteX+3
@@ -238,6 +238,7 @@ blueFac		SET		-blueFac
 		CMOVE COLOR29,$b53
 		CMOVE COLOR30,$b54
 		CMOVE COLOR31,$b56
+		
 		ENDIF
 
         ;#FIXME: mark entry for gameFin copperlist

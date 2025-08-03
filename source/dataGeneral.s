@@ -248,7 +248,7 @@ vPyAccConvertWorldToView		rs.w		1
 viewPositionPointerLaunchBuf	rs.w		1
 vfxPosition						rs.w		1
 vfxPositionAdd					rs.w		1
-vfxAnimSpeed					rs.w		1
+vfxOffset						rs.w		1
 viewPosition
 								blk.l		6,0		;2.longword = scrolldirection 3.word = y-pointer, 3.w store
 	; #MARK:  - TILE STORAGE

@@ -100,10 +100,10 @@ initGame
 		move.b				gameStatus(pc),d7
 		IFEQ				DEMOBUILD
 		sub.b				#statusLevel0+1,d7
-		move.b				.patchStageConverter(pc,d7),d7												; implemented to switch positions of stage 0 and stage 1
+		move.b				.patchStageConverter(pc,d7),d7												; implemented to switch positions of stages if needed
 		bra					.patchStageStructure
 .patchStageConverter
-		dc.b				1,0,2,3,4,5
+		dc.b				0,1,2,3,4,5
 		ELSE
 		sub.b				#statusLevel0+0,d7
 		ENDIF
@@ -167,7 +167,7 @@ initGame
 		; #MARK: init levels 0-4 scrollspeed
 
 .scrollSpeed
-		dc.b				$08,$10,$12,$0,$00,$00														; $20 = max!
+		dc.b				$00,$10,$12,$0,$00,$00														; $20 = max!
 		even
 .screenManagerRun
 		dc.w				screenManagerLv0-jmpSrcMngOffset											;lv0
@@ -225,11 +225,11 @@ initGame
 		move.w				.jmpTable(pc,d7.w*2),d7
 		jmp					.jmpTable(pc,d7.w)
 .jmpTable
-		dc.w				.lv0sky-.jmpTable
+		dc.w				.lv0space-.jmpTable
 		dc.w				.lv1sun-.jmpTable
-		dc.w				.lv2desert-.jmpTable
+		dc.w				.lv2sky-.jmpTable
 		dc.w				.lv3ocean-.jmpTable
-		dc.w				.lv4-.jmpTable
+		dc.w				.lv4sincity-.jmpTable
 		dc.w				.lv5outro-.jmpTable
 .sampleHero
 		dc.b				"sound/vo_hero.iff",0
@@ -239,13 +239,14 @@ initGame
 	; level specific init code
 	; #MARK: init levels 0-4
 		even
-.lv4
+.lv4sincity
 
 		bsr					.loadVfxBitmap
 		bsr					ParallaxManager																; prep sprite plane data
 		moveq				#0,d3
 		move.l				#255<<16<<3,d4
-		moveq				#16,d4																		; vfx scroll speed
+		moveq				#-20,d4
+				; vfx scroll speed
 		move				#BANK2F!BANK1F!BANK0F!BRDRBLNKF,d5
 		move				#%011011,d6
 		move				#ECSENAF|CONCOLF|BPU3F,d7
@@ -261,7 +262,7 @@ initGame
 		move				#$00fe,copBPLCON4-coplist+2(a0)												; lower 4 bits determine pointer to attach´d sprites, too
 		lea					viewPosition(pc),a3
 		move.l				d4,vfxPosition(a3)															; set vfxposition.w and vfxPositionAdd.w
-		move.w				d3,vfxAnimSpeed(a3)
+		move.w				d3,vfxOffset(a3)
 
 		rts
 .loadVfxBitmap
@@ -283,6 +284,24 @@ initGame
 		bra					loadFile																	; get raw bitplane data. 3 bitplanes, 320 x 512 pixels, non-interleaved
 		ENDIF
 
+.lv0space
+		bsr					.loadVfxBitmap
+		bsr					ParallaxManager																; prep sprite plane data
+
+		moveq				#0,d3
+		move				#-64,d4																		; scroll speed
+		move				#BANK2F!BANK1F!BANK0F!PF2OF2F|BRDRBLNKF,d5
+		move				#%011011,d6
+		move				#ECSENAF!CONCOLF!BPU3F,d7
+		bsr					.prepConRegs
+		lea					tempVar+4(pc),a0
+		move.w				#$20,-4(a0)																	; set countdown to launch of first sprite
+		move				#4,d7
+.initSpriteScrollVars
+		clr.l				(a0)+																		; clear area
+		dbra				d7,.initSpriteScrollVars
+		bra					.prepGlobals
+
 	    ; #MARK: init level 1
 .lv1sun
 		bsr					.loadVfxBitmap
@@ -292,9 +311,9 @@ initGame
 		move				#BANK2F!BANK1F!BANK0F!PF2OF2F|BRDRBLNKF,d5
 		move				#%011011,d6
 		move				#ECSENAF|CONCOLF|BPU0F!BPU1F!BPU2F|DPFF,d7
-		bsr.b				.prepConRegs
+		bsr				.prepConRegs
 		bra					.prepGlobals
-.lv2desert
+.lv2sky
 		bsr					.loadVfxBitmap
 		bsr					ParallaxManager																; prep sprite plane data
 
@@ -318,23 +337,7 @@ initGame
 		move				#ECSENAF|CONCOLF|BPU0F|BPU1F|BPU2F,d7
 		bsr					.prepConRegs
 		bra					.prepGlobals
-.lv0sky
-		bsr					.loadVfxBitmap
-		bsr					ParallaxManager																; prep sprite plane data
 
-		moveq				#0,d3
-		moveq				#6,d4																		; scroll speed
-		move				#BANK2F!BANK1F!BANK0F!PF2OF2F|BRDRBLNKF,d5
-		move				#%011011,d6
-		move				#ECSENAF!CONCOLF!BPU3F,d7
-		bsr					.prepConRegs
-		lea					tempVar+4(pc),a0
-		move.w				#$20,-4(a0)																	; set countdown to launch of first sprite
-		move				#4,d7
-.initSpriteScrollVars
-		clr.l				(a0)+																		; clear area
-		dbra				d7,.initSpriteScrollVars
-		bra					.prepGlobals
 .filename
 		dc.b				"shp",0																		; main ship sprite for credits. Save as 64 pixel wide sprite, attached, no coords(?)
 .filenameScroller

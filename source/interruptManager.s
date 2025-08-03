@@ -21,7 +21,6 @@ softInt		; interrupt with lowest prio, but higher than mainloop
 
 				bra					inputHandler									; reads keyboard and stick, builds one action
 retInputHandler
-
 				tst.b				gameInActionF(pc)
 				beq					quitSoftInt
 
@@ -42,6 +41,7 @@ retInputHandler
 				lea					blitterManagerLaunch(pc),a0
 				st.b				(a0)											; active list now ready for drawing
 				ENDIF
+				bsr					rasterListMove
 
 irqScrMng
 				lea					viewPosition(pc),a3
@@ -49,7 +49,6 @@ irqScrMng
 jmpSrcMngOffset
 				jsr					jmpSrcMngOffset(pc,d0.w)
 irqRetScreenManager
-				bsr					rasterListMove
 				bsr					plyManager
 				bra					spriteManagerPlayer
 sprManPlyReturn

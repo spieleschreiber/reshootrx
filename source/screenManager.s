@@ -2,84 +2,14 @@
 
 ; #MARK: - SCREENMANAGER BEGINS
 
-	; #MARK: screenmanagerlv0
-
-screenManagerLv0
-	move.l		spriteParallaxBuffer+8(pc),a1
-	move.l		copSPR6PTH(pc),a5
-	tst.l		a5
-	beq			setVFXPointers
-	move.w		viewPosition+viewPositionPointer(pc),d0
-
-	move		d0,d1
-	lsr			#1,d1
-	sub			d1,d0
-	;lsr #1,d0
-	andi		#$ff,d0
-	lsl			#4,d0
-
-	lea			(a1,d0),a1
-	move.l		a1,d1
-	move.w		d1,2(a5)
-	swap		d1
-	move.w		d1,6(a5)									; write sprite scroller source adress
-	;clr.l d0
-
-	bra			setVFX
 
 
-	; #MARK: screenmanagerlv4
-
-screenManagerLv4
-	move.l		spriteParallaxBuffer+8(pc),a1
-	move.l		copSPR6PTH(pc),a5
-	tst.l		a5
-	beq			setVFX
-;Mmove.w viewPositionPointer(a3),d0
-	move.w		vfxPosition(a3),d0
-	;move d0,d1
-	lsr			#5,d0
-	;sub d1,d0
-	;lsl #1,d0
-	andi		#$ff,d0
-	lsl			#4,d0
-	lea			(a1,d0),a1
-	move.l		a1,d1
-	move.w		d1,2(a5)
-	swap		d1
-	move.w		d1,6(a5)									; write sprite scroller source adress
-
-	move.l		spriteParallaxBuffer+4(pc),a1
-	;move.w viewPositionPointer(a3),d0
-	;lsr #2,d0
-	;move d0,d1
-	;lsr #2,d1
-	;sub d1,d0
-	;andi #$ff,d0
-	;lsl #4,d0
-	lea			(a1,d0),a1
-	move.l		a1,d1
-	move.w		d1,2+8(a5)
-	swap		d1
-	move.w		d1,6+8(a5)									; write sprite scroller source adress
-
-setVFX
-	move.l		fxPlanePointer+4(pc),d0
-	clr.l		d7
-	move.w		vfxPosition(a3),d7
-	sub.w		vfxPositionAdd(a3),d7
-	clr.w		d7											; 13.06.2025 temp fix for vfxPositionAdd while modifying scrolling code
-
-	move.w		d7,vfxPosition(a3)
-	andi.w		#$ff<<3,d7
-	move.w		d7,d5
-	lsl.w		#2,d7
-	add.w		d5,d7										; muls #40
-	add.l		d7,d0										; set vfx bitplane
-	bra			screenManager
 
 	; #MARK: screenmanagerlv5
 screenManagerLv5
+screenManagerLv0
+
+
 	bra			setVFX
 
 	; #MARK: screenmanagerlv1
@@ -255,6 +185,7 @@ screenManagerMirrorView
 	neg			d7
 	andi.l		#7,d7
 	move.w		mod2(pc,d7*2),d7
+	move.w	 frameCount+2(pc),d7
 	lsl.l		#2,d7										; *4
 	lsl.l		#5,d7										;*128
 	add.l		d7,d0
@@ -308,8 +239,8 @@ smEscalUpdateBPLPT
 
 setVFXPointers
 	move.l		fxPlanePointer+4(pc),d0
-				
-	clr.l		d7
+	
+
 	move.w		frameCount+2(pc),d7
 	add.w		frameCount(pc),d7
 	add			#1,d7
@@ -322,7 +253,85 @@ setVFXPointers
 	lsl.w		#5,d7
 	lsl.w		#3,d5
 	add.w		d5,d7
-				;add.l		d7,d0																		; set vfx bitplane
+				;add.l		d7,d0					
+
+	; #MARK: screenmanagerlv4
+
+screenManagerLv4
+	move.l		spriteParallaxBuffer+8(pc),a1
+	move.l		copSPR6PTH(pc),a5
+	tst.l		a5
+	beq			setVFX
+	move.w		vfxPosition(a3),d0
+	lsr			#5,d0
+	andi		#$ff,d0
+	lsl			#4,d0
+	lea			(a1,d0),a1
+	move.l		a1,d1
+	move.w		d1,2(a5)
+	swap		d1
+	move.w		d1,6(a5)									; write sprite scroller source adress
+
+	move.l		spriteParallaxBuffer+4(pc),a1
+	;move.w viewPositionPointer(a3),d0
+	;lsr #2,d0
+	;move d0,d1
+	;lsr #2,d1
+	;sub d1,d0
+	;andi #$ff,d0
+	;lsl #4,d0
+	lea			(a1,d0),a1
+	move.l		a1,d1
+	move.w		d1,2+8(a5)
+	swap		d1
+	move.w		d1,6+8(a5)									; write sprite scroller source adress
+
+setVFX
+	move.l		fxPlanePointer+4(pc),d0
+	clr.l		d7
+	move.w		vfxPosition(a3),d7
+	add.w		vfxPositionAdd(a3),d7
+	
+									; 03.07.2025 temp fix for vfxPositionAdd while modifying scrolling code
+	;clr.w d7
+		move.w		d7,vfxPosition(a3)
+	move.l	 vfxPosition(a3),d1
+
+	move.w	 vfxOffset(a3),d7
+	ext.l	 d7
+	add.l	 d7,d0	; add modulus diff
+
+	move.w		plyBase+plyPosY(pc),d5
+	asr			#3,d5
+	sub	 #$31,d5
+	lsl	 #6,d5; = 	muls	 #512/8,d5
+
+	add.l	 d5,d0
+	;add.w	 #40,d7
+	
+	;clr.w	 d7
+		;TOSHELL		d7, "=copBPLPT+10"
+
+	;TOSHELL	 d7,": Y"
+;	clr.l	 d7
+
+	;ext.l	 d7
+	;lsr.w	 #5,d7
+	;lsr.w	 #1,d7
+	;andi.w	 #$7<<2,d7
+	
+	;add.w	 d5,d7
+	;move.w	 vfxOffset(a3),d5
+	;add.w	 d5,d7
+	;TOSHELL d7,": Y"
+	;add.l	 d7,d0
+	;TOSHELL d7,": X"
+	
+														; set vfx bitplane
+		; set vfx bitplane
+	bra			screenManager
+	
+														; set vfx bitplane
 ; #MARK: screenmanager main
 
 screenManager
@@ -332,7 +341,6 @@ screenManager
 ; write bplpt pointer visual plane to copsublist. Mainplane is written in blittermanager
 
 		lea			copBPLPT+10,a5
-		clr.l		d7
 		move.w		#fxPlaneWidth*fxplaneHeight,d7
 		move		#fxPlaneDepth-2,d6
 .setVFXPointers

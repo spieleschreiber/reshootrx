@@ -71,7 +71,7 @@ colorManager
 		beq				errorDisk
 
 		IFEQ			(RELEASECANDIDATE||DEMOBUILD)
-		IF				1=1											; set all colors to bright blue. Just for checking if all colors are set correctly
+		IF				0=1											; set all colors to bright blue. Just for checking if all colors are set correctly
 		move			#256,d7
 		clr.b			d0
 		clr.b			d1
@@ -653,7 +653,7 @@ colorManager
 		move.b			(a3)+,d0
 		move.b			(a3)+,d1
 		move.b			(a3)+,d2
-		IF				0=1											; 1=1 to test greyscale alpha
+		IF				1=1											; 1=1 to test greyscale alpha
 		move			#1,d0
 		move			#1,d1
 		move			#1,d2
@@ -703,6 +703,7 @@ colorManager
 		seq				d4
 		move			d3,d5
 		move.b			(.skyAlphaScaler,pc,d5.w),d5
+		
 
 	;lsl #4,d5
 
@@ -746,8 +747,8 @@ colorManager
 		dbra			d7,.colRead4
 		rts
 .vfxColors4
-		;INCBIN			incbin/palettes/vfx4.pal
-		INCBIN			incbin/palettes/vfxTest.pal
+		INCBIN			incbin/palettes/vfx4.pal
+		;INCBIN			incbin/palettes/vfxTest.pal
 
 ;	#MARK: colors stage 05 outro
 

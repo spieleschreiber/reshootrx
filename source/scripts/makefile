@@ -9,9 +9,10 @@ then
 #This one is tested. Compile from shell with command "zsh makefile"
 #$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source -I $AMIDEV/source/include $AMIDEV/source/copperCode/coplist.stage5.s -o $AMIDEV/uae/dh0/stage5/main5.cop
 
-	$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source -I $AMIDEV/source/include $AMIDEV/source/copperCode/coplist.bone.s -o $AMIDEV/uae/dh0/stage4/main4.cop
+	$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source -I $AMIDEV/source/include $AMIDEV/source/copperCode/coplist.stage4.s -o $AMIDEV/uae/dh0/stage4/main4.cop
 	$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source -I $AMIDEV/source/include $AMIDEV/source/copperCode/coplist.stage5.s -o $AMIDEV/uae/dh0/stage5/main5.cop
-
+	$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source -I $AMIDEV/source/include $AMIDEV/source/copperCode/coplist.stage0.s -o $AMIDEV/uae/dh0/stage0/main0.cop
+	
 
 	#$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source/system $AMIDEV/source/copperCode/coplist.stage4.s -o	 #$AMIDEV/stage0/main0.cop		# Sky Stage!
 	#$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source/system $AMIDEV/source/copper/coplist.stage1.s -o $AMIDEV/stage1/main1.cop		# Sun Stage!

@@ -185,7 +185,7 @@ TOSHELL  MACRO																																				      ; send message from code
 
         movem.l d0-d7/a0-a6,-(sp)
         lea .\@1(pc),a6
-        move.l \1,d0
+        move.w \1,d0
         bsr shellNum
         movem.l (sp)+,d0-d7/a0-a6
         bra	.\@2				 

@@ -8,18 +8,9 @@
 ;{
 	
     SECTION MAINCOPLIST, DATA_C
-
+	PRINTT "COMPILE COPLIST"
 ; #MARK: Main Copper List
 coplist:
-copBPLPT
-    CMOVELC BPL1PT    ;2 Register schreiben und mit 0 füllen
-    CMOVELC BPL2PT
-    CMOVELC BPL3PT
-    CMOVELC BPL4PT
-    CMOVELC BPL5PT
-    CMOVELC BPL6PT
-    CMOVELC BPL7PT
-    CMOVELC BPL8PT
 
 copSprite01             ; display player
 	CMOVELC SPR0PTH,0
@@ -58,6 +49,17 @@ copBPLCON4  CMOVE BPLCON4,0
     CMOVELC SPR0PTH,0
     CMOVELC SPR1PTH,0
 
+
+copBPLPT
+    CMOVELC BPL1PT    ;2 Register schreiben und mit 0 füllen
+    CMOVELC BPL2PT
+    CMOVELC BPL3PT
+    CMOVELC BPL4PT
+    CMOVELC BPL5PT
+    CMOVELC BPL6PT
+    CMOVELC BPL7PT
+    CMOVELC BPL8PT
+	
 copMainInit
     CMOVELC  COP1LC
     CMOVE COPJMP1,0
@@ -90,9 +92,12 @@ copSpriteDMAOffset = *-copSpriteDMA
 ; #MARK: - Maingame copperlist
 
 copGameReturn:           ; Default coplist finish code copied to end of each coppper game sublist
+	
 	CMOVE INTREQ,$8010    ; trigger copper interrupt
 copGameDone
     CMOVELC COP1LC
+
+
     CEND
 
 ; #MARK: Re-Init Player Sprite

@@ -316,7 +316,6 @@ bobSourceMem
 			move					#coplines,d6
 			lsl						#2,d6
 			move					#copFramesNoTotal-1,d7
-			bra						.quitLoop
 .loop
 			move.l					a1,(a0)+
 			add.l					d6,a1

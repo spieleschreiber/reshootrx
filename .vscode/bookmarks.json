@@ -4,7 +4,7 @@
 			"path": "source/interruptManager.s",
 			"bookmarks": [
 				{
-					"line": 323,
+					"line": 322,
 					"column": 0,
 					"label": "openBorderAnimControl"
 				}
@@ -59,7 +59,7 @@
 			"path": "source/initLevelManager.s",
 			"bookmarks": [
 				{
-					"line": 529,
+					"line": 532,
 					"column": 0,
 					"label": ""
 				}
@@ -69,7 +69,7 @@
 			"path": "source/copperCode/coplist.s",
 			"bookmarks": [
 				{
-					"line": 227,
+					"line": 241,
 					"column": 0,
 					"label": "PlayerSpriteCopSplit"
 				}
@@ -84,7 +84,7 @@
 					"label": "RasterListMove"
 				},
 				{
-					"line": 524,
+					"line": 750,
 					"column": 0,
 					"label": "preStoreCity"
 				}
@@ -97,6 +97,26 @@
 					"line": 635,
 					"column": 0,
 					"label": "Stage4 Colors"
+				}
+			]
+		},
+		{
+			"path": "uae/dh0/data/levDefs/levelGetter.s",
+			"bookmarks": [
+				{
+					"line": 0,
+					"column": 1,
+					"label": "Initial gamemplay stage "
+				}
+			]
+		},
+		{
+			"path": "source/copperCode/coplist.stage0.s",
+			"bookmarks": [
+				{
+					"line": 77,
+					"column": 0,
+					"label": "COPLIST_STAGE0"
 				}
 			]
 		}

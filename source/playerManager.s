@@ -751,7 +751,7 @@ plyHitAnim                  ; animation fatal player was hit
 
 
 				move.b				#statusLevel0,d7																	; quick respawn at stage0
-				DEBUGBREAK
+			
 				move.b				gameStatus(pc),d7
 				cmpi.b				#statusLevel1+1,d7																	; is stage 0 or stage 1? No continue
 				bls					.retFBreleased
