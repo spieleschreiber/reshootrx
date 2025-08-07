@@ -77,7 +77,7 @@ noOfScanlines SET displayWindowStop+$100-displayWindowStart-scoreLines*2
     CMOVE BPL2MOD,$4
     
     CMOVE BPLCON1,0
-		
+		    CMOVE BPL1MOD,(mainPlaneWidth*3)+4
 
    ; CMOVE BPLCON3,$f000!BRDRBLNKF
     CMOVE COLOR13,upgrColor			; color extra stats

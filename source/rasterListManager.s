@@ -98,7 +98,7 @@ rasterListMove:
 				
 				;TOSHELL d3,": Y"	
 	;TOSHELL		a5,": X"												; apply animation wave
-				;move		copBPLCON1+2,d2																		; get value calc´d by basic scroll code
+				move		copBPLCON1+2,d2																		; get value calc´d by basic scroll code
 				andi		#$0f0f,d2
 
 				tst.b		escalateIsActive(pc)
@@ -125,8 +125,9 @@ rasterListMove:
 				;move.w	 #$1,d5
 				add.w	 d6,d5
 				lsr	 #1,d5
-				sub.w	 #$24,d5
-				;TOSHELL	 d5,": Y"
+				add.w	 #$01,d5
+			;	TOSHELL	 d5,": Y"
+				
 				clr.w	 d4
 				
 				

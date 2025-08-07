@@ -214,6 +214,7 @@ plyViewNorthClip					rs.w		1
 plyviewSouthClip				rs.w		1
 plyJoyCode						rs.w		4
 plyDiffBulletDelta				rs.w		1
+plyPosXABS						rs.w		1
 plyPosYABS						rs.w		1
 plyShotsFired					rs.w		1
 plyShotsHitObject				rs.w		1

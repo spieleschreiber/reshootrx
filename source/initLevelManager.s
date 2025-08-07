@@ -167,7 +167,7 @@ initGame
 		; #MARK: init levels 0-4 scrollspeed
 
 .scrollSpeed
-		dc.b				$00,$10,$12,$0,$00,$00														; $20 = max!
+		dc.b				$20,$10,$12,$0,$80,$00														; $20 = max!
 		even
 .screenManagerRun
 		dc.w				screenManagerLv0-jmpSrcMngOffset											;lv0
@@ -245,7 +245,7 @@ initGame
 		bsr					ParallaxManager																; prep sprite plane data
 		moveq				#0,d3
 		move.l				#255<<16<<3,d4
-		moveq				#-40,d4
+		moveq				#-32,d4
 				; vfx scroll speed
 		move				#BANK2F!BANK1F!BANK0F!BRDRBLNKF,d5
 		move				#%011011,d6

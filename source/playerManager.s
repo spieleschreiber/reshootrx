@@ -6,13 +6,12 @@ plyManager
 				lea					plyBase(pc),a6
 				lea					viewPosition(pc),a0
 				move.l				viewPositionAdd(a0),d2
-				add.l				d2,plyPosY(a6)
 
-				move.l				plyPosY(a6),d0
+				move.l				plyPosX(a6),d2
 				move.l				viewPositionPointer(a0),d1
-				sub.l				d1,d0
-				swap				d0
-				move.w				d0,plyPosYABS(a6)
+				sub.l				d1,d2
+				swap				d2
+				move.w				d2,plyPosXABS(a6)
 				asl.l				#8,d2
 				swap				d2
 				move.w				d2,vPyAccConvertWorldToView(a0)
@@ -22,6 +21,7 @@ plyManager
 				tst.b				plyExitReached(a6)
 				bne					plyFinal
 				move.w				plyJoyCode(a6),d7
+				move				plyPosY(a6),d0
 				
 			
 				clr.l				d6
@@ -113,7 +113,6 @@ handlePlayerMovement
 				move				#$dc,d6
 .wrtYPos
 				swap				d6
-				add.l				viewPosition+viewPositionPointer(pc),d6
 				move.l				d6,plyPosY(a6)
 .plyZeroYAccl
 				clr.w				plyPosAcclY(a6)
@@ -153,6 +152,8 @@ handlePlayerMovement
 .wrtXPos
 				swap				d5
 				clr.w				d5
+				add.l				viewPosition+viewPositionPointer(pc),d6
+
 				move.l				d5,(a6)																				;plyPosX
 .plyZeroXAccl
 				clr.w				plyPosAcclX(a6)
@@ -173,8 +174,8 @@ handlePlayerMovement
 ;#MARK: Player shot control
 .plyShotControl
 
-				move.w				plyPosY(a6),d6
-				;TOSHELL				 d6,"plyPosY"
+				;move.w				plyPosY(a6),d6
+				
 
 	;move.b #3,plyWeapUpgrade(a6)
 	;move #plyAcclXMin+2*3,plyAcclXCap(a6)

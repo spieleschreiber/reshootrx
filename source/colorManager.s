@@ -735,7 +735,7 @@ colorManager
 		exg.l			a4,d3
     ;moveq #0,d0
     ;moveq #0,d1
-    ;moveq #0,d2
+    ;moveq #-1,d2
   ;clr.w d0
   ;clr.w d1	; set color to blue
 		;TOSHELL			 d3,"colors"

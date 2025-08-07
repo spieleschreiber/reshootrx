@@ -312,12 +312,12 @@ initGameGlobal
 	move		#-1744,d1
 	swap		d1
 	add.l		d1,d0
-	move.l		d0,plyPosY(a6)
+	move.l		d0,plyPosX(a6)
     ;clr.l plyPosAcclX(a6)
 	
-	move.w		#-32,d0										; centre x-position
+	move.w		#120,d0										; centre y-position
 	swap		d0
-	move.l		d0,plyPosX(a6)
+	move.l		d0,plyPosY(a6)
 			clr.l			plyPosAcclX(a6)											; also clears AcclY
 	
 

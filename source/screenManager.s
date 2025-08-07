@@ -302,12 +302,13 @@ setVFX
 	add.l	 d7,d0	; add modulus diff
 
 	move.w		plyBase+plyPosY(pc),d5
+	;TOSHELL		d5,": Y"
 	move.w	 d5,d6
 	lsr			#3,d5
 	lsr	 #4,d6
 	add.w	 d6,d5
 	;TOSHELL	 d5,": Y"
-	sub	 #$4b,d5
+	;sub	 #$4b,d5
 	lsl	 #6,d5; = 	muls	 #512/8,d5
 
 	add.l	 d5,d0
