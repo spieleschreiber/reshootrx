@@ -11,7 +11,7 @@
 	PRINTT "COMPILE COPLIST"
 ; #MARK: Main Copper List
 coplist:
-	CWAIT $1S0<<8!$cd
+	CWAIT $10<<8!$cd
 copSprite01             ; display player
 	CMOVELC SPR0PTH,0
 	CMOVELC SPR1PTH,0

@@ -337,11 +337,6 @@ initGameGlobal
 	clr.l		plyShotsFired(a6)							;	 plyShotsFired+plyHitObjects
 	clr.w		plyWaveBonus(a6)
 
-	lea			plySprSaveCop(pc),a0
-	moveq			 #(plySprSaveCopQ-plySprSaveCop)/4-1,d7
-.clr	clr.l		(a0)+
-	dbra		d7,.clr
-
 
 	moveq		#plyAcclXMin,d0
 	move.w		d0,plyAcclXCap(a6)
