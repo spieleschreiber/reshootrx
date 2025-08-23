@@ -2,6 +2,7 @@
 ; #MARK: - SPRITE MANAGER
 
 spriteManagerPlayer
+	
 ;	#MARK: sprite player code
 	clr.l		d6
 
@@ -20,7 +21,7 @@ spriteManagerPlayer
 	move		d1,14(a0)
 	swap		d1
 	move		d1,10(a0)
-
+	
 
 	lea			plyBase(pc),a1
 	move.w		plyPosX(a1),d4				; player x-position
@@ -64,7 +65,6 @@ spriteManagerPlayer
 
 
 
-	bra			sprManPlyReturn
 	
 	; #MARK: SPLIT BODY
 	lea			(playerBodyHeight*16,a0),a0
@@ -72,6 +72,9 @@ spriteManagerPlayer
 	move.w		d0,16+10(a5)
 	swap		d0
 	move.w		d0,16+14(a5)
+
+	bra			sprManPlyReturn
+	
 	lea			copFramesPointers(pc),a0
 	move.l		(a0)+,a1						; get pointer to offset table
 

@@ -69,7 +69,7 @@
 			"path": "source/copperCode/coplist.s",
 			"bookmarks": [
 				{
-					"line": 241,
+					"line": 242,
 					"column": 0,
 					"label": "PlayerSpriteCopSplit"
 				}
@@ -84,7 +84,7 @@
 					"label": "RasterListMove"
 				},
 				{
-					"line": 730,
+					"line": 736,
 					"column": 0,
 					"label": "preStoreCity"
 				}

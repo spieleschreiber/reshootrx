@@ -108,10 +108,14 @@ spritePlayerWidth  =   $24
 spriteScoreHeight  =   5
 spriteParallaxHeight = 256*2
 spriteScoreXPosition =   162
-spriteStatusXPosition =   94
-spriteScoreYPosition =   displayWindowStart+$2; should be 2
+spriteStatusXPosition =   spriteScoreXPosition
+
+spriteScoreYPosition =   displayWindowStart+$1; should be 2
+spriteStatusYPosition =   displayWindowStart+DisplayWindowHeight-spriteScoreHeight-1;
 spriteScoreCtlrWordLo = spriteScoreYPosition<<8+(spriteScoreXPosition)
-spriteScoreCtlrWordHi = (spriteScoreYPosition+50-1)<<8!%00000000<<0
+spriteScoreCtlrWordHi = (spriteScoreYPosition+5-1)<<8!%00000000<<0
+spriteStatusCtlrWordLo = (spriteStatusYPosition-$100)<<8+(spriteStatusXPosition)
+spriteStatusCtlrWordHi = (spriteStatusYPosition-$100+5-1)<<8!%00000110<<0
 spriteParallaxCtlrWordLo = $32<<8+0<<0
 spriteParallaxCtlrWordHi = displayWindowStop<<8!%00000010<<0
 ;spriteParallaxCtlrWordHi=spriteHiCtlrWordHi

@@ -43,7 +43,12 @@ mainGameLoop        	;***Hauptprogramm/Schleife***
 		move				d1,6(a0)									; store actual framerate
 		clr.w				(a0)
 
-		move.w				2(a0),d7									; alternate sound-fx (shot and wall-hit pitch) for additional audio dynamics
+		move.w				2(a0),d7							
+		
+		
+	
+
+				; alternate sound-fx (shot and wall-hit pitch) for additional audio dynamics
 		move.w				d7,d0
 		andi.w				#%111,d0
 		beq					.keepPitch

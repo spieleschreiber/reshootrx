@@ -77,7 +77,7 @@ noOfScanlines SET displayWindowStop+$100-displayWindowStart-scoreLines*2
     CMOVE BPL2MOD,$4
     
     CMOVE BPLCON1,0
-		    CMOVE BPL1MOD,(mainPlaneWidth*3)+4
+		    
 
    ; CMOVE BPLCON3,$f000!BRDRBLNKF
     CMOVE COLOR13,upgrColor			; color extra stats
@@ -89,6 +89,8 @@ noOfScanlines SET displayWindowStop+$100-displayWindowStart-scoreLines*2
 	CMOVE BPLCON3,PF2OF2F!BRDRBLNKF
 	CMOVE COLOR00,$444
 	CMOVE BPLCON3,BANK0F!BANK1F!BANK2F!PF2OF2F!BRDRBLNKF
+
+	CMOVE BPL1MOD,(mainPlaneWidth*3)+4
     ; handle upper area
 	;CMOVE BPLCON2,%000011!PF2PRIF
 

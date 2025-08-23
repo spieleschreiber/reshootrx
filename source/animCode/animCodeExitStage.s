@@ -408,7 +408,7 @@ exitStage
 	bsr installSpriteJumpin
 	bra .animShip
 .animShip
-	move.l copSPR6PTH(pc),a5
+	move.l copSPR6PTHStatus(pc),a5
 	tst.l a5
 	beq .q
 	move.l bobSource(pc),d5
@@ -420,7 +420,7 @@ exitStage
 
 	move.l bobSource(pc),d5
 	andi.b #%11111000,d5
-	move.l copSPR6PTH(pc),a5
+	move.l copSPR6PTHStatus(pc),a5
 	tst.l a5
 	beq .quit
 	add.l d5,d1	; player ship base adress

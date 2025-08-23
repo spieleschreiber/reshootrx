@@ -1,42 +1,15 @@
 set -e
 
-compileCopperlist=1	# could be 0 or 1
-compileVectorTable=0	# could 0 or 64
-echo #############
-if [ $compileCopperlist -ne 0 ]		# compile coplist
-then
 
 #This one is tested. Compile from shell with command "zsh makefile"
 #$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source -I $AMIDEV/source/include $AMIDEV/source/copperCode/coplist.stage5.s -o $AMIDEV/uae/dh0/stage5/main5.cop
 
-	$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source -I $AMIDEV/source/include $AMIDEV/source/copperCode/coplist.stage4.s -o $AMIDEV/uae/dh0/stage4/main4.cop
-	$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source -I $AMIDEV/source/include $AMIDEV/source/copperCode/coplist.stage5.s -o $AMIDEV/uae/dh0/stage5/main5.cop
+#$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source -I $AMIDEV/source/include $AMIDEV/source/copperCode/coplist.stage4.s -o $AMIDEV/uae/dh0/stage4/main4.cop
+#$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source -I $AMIDEV/source/include $AMIDEV/source/copperCode/coplist.stage5.s -o $AMIDEV/uae/dh0/stage5/main5.cop
 	$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source -I $AMIDEV/source/include $AMIDEV/source/copperCode/coplist.stage0.s -o $AMIDEV/uae/dh0/stage0/main0.cop
 	
 
-	#$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source/system $AMIDEV/source/copperCode/coplist.stage4.s -o	 #$AMIDEV/stage0/main0.cop		# Sky Stage!
-	#$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source/system $AMIDEV/source/copper/coplist.stage1.s -o $AMIDEV/stage1/main1.cop		# Sun Stage!
-	#Needed for CD32 debugging
-	#$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source/system $AMIDEV/source/copper/coplist.stage1.s -o $AMIDEV/builds/prerelease/100923CD/stage1/main1.cop		# Sun Stage!
-	#$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source/system $AMIDEV/source/copper/coplist.stage2.s -o $AMIDEV/stage2/main2.cop
-	#$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source/system $AMIDEV/source/copper/coplist.stage3.s -o $AMIDEV/stage3/main3.cop
-	#$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source/system $AMIDEV/source/copper/coplist.bone.s -o $AMIDEV/stage4/main4.cop
-	#$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source/ -I $AMIDEV/source/include/ AMIDEV/source/copper/coplist.title.s -o $AMIDEV/title/title.cop
-	#$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source/system $AMIDEV/source/copper/coplist.intro.s -o $AMIDEV/title/intro.cop
 
-#needed to debug crash on CD32
-	#$AMIDEV/vasmm68k_mot -Fbin -nocase -quiet -m68020up -I $AMIDEV -I $AMIDEV/source/system $AMIDEV/source/copper/coplist.intro.s -o $AMIDEV/builds/prerelease/100923/title/intro.cop
-
-fi
-
-
-if [ $compileVectorTable -ne 0 ]		# compile bullet vector table
-then
-	echo "compiling bullet vector table"
-	gcc $AMIDEV/source/createBulletVectorTable.c -o $AMIDEV/bulletVectorTable.exe	#compile
-	chmod +x $AMIDEV/bulletVectorTable.exe	#make executable
-	$AMIDEV/bulletVectorTable.exe $compileVectorTable $AMIDEV/incbin/bulletVectorTable #create table with x entries in x and y coord syste,
-fi
 
 #this compiles music track executable if not outcommented
 #$AMIDEV/vasmm68k_mot -Fhunkexe -m68020up -nocase $AMIDEV/source/audioManager.s -o $AMIDEV/px.bin
@@ -59,7 +32,7 @@ fi
 
 if [ $? -eq 0 ]
 then
-  echo "Success, rrx.o is ready for launch"
+  echo "Success, rrx is ready for launch"
  # osascript $AMIDEV/source/scripts/launchBin.scpt	#init macro to launch .bin on Amiga
   exit 0
 else

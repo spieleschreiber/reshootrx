@@ -476,9 +476,9 @@ lowerScoreEntry					dc.l		0
 colorBullet						dc.l		0,0,0,0
 copColSprite					dc.l		0
 copPriority						dc.l		0
-copSPR6PTH						dc.l		0
-copSpr6pos						dc.l		0,0,0
-copSpr6posChk
+copSPR6PTHStatus						dc.l		0
+copSPR6PTHPlayfield						dc.l		0,0,0; upto 3 pointers for copSPR6PTH
+copSPR6PTHPfChk
 ; coplist pointers cleared in rasterlist code, dependent on memorypointersEnd
 memoryPointersEnd
 animTriggers					dc.l		0

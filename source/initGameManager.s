@@ -238,8 +238,6 @@ initGameGlobal
 	bsr			spriteManager
 	bsr			spriteManager
 
-	lea			copSprite67,a0					; write dma pointer sprite 0+1 -> coplist
-
 	
 
 	IFNE			 1
@@ -479,13 +477,17 @@ initGameGlobal
 	subq		#8,d0
 	subq		#8,d0
 	move.l		d0,a1
-	move.b		#spriteStatusXPosition,d1
+
+	move.w		#spriteStatusCtlrWordLo,d1
+	move.w		#spriteStatusCtlrWordHi,d2
 
 	move.w		d1,(a1)
 	move.w		d2,8(a1)
-	move		d0,6+8(a0)
+	move.l	 copSPR6PTHStatus(pc),a0		; write dma pointer sprite 6 -> coplist
+	
+	move		d0,2(a0)
 	swap		d0
-	move		d0,2+8(a0)
+	move		d0,6(a0)
 
 	clr.l		d0
 	bsr			drawScore

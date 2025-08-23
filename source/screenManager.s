@@ -15,211 +15,13 @@ screenManagerLv0
 	; #MARK: screenmanagerlv1
 screenManagerLv1
 
-	move.l		copSPR6PTH(pc),a5
-	tst.l		a5
-	beq			setVFXPointers
-	move.l		spriteParallaxBuffer+8(pc),a1
-	move.w		viewPosition+vfxPosition(pc),d0
-	;lsr #3,d5
-	;move.w viewPosition+viewPositionPointer(pc),d0
-	lsr			#4,d0
-	move		d0,d1
-	;lsr #1,d0
-	lsr			#1,d1
-	sub			d1,d0
-	andi		#$7f,d0
-	lsl			#4,d0
-	lea			(a1,d0),a1
-	move.l		a1,d0
-	move.w		d0,2(a5)
-	move.w		d0,2+8(a5)
-	swap		d0
-	move.w		d0,6(a5)									; write sprite scroller source adress
-	move.w		d0,6+8(a5)									; write sprite scroller source adress
-
-	bra			setVFX
-
-
 	; #MARK: screenmanagerlv2
 
 screenManagerLv2
-	move.l		spriteParallaxBuffer+8(pc),a1
-	move.l		copSPR6PTH(pc),a5
-	tst.l		a5
-	beq			setVFXPointers
-
-	move.w		vfxPosition(a3),d0
-	move		d0,d1
-	lsr			#3,d0
-	andi		#$ff,d0
-	lsl			#4,d0
-	lea			(a1,d0),a1
-	move.l		a1,d1
-	move.w		d1,2(a5)
-	swap		d1
-	move.w		d1,6(a5)									; write sprite scroller source adress
-	bra			screenManagerVerticalSplit
 
 ; #MARK: screenmanagerlv3
 screenManagerLv3
 
-
-	move.l		spriteParallaxBuffer+8(pc),a1
-	move.l		copSPR6PTH(pc),a5
-	tst.l		a5
-	beq			setVFXPointers
-	move.w		viewPosition+viewPositionPointer(pc),d0
-
-	move.w		vfxPosition(a3),d0
-	;move.w viewPositionPointer(a3),d0
-	;MSG02 m2,d0
-	;move d0,d2
-	;lsr #2,d2
-	;and.w #$ff<<1,d2	; (s)lowest sprite layer
-
-	move.w		d0,d1
-	lsr			#3,d0
-	lsr			#4,d1
-	add.w		d1,d0										; sync sprite-based floor scrolling to vfx scroller
-	;add d1,d0	; middle sprite layer
-	and.w		#$ff<<1,d0
-	lea			(a1,d0*8),a1
-	move.l		a1,d1
-	move.w		d1,2(a5)
-	swap		d1
-	move.w		d1,6(a5)									; write sprite scroller source adress
-
-	move.w		vfxPosition(a3),d7
-	sub.w		vfxPositionAdd(a3),d7
-	move.w		d7,vfxPosition(a3)
-
-	clr.w		d5
-
-	move.w		frameCount+2(pc),d4
-	asr			#3,d4
-	andi		#$ff,d4
-
-	andi		#$7f,d4
-	move.b		sineTable(pc,d4.w),d5
-	clr.w		d3
-	move.w		#$100,d6
-	sub.w		plyBase+plyPosX(pc),d6
-	add.w		d6,d5
-	lsr			#4,d5
-	addx.b		d3,d3										; 70ns x-pos (1/2 pixel)
-	lsl			#3,d3
-	lsr			#1,d5
-	addx.b		d3,d3										; 140ns x-pos (1 pixel)
-	add.b		#$85,d5
-	move.b		d5,19(a5)									; write SPR6POS x-coord
-	move.b		d3,4+19(a5)									; write SPR6POS x-coord
-	lea			copSpr6pos(pc),a4
-	moveq		#2,d7
-.loop
-	move.l		(a4)+,a5
-	;move #2,d6
-	add.b		#6,d4
-	andi.b		#$7f,d4
-	move.b		sineTable(pc,d4.w),d5
-	add.w		d6,d5
-	lsr			#4,d5
-	addx.b		d3,d3
-	lsl			#3,d3
-	lsr			#1,d5
-	addx.b		d3,d3
-	add.b		#$85,d5
-	move.b		d5,3(a5)
-	move.b		d3,7(a5)
-	dbra		d7,.loop
-	bra			setVFX
-screenManagerVerticalSplit
-
-	; take care of lower view
-
-	move.l		fxPlanePointer+4(pc),d0
-	move.l		d0,d3
-	clr.l		d7
-	move.w		#127*40,d7
-	add.l		d7,d0
-
-	move.w		vfxPosition(a3),d7
-	move.l		d7,d4
-	clr.l		d6
-	ror.l		#5,d7										; set speed of anim
-	smi			d6
-	andi.w		#$01,d6
-	move.w		mulsThis(pc,d6.w*2),d6
-	sub.l		d6,d0										; add scrolling to smoothen animation
-	andi.w		#7,d7
-	move.w		mulsThisXtr(pc,d7*2),d7
-	add.l		d7,d0
-screenManagerMirrorView
-	move.l		bpl2modReversal(pc),a5
-	clr.l		d7
-	move.w		#-fxPlaneWidth,d7
-	move		#fxPlaneDepth-3,d6
-.setVFXPointers
-	move		d0,4(a5)
-	swap		d0
-	move		d0,(a5)										; update startadress of secondary plane
-	lea			8(a5),a5
-	swap		d0
-	add.l		d7,d0
-	dbra		d6,.setVFXPointers
-	move		d0,4(a5)
-	swap		d0
-	move		d0,(a5)
-
-	; take care of upper view
-
-	move.l		d3,d0
-	move.l		d4,d7
-	ror.l		#5,d7										; set speed of anim (needs to be 1 for desert, 3 for nautica stage)
-	smi			d6
-	andi.w		#$01,d6
-	moveq		#0,d1
-
-	add.w		mulsThis(pc,d6*2),d1
-
-	add.l		d1,d0										; add scrolling to smoothen animation
-	neg			d7
-	andi.l		#7,d7
-	move.w		mod2(pc,d7*2),d7
-	move.w	 frameCount+2(pc),d7
-	lsl.l		#2,d7										; *4
-	lsl.l		#5,d7										;*128
-	add.l		d7,d0
-
-	clr.l		d7
-	move.w		#-fxPlaneWidth,d7
-	lea			copBPLPT+10,a5
-	move		#fxPlaneDepth-3,d6
-.setVFXPointersB
-	move		d0,4(a5)
-	swap		d0
-	move		d0,(a5)										; update startadress of secondary plane
-	lea			16(a5),a5
-	swap		d0
-	add.l		d7,d0
-	dbra		d6,.setVFXPointersB
-	move		d0,4(a5)
-	swap		d0
-	move		d0,(a5)
-
-	clr.l		d7
-	move.w		vfxPosition(a3),d7
-	sub.w		vfxPositionAdd(a3),d7
-	move.w		d7,vfxPosition(a3)
-
-	bra			smSkipVfxWrite
-		;#FIXME: optimize code please. setVFX doubled a few times?
-mulsThis
-				dc.w		0,120
-mulsThisXtr
-				dc.w		0,40*128,40*128*2,40*128*3
-				dc.w		40*128*4,40*128*5,40*128*6,40*128*7
-mod2
-				dc.w		240,280,0,40,80,120,160,200
 
 _smEscalUpdateBPLPT
 	pea			smEscalRet(pc)
@@ -237,29 +39,11 @@ smEscalUpdateBPLPT
 	move		d1,(a1)
 	rts
 
-setVFXPointers
-	move.l		fxPlanePointer+4(pc),d0
-	
-
-	move.w		frameCount+2(pc),d7
-	add.w		frameCount(pc),d7
-	add			#1,d7
-	neg.b		d7
-	rol.l		#2,d7
-	sub.b		d5,d7							; vfx playfield - speed of scrolling
-	andi.w		#$ff,d7
-
-	move.w		d7,d5
-	lsl.w		#5,d7
-	lsl.w		#3,d5
-	add.w		d5,d7
-				;add.l		d7,d0					
-
 	; #MARK: screenmanagerlv4
 
 screenManagerLv4
 	move.l		spriteParallaxBuffer+8(pc),a1
-	move.l		copSPR6PTH(pc),a5
+	move.l		copSPR6PTHPlayfield(pc),a5
 	tst.l		a5
 	beq			setVFX
 	move.w		vfxPosition(a3),d0
@@ -483,11 +267,7 @@ smoothScrollRet
 	lsl			#2,d7
 	add			d5,d7
 	asr			#3,d7
-
-	move.b		viewPositionPointer+1(a3),d7
-	;neg.b		d7
-	move.w		scrollXbitsTable(pc,d7*2),d1
-	move		d1,copBPLCON1+2
+	;TOSHELL		d1,": BPLCON1"
 
 	asr			#2,d7
 	move		d7,plyPosYDyn(a5)

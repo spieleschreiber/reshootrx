@@ -40,6 +40,12 @@ nilManager	; label needed in case of skipping subcode from irq code. Could use a
 
 rasterListMove:
 	
+	clr.w	 d7
+	move.b		viewPosition+viewPositionPointer+1(pc),d7
+	move.w		scrollXbitsTable(pc,d7*2),d2
+	move		d2,copBPLCON1+2
+					andi.w		#$0f0f,d2
+
 				lea			copFramesPointers(pc),a2
 
 				move.l		(a2)+,a1
@@ -78,14 +84,14 @@ rasterListMove:
 								; update vfxPosition.w and vfxPositionAdd.w
 	
 
-				;clr.w	 d5
-				;move.w		plyBase+plyPosX(pc),d5
-				move.w	 d5,d4
-				lsr			#3,d5
-				
-				andi		#$7f,d5
-				
-				;clr.w		d5																					; 13.06.2025 temp code to keep scrolling speed constant
+	;clr.w	 d5
+	;move.w		plyBase+plyPosX(pc),d5
+	move.w	 d5,d4
+	lsr			#3,d5
+	
+	andi		#$7f,d5
+	
+	;clr.w		d5																					; 13.06.2025 temp code to keep scrolling speed constant
 				move.l		(a6,d5.w*4),a5
 		;sub	 #8,d4
 		lsr	 #3,d4
@@ -98,8 +104,8 @@ rasterListMove:
 				
 				;TOSHELL d3,": Y"	
 	;TOSHELL		a5,": X"												; apply animation wave
-				move		copBPLCON1+2,d2																		; get value calc´d by basic scroll code
-				andi		#$0f0f,d2
+
+			;	TOSHELL		d2,": BPL1CON"
 
 				tst.b		escalateIsActive(pc)
 				bne			.escalateMode
@@ -113,9 +119,10 @@ rasterListMove:
 	bne		.distortionMode
 ;;	move.w copFramesPointers+4(pc),d7 ; how many lines in current copsublist?
 		move.w frameCount+2(pc),d0
-				;move.w		#$197+16*20,plyBase+plyPosY
+				;move.w		#$dc,plyBase+plyPosY
 				
 				move.w		plyBase+plyPosY(pc),d5
+				;TOSHELL	 d5,": Y"
 			;sub.w	 #$197,d5
 				
 				move.w	 d5,d6
@@ -166,6 +173,7 @@ rasterListMove:
 	sub	 #1,d7
 .evenNoOfLines
 	sub		#1,d7
+	
 .writeCopLine
 	movem.l		(a0)+,d3-d4
 	movem.w		(a1)+,d0-d1
@@ -386,9 +394,9 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				jmp			.jT(pc,d6.w)
 .jT
 				dc.w		.iterate-.jT,.escalateEntry-.jT,.escalateExit-.jT,.gameFinEntry-.jT					; 0-3
-				dc.w		.gameFinReturn-.jT,.iterate-.jT,.spr7pthEntry-.jT,.lowerScoreEntry-.jT				; 4-7
+				dc.w		.gameFinReturn-.jT,.iterate-.jT,.spr6PTHstatus-.jT,.lowerScoreEntry-.jT				; 4-7
 				dc.w		.iterate-.jT,.dialogueEntry-.jT,.dialogueExit-.jT,.achievementsEntry-.jT			;8-11
-				dc.w		.achievementsQuit-.jT,.bpl2modReversal-.jT, .spr7posEntry-.jT, .colorBullet-.jT		;12-15
+				dc.w		.achievementsQuit-.jT,.availSlot-.jT, .spr6PTHplayfield-.jT, .colorBullet-.jT		;12-15
 				dc.w		.availSlot-.jT
 .scrolReg
 
@@ -399,18 +407,18 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				addq		#1,d1
 				bra.b		.iterate
 
-.spr7pthEntry
+.spr6PTHstatus
 				lea			4(a0,d0.w),a2
-				move.l		a2,copSPR6PTH-vars(a5)
+				move.l		a2,copSPR6PTHStatus-vars(a5)
 				bra			.iterate
-.spr7posEntry
+.spr6PTHplayfield
 				lea			4(a0,d0.w),a2
 				IFEQ		(RELEASECANDIDATE||DEMOBUILD)														; overflow-errorcheck in pre-releasecode only
-				cmpi		#(copSpr6posChk-copSpr6pos)/4-1,d5
+				cmpi		#(copSPR6PTHPfChk-copSPR6PTHPlayfield)/4-1,d5
 				bls			.noError
 .noError
 				ENDIF
-				move.l		a2,copSpr6pos-vars(a5,d5*4)
+				move.l		a2,copSPR6PTHPlayfield-vars(a5,d5*4)
 				addq		#1,d5
 				bra			.iterate
 .availSlot
@@ -441,10 +449,6 @@ rasterListBuild:          ; generate pointers to BPLCON1 in current copsublist. 
 				move.w		d2,6(a2)
 				swap		d2
 				move.w		d2,2(a2)																			; set return adress to main coplist in gamefin subcoplist
-				bra			.iterate
-.bpl2modReversal
-				lea			6(a0,d0.w),a2
-				move.l		a2,bpl2modReversal-vars(a5)
 				bra			.iterate
 .escalateEntry
 				lea			(a0,d0.w),a2
@@ -706,15 +710,17 @@ preStoreSpace
 ;valuesPerLine: 16
 ;--------------------------------
 ;- DO NOT MODIFY following lines -
- dc.b $7a, $79, $78, $77, $75, $74, $73, $72, $71, $70, $70, $6f, $6e, $6c
- dc.b $6b, $6a, $69, $68, $68, $67, $66, $65, $64, $64, $63, $62, $61, $61, $60, $5f
- dc.b $5f, $5e, $5e, $5d, $5c, $5c, $5b, $5b, $5a, $5a, $59, $59, $59, $58, $58, $57
- dc.b $57, $57, $57, $57, $56, $56, $56, $56, $56, $56, $56, $56, $56, $56, $56, $56
+	dc.b $77, $76, $75, $74, $72, $71, $70, $6f, $6e, $6d, $6d, $6c, $6b, $69
+	dc.b $68, $67, $66, $65, $65, $64, $63, $62, $61, $61, $60, $5f, $5e, $5e, $5d, $5c
+	dc.b $5c, $5b, $5b, $5a, $59, $59, $59, $59, $59, $59, $58, $57, $57, $56, $56, $56
+	
+	dc.b $55, $55, $54, $54, $53, $53, $53, $53, $53, $53, $53, $53, $53, $53, $53, $53
+
+	dc.b $53, $53, $53, $53, $53, $53, $53, $53, $53, $53, $53, $54, $54, $54, $54, $55, $55, $56
+	dc.b $55, $56, $56, $56, $57, $57, $58, $58, $58, $59, $59, $5a, $5a, $5a, $5b, $5b, $5c, $5d, $5d
+	dc.b $5e, $5e, $5f, $5f, $60, $61, $62, $62, $63, $64, $65, $66, $67, $68, $69, $69
+	dc.b $6b, $6c, $6d, $6e, $6f, $70, $71, $72, $73, $74, $75, $76, $77, $78, $79, $7a
  
- dc.b $56, $56, $56, $56, $56, $56, $56, $56, $56, $56, $56, $57, $57, $57, $57, $58, $58, $58
- dc.b $58, $58, $5a, $5a, $5b, $5b, $5c, $5c, $5c, $5d, $5d, $5e, $5e,$5e,$5f, $5f, $60, $61, $61
- dc.b $62, $63, $64, $64, $65, $66, $67, $67, $68, $69, $6a, $6b, $6c, $6d, $6e, $6e
- dc.b $6f, $70, $71, $72, $73, $74, $75, $76, $77, $78, $79, $7a, $7b, $7c, $7d, $7e
  dc.b $7f, $80, $81, $82, $83, $84, $85, $86, $87, $88, $89, $8a, $8b, $8c, $8d, $8e
  dc.b $8f, $90, $90, $91, $92, $93, $94, $95, $96, $97, $98, $98, $99, $9a, $9b, $9c
  dc.b $9c, $9d, $9e, $9f, $9f, $a0, $a1, $a1, $a2, $a2, $a3, $a4, $a4, $a5, $a5, $a6
@@ -737,8 +743,14 @@ preStoreCity
 	
 	move.w	 #128,d3
 	sub.w	 d7,d3
-	andi #$7f,d3
-	move.b (a3,d3),d3
+	andi.w #$7f,d3
+	move.b (a3,d3.w),d3
+
+			cmpi.b #128-20,d7
+	bge	 .ddd
+	;bne	 .ddd
+	;sub.b	 #1,d3
+.ddd
 	muls d4,d3
 	lsr #6,d3		; if you change this ...
 	bra preStoreBitsAndMod
@@ -746,10 +758,10 @@ preStoreCity
 
 
 sinCity
-	;dc.b	 $0,$30,$30,$30
-	;blk.b	 128,128
 	;blk.b	 6,$55
 	dc.b 	$55,$55,$56
+;		blk.b	 128,127
+
 ;@generated-datagen-start----------------
 ; This code was generated by Amiga Assembly extension
 ;
@@ -766,14 +778,14 @@ sinCity
 ;--------------------------------
 ;- DO NOT MODIFY following lines -
  
- dc.b $56, $57, $59, $5a, $5b, $5d, $5e, $60, $61, $62, $63, $64, $65, $65, $67, $69
- dc.b $6a, $6b, $6c, $6d, $6d, $6e, $6f, $70, $70, $71, $72, $72, $73, $74, $74, $75
- dc.b $76, $76, $77, $77, $78, $78, $79, $79, $7a, $7a, $7b, $7b, $7b, $7c, $7c, $7d
- dc.b $7d, $7d, $7d, $7d, $7d, $7e, $7e, $7e, $7e, $7e, $7e, $7e, $7e, $7e, $7e, $7e
- dc.b $7e, $7e, $7e, $7e, $7e, $7e, $7e, $7e, $7e, $7e, $7e, $7e, $7d, $7d, $7d, $7d
- dc.b $7c, $7c, $7c, $7b, $7b, $7a, $7a, $79, $79, $78, $78, $77, $77, $76, $76, $75
- dc.b $74, $74, $73, $73, $72, $71, $70, $6f, $6e, $6d, $6d, $6c, $6b, $6a, $6a, $68
- dc.b $68, $67, $65, $64, $62, $61, $60, $5f, $5e, $5c, $5b, $5a,$59, $58, $5f, $f5
+ dc.b $56, $57, $59, $5a, $5b, $5d, $5e, $60, $61, $62, $63, $64, $65, $66, $67, $68
+ dc.b $69, $6a, $6b, $6c, $6c, $6d, $6e, $6f, $6f, $70, $71, $71, $72, $73, $73, $74
+	dc.b $75, $75, $76, $76, $77, $77, $78, $78, $79, $79, $7a, $7a, $7a, $7b, $7b, $7c
+	dc.b $7c, $7c, $7c, $7c, $7c, $7d, $7d, $7d, $7d, $7d, $7d, $7d, $7d, $7d, $7d, $7d
+	dc.b $7d, $7d, $7d, $7d, $7d, $7d, $7d, $7d, $7d, $7d, $7d, $7d, $7c, $7c, $7c, $7c
+	dc.b $7b, $7b, $7b, $7a, $7a, $79, $79, $78, $78, $77, $77, $76, $76, $76, $75, $75
+	dc.b $74, $73, $73, $72, $71, $70, $6f, $6e, $6e, $6d, $6d, $6c, $6b, $6a, $69, $69
+	dc.b $68, $66, $65, $64, $62, $61, $60, $5f, $5e, $5c, $5b, $5a,$59, $58, $5f, $f5
  ;@generated-datagen-end----------------
 
 

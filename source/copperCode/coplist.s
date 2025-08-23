@@ -11,7 +11,7 @@
 	PRINTT "COMPILE COPLIST"
 ; #MARK: Main Copper List
 coplist:
-
+	CWAIT $1S0<<8!$cd
 copSprite01             ; display player
 	CMOVELC SPR0PTH,0
 	CMOVELC SPR1PTH,0
@@ -19,6 +19,15 @@ copSprite67             ; displays highscore & parallax
     CMOVELC SPR6PTH,0
     CMOVELC SPR7PTH,0
 
+copBPLPT
+    CMOVELC BPL1PT    ;2 Register schreiben und mit 0 füllen
+    CMOVELC BPL2PT
+    CMOVELC BPL3PT
+    CMOVELC BPL4PT
+    CMOVELC BPL5PT
+    CMOVELC BPL6PT
+    CMOVELC BPL7PT
+    CMOVELC BPL8PT
 	;CMOVE BPLCON3,BRDRBLNKF
 	;CMOVE COLOR00,0
 COPDIWSTRT
@@ -46,19 +55,10 @@ copBPLCON2  CMOVE BPLCON2,0    ; Sprite / Playfield Priority
 copBPLCON3	CMOVE BPLCON3,0
 copBPLCON4  CMOVE BPLCON4,0
 
-    CMOVELC SPR0PTH,0
-    CMOVELC SPR1PTH,0
+    ;CMOVELC SPR0PTH,0
+    ;CMOVELC SPR1PTH,0
 
 
-copBPLPT
-    CMOVELC BPL1PT    ;2 Register schreiben und mit 0 füllen
-    CMOVELC BPL2PT
-    CMOVELC BPL3PT
-    CMOVELC BPL4PT
-    CMOVELC BPL5PT
-    CMOVELC BPL6PT
-    CMOVELC BPL7PT
-    CMOVELC BPL8PT
 	
 copMainInit
     CMOVELC  COP1LC
@@ -131,6 +131,7 @@ copPlyBody	; subcoplist, called from coplist in runtime, inits ply sprite
 	CMOVE SPR0CTL,0
 	CMOVE SPR1POS,0
 	CMOVE SPR1CTL,0
+	
 	;CMOVE SPR0PTL,0
 	;CMOVE SPR0PTH,0
 	;CMOVE SPR1PTL,0

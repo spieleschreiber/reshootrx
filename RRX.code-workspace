@@ -5,5 +5,13 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"amiga-assembly.format.preferredCommentPosition": 10,
+		"notebook.defaultFormatter": "prb28.amiga-assembly",
+		"amiga-assembly.format.preferredInstructionPosition": 1,
+		"editor.defaultFormatter": "prb28.amiga-assembly",
+		"editor.formatOnPaste": true,
+		"editor.formatOnType": true,
+		"amiga-assembly.format.useTabs": true
+	}
 }

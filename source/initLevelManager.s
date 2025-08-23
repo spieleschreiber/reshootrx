@@ -245,7 +245,7 @@ initGame
 		bsr					ParallaxManager																; prep sprite plane data
 		moveq				#0,d3
 		move.l				#255<<16<<3,d4
-		moveq				#-32,d4
+		moveq				#-48,d4
 				; vfx scroll speed
 		move				#BANK2F!BANK1F!BANK0F!BRDRBLNKF,d5
 		move				#%011011,d6
