@@ -94,11 +94,12 @@ viewDownClip=256+displayWindowStop-44
 
 ; #MARK: - PLAYER DEFINITIONS
 
-playerBodyHeight  =   14
-playerContainerHeight = 6
+playerBodyHeight  =   16
+playerContainerHeight = 8
+
 playerShotHeight  =   24
 playerShotMaxNo		=	18
-
+playerSprite1Offset =   (spritePlayerBasicEnd-spritePlayerBasic)/2
 
 
 

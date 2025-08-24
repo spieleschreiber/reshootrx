@@ -59,7 +59,7 @@
 			"path": "source/initLevelManager.s",
 			"bookmarks": [
 				{
-					"line": 532,
+					"line": 525,
 					"column": 0,
 					"label": ""
 				}
@@ -69,7 +69,7 @@
 			"path": "source/copperCode/coplist.s",
 			"bookmarks": [
 				{
-					"line": 242,
+					"line": 165,
 					"column": 0,
 					"label": "PlayerSpriteCopSplit"
 				}

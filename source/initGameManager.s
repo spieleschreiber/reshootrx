@@ -337,7 +337,6 @@ initGameGlobal
 	clr.l		plyShotsFired(a6)							;	 plyShotsFired+plyHitObjects
 	clr.w		plyWaveBonus(a6)
 
-
 	moveq		#plyAcclXMin,d0
 	move.w		d0,plyAcclXCap(a6)
 	moveq		#plyAcclYMin+10,d0							; will be caped after auto init anim

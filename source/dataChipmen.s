@@ -38,7 +38,7 @@ spritePlayerContainerSouth; pixel data 64 px wide, 52 px high, save as 32 pixel 
 	Incbin		incbin/player/weaponContainer.raw
 
 	IFNE		PLAYERSPRITEDITHERED
-spritePlayerBasic	; save as 32 px high, 64 px wide attached sprite, no ctrl words
+spritePlayerBasic	; save as sprite, 34 px high, 64 px wide, attached, no ctrl words
 	Incbin		incbin/player/shipDith_0a.raw
 	Incbin		incbin/player/shipIll_0a.raw
 spritePlayerBasicEnd
@@ -48,9 +48,9 @@ spritePlayerBasicEnd
 	Incbin		incbin/player/shipIll_0c.raw
 	ELSE
 
-spritePlayerBasic	; save as 32 px high, 64 px wide attached sprite, no ctrl words
-	Incbin		incbin/player/ship_0a.raw
-	Incbin		incbin/player/shipIll_0a.raw
+spritePlayerBasic	; save as sprite, 34 px high, 64 px wide, attached, no ctrl words
+	Incbin		incbin/player/ship_test.raw
+	Incbin		incbin/player/ship_test.raw; this is just a placeholder for the illumination
 spritePlayerBasicEnd
 	Incbin		incbin/player/ship_0b.raw				; move left
 	Incbin		incbin/player/shipIll_0b.raw
